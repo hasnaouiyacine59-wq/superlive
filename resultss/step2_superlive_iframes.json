@@ -1,0 +1,29 @@
+[
+  {
+    "src": "https://www.google.com/recaptcha/enterprise/anchor?ar=1&k=6Ld9_e8sAAAAAIPwD7J3mrBiQno-h86lHiFfQ_Nk&co=aHR0cHM6Ly9zdXBlcmxpdmUuY2hhdDo0NDM.&hl=fr&v=TnA7HacJFoBWt9hnlunBlYfK&size=invisible&anchor-ms=200",
+    "id": "",
+    "name": "a-ich95ypwn72z",
+    "title": "reCAPTCHA",
+    "width": "256",
+    "height": "60",
+    "visible": true
+  },
+  {
+    "src": "",
+    "id": "",
+    "name": "",
+    "title": "",
+    "width": "",
+    "height": "",
+    "visible": false
+  },
+  {
+    "src": "https://accounts.google.com/gsi/button?type=standard&theme=filled_blue&text=signin_with&shape=pill&width=400&click_listener=()%3D%3E%7Bxg(%22google_attempt%22)%3Bconst%20e%3Dkv()%3Bkf(%7Bsignup_page_t",
+    "id": "gsi_914879_474791",
+    "name": "",
+    "title": "Bouton \"Se connecter avec Google\"",
+    "width": "",
+    "height": "",
+    "visible": true
+  }
+]

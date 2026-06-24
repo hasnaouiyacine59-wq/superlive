@@ -1,0 +1,1055 @@
+[
+  {
+    "tag": "html",
+    "id": "",
+    "class": "",
+    "text": "SuperLive – Fais de nouvelles rencontres et regarde des diffusions en directwind",
+    "rect": {
+      "x": 0,
+      "y": 0,
+      "w": 1280,
+      "h": 659
+    },
+    "childCount": 2
+  },
+  {
+    "tag": "body",
+    "id": "",
+    "class": "",
+    "text": "<iframe src=\"https://www.googletagmanager.com/ns.html?id=GTM-MM6RSXFG\" height=\"0",
+    "rect": {
+      "x": 0,
+      "y": 0,
+      "w": 1280,
+      "h": 659
+    },
+    "childCount": 8
+  },
+  {
+    "tag": "div",
+    "id": "__nuxt",
+    "class": "",
+    "text": "32Andreina❤️🌊🌊Appel vidéo entrant…\n            \n        \n        \n    \n       ",
+    "rect": {
+      "x": 0,
+      "y": 0,
+      "w": 1280,
+      "h": 659
+    },
+    "childCount": 4
+  },
+  {
+    "tag": "div",
+    "id": "",
+    "class": "pointer-events-none absolute inset-x-0 top-0 h-fit push-to-safe",
+    "text": "32Andreina❤️🌊🌊Appel vidéo entrant…",
+    "rect": {
+      "x": 0,
+      "y": 0,
+      "w": 1280,
+      "h": 104
+    },
+    "childCount": 1
+  },
+  {
+    "tag": "div",
+    "id": "",
+    "class": "mx-2.5 mt-5 flex gap-3 items-center select-none rounded-2xl pointer-events-auto bg-gray-800 p-4 backdrop-contrast-200 backdrop-saturate-200 backdrop-blur-xl shadow-[2px_2px_30px_4px_rgba(0,0,0,0.25),2px_2px_60px_4px_#000] md:max-w-lg md:mx-auto animate-[slideBannerIn_0.3s_ease-out_forwards]",
+    "text": "32Andreina❤️🌊🌊Appel vidéo entrant…",
+    "rect": {
+      "x": 384,
+      "y": 20,
+      "w": 512,
+      "h": 84
+    },
+    "childCount": 3
+  },
+  {
+    "tag": "div",
+    "id": "",
+    "class": "relative shrink-0 shrink-0",
+    "text": "",
+    "rect": {
+      "x": 400,
+      "y": 36,
+      "w": 52,
+      "h": 52
+    },
+    "childCount": 1
+  },
+  {
+    "tag": "img",
+    "id": "",
+    "class": "rounded-full aspect-square object-cover size-13",
+    "text": "",
+    "rect": {
+      "x": 400,
+      "y": 36,
+      "w": 52,
+      "h": 52
+    },
+    "childCount": 0
+  },
+  {
+    "tag": "div",
+    "id": "",
+    "class": "flex flex-col flex-1 min-w-0",
+    "text": "32Andreina❤️🌊🌊Appel vidéo entrant…",
+    "rect": {
+      "x": 464,
+      "y": 42,
+      "w": 296,
+      "h": 40
+    },
+    "childCount": 2
+  },
+  {
+    "tag": "div",
+    "id": "",
+    "class": "flex items-center gap-1",
+    "text": "32Andreina❤️🌊🌊",
+    "rect": {
+      "x": 464,
+      "y": 42,
+      "w": 296,
+      "h": 24
+    },
+    "childCount": 3
+  },
+  {
+    "tag": "div",
+    "id": "",
+    "class": "flex items-center justify-center font-semibold text-white rounded-sm shrink-0 [text-shadow:0_0px_2px_rgba(0,0,0,0.8)] select-none bg-[var(--unique-always-primary)] size-4 text-xs shrink-0",
+    "text": "32",
+    "rect": {
+      "x": 464,
+      "y": 46,
+      "w": 16,
+      "h": 16
+    },
+    "childCount": 0
+  },
+  {
+    "tag": "span",
+    "id": "",
+    "class": "spl-user-name inline-flex items-center gap-1 min-w-0 text-base! font-bold! truncate",
+    "text": "Andreina❤️🌊🌊",
+    "rect": {
+      "x": 484,
+      "y": 42,
+      "w": 120,
+      "h": 24
+    },
+    "childCount": 1
+  },
+  {
+    "tag": "span",
+    "id": "",
+    "class": "truncate min-w-0",
+    "text": "Andreina❤️🌊🌊",
+    "rect": {
+      "x": 484,
+      "y": 42,
+      "w": 120,
+      "h": 24
+    },
+    "childCount": 0
+  },
+  {
+    "tag": "p",
+    "id": "",
+    "class": "text-xs text-gray-300 truncate",
+    "text": "Appel vidéo entrant…",
+    "rect": {
+      "x": 464,
+      "y": 66,
+      "w": 296,
+      "h": 16
+    },
+    "childCount": 0
+  },
+  {
+    "tag": "div",
+    "id": "",
+    "class": "flex gap-3 shrink-0",
+    "text": "",
+    "rect": {
+      "x": 772,
+      "y": 38,
+      "w": 108,
+      "h": 48
+    },
+    "childCount": 2
+  },
+  {
+    "tag": "button",
+    "id": "",
+    "class": "flex items-center gap-2 transition-all duration-300 cursor-pointer rounded-full bg-danger-600 text-white text-base font-semibold size-12 aspect-auto px-0 justify-center max-w-none shrink-0 disabled:!bg-none disabled:!bg-[var(--color-disabled-button)] disabled:cursor-not-allowed disabled:text-[var(--color-surface-500)] hover:opacity-70 size-10",
+    "text": "",
+    "rect": {
+      "x": 772,
+      "y": 38,
+      "w": 48,
+      "h": 48
+    },
+    "childCount": 1
+  },
+  {
+    "tag": "div",
+    "id": "",
+    "class": "relative justify-center inline-flex w-full items-center px-0 rotate-135",
+    "text": "",
+    "rect": {
+      "x": 771,
+      "y": 37,
+      "w": 48,
+      "h": 48
+    },
+    "childCount": 1
+  },
+  {
+    "tag": "svg",
+    "id": "",
+    "class": {},
+    "text": "",
+    "rect": {
+      "x": 781,
+      "y": 47,
+      "w": 28,
+      "h": 28
+    },
+    "childCount": 2
+  },
+  {
+    "tag": "g",
+    "id": "",
+    "class": {},
+    "text": "",
+    "rect": {
+      "x": 783,
+      "y": 49,
+      "w": 24,
+      "h": 24
+    },
+    "childCount": 1
+  },
+  {
+    "tag": "path",
+    "id": "",
+    "class": {},
+    "text": "",
+    "rect": {
+      "x": 783,
+      "y": 49,
+      "w": 24,
+      "h": 24
+    },
+    "childCount": 0
+  },
+  {
+    "tag": "button",
+    "id": "",
+    "class": "flex items-center gap-2 transition-all duration-300 cursor-pointer rounded-full text-[var(--color-primary-400)] bg-none text-base font-semibold size-12 aspect-auto px-0 justify-center max-w-none shrink-0 disabled:opacity-50 disabled:cursor-not-allowed hover:opacity-70 bg-success-500 size-10",
+    "text": "",
+    "rect": {
+      "x": 832,
+      "y": 38,
+      "w": 48,
+      "h": 48
+    },
+    "childCount": 1
+  },
+  {
+    "tag": "div",
+    "id": "",
+    "class": "relative justify-center inline-flex w-full items-center px-0",
+    "text": "",
+    "rect": {
+      "x": 832,
+      "y": 52,
+      "w": 48,
+      "h": 20
+    },
+    "childCount": 1
+  },
+  {
+    "tag": "main",
+    "id": "default-layout",
+    "class": "flex flex-col h-svh",
+    "text": "Le direct s'est terminé.💜иєα💜\n            \n        \n        \n    message  Suiv",
+    "rect": {
+      "x": 0,
+      "y": 0,
+      "w": 1280,
+      "h": 659
+    },
+    "childCount": 1
+  },
+  {
+    "tag": "div",
+    "id": "",
+    "class": "size-full md:mx-auto flex-1 overflow-hidden",
+    "text": "Le direct s'est terminé.💜иєα💜\n            \n        \n        \n    message  Suiv",
+    "rect": {
+      "x": 0,
+      "y": 0,
+      "w": 1280,
+      "h": 659
+    },
+    "childCount": 1
+  },
+  {
+    "tag": "div",
+    "id": "",
+    "class": "page",
+    "text": "Le direct s'est terminé.💜иєα💜\n            \n        \n        \n    message  Suiv",
+    "rect": {
+      "x": 0,
+      "y": 0,
+      "w": 1280,
+      "h": 659
+    },
+    "childCount": 1
+  },
+  {
+    "tag": "div",
+    "id": "",
+    "class": "size-full overflow-hidden relative",
+    "text": "Le direct s'est terminé.💜иєα💜\n            \n        \n        \n    message  Suiv",
+    "rect": {
+      "x": 0,
+      "y": 0,
+      "w": 1280,
+      "h": 659
+    },
+    "childCount": 1
+  },
+  {
+    "tag": "div",
+    "id": "",
+    "class": "swiper swiper-initialized swiper-vertical h-full",
+    "text": "Le direct s'est terminé.💜иєα💜\n            \n        \n        \n    message  Suiv",
+    "rect": {
+      "x": 0,
+      "y": 0,
+      "w": 1280,
+      "h": 659
+    },
+    "childCount": 1
+  },
+  {
+    "tag": "div",
+    "id": "",
+    "class": "swiper-wrapper",
+    "text": "Le direct s'est terminé.💜иєα💜\n            \n        \n        \n    message  Suiv",
+    "rect": {
+      "x": 0,
+      "y": -659,
+      "w": 1280,
+      "h": 659
+    },
+    "childCount": 41
+  },
+  {
+    "tag": "div",
+    "id": "",
+    "class": "swiper-slide swiper-slide-prev",
+    "text": "",
+    "rect": {
+      "x": 0,
+      "y": -659,
+      "w": 1280,
+      "h": 659
+    },
+    "childCount": 1
+  },
+  {
+    "tag": "div",
+    "id": "",
+    "class": "absolute left-1/2 size-full max-w-lg -translate-x-1/2 md:inset-0 md:max-w-none md:translate-0",
+    "text": "",
+    "rect": {
+      "x": 0,
+      "y": -659,
+      "w": 1280,
+      "h": 659
+    },
+    "childCount": 1
+  },
+  {
+    "tag": "img",
+    "id": "",
+    "class": "size-full object-cover blur-xs md:blur-4xl",
+    "text": "",
+    "rect": {
+      "x": 0,
+      "y": -659,
+      "w": 1280,
+      "h": 659
+    },
+    "childCount": 0
+  },
+  {
+    "tag": "div",
+    "id": "",
+    "class": "swiper-slide swiper-slide-active",
+    "text": "Le direct s'est terminé.💜иєα💜\n            \n        \n        \n    message  Suiv",
+    "rect": {
+      "x": 0,
+      "y": 0,
+      "w": 1280,
+      "h": 659
+    },
+    "childCount": 2
+  },
+  {
+    "tag": "div",
+    "id": "",
+    "class": "size-full relative",
+    "text": "Le direct s'est terminé.💜иєα💜\n            \n        \n        \n    message  Suiv",
+    "rect": {
+      "x": 0,
+      "y": 0,
+      "w": 1280,
+      "h": 659
+    },
+    "childCount": 2
+  },
+  {
+    "tag": "div",
+    "id": "",
+    "class": "flex flex-col md:flex-row h-full items-center gap-3.5 p-6 xs:gap-7.5 justify-center md:justify-evenly bg-[var(--alpha-shadow-tone-80)] backdrop-blur-lg overflow-y-auto md:max-w-full md:mx-auto absolute inset-0",
+    "text": "Le direct s'est terminé.💜иєα💜\n            \n        \n        \n    message  Suiv",
+    "rect": {
+      "x": 0,
+      "y": 0,
+      "w": 1280,
+      "h": 659
+    },
+    "childCount": 1
+  },
+  {
+    "tag": "div",
+    "id": "",
+    "class": "relative h-full md:flex md:flex-row md:justify-evenly md:w-full md:items-center",
+    "text": "Le direct s'est terminé.💜иєα💜\n            \n        \n        \n    message  Suiv",
+    "rect": {
+      "x": 24,
+      "y": 24,
+      "w": 1232,
+      "h": 611
+    },
+    "childCount": 2
+  },
+  {
+    "tag": "div",
+    "id": "",
+    "class": "flex flex-col gap-7.5 md:gap-3 md:bg-unique-background md:rounded-3xl md:border md:mb-10 md:border-unique-label-100 md:pb-4 md:min-w-100 md:items-center",
+    "text": "Le direct s'est terminé.💜иєα💜\n            \n        \n        \n    message  Suiv",
+    "rect": {
+      "x": 57,
+      "y": 138,
+      "w": 400,
+      "h": 342
+    },
+    "childCount": 4
+  },
+  {
+    "tag": "h6",
+    "id": "",
+    "class": "text-base font-medium flex items-center justify-center text-white font-bold! h-12 md:-mt-16 md:text-2xl! md:pt-0 flex items-center justify-center text-white font-bold! h-12 md:-mt-16 md:text-2xl! md:pt-0",
+    "text": "Le direct s'est terminé.",
+    "rect": {
+      "x": 122,
+      "y": 75,
+      "w": 270,
+      "h": 48
+    },
+    "childCount": 0
+  },
+  {
+    "tag": "button",
+    "id": "",
+    "class": "flex items-center gap-2 transition-all duration-300 cursor-pointer rounded-full text-[var(--color-primary-400)] bg-none text-base font-semibold size-12 aspect-auto px-0 justify-center max-w-none shrink-0 disabled:opacity-50 disabled:cursor-not-allowed hover:opacity-70 absolute end-0 top-0 md:start-8 md:hover:bg-label-100 md:bg-[var(--alpha-shadow-tone-40)] md:px-2! md:top-0",
+    "text": "",
+    "rect": {
+      "x": 56,
+      "y": 24,
+      "w": 48,
+      "h": 48
+    },
+    "childCount": 1
+  },
+  {
+    "tag": "div",
+    "id": "",
+    "class": "relative justify-center inline-flex w-full items-center px-0 text-white",
+    "text": "",
+    "rect": {
+      "x": 64,
+      "y": 32,
+      "w": 32,
+      "h": 32
+    },
+    "childCount": 1
+  },
+  {
+    "tag": "a",
+    "id": "",
+    "class": "flex flex-col gap-1 items-center xs:gap-3 md:pt-9",
+    "text": "💜иєα💜",
+    "rect": {
+      "x": 209,
+      "y": 135,
+      "w": 96,
+      "h": 172
+    },
+    "childCount": 2
+  },
+  {
+    "tag": "div",
+    "id": "",
+    "class": "size-24 m-auto",
+    "text": "",
+    "rect": {
+      "x": 209,
+      "y": 171,
+      "w": 96,
+      "h": 96
+    },
+    "childCount": 1
+  },
+  {
+    "tag": "div",
+    "id": "",
+    "class": "relative shrink-0",
+    "text": "",
+    "rect": {
+      "x": 209,
+      "y": 171,
+      "w": 96,
+      "h": 96
+    },
+    "childCount": 1
+  },
+  {
+    "tag": "img",
+    "id": "",
+    "class": "rounded-full aspect-square object-cover size-24",
+    "text": "",
+    "rect": {
+      "x": 209,
+      "y": 171,
+      "w": 96,
+      "h": 96
+    },
+    "childCount": 0
+  },
+  {
+    "tag": "span",
+    "id": "",
+    "class": "spl-user-name inline-flex items-center gap-1 min-w-0 text-xl font-semibold text-center",
+    "text": "💜иєα💜",
+    "rect": {
+      "x": 218,
+      "y": 279,
+      "w": 78,
+      "h": 28
+    },
+    "childCount": 1
+  },
+  {
+    "tag": "div",
+    "id": "",
+    "class": "flex flex-col mb-4",
+    "text": "message  Suivre\n            \n        \n        \n    Rapport",
+    "rect": {
+      "x": 123,
+      "y": 319,
+      "w": 268,
+      "h": 128
+    },
+    "childCount": 2
+  },
+  {
+    "tag": "div",
+    "id": "",
+    "class": "flex justify-center md:flex-row items-center w-full gap-6 md:gap-3 pb-4",
+    "text": "message  Suivre",
+    "rect": {
+      "x": 123,
+      "y": 319,
+      "w": 268,
+      "h": 72
+    },
+    "childCount": 2
+  },
+  {
+    "tag": "button",
+    "id": "",
+    "class": "flex items-center gap-2 transition-all duration-300 cursor-pointer rounded-full border border-[var(--color-surface-500)] text-white bg-none text-base font-semibold h-14 px-5 max-w-sm disabled:opacity-50 disabled:cursor-not-allowed hover:opacity-70 text-white! capitalize",
+    "text": "message",
+    "rect": {
+      "x": 123,
+      "y": 319,
+      "w": 140,
+      "h": 56
+    },
+    "childCount": 1
+  },
+  {
+    "tag": "div",
+    "id": "",
+    "class": "relative justify-center inline-flex w-full items-center gap-2",
+    "text": "message",
+    "rect": {
+      "x": 144,
+      "y": 335,
+      "w": 98,
+      "h": 24
+    },
+    "childCount": 2
+  },
+  {
+    "tag": "div",
+    "id": "",
+    "class": "truncate",
+    "text": "message",
+    "rect": {
+      "x": 172,
+      "y": 335,
+      "w": 70,
+      "h": 24
+    },
+    "childCount": 0
+  },
+  {
+    "tag": "button",
+    "id": "",
+    "class": "flex items-center gap-2 transition-all duration-300 cursor-pointer rounded-full bg-linear-to-br from-primary-600 via-primary-400 to-primary-300 text-white text-base font-semibold h-14 px-5 max-w-sm disabled:!bg-none disabled:!bg-[var(--color-disabled-button)] disabled:cursor-not-allowed disabled:text-[var(--color-surface-500)] hover:opacity-70",
+    "text": "Suivre",
+    "rect": {
+      "x": 276,
+      "y": 319,
+      "w": 115,
+      "h": 56
+    },
+    "childCount": 1
+  },
+  {
+    "tag": "div",
+    "id": "",
+    "class": "flex items-center gap-3",
+    "text": "Suivre",
+    "rect": {
+      "x": 296,
+      "y": 337,
+      "w": 75,
+      "h": 20
+    },
+    "childCount": 2
+  },
+  {
+    "tag": "span",
+    "id": "",
+    "class": "iconify i-spl-web:user-not-followed",
+    "text": "",
+    "rect": {
+      "x": 296,
+      "y": 337,
+      "w": 20,
+      "h": 20
+    },
+    "childCount": 0
+  },
+  {
+    "tag": "div",
+    "id": "",
+    "class": "text-sm font-semibold",
+    "text": "Suivre",
+    "rect": {
+      "x": 328,
+      "y": 337,
+      "w": 43,
+      "h": 20
+    },
+    "childCount": 0
+  },
+  {
+    "tag": "button",
+    "id": "",
+    "class": "flex items-center gap-2 transition-all duration-300 cursor-pointer rounded-full border border-[var(--color-surface-500)] text-white bg-none text-base font-semibold h-12 px-5 max-w-48 disabled:opacity-50 disabled:cursor-not-allowed hover:opacity-70 h-14 self-center",
+    "text": "Rapport",
+    "rect": {
+      "x": 190,
+      "y": 391,
+      "w": 133,
+      "h": 56
+    },
+    "childCount": 1
+  },
+  {
+    "tag": "div",
+    "id": "",
+    "class": "flex flex-col gap-7.5 md:gap-0 md:pt-10 md:max-w-[732px] md:justify-start md:h-full no-scrollbar md:overflow-y-auto pb-4",
+    "text": "Diffusion en direct suggérée16\n            \n        \n        \n    PremiumHAUT 30",
+    "rect": {
+      "x": 490,
+      "y": 24,
+      "w": 732,
+      "h": 611
+    },
+    "childCount": 3
+  },
+  {
+    "tag": "h6",
+    "id": "",
+    "class": "text-base font-medium text-center text-white font-bold! md:text-left md:pt-2 md:pb-5 text-center text-white font-bold! md:text-left md:pt-2 md:pb-5",
+    "text": "Diffusion en direct suggérée",
+    "rect": {
+      "x": 490,
+      "y": 64,
+      "w": 732,
+      "h": 52
+    },
+    "childCount": 0
+  },
+  {
+    "tag": "div",
+    "id": "",
+    "class": "grid grid-cols-2 gap-2.5 md:flex md:flex-wrap",
+    "text": "16\n            \n        \n        \n    PremiumHAUT 30𝓝𝓸𝓾𝓷𝓸𝓾🦌2.7M 071 7\n   ",
+    "rect": {
+      "x": 490,
+      "y": 116,
+      "w": 732,
+      "h": 22431
+    },
+    "childCount": 41
+  },
+  {
+    "tag": "a",
+    "id": "",
+    "class": "select-none touch-manipulation relative flex flex-col justify-between aspect-2/3 overflow-hidden rounded-xl from-black to-transparent before:absolute before:-bottom-0.5 before:h-1/2 before:w-full before:bg-gradient-to-b before:to-black before:content-[''] md:border md:border-secondary-500",
+    "text": "16\n            \n        \n        \n    PremiumHAUT 30𝓝𝓸𝓾𝓷𝓸𝓾🦌2.7M",
+    "rect": {
+      "x": 490,
+      "y": 116,
+      "w": 377,
+      "h": 565
+    },
+    "childCount": 4
+  },
+  {
+    "tag": "div",
+    "id": "",
+    "class": "absolute top-2.5 left-2.5 z-10 rtl:right-2.5 rtl:left-auto",
+    "text": "16",
+    "rect": {
+      "x": 501,
+      "y": 127,
+      "w": 55,
+      "h": 29
+    },
+    "childCount": 1
+  },
+  {
+    "tag": "div",
+    "id": "",
+    "class": "flex items-center justify-center text-white px-1.5 py-1 text-xs min-w-10 md:min-w-min md:py-1 md:px-2 md:rounded-2xl bg-black/25 rounded-xl",
+    "text": "16",
+    "rect": {
+      "x": 501,
+      "y": 127,
+      "w": 55,
+      "h": 29
+    },
+    "childCount": 2
+  },
+  {
+    "tag": "span",
+    "id": "",
+    "class": "iconify i-spl-web:eye mr-1 shrink-0 rtl:mr-0 rtl:ml-1",
+    "text": "",
+    "rect": {
+      "x": 509,
+      "y": 131,
+      "w": 21,
+      "h": 21
+    },
+    "childCount": 0
+  },
+  {
+    "tag": "span",
+    "id": "",
+    "class": "font-semibold md:text-sm",
+    "text": "16",
+    "rect": {
+      "x": 534,
+      "y": 131,
+      "w": 14,
+      "h": 20
+    },
+    "childCount": 0
+  },
+  {
+    "tag": "div",
+    "id": "",
+    "class": "absolute flex size-full items-center justify-center bg-[var(--alpha-shadow-tone-60)]",
+    "text": "Premium",
+    "rect": {
+      "x": 491,
+      "y": 117,
+      "w": 375,
+      "h": 563
+    },
+    "childCount": 1
+  },
+  {
+    "tag": "div",
+    "id": "",
+    "class": "flex gap-2.5 justify-center items-center xs:pb-6 pb-2 flex-col",
+    "text": "Premium",
+    "rect": {
+      "x": 636,
+      "y": 352,
+      "w": 86,
+      "h": 92
+    },
+    "childCount": 2
+  },
+  {
+    "tag": "span",
+    "id": "",
+    "class": "font-semibold text-lg text-secondary-500 uppercase",
+    "text": "Premium",
+    "rect": {
+      "x": 636,
+      "y": 392,
+      "w": 86,
+      "h": 28
+    },
+    "childCount": 0
+  },
+  {
+    "tag": "div",
+    "id": "",
+    "class": "absolute bottom-0 z-10 p-2.5 flex gap-2 w-full justify-between",
+    "text": "HAUT 30𝓝𝓸𝓾𝓷𝓸𝓾🦌2.7M",
+    "rect": {
+      "x": 491,
+      "y": 592,
+      "w": 375,
+      "h": 88
+    },
+    "childCount": 1
+  },
+  {
+    "tag": "div",
+    "id": "",
+    "class": "",
+    "text": "HAUT 30𝓝𝓸𝓾𝓷𝓸𝓾🦌2.7M",
+    "rect": {
+      "x": 501,
+      "y": 602,
+      "w": 79,
+      "h": 68
+    },
+    "childCount": 3
+  },
+  {
+    "tag": "div",
+    "id": "",
+    "class": "flex items-center text-tiny gap-0.5 rounded-lg select-none cursor-pointer md:text-xs md:p-1.5 md:py-3 px-1.5 h-5 bg-[var(--badges-high-earn-back-l)] w-max",
+    "text": "HAUT 30",
+    "rect": {
+      "x": 501,
+      "y": 602,
+      "w": 64,
+      "h": 24
+    },
+    "childCount": 1
+  },
+  {
+    "tag": "span",
+    "id": "",
+    "class": "text-white whitespace-nowrap",
+    "text": "HAUT 30",
+    "rect": {
+      "x": 507,
+      "y": 606,
+      "w": 52,
+      "h": 16
+    },
+    "childCount": 0
+  },
+  {
+    "tag": "p",
+    "id": "",
+    "class": "text-white text-sm wrap-anywhere select-none line-clamp-2",
+    "text": "𝓝𝓸𝓾𝓷𝓸𝓾🦌",
+    "rect": {
+      "x": 501,
+      "y": 626,
+      "w": 79,
+      "h": 20
+    },
+    "childCount": 0
+  },
+  {
+    "tag": "div",
+    "id": "",
+    "class": "flex items-center cursor-pointer transition-colors hover:bg-white/10 text-xs mt-1 mt-1",
+    "text": "2.7M",
+    "rect": {
+      "x": 501,
+      "y": 650,
+      "w": 79,
+      "h": 20
+    },
+    "childCount": 2
+  },
+  {
+    "tag": "span",
+    "id": "",
+    "class": "iconify i-spl-web:3d-diamond me-1",
+    "text": "",
+    "rect": {
+      "x": 501,
+      "y": 653,
+      "w": 14,
+      "h": 14
+    },
+    "childCount": 0
+  },
+  {
+    "tag": "span",
+    "id": "",
+    "class": "text-white font-bold md:text-sm",
+    "text": "2.7M",
+    "rect": {
+      "x": 519,
+      "y": 650,
+      "w": 34,
+      "h": 20
+    },
+    "childCount": 0
+  },
+  {
+    "tag": "div",
+    "id": "",
+    "class": "grid size-full has-[picture:nth-child(2)]:grid-cols-2 has-[picture:nth-child(3)]:grid-cols-2 has-[picture:nth-child(3)]:grid-rows-2",
+    "text": "",
+    "rect": {
+      "x": 491,
+      "y": 117,
+      "w": 375,
+      "h": 563
+    },
+    "childCount": 1
+  },
+  {
+    "tag": "picture",
+    "id": "",
+    "class": "",
+    "text": "",
+    "rect": {
+      "x": 491,
+      "y": 117,
+      "w": 375,
+      "h": 563
+    },
+    "childCount": 2
+  },
+  {
+    "tag": "img",
+    "id": "",
+    "class": "size-full object-cover",
+    "text": "",
+    "rect": {
+      "x": 491,
+      "y": 117,
+      "w": 375,
+      "h": 563
+    },
+    "childCount": 0
+  },
+  {
+    "tag": "a",
+    "id": "",
+    "class": "router-link-active router-link-exact-active select-none touch-manipulation relative flex flex-col justify-between aspect-2/3 overflow-hidden rounded-xl from-black to-transparent before:absolute before:-bottom-0.5 before:h-1/2 before:w-full before:bg-gradient-to-b before:to-black before:content-['']",
+    "text": "071",
+    "rect": {
+      "x": 490,
+      "y": 691,
+      "w": 375,
+      "h": 562
+    },
+    "childCount": 3
+  },
+  {
+    "tag": "div",
+    "id": "",
+    "class": "swiper-slide swiper-slide-next",
+    "text": "",
+    "rect": {
+      "x": 0,
+      "y": 659,
+      "w": 1280,
+      "h": 659
+    },
+    "childCount": 1
+  },
+  {
+    "tag": "div",
+    "id": "",
+    "class": "swiper-slide",
+    "text": "",
+    "rect": {
+      "x": 0,
+      "y": 1318,
+      "w": 1280,
+      "h": 659
+    },
+    "childCount": 0
+  },
+  {
+    "tag": "div",
+    "id": "",
+    "class": "grecaptcha-badge",
+    "text": "",
+    "rect": {
+      "x": 1210,
+      "y": 585,
+      "w": 256,
+      "h": 60
+    },
+    "childCount": 3
+  },
+  {
+    "tag": "div",
+    "id": "",
+    "class": "grecaptcha-logo",
+    "text": "",
+    "rect": {
+      "x": 1210,
+      "y": 585,
+      "w": 256,
+      "h": 60
+    },
+    "childCount": 1
+  },
+  {
+    "tag": "iframe",
+    "id": "",
+    "class": "",
+    "text": "",
+    "rect": {
+      "x": 1210,
+      "y": 585,
+      "w": 256,
+      "h": 60
+    },
+    "childCount": 0
+  }
+]

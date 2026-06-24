@@ -1,0 +1,47 @@
+[
+  {
+    "src": "https://www.google.com/recaptcha/enterprise/anchor?ar=1&k=6Ld9_e8sAAAAAIPwD7J3mrBiQno-h86lHiFfQ_Nk&co=aHR0cHM6Ly9zdXBlcmxpdmUuY2hhdDo0NDM.&hl=ru&v=MerVUtRoajKEbP7pLiGXkL28&size=invisible&anchor-ms=200",
+    "id": "",
+    "name": "a-hpalm8vak",
+    "title": "reCAPTCHA",
+    "width": "256",
+    "height": "60",
+    "visible": true
+  },
+  {
+    "src": "",
+    "id": "",
+    "name": "",
+    "title": "",
+    "width": "",
+    "height": "",
+    "visible": false
+  },
+  {
+    "src": "https://tr.snapchat.com/cm/i?pid=af0f55c7-d8d5-4c11-bd40-b1210fe968c2&u_scsid=f2fd0f52-1537-4105-b715-57ac47ac294f&u_sclid=ffa8dc4d-3bd1-4b44-95d7-a18364fdab49",
+    "id": "snap6503880",
+    "name": "",
+    "title": "",
+    "width": "",
+    "height": "",
+    "visible": false
+  },
+  {
+    "src": "https://www.google.com/recaptcha/enterprise/anchor?ar=1&k=6LdgthsrAAAAAGdCODGOTWTAeScdDeI9vF9REiWC&co=aHR0cHM6Ly9zdXBlcmxpdmUuY2hhdDo0NDM.&hl=ru&v=MerVUtRoajKEbP7pLiGXkL28&size=invisible&anchor-ms=200",
+    "id": "",
+    "name": "a-3tmgxoo2fsi8",
+    "title": "reCAPTCHA",
+    "width": "256",
+    "height": "60",
+    "visible": false
+  },
+  {
+    "src": "https://16390325.fls.doubleclick.net/activityi;src=16390325;type=s2s_coun;cat=s2spa0;rcb=17;ord=5351654067255;npa=1;auiddc=62474232.1782338409;pscdl=noapi;frm=0;user_data_mode=a;_tu=IFA;gtm=45fe66n1v9",
+    "id": "",
+    "name": "",
+    "title": "",
+    "width": "0",
+    "height": "0",
+    "visible": false
+  }
+]

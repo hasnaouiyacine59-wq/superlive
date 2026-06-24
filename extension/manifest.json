@@ -1,0 +1,14 @@
+{
+  "manifest_version": 3,
+  "name": "Karlin - SuperLive Unlock",
+  "version": "1.0",
+  "description": "Unlimited premium previews on SuperLive.chat",
+  "content_scripts": [
+    {
+      "matches": ["https://superlive.chat/fr/*"],
+      "js": ["content.js"],
+      "world": "MAIN",
+      "run_at": "document_start"
+    }
+  ]
+}
