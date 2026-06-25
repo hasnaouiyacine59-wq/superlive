@@ -1,5 +1,7 @@
 #!/bin/bash
 
+trap 'echo "[!] Interrupted — killing base.py..."; pkill -f "python3 base.py" 2>/dev/null; exit 1' SIGINT SIGTERM
+
 COUNTRIES=(
   "al" "ar" "am" "au" "at"
   "bs" "be" "ba" "br" "bg"
