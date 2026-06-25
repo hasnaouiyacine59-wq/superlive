@@ -102,7 +102,7 @@ elif use_proxy:
 opts = launch_options(
     geoip=True, humanize=0.3, block_webrtc=True,
     block_images=False, disable_coop=True,
-    main_world_eval=True, window=(1280, 720), debug=False,
+    main_world_eval=True, window=(1280, 720), debug=True,
     headless=False,
     firefox_user_prefs=firefox_user_prefs,
     **proxy_opts,
