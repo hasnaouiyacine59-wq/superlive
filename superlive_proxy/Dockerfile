@@ -36,5 +36,5 @@ COPY src/ ./src/
 RUN mkdir -p results
 
 ENV PYTHONUNBUFFERED=1
-ENV HEADLESS=virtual
+ENV HEADLESS=true
 CMD ["python", "base.py", "-p"]
