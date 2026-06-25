@@ -1161,7 +1161,9 @@ if use_proxy and not static_proxies:
     else:
         print(f"  [!] Tor reset failed (exit {ret})")
 
-with Camoufox(from_options=opts) as browser:
+if headless_mode == "virtual":
+    opts["headless"] = False
+with Camoufox(from_options=opts, headless=headless_mode) as browser:
     page = browser.new_page()
     page.set_default_timeout(30000)
     page.set_viewport_size({"width": 1280, "height": 720})
