@@ -53,6 +53,7 @@ opts = launch_options(
     geoip=True, humanize=0.3, block_webrtc=True,
     block_images=False, disable_coop=True,
     main_world_eval=True, window=(1280, 720), debug=True,
+    headless=True,
 )
 
 
