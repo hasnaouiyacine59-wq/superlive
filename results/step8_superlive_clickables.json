@@ -1,5 +1,65 @@
 [
   {
+    "tag": "div",
+    "id": "",
+    "class": "p-2 space-y-2 z-30 flex justify-between pointer-events-none",
+    "text": "2💜иєα💜134 \n            \n        \n        \n    \n            \n        \n        \n    \n            \n  ",
+    "href": "",
+    "type": "",
+    "name": "",
+    "placeholder": "",
+    "rect": {
+      "x": 12,
+      "y": 12,
+      "width": 1256,
+      "height": 80,
+      "top": 12,
+      "right": 1268,
+      "bottom": 92,
+      "left": 12
+    }
+  },
+  {
+    "tag": "button",
+    "id": "",
+    "class": "flex items-center gap-2 transition-all duration-300 cursor-pointer rounded-full ",
+    "text": "",
+    "href": "",
+    "type": "submit",
+    "name": "",
+    "placeholder": "",
+    "rect": {
+      "x": 20,
+      "y": 20,
+      "width": 56,
+      "height": 56,
+      "top": 20,
+      "right": 76,
+      "bottom": 76,
+      "left": 20
+    }
+  },
+  {
+    "tag": "button",
+    "id": "",
+    "class": "flex items-center gap-2 transition-all duration-300 cursor-pointer rounded-full ",
+    "text": "",
+    "href": "",
+    "type": "submit",
+    "name": "",
+    "placeholder": "",
+    "rect": {
+      "x": 236.13333129882812,
+      "y": 24,
+      "width": 48,
+      "height": 48,
+      "top": 24,
+      "right": 284.1333312988281,
+      "bottom": 72,
+      "left": 236.13333129882812
+    }
+  },
+  {
     "tag": "button",
     "id": "",
     "class": "flex items-center gap-2 transition-all duration-300 cursor-pointer rounded-full ",
@@ -26,57 +86,677 @@
     "text": "",
     "href": "",
     "type": "submit",
+    "name": "",
+    "placeholder": "",
+    "rect": {
+      "x": 921.9166870117188,
+      "y": 20,
+      "width": 56,
+      "height": 56,
+      "top": 20,
+      "right": 977.9166870117188,
+      "bottom": 76,
+      "left": 921.9166870117188
+    }
+  },
+  {
+    "tag": "button",
+    "id": "",
+    "class": "flex items-center gap-2 transition-all duration-300 cursor-pointer rounded-full ",
+    "text": "",
+    "href": "",
+    "type": "submit",
+    "name": "",
+    "placeholder": "",
+    "rect": {
+      "x": 985.9166870117188,
+      "y": 20,
+      "width": 56,
+      "height": 56,
+      "top": 20,
+      "right": 1041.9166870117188,
+      "bottom": 76,
+      "left": 985.9166870117188
+    }
+  },
+  {
+    "tag": "button",
+    "id": "",
+    "class": "flex items-center gap-2 transition-all duration-300 cursor-pointer rounded-full ",
+    "text": "",
+    "href": "",
+    "type": "submit",
+    "name": "",
+    "placeholder": "",
+    "rect": {
+      "x": 1049.9166259765625,
+      "y": 20,
+      "width": 56,
+      "height": 56,
+      "top": 20,
+      "right": 1105.9166259765625,
+      "bottom": 76,
+      "left": 1049.9166259765625
+    }
+  },
+  {
+    "tag": "button",
+    "id": "",
+    "class": "flex items-center gap-2 transition-all duration-300 cursor-pointer rounded-full ",
+    "text": "79",
+    "href": "",
+    "type": "submit",
+    "name": "",
+    "placeholder": "",
+    "rect": {
+      "x": 1113.9166259765625,
+      "y": 20,
+      "width": 146.0833282470703,
+      "height": 56,
+      "top": 20,
+      "right": 1259.9999542236328,
+      "bottom": 76,
+      "left": 1113.9166259765625
+    }
+  },
+  {
+    "tag": "button",
+    "id": "",
+    "class": "relative cursor-pointer md:hover:bg-white/10 transition-colors duration-200 ease",
+    "text": "x",
+    "href": "",
+    "type": "submit",
+    "name": "",
+    "placeholder": "",
+    "rect": {
+      "x": 128.39999389648438,
+      "y": 180.5,
+      "width": 64,
+      "height": 64,
+      "top": 180.5,
+      "right": 192.39999389648438,
+      "bottom": 244.5,
+      "left": 128.39999389648438
+    }
+  },
+  {
+    "tag": "button",
+    "id": "",
+    "class": "relative cursor-pointer md:hover:bg-white/10 transition-colors duration-200 ease",
+    "text": "x",
+    "href": "",
+    "type": "submit",
+    "name": "",
+    "placeholder": "",
+    "rect": {
+      "x": 94.23333740234375,
+      "y": 96,
+      "width": 64,
+      "height": 64,
+      "top": 96,
+      "right": 158.23333740234375,
+      "bottom": 160,
+      "left": 94.23333740234375
+    }
+  },
+  {
+    "tag": "div",
+    "id": "",
+    "class": "flex flex-col justify-center items-center relative w-14",
+    "text": "23:58:33",
+    "href": "",
+    "type": "",
+    "name": "",
+    "placeholder": "",
+    "rect": {
+      "x": 1112,
+      "y": 486,
+      "width": 56,
+      "height": 80,
+      "top": 486,
+      "right": 1168,
+      "bottom": 566,
+      "left": 1112
+    }
+  },
+  {
+    "tag": "button",
+    "id": "",
+    "class": "flex items-center gap-2 transition-all duration-300 cursor-pointer rounded-full ",
+    "text": "",
+    "href": "",
+    "type": "submit",
+    "name": "",
+    "placeholder": "",
+    "rect": {
+      "x": 1144,
+      "y": 486,
+      "width": 24,
+      "height": 24,
+      "top": 486,
+      "right": 1168,
+      "bottom": 510,
+      "left": 1144
+    }
+  },
+  {
+    "tag": "button",
+    "id": "",
+    "class": "relative cursor-pointer md:hover:bg-white/10 transition-colors duration-200 ease",
+    "text": "GRATUIT x3",
+    "href": "",
+    "type": "submit",
+    "name": "",
+    "placeholder": "",
+    "rect": {
+      "x": 1168,
+      "y": 100,
+      "width": 112,
+      "height": 120,
+      "top": 100,
+      "right": 1280,
+      "bottom": 220,
+      "left": 1168
+    }
+  },
+  {
+    "tag": "button",
+    "id": "",
+    "class": "relative cursor-pointer md:hover:bg-white/10 transition-colors duration-200 ease",
+    "text": "x8",
+    "href": "",
+    "type": "submit",
+    "name": "",
+    "placeholder": "",
+    "rect": {
+      "x": 1168,
+      "y": 222,
+      "width": 112,
+      "height": 120,
+      "top": 222,
+      "right": 1280,
+      "bottom": 342,
+      "left": 1168
+    }
+  },
+  {
+    "tag": "button",
+    "id": "",
+    "class": "relative cursor-pointer md:hover:bg-white/10 transition-colors duration-200 ease",
+    "text": "x10",
+    "href": "",
+    "type": "submit",
+    "name": "",
+    "placeholder": "",
+    "rect": {
+      "x": 1168,
+      "y": 344,
+      "width": 112,
+      "height": 120,
+      "top": 344,
+      "right": 1280,
+      "bottom": 464,
+      "left": 1168
+    }
+  },
+  {
+    "tag": "button",
+    "id": "",
+    "class": "relative cursor-pointer md:hover:bg-white/10 transition-colors duration-200 ease",
+    "text": "x14",
+    "href": "",
+    "type": "submit",
+    "name": "",
+    "placeholder": "",
+    "rect": {
+      "x": 1168,
+      "y": 466,
+      "width": 112,
+      "height": 120,
+      "top": 466,
+      "right": 1280,
+      "bottom": 586,
+      "left": 1168
+    }
+  },
+  {
+    "tag": "button",
+    "id": "",
+    "class": "relative cursor-pointer md:hover:bg-white/10 transition-colors duration-200 ease",
+    "text": "x39",
+    "href": "",
+    "type": "submit",
+    "name": "",
+    "placeholder": "",
+    "rect": {
+      "x": 1168,
+      "y": 588,
+      "width": 112,
+      "height": 120,
+      "top": 588,
+      "right": 1280,
+      "bottom": 708,
+      "left": 1168
+    }
+  },
+  {
+    "tag": "button",
+    "id": "",
+    "class": "relative cursor-pointer md:hover:bg-white/10 transition-colors duration-200 ease",
+    "text": "x49",
+    "href": "",
+    "type": "submit",
+    "name": "",
+    "placeholder": "",
+    "rect": {
+      "x": 1168,
+      "y": 710,
+      "width": 112,
+      "height": 120,
+      "top": 710,
+      "right": 1280,
+      "bottom": 830,
+      "left": 1168
+    }
+  },
+  {
+    "tag": "button",
+    "id": "",
+    "class": "relative cursor-pointer md:hover:bg-white/10 transition-colors duration-200 ease",
+    "text": "x49",
+    "href": "",
+    "type": "submit",
+    "name": "",
+    "placeholder": "",
+    "rect": {
+      "x": 1168,
+      "y": 832,
+      "width": 112,
+      "height": 120,
+      "top": 832,
+      "right": 1280,
+      "bottom": 952,
+      "left": 1168
+    }
+  },
+  {
+    "tag": "button",
+    "id": "",
+    "class": "relative cursor-pointer md:hover:bg-white/10 transition-colors duration-200 ease",
+    "text": "x59",
+    "href": "",
+    "type": "submit",
+    "name": "",
+    "placeholder": "",
+    "rect": {
+      "x": 1168,
+      "y": 954,
+      "width": 112,
+      "height": 120,
+      "top": 954,
+      "right": 1280,
+      "bottom": 1074,
+      "left": 1168
+    }
+  },
+  {
+    "tag": "button",
+    "id": "",
+    "class": "relative cursor-pointer md:hover:bg-white/10 transition-colors duration-200 ease",
+    "text": "x28",
+    "href": "",
+    "type": "submit",
+    "name": "",
+    "placeholder": "",
+    "rect": {
+      "x": 1168,
+      "y": 1076,
+      "width": 112,
+      "height": 120,
+      "top": 1076,
+      "right": 1280,
+      "bottom": 1196,
+      "left": 1168
+    }
+  },
+  {
+    "tag": "button",
+    "id": "",
+    "class": "relative cursor-pointer md:hover:bg-white/10 transition-colors duration-200 ease",
+    "text": "x199",
+    "href": "",
+    "type": "submit",
+    "name": "",
+    "placeholder": "",
+    "rect": {
+      "x": 1168,
+      "y": 1198,
+      "width": 112,
+      "height": 120,
+      "top": 1198,
+      "right": 1280,
+      "bottom": 1318,
+      "left": 1168
+    }
+  },
+  {
+    "tag": "button",
+    "id": "",
+    "class": "relative cursor-pointer md:hover:bg-white/10 transition-colors duration-200 ease",
+    "text": "x249",
+    "href": "",
+    "type": "submit",
+    "name": "",
+    "placeholder": "",
+    "rect": {
+      "x": 1168,
+      "y": 1320,
+      "width": 112,
+      "height": 120,
+      "top": 1320,
+      "right": 1280,
+      "bottom": 1440,
+      "left": 1168
+    }
+  },
+  {
+    "tag": "button",
+    "id": "",
+    "class": "relative cursor-pointer md:hover:bg-white/10 transition-colors duration-200 ease",
+    "text": "x299",
+    "href": "",
+    "type": "submit",
+    "name": "",
+    "placeholder": "",
+    "rect": {
+      "x": 1168,
+      "y": 1442,
+      "width": 112,
+      "height": 120,
+      "top": 1442,
+      "right": 1280,
+      "bottom": 1562,
+      "left": 1168
+    }
+  },
+  {
+    "tag": "button",
+    "id": "",
+    "class": "relative cursor-pointer md:hover:bg-white/10 transition-colors duration-200 ease",
+    "text": "x49",
+    "href": "",
+    "type": "submit",
+    "name": "",
+    "placeholder": "",
+    "rect": {
+      "x": 1168,
+      "y": 1564,
+      "width": 112,
+      "height": 120,
+      "top": 1564,
+      "right": 1280,
+      "bottom": 1684,
+      "left": 1168
+    }
+  },
+  {
+    "tag": "button",
+    "id": "",
+    "class": "relative cursor-pointer md:hover:bg-white/10 transition-colors duration-200 ease",
+    "text": "x299",
+    "href": "",
+    "type": "submit",
+    "name": "",
+    "placeholder": "",
+    "rect": {
+      "x": 1168,
+      "y": 1686,
+      "width": 112,
+      "height": 120,
+      "top": 1686,
+      "right": 1280,
+      "bottom": 1806,
+      "left": 1168
+    }
+  },
+  {
+    "tag": "button",
+    "id": "",
+    "class": "relative cursor-pointer md:hover:bg-white/10 transition-colors duration-200 ease",
+    "text": "x15",
+    "href": "",
+    "type": "submit",
+    "name": "",
+    "placeholder": "",
+    "rect": {
+      "x": 1168,
+      "y": 1808,
+      "width": 112,
+      "height": 120,
+      "top": 1808,
+      "right": 1280,
+      "bottom": 1928,
+      "left": 1168
+    }
+  },
+  {
+    "tag": "button",
+    "id": "",
+    "class": "relative cursor-pointer md:hover:bg-white/10 transition-colors duration-200 ease",
+    "text": "x299",
+    "href": "",
+    "type": "submit",
+    "name": "",
+    "placeholder": "",
+    "rect": {
+      "x": 1168,
+      "y": 1930,
+      "width": 112,
+      "height": 120,
+      "top": 1930,
+      "right": 1280,
+      "bottom": 2050,
+      "left": 1168
+    }
+  },
+  {
+    "tag": "button",
+    "id": "",
+    "class": "relative cursor-pointer md:hover:bg-white/10 transition-colors duration-200 ease",
+    "text": "x29",
+    "href": "",
+    "type": "submit",
+    "name": "",
+    "placeholder": "",
+    "rect": {
+      "x": 1168,
+      "y": 2052,
+      "width": 112,
+      "height": 120,
+      "top": 2052,
+      "right": 1280,
+      "bottom": 2172,
+      "left": 1168
+    }
+  },
+  {
+    "tag": "button",
+    "id": "",
+    "class": "relative cursor-pointer md:hover:bg-white/10 transition-colors duration-200 ease",
+    "text": "x99",
+    "href": "",
+    "type": "submit",
+    "name": "",
+    "placeholder": "",
+    "rect": {
+      "x": 1168,
+      "y": 2174,
+      "width": 112,
+      "height": 120,
+      "top": 2174,
+      "right": 1280,
+      "bottom": 2294,
+      "left": 1168
+    }
+  },
+  {
+    "tag": "button",
+    "id": "",
+    "class": "relative cursor-pointer md:hover:bg-white/10 transition-colors duration-200 ease",
+    "text": "x99",
+    "href": "",
+    "type": "submit",
+    "name": "",
+    "placeholder": "",
+    "rect": {
+      "x": 1168,
+      "y": 2296,
+      "width": 112,
+      "height": 120,
+      "top": 2296,
+      "right": 1280,
+      "bottom": 2416,
+      "left": 1168
+    }
+  },
+  {
+    "tag": "button",
+    "id": "",
+    "class": "relative cursor-pointer md:hover:bg-white/10 transition-colors duration-200 ease",
+    "text": "x99",
+    "href": "",
+    "type": "submit",
+    "name": "",
+    "placeholder": "",
+    "rect": {
+      "x": 1168,
+      "y": 2418,
+      "width": 112,
+      "height": 120,
+      "top": 2418,
+      "right": 1280,
+      "bottom": 2538,
+      "left": 1168
+    }
+  },
+  {
+    "tag": "button",
+    "id": "",
+    "class": "relative cursor-pointer md:hover:bg-white/10 transition-colors duration-200 ease",
+    "text": "x99",
+    "href": "",
+    "type": "submit",
+    "name": "",
+    "placeholder": "",
+    "rect": {
+      "x": 1168,
+      "y": 2540,
+      "width": 112,
+      "height": 120,
+      "top": 2540,
+      "right": 1280,
+      "bottom": 2660,
+      "left": 1168
+    }
+  },
+  {
+    "tag": "button",
+    "id": "",
+    "class": "relative cursor-pointer md:hover:bg-white/10 transition-colors duration-200 ease",
+    "text": "x99",
+    "href": "",
+    "type": "submit",
+    "name": "",
+    "placeholder": "",
+    "rect": {
+      "x": 1168,
+      "y": 2662,
+      "width": 112,
+      "height": 120,
+      "top": 2662,
+      "right": 1280,
+      "bottom": 2782,
+      "left": 1168
+    }
+  },
+  {
+    "tag": "button",
+    "id": "",
+    "class": "relative cursor-pointer md:hover:bg-white/10 transition-colors duration-200 ease",
+    "text": "x799",
+    "href": "",
+    "type": "submit",
+    "name": "",
+    "placeholder": "",
+    "rect": {
+      "x": 1168,
+      "y": 2784,
+      "width": 112,
+      "height": 120,
+      "top": 2784,
+      "right": 1280,
+      "bottom": 2904,
+      "left": 1168
+    }
+  },
+  {
+    "tag": "button",
+    "id": "",
+    "class": "relative cursor-pointer md:hover:bg-white/10 transition-colors duration-200 ease",
+    "text": "x899",
+    "href": "",
+    "type": "submit",
+    "name": "",
+    "placeholder": "",
+    "rect": {
+      "x": 1168,
+      "y": 2906,
+      "width": 112,
+      "height": 120,
+      "top": 2906,
+      "right": 1280,
+      "bottom": 3026,
+      "left": 1168
+    }
+  },
+  {
+    "tag": "div",
+    "id": "",
+    "class": "relative flex items-center justify-center min-w-7 md:min-w-10 cursor-pointer hov",
+    "text": "",
+    "href": "",
+    "type": "",
     "name": "",
     "placeholder": "",
     "rect": {
       "x": 30,
-      "y": 35,
-      "width": 26,
-      "height": 26,
-      "top": 35,
-      "right": 56,
-      "bottom": 61,
+      "y": 467,
+      "width": 40,
+      "height": 40,
+      "top": 467,
+      "right": 70,
+      "bottom": 507,
       "left": 30
     }
   },
   {
-    "tag": "button",
+    "tag": "div",
     "id": "",
-    "class": "flex items-center gap-2 transition-all duration-300 cursor-pointer rounded-full ",
-    "text": "",
+    "class": "flex items-center gap-1.5 md:justify-start min-w-0 overflow-x-hidden flex-nowrap",
+    "text": "Yousef Hlalat",
     "href": "",
-    "type": "submit",
+    "type": "",
     "name": "",
     "placeholder": "",
     "rect": {
-      "x": 64,
-      "y": 24,
-      "width": 136,
-      "height": 48,
-      "top": 24,
-      "right": 200,
-      "bottom": 72,
-      "left": 64
-    }
-  },
-  {
-    "tag": "input",
-    "id": "",
-    "class": "w-full text-sm text-white placeholder:text-surface-400 bg-transparent outline-no",
-    "text": "",
-    "href": "",
-    "type": "text",
-    "name": "",
-    "placeholder": "Rechercher par nom d'utilisateur/ID",
-    "rect": {
-      "x": 247,
-      "y": 38,
-      "width": 170,
-      "height": 20,
-      "top": 38,
-      "right": 417,
-      "bottom": 58,
-      "left": 247
+      "x": 76,
+      "y": 465,
+      "width": 90.28334045410156,
+      "height": 16,
+      "top": 465,
+      "right": 166.28334045410156,
+      "bottom": 481,
+      "left": 76
     }
   },
   {
@@ -89,114 +769,14 @@
     "name": "",
     "placeholder": "",
     "rect": {
-      "x": 0,
-      "y": 0,
-      "width": 0,
-      "height": 0,
-      "top": 0,
-      "right": 0,
-      "bottom": 0,
-      "left": 0
-    }
-  },
-  {
-    "tag": "a",
-    "id": "",
-    "class": "relative px-4 py-2.5 md:px-0 md:py-1 z-3 grid place-items-center cursor-pointer ",
-    "text": "Pour vous",
-    "href": "https://superlive.chat/fr/discover",
-    "type": "",
-    "name": "",
-    "placeholder": "",
-    "rect": {
-      "x": 554,
-      "y": 24,
-      "width": 60,
-      "height": 48,
-      "top": 24,
-      "right": 614,
-      "bottom": 72,
-      "left": 554
-    }
-  },
-  {
-    "tag": "a",
-    "id": "",
-    "class": "relative px-4 py-2.5 md:px-0 md:py-1 z-3 grid place-items-center cursor-pointer ",
-    "text": "Suivis",
-    "href": "https://superlive.chat/fr/followings",
-    "type": "",
-    "name": "",
-    "placeholder": "",
-    "rect": {
-      "x": 642,
-      "y": 24,
-      "width": 60,
-      "height": 48,
-      "top": 24,
-      "right": 702,
-      "bottom": 72,
-      "left": 642
-    }
-  },
-  {
-    "tag": "a",
-    "id": "",
-    "class": "router-link-active router-link-exact-active relative px-4 py-2.5 md:px-0 md:py-1",
-    "text": "Messages",
-    "href": "https://superlive.chat/fr/messages",
-    "type": "",
-    "name": "",
-    "placeholder": "",
-    "rect": {
-      "x": 730,
-      "y": 24,
-      "width": 60,
-      "height": 48,
-      "top": 24,
-      "right": 790,
-      "bottom": 72,
-      "left": 730
-    }
-  },
-  {
-    "tag": "a",
-    "id": "",
-    "class": "relative px-4 py-2.5 md:px-0 md:py-1 z-3 grid place-items-center cursor-pointer ",
-    "text": "Mon profil",
-    "href": "https://superlive.chat/fr/profile/myprofile",
-    "type": "",
-    "name": "",
-    "placeholder": "",
-    "rect": {
-      "x": 0,
-      "y": 0,
-      "width": 0,
-      "height": 0,
-      "top": 0,
-      "right": 0,
-      "bottom": 0,
-      "left": 0
-    }
-  },
-  {
-    "tag": "a",
-    "id": "",
-    "class": "relative",
-    "text": "",
-    "href": "https://superlive.chat/fr/notifications",
-    "type": "",
-    "name": "",
-    "placeholder": "",
-    "rect": {
-      "x": 1098.9000244140625,
-      "y": 36,
-      "width": 24,
+      "x": 95.14999389648438,
+      "y": 485,
+      "width": 16,
       "height": 24,
-      "top": 36,
-      "right": 1122.9000244140625,
-      "bottom": 60,
-      "left": 1098.9000244140625
+      "top": 485,
+      "right": 111.14999389648438,
+      "bottom": 509,
+      "left": 95.14999389648438
     }
   },
   {
@@ -209,53 +789,33 @@
     "name": "",
     "placeholder": "",
     "rect": {
-      "x": 1174,
-      "y": 38,
-      "width": 20,
+      "x": 0,
+      "y": 0,
+      "width": 0,
+      "height": 0,
+      "top": 0,
+      "right": 0,
+      "bottom": 0,
+      "left": 0
+    }
+  },
+  {
+    "tag": "textarea",
+    "id": "",
+    "class": "w-full border-none bg-transparent text-white text-sm md:text-base md:placeholder",
+    "text": "",
+    "href": "",
+    "type": "textarea",
+    "name": "",
+    "placeholder": "Chat",
+    "rect": {
+      "x": 24,
+      "y": 597,
+      "width": 340,
       "height": 20,
-      "top": 38,
-      "right": 1194,
-      "bottom": 58,
-      "left": 1174
-    }
-  },
-  {
-    "tag": "button",
-    "id": "reka-dropdown-menu-trigger-v-0-0-0",
-    "class": "relative flex items-center py-1 px-3 gap-1 border border-unique-label-100 bg-uni",
-    "text": "Centre de messages",
-    "href": "",
-    "type": "button",
-    "name": "",
-    "placeholder": "",
-    "rect": {
-      "x": 180.4499969482422,
-      "y": 120,
-      "width": 202.5500030517578,
-      "height": 30,
-      "top": 120,
-      "right": 383,
-      "bottom": 150,
-      "left": 180.4499969482422
-    }
-  },
-  {
-    "tag": "button",
-    "id": "",
-    "class": "flex items-center gap-2 transition-all duration-300 cursor-pointer rounded-full ",
-    "text": "Principal",
-    "href": "",
-    "type": "submit",
-    "name": "",
-    "placeholder": "",
-    "rect": {
-      "x": 24,
-      "y": 178,
-      "width": 91.44999694824219,
-      "height": 36,
-      "top": 178,
-      "right": 115.44999694824219,
-      "bottom": 214,
+      "top": 597,
+      "right": 364,
+      "bottom": 617,
       "left": 24
     }
   },
@@ -263,130 +823,50 @@
     "tag": "button",
     "id": "",
     "class": "flex items-center gap-2 transition-all duration-300 cursor-pointer rounded-full ",
-    "text": "Autre",
+    "text": "",
     "href": "",
     "type": "submit",
     "name": "",
     "placeholder": "",
     "rect": {
-      "x": 123.44999694824219,
-      "y": 178,
-      "width": 69.30000305175781,
-      "height": 36,
-      "top": 178,
-      "right": 192.75,
-      "bottom": 214,
-      "left": 123.44999694824219
-    }
-  },
-  {
-    "tag": "div",
-    "id": "",
-    "class": "flex items-center justify-center relative shrink-0",
-    "text": "Premium",
-    "href": "",
-    "type": "",
-    "name": "",
-    "placeholder": "",
-    "rect": {
-      "x": 24,
-      "y": 230,
-      "width": 66,
-      "height": 68,
-      "top": 230,
-      "right": 90,
-      "bottom": 298,
-      "left": 24
-    }
-  },
-  {
-    "tag": "div",
-    "id": "",
-    "class": "min-h-18 relative w-full overflow-hidden md:mb-0 last:mb-0 select-none cursor-po",
-    "text": "SuperLive officielBienvenue à bord !\nMerci de vous être inscrit à Superlive — nous avons ajouté des ",
-    "href": "",
-    "type": "",
-    "name": "",
-    "placeholder": "",
-    "rect": {
-      "x": 0,
-      "y": 338,
-      "width": 399,
-      "height": 82.5,
-      "top": 338,
-      "right": 399,
-      "bottom": 420.5,
-      "left": 0
-    }
-  },
-  {
-    "tag": "div",
-    "id": "",
-    "class": "flex items-center justify-center relative shrink-0 cursor-default",
-    "text": "",
-    "href": "",
-    "type": "",
-    "name": "",
-    "placeholder": "",
-    "rect": {
-      "x": 24,
-      "y": 355.25,
+      "x": 372,
+      "y": 583,
       "width": 48,
       "height": 48,
-      "top": 355.25,
-      "right": 72,
-      "bottom": 403.25,
-      "left": 24
+      "top": 583,
+      "right": 420,
+      "bottom": 631,
+      "left": 372
     }
   },
   {
-    "tag": "div",
+    "tag": "button",
     "id": "",
-    "class": "min-h-18 relative w-full overflow-hidden md:mb-0 last:mb-0 select-none cursor-po",
-    "text": "31🧿 برايفت 💞 نارhey toi, oui toi 😏01:221",
+    "class": "flex items-center gap-2 transition-all duration-300 cursor-pointer rounded-full ",
+    "text": "APPEL GRATUIT",
     "href": "",
-    "type": "",
+    "type": "submit",
     "name": "",
     "placeholder": "",
     "rect": {
-      "x": 0,
-      "y": 420.5,
-      "width": 399,
-      "height": 82.5,
-      "top": 420.5,
-      "right": 399,
-      "bottom": 503,
-      "left": 0
+      "x": 448,
+      "y": 515,
+      "width": 384,
+      "height": 56,
+      "top": 515,
+      "right": 832,
+      "bottom": 571,
+      "left": 448
     }
   },
   {
-    "tag": "div",
+    "tag": "button",
     "id": "",
-    "class": "flex items-center justify-center relative shrink-0 cursor-default",
-    "text": "",
+    "class": "flex items-center gap-2 transition-all duration-300 cursor-pointer rounded-full ",
+    "text": "APPEL GRATUIT",
     "href": "",
-    "type": "",
+    "type": "submit",
     "name": "",
-    "placeholder": "",
-    "rect": {
-      "x": 24,
-      "y": 437.75,
-      "width": 48,
-      "height": 48,
-      "top": 437.75,
-      "right": 72,
-      "bottom": 485.75,
-      "left": 24
-    }
-  },
-  {
-    "tag": "input",
-    "id": "",
-    "class": "",
-    "text": "",
-    "href": "",
-    "type": "file",
-    "name": "files",
     "placeholder": "",
     "rect": {
       "x": 0,
@@ -402,21 +882,21 @@
   {
     "tag": "button",
     "id": "",
-    "class": "left-[calc(100vw-74px)] rtl:left-auto rtl:right-[calc(100vw-74px)] bg-primary-40",
+    "class": "flex items-center gap-2 transition-all duration-300 cursor-pointer rounded-full ",
     "text": "",
     "href": "",
-    "type": "button",
+    "type": "submit",
     "name": "",
     "placeholder": "",
     "rect": {
-      "x": 1206,
-      "y": 555,
-      "width": 64,
-      "height": 64,
-      "top": 555,
-      "right": 1270,
-      "bottom": 619,
-      "left": 1206
+      "x": 0,
+      "y": 0,
+      "width": 0,
+      "height": 0,
+      "top": 0,
+      "right": 0,
+      "bottom": 0,
+      "left": 0
     }
   },
   {
@@ -429,14 +909,134 @@
     "name": "",
     "placeholder": "",
     "rect": {
-      "x": 26,
-      "y": 555,
-      "width": 64,
-      "height": 64,
-      "top": 555,
-      "right": 90,
-      "bottom": 619,
-      "left": 26
+      "x": 0,
+      "y": 0,
+      "width": 0,
+      "height": 0,
+      "top": 0,
+      "right": 0,
+      "bottom": 0,
+      "left": 0
+    }
+  },
+  {
+    "tag": "button",
+    "id": "",
+    "class": "flex items-center gap-2 transition-all duration-300 cursor-pointer rounded-full ",
+    "text": "",
+    "href": "",
+    "type": "submit",
+    "name": "",
+    "placeholder": "",
+    "rect": {
+      "x": 0,
+      "y": 0,
+      "width": 0,
+      "height": 0,
+      "top": 0,
+      "right": 0,
+      "bottom": 0,
+      "left": 0
+    }
+  },
+  {
+    "tag": "button",
+    "id": "",
+    "class": "flex items-center gap-2 transition-all duration-300 cursor-pointer rounded-full ",
+    "text": "",
+    "href": "",
+    "type": "submit",
+    "name": "",
+    "placeholder": "",
+    "rect": {
+      "x": 0,
+      "y": 0,
+      "width": 0,
+      "height": 0,
+      "top": 0,
+      "right": 0,
+      "bottom": 0,
+      "left": 0
+    }
+  },
+  {
+    "tag": "button",
+    "id": "",
+    "class": "flex items-center gap-2 transition-all duration-300 cursor-pointer rounded-full ",
+    "text": "",
+    "href": "",
+    "type": "submit",
+    "name": "",
+    "placeholder": "",
+    "rect": {
+      "x": 0,
+      "y": 0,
+      "width": 0,
+      "height": 0,
+      "top": 0,
+      "right": 0,
+      "bottom": 0,
+      "left": 0
+    }
+  },
+  {
+    "tag": "button",
+    "id": "",
+    "class": "flex items-center gap-2 transition-all duration-300 cursor-pointer rounded-full ",
+    "text": "",
+    "href": "",
+    "type": "submit",
+    "name": "",
+    "placeholder": "",
+    "rect": {
+      "x": 1204,
+      "y": 579,
+      "width": 56,
+      "height": 56,
+      "top": 579,
+      "right": 1260,
+      "bottom": 635,
+      "left": 1204
+    }
+  },
+  {
+    "tag": "button",
+    "id": "",
+    "class": "flex items-center gap-2 transition-all duration-300 cursor-pointer rounded-full ",
+    "text": "",
+    "href": "",
+    "type": "submit",
+    "name": "",
+    "placeholder": "",
+    "rect": {
+      "x": 1076,
+      "y": 581,
+      "width": 56,
+      "height": 56,
+      "top": 581,
+      "right": 1132,
+      "bottom": 637,
+      "left": 1076
+    }
+  },
+  {
+    "tag": "button",
+    "id": "",
+    "class": "flex items-center gap-2 transition-all duration-300 cursor-pointer rounded-full ",
+    "text": "",
+    "href": "",
+    "type": "submit",
+    "name": "",
+    "placeholder": "",
+    "rect": {
+      "x": 1140,
+      "y": 581,
+      "width": 56,
+      "height": 56,
+      "top": 581,
+      "right": 1196,
+      "bottom": 637,
+      "left": 1140
     }
   },
   {
@@ -447,6 +1047,46 @@
     "href": "",
     "type": "textarea",
     "name": "g-recaptcha-response",
+    "placeholder": "",
+    "rect": {
+      "x": 0,
+      "y": 0,
+      "width": 0,
+      "height": 0,
+      "top": 0,
+      "right": 0,
+      "bottom": 0,
+      "left": 0
+    }
+  },
+  {
+    "tag": "button",
+    "id": "",
+    "class": "relative cursor-pointer md:hover:bg-white/10 transition-colors duration-200 ease",
+    "text": "x",
+    "href": "",
+    "type": "submit",
+    "name": "",
+    "placeholder": "",
+    "rect": {
+      "x": 0,
+      "y": 0,
+      "width": 0,
+      "height": 0,
+      "top": 0,
+      "right": 0,
+      "bottom": 0,
+      "left": 0
+    }
+  },
+  {
+    "tag": "button",
+    "id": "",
+    "class": "flex items-center gap-2 transition-all duration-300 cursor-pointer rounded-full ",
+    "text": "ENVOYEZ UN CADEAU ET FAITES TOURNER LA ROUE !",
+    "href": "",
+    "type": "submit",
+    "name": "",
     "placeholder": "",
     "rect": {
       "x": 0,

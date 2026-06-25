@@ -395,9 +395,9 @@
     "class": "flex items-center gap-2 transition-all duration-300 cursor-pointer rounded-full border border-[var(--color-surface-500)] text-white bg-none text-sm font-semibold h-9 px-4 max-w-37 disabled:opacity-50 disabled:cursor-not-allowed hover:opacity-70 min-w-24 px-5 shrink-0",
     "text": "Se connecter",
     "rect": {
-      "x": 1003,
+      "x": 1001,
       "y": 32,
-      "w": 131,
+      "w": 132,
       "h": 36
     },
     "childCount": 1
@@ -408,9 +408,9 @@
     "class": "truncate",
     "text": "Se connecter",
     "rect": {
-      "x": 1024,
+      "x": 1022,
       "y": 40,
-      "w": 89,
+      "w": 90,
       "h": 20
     },
     "childCount": 0
@@ -421,9 +421,9 @@
     "class": "flex items-center gap-2 transition-all duration-300 cursor-pointer rounded-full bg-linear-to-br from-primary-600 via-primary-400 to-primary-300 text-white text-sm font-semibold h-9 px-4 max-w-37 disabled:!bg-none disabled:!bg-[var(--color-disabled-button)] disabled:cursor-not-allowed disabled:text-[var(--color-surface-500)] hover:opacity-70 border-primary-400 border-[0.5px] min-w-24 px-5 shrink-0",
     "text": "S'inscrire",
     "rect": {
-      "x": 1143,
+      "x": 1142,
       "y": 32,
-      "w": 106,
+      "w": 107,
       "h": 36
     },
     "childCount": 1
@@ -512,9 +512,9 @@
     "class": "font-bold text-white text-center text-lg mt-8 select-none",
     "text": "Vous devez être connecté pour voir vos messages.",
     "rect": {
-      "x": 416,
+      "x": 414,
       "y": 488,
-      "w": 447,
+      "w": 451,
       "h": 28
     },
     "childCount": 0
@@ -666,7 +666,7 @@
     "tag": "div",
     "id": "",
     "class": "flex-1 min-h-0 overflow-y-auto flex flex-col md:py-8",
-    "text": "Saisir le code de vérificationNous avons envoyé un code de vérification à superg",
+    "text": "Saisir le code de vérificationNous avons envoyé un code de vérification à shadow",
     "rect": {
       "x": 417,
       "y": 97,
@@ -679,7 +679,7 @@
     "tag": "div",
     "id": "",
     "class": "w-full h-fit pb-6 bg-unique-background md:h-fit",
-    "text": "Saisir le code de vérificationNous avons envoyé un code de vérification à superg",
+    "text": "Saisir le code de vérificationNous avons envoyé un code de vérification à shadow",
     "rect": {
       "x": 417,
       "y": 129,
@@ -744,7 +744,7 @@
     "tag": "div",
     "id": "",
     "class": "px-10 mt-2 size-full flex flex-col items-center",
-    "text": "Nous avons envoyé un code de vérification à superghost7329@techstreet07.eu.org. ",
+    "text": "Nous avons envoyé un code de vérification à shadowknight2740@iblogg.eu.org. Veui",
     "rect": {
       "x": 417,
       "y": 185,
@@ -757,7 +757,7 @@
     "tag": "p",
     "id": "",
     "class": "text-sm text-center text-white mb-9 select-none max-md:pl-5",
-    "text": "Nous avons envoyé un code de vérification à superghost7329@techstreet07.eu.org. ",
+    "text": "Nous avons envoyé un code de vérification à shadowknight2740@iblogg.eu.org. Veui",
     "rect": {
       "x": 457,
       "y": 185,
@@ -770,11 +770,11 @@
     "tag": "span",
     "id": "",
     "class": "font-semibold text-white",
-    "text": "superghost7329@techstreet07.eu.org",
+    "text": "shadowknight2740@iblogg.eu.org",
     "rect": {
-      "x": 480,
+      "x": 465,
       "y": 207,
-      "w": 258,
+      "w": 237,
       "h": 17
     },
     "childCount": 0
@@ -904,7 +904,7 @@
     "rect": {
       "x": 548,
       "y": 429,
-      "w": 182,
+      "w": 183,
       "h": 36
     },
     "childCount": 1
@@ -943,7 +943,7 @@
     "rect": {
       "x": 618,
       "y": 481,
-      "w": 102,
+      "w": 103,
       "h": 12
     },
     "childCount": 0

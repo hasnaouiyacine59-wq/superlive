@@ -142,7 +142,7 @@
   {
     "tag": "a",
     "id": "",
-    "class": "router-link-active router-link-exact-active relative px-4 py-2.5 md:px-0 md:py-1",
+    "class": "relative px-4 py-2.5 md:px-0 md:py-1 z-3 grid place-items-center cursor-pointer ",
     "text": "Messages",
     "href": "https://superlive.chat/fr/messages",
     "type": "",
@@ -189,14 +189,14 @@
     "name": "",
     "placeholder": "",
     "rect": {
-      "x": 1098.9000244140625,
+      "x": 1098.4666748046875,
       "y": 36,
       "width": 24,
       "height": 24,
       "top": 36,
-      "right": 1122.9000244140625,
+      "right": 1122.4666748046875,
       "bottom": 60,
-      "left": 1098.9000244140625
+      "left": 1098.4666748046875
     }
   },
   {
@@ -221,247 +221,27 @@
   },
   {
     "tag": "button",
-    "id": "reka-dropdown-menu-trigger-v-0-0-0",
-    "class": "relative flex items-center py-1 px-3 gap-1 border border-unique-label-100 bg-uni",
-    "text": "Centre de messages",
-    "href": "",
-    "type": "button",
-    "name": "",
-    "placeholder": "",
-    "rect": {
-      "x": 180.4499969482422,
-      "y": 120,
-      "width": 202.5500030517578,
-      "height": 30,
-      "top": 120,
-      "right": 383,
-      "bottom": 150,
-      "left": 180.4499969482422
-    }
-  },
-  {
-    "tag": "button",
     "id": "",
     "class": "flex items-center gap-2 transition-all duration-300 cursor-pointer rounded-full ",
-    "text": "Principal",
+    "text": "",
     "href": "",
     "type": "submit",
     "name": "",
     "placeholder": "",
     "rect": {
-      "x": 24,
-      "y": 178,
-      "width": 91.44999694824219,
-      "height": 36,
-      "top": 178,
-      "right": 115.44999694824219,
-      "bottom": 214,
-      "left": 24
-    }
-  },
-  {
-    "tag": "button",
-    "id": "",
-    "class": "flex items-center gap-2 transition-all duration-300 cursor-pointer rounded-full ",
-    "text": "Autre",
-    "href": "",
-    "type": "submit",
-    "name": "",
-    "placeholder": "",
-    "rect": {
-      "x": 123.44999694824219,
-      "y": 178,
-      "width": 69.30000305175781,
-      "height": 36,
-      "top": 178,
-      "right": 192.75,
-      "bottom": 214,
-      "left": 123.44999694824219
-    }
-  },
-  {
-    "tag": "div",
-    "id": "",
-    "class": "min-h-18 relative w-full overflow-hidden md:mb-0 last:mb-0 select-none cursor-po",
-    "text": "SuperLive officielBienvenue à bord !\nMerci de vous être inscrit à Superlive — nous avons ajouté des ",
-    "href": "",
-    "type": "",
-    "name": "",
-    "placeholder": "",
-    "rect": {
-      "x": 0,
-      "y": 230,
-      "width": 399,
-      "height": 82.5,
-      "top": 230,
-      "right": 399,
-      "bottom": 312.5,
-      "left": 0
-    }
-  },
-  {
-    "tag": "div",
-    "id": "",
-    "class": "flex items-center justify-center relative shrink-0 cursor-default",
-    "text": "",
-    "href": "",
-    "type": "",
-    "name": "",
-    "placeholder": "",
-    "rect": {
-      "x": 24,
-      "y": 247.25,
-      "width": 48,
-      "height": 48,
-      "top": 247.25,
-      "right": 72,
-      "bottom": 295.25,
-      "left": 24
-    }
-  },
-  {
-    "tag": "input",
-    "id": "",
-    "class": "",
-    "text": "",
-    "href": "",
-    "type": "file",
-    "name": "files",
-    "placeholder": "",
-    "rect": {
-      "x": 0,
-      "y": 0,
-      "width": 0,
-      "height": 0,
-      "top": 0,
-      "right": 0,
-      "bottom": 0,
-      "left": 0
-    }
-  },
-  {
-    "tag": "button",
-    "id": "",
-    "class": "left-[calc(100vw-74px)] rtl:left-auto rtl:right-[calc(100vw-74px)] bg-primary-40",
-    "text": "",
-    "href": "",
-    "type": "button",
-    "name": "",
-    "placeholder": "",
-    "rect": {
-      "x": 1206,
+      "x": 1190,
       "y": 555,
       "width": 64,
       "height": 64,
       "top": 555,
-      "right": 1270,
+      "right": 1254,
       "bottom": 619,
-      "left": 1206
-    }
-  },
-  {
-    "tag": "button",
-    "id": "",
-    "class": "flex items-center gap-2 transition-all duration-300 cursor-pointer rounded-full ",
-    "text": "",
-    "href": "",
-    "type": "submit",
-    "name": "",
-    "placeholder": "",
-    "rect": {
-      "x": 26,
-      "y": 555,
-      "width": 64,
-      "height": 64,
-      "top": 555,
-      "right": 90,
-      "bottom": 619,
-      "left": 26
+      "left": 1190
     }
   },
   {
     "tag": "textarea",
     "id": "g-recaptcha-response-100000",
-    "class": "g-recaptcha-response",
-    "text": "",
-    "href": "",
-    "type": "textarea",
-    "name": "g-recaptcha-response",
-    "placeholder": "",
-    "rect": {
-      "x": 0,
-      "y": 0,
-      "width": 0,
-      "height": 0,
-      "top": 0,
-      "right": 0,
-      "bottom": 0,
-      "left": 0
-    }
-  },
-  {
-    "tag": "button",
-    "id": "",
-    "class": "flex items-center gap-2 transition-all duration-300 cursor-pointer rounded-full ",
-    "text": "Homme",
-    "href": "",
-    "type": "submit",
-    "name": "",
-    "placeholder": "",
-    "rect": {
-      "x": 465,
-      "y": 283.79998779296875,
-      "width": 169,
-      "height": 144,
-      "top": 283.79998779296875,
-      "right": 634,
-      "bottom": 427.79998779296875,
-      "left": 465
-    }
-  },
-  {
-    "tag": "button",
-    "id": "",
-    "class": "flex items-center gap-2 transition-all duration-300 cursor-pointer rounded-full ",
-    "text": "Femme",
-    "href": "",
-    "type": "submit",
-    "name": "",
-    "placeholder": "",
-    "rect": {
-      "x": 646,
-      "y": 283.79998779296875,
-      "width": 169,
-      "height": 144,
-      "top": 283.79998779296875,
-      "right": 815,
-      "bottom": 427.79998779296875,
-      "left": 646
-    }
-  },
-  {
-    "tag": "button",
-    "id": "",
-    "class": "flex items-center gap-2 transition-all duration-300 cursor-pointer rounded-full ",
-    "text": "Confirmer",
-    "href": "",
-    "type": "submit",
-    "name": "",
-    "placeholder": "",
-    "rect": {
-      "x": 496,
-      "y": 439.20001220703125,
-      "width": 288,
-      "height": 56,
-      "top": 439.20001220703125,
-      "right": 784,
-      "bottom": 495.20001220703125,
-      "left": 496
-    }
-  },
-  {
-    "tag": "textarea",
-    "id": "g-recaptcha-response",
     "class": "g-recaptcha-response",
     "text": "",
     "href": "",

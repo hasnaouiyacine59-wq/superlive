@@ -1,6 +1,7 @@
 import json
 import os
 import random
+import shutil
 import sys
 import time
 from pathlib import Path
@@ -16,6 +17,8 @@ from camoufox.utils import launch_options
 from super_email import get_2fa
 
 result_dir = Path("results")
+if result_dir.exists():
+    shutil.rmtree(result_dir)
 result_dir.mkdir(parents=True, exist_ok=True)
 
 DOMAINS = [

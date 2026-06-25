@@ -189,14 +189,14 @@
     "name": "",
     "placeholder": "",
     "rect": {
-      "x": 1098.9000244140625,
+      "x": 1098.816650390625,
       "y": 36,
       "width": 24,
       "height": 24,
       "top": 36,
-      "right": 1122.9000244140625,
+      "right": 1122.816650390625,
       "bottom": 60,
-      "left": 1098.9000244140625
+      "left": 1098.816650390625
     }
   },
   {
@@ -229,14 +229,14 @@
     "name": "",
     "placeholder": "",
     "rect": {
-      "x": 180.4499969482422,
+      "x": 179.06666564941406,
       "y": 120,
-      "width": 202.5500030517578,
+      "width": 203.93333435058594,
       "height": 30,
       "top": 120,
       "right": 383,
       "bottom": 150,
-      "left": 180.4499969482422
+      "left": 179.06666564941406
     }
   },
   {
@@ -251,10 +251,10 @@
     "rect": {
       "x": 24,
       "y": 178,
-      "width": 91.44999694824219,
+      "width": 92.18333435058594,
       "height": 36,
       "top": 178,
-      "right": 115.44999694824219,
+      "right": 116.18333435058594,
       "bottom": 214,
       "left": 24
     }
@@ -269,14 +269,14 @@
     "name": "",
     "placeholder": "",
     "rect": {
-      "x": 123.44999694824219,
+      "x": 124.18333435058594,
       "y": 178,
-      "width": 69.30000305175781,
+      "width": 69.69999694824219,
       "height": 36,
       "top": 178,
-      "right": 192.75,
+      "right": 193.88333129882812,
       "bottom": 214,
-      "left": 123.44999694824219
+      "left": 124.18333435058594
     }
   },
   {
@@ -382,86 +382,6 @@
   {
     "tag": "textarea",
     "id": "g-recaptcha-response-100000",
-    "class": "g-recaptcha-response",
-    "text": "",
-    "href": "",
-    "type": "textarea",
-    "name": "g-recaptcha-response",
-    "placeholder": "",
-    "rect": {
-      "x": 0,
-      "y": 0,
-      "width": 0,
-      "height": 0,
-      "top": 0,
-      "right": 0,
-      "bottom": 0,
-      "left": 0
-    }
-  },
-  {
-    "tag": "button",
-    "id": "",
-    "class": "flex items-center gap-2 transition-all duration-300 cursor-pointer rounded-full ",
-    "text": "Homme",
-    "href": "",
-    "type": "submit",
-    "name": "",
-    "placeholder": "",
-    "rect": {
-      "x": 465,
-      "y": 283.79998779296875,
-      "width": 169,
-      "height": 144,
-      "top": 283.79998779296875,
-      "right": 634,
-      "bottom": 427.79998779296875,
-      "left": 465
-    }
-  },
-  {
-    "tag": "button",
-    "id": "",
-    "class": "flex items-center gap-2 transition-all duration-300 cursor-pointer rounded-full ",
-    "text": "Femme",
-    "href": "",
-    "type": "submit",
-    "name": "",
-    "placeholder": "",
-    "rect": {
-      "x": 646,
-      "y": 283.79998779296875,
-      "width": 169,
-      "height": 144,
-      "top": 283.79998779296875,
-      "right": 815,
-      "bottom": 427.79998779296875,
-      "left": 646
-    }
-  },
-  {
-    "tag": "button",
-    "id": "",
-    "class": "flex items-center gap-2 transition-all duration-300 cursor-pointer rounded-full ",
-    "text": "Confirmer",
-    "href": "",
-    "type": "submit",
-    "name": "",
-    "placeholder": "",
-    "rect": {
-      "x": 496,
-      "y": 439.20001220703125,
-      "width": 288,
-      "height": 56,
-      "top": 439.20001220703125,
-      "right": 784,
-      "bottom": 495.20001220703125,
-      "left": 496
-    }
-  },
-  {
-    "tag": "textarea",
-    "id": "g-recaptcha-response",
     "class": "g-recaptcha-response",
     "text": "",
     "href": "",

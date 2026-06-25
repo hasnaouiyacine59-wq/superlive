@@ -395,9 +395,9 @@
     "class": "flex items-center gap-2 transition-all duration-300 cursor-pointer rounded-full border border-[var(--color-surface-500)] text-white bg-none text-sm font-semibold h-9 px-4 max-w-37 disabled:opacity-50 disabled:cursor-not-allowed hover:opacity-70 min-w-24 px-5 shrink-0",
     "text": "Se connecter",
     "rect": {
-      "x": 1003,
+      "x": 1001,
       "y": 32,
-      "w": 131,
+      "w": 132,
       "h": 36
     },
     "childCount": 1
@@ -408,9 +408,9 @@
     "class": "truncate",
     "text": "Se connecter",
     "rect": {
-      "x": 1024,
+      "x": 1022,
       "y": 40,
-      "w": 89,
+      "w": 90,
       "h": 20
     },
     "childCount": 0
@@ -421,9 +421,9 @@
     "class": "flex items-center gap-2 transition-all duration-300 cursor-pointer rounded-full bg-linear-to-br from-primary-600 via-primary-400 to-primary-300 text-white text-sm font-semibold h-9 px-4 max-w-37 disabled:!bg-none disabled:!bg-[var(--color-disabled-button)] disabled:cursor-not-allowed disabled:text-[var(--color-surface-500)] hover:opacity-70 border-primary-400 border-[0.5px] min-w-24 px-5 shrink-0",
     "text": "S'inscrire",
     "rect": {
-      "x": 1143,
+      "x": 1142,
       "y": 32,
-      "w": 106,
+      "w": 107,
       "h": 36
     },
     "childCount": 1
@@ -512,9 +512,9 @@
     "class": "font-bold text-white text-center text-lg mt-8 select-none",
     "text": "Vous devez être connecté pour voir vos messages.",
     "rect": {
-      "x": 416,
+      "x": 414,
       "y": 488,
-      "w": 447,
+      "w": 451,
       "h": 28
     },
     "childCount": 0
@@ -833,7 +833,7 @@
   },
   {
     "tag": "div",
-    "id": "gsi_786755_805285-wrapper",
+    "id": "gsi_618045_425347-wrapper",
     "class": "L5Fo6c-sM5MNb",
     "text": "",
     "rect": {
@@ -846,7 +846,7 @@
   },
   {
     "tag": "iframe",
-    "id": "gsi_786755_805285",
+    "id": "gsi_618045_425347",
     "class": "L5Fo6c-PQbLGe",
     "text": "",
     "rect": {
@@ -859,7 +859,7 @@
   },
   {
     "tag": "div",
-    "id": "gsi_786755_805285-overlay",
+    "id": "gsi_618045_425347-overlay",
     "class": "L5Fo6c-bF1uUb",
     "text": "",
     "rect": {
@@ -902,9 +902,9 @@
     "class": "",
     "text": "J'accepte par la présente les Termes et Conditions et la Politique de confidenti",
     "rect": {
-      "x": 477,
+      "x": 474,
       "y": 582,
-      "w": 325,
+      "w": 330,
       "h": 24
     },
     "childCount": 2
@@ -917,7 +917,7 @@
     "rect": {
       "x": 618,
       "y": 582,
-      "w": 102,
+      "w": 103,
       "h": 12
     },
     "childCount": 0

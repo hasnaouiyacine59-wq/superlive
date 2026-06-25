@@ -142,7 +142,7 @@
   {
     "tag": "a",
     "id": "",
-    "class": "router-link-active router-link-exact-active relative px-4 py-2.5 md:px-0 md:py-1",
+    "class": "relative px-4 py-2.5 md:px-0 md:py-1 z-3 grid place-items-center cursor-pointer ",
     "text": "Messages",
     "href": "https://superlive.chat/fr/messages",
     "type": "",
@@ -189,14 +189,14 @@
     "name": "",
     "placeholder": "",
     "rect": {
-      "x": 1098.9000244140625,
+      "x": 1098.816650390625,
       "y": 36,
       "width": 24,
       "height": 24,
       "top": 36,
-      "right": 1122.9000244140625,
+      "right": 1122.816650390625,
       "bottom": 60,
-      "left": 1098.9000244140625
+      "left": 1098.816650390625
     }
   },
   {
@@ -221,142 +221,262 @@
   },
   {
     "tag": "button",
-    "id": "reka-dropdown-menu-trigger-v-0-0-0",
-    "class": "relative flex items-center py-1 px-3 gap-1 border border-unique-label-100 bg-uni",
-    "text": "Centre de messages",
+    "id": "",
+    "class": "flex items-center gap-2 transition-all duration-300 cursor-pointer rounded-full ",
+    "text": "",
+    "href": "",
+    "type": "submit",
+    "name": "",
+    "placeholder": "",
+    "rect": {
+      "x": 174,
+      "y": 135,
+      "width": 38,
+      "height": 38,
+      "top": 135,
+      "right": 212,
+      "bottom": 173,
+      "left": 174
+    }
+  },
+  {
+    "tag": "button",
+    "id": "",
+    "class": "flex items-center gap-2 transition-all duration-300 cursor-pointer rounded-none ",
+    "text": "ID: 43055103",
+    "href": "",
+    "type": "submit",
+    "name": "",
+    "placeholder": "",
+    "rect": {
+      "x": 992.9666748046875,
+      "y": 142,
+      "width": 65.03334045410156,
+      "height": 24,
+      "top": 142,
+      "right": 1058.000015258789,
+      "bottom": 166,
+      "left": 992.9666748046875
+    }
+  },
+  {
+    "tag": "button",
+    "id": "reka-dropdown-menu-trigger-v-0-0-1",
+    "class": "flex items-center",
+    "text": "",
     "href": "",
     "type": "button",
     "name": "",
     "placeholder": "",
     "rect": {
-      "x": 180.4499969482422,
-      "y": 120,
-      "width": 202.5500030517578,
-      "height": 30,
-      "top": 120,
-      "right": 383,
-      "bottom": 150,
-      "left": 180.4499969482422
+      "x": 1083.800048828125,
+      "y": 144,
+      "width": 22.199996948242188,
+      "height": 20,
+      "top": 144,
+      "right": 1106.0000457763672,
+      "bottom": 164,
+      "left": 1083.800048828125
     }
   },
   {
-    "tag": "button",
-    "id": "",
-    "class": "flex items-center gap-2 transition-all duration-300 cursor-pointer rounded-full ",
-    "text": "Principal",
-    "href": "",
-    "type": "submit",
-    "name": "",
-    "placeholder": "",
-    "rect": {
-      "x": 24,
-      "y": 178,
-      "width": 91.44999694824219,
-      "height": 36,
-      "top": 178,
-      "right": 115.44999694824219,
-      "bottom": 214,
-      "left": 24
-    }
-  },
-  {
-    "tag": "button",
-    "id": "",
-    "class": "flex items-center gap-2 transition-all duration-300 cursor-pointer rounded-full ",
-    "text": "Autre",
-    "href": "",
-    "type": "submit",
-    "name": "",
-    "placeholder": "",
-    "rect": {
-      "x": 123.44999694824219,
-      "y": 178,
-      "width": 69.30000305175781,
-      "height": 36,
-      "top": 178,
-      "right": 192.75,
-      "bottom": 214,
-      "left": 123.44999694824219
-    }
-  },
-  {
-    "tag": "div",
-    "id": "",
-    "class": "min-h-18 relative w-full overflow-hidden md:mb-0 last:mb-0 select-none cursor-po",
-    "text": "SuperLive officielBienvenue à bord !\nMerci de vous être inscrit à Superlive — nous avons ajouté des ",
-    "href": "",
-    "type": "",
-    "name": "",
-    "placeholder": "",
-    "rect": {
-      "x": 0,
-      "y": 230,
-      "width": 399,
-      "height": 82.5,
-      "top": 230,
-      "right": 399,
-      "bottom": 312.5,
-      "left": 0
-    }
-  },
-  {
-    "tag": "div",
-    "id": "",
-    "class": "flex items-center justify-center relative shrink-0 cursor-default",
-    "text": "",
-    "href": "",
-    "type": "",
-    "name": "",
-    "placeholder": "",
-    "rect": {
-      "x": 24,
-      "y": 247.25,
-      "width": 48,
-      "height": 48,
-      "top": 247.25,
-      "right": 72,
-      "bottom": 295.25,
-      "left": 24
-    }
-  },
-  {
-    "tag": "input",
+    "tag": "a",
     "id": "",
     "class": "",
-    "text": "",
-    "href": "",
-    "type": "file",
-    "name": "files",
+    "text": "DIRECT",
+    "href": "https://superlive.chat/fr/livestream/144393903",
+    "type": "",
+    "name": "",
     "placeholder": "",
     "rect": {
-      "x": 0,
-      "y": 0,
-      "width": 0,
-      "height": 0,
-      "top": 0,
-      "right": 0,
-      "bottom": 0,
-      "left": 0
+      "x": 300.683349609375,
+      "y": 350,
+      "width": 49.31666564941406,
+      "height": 10,
+      "top": 350,
+      "right": 350.00001525878906,
+      "bottom": 360,
+      "left": 300.683349609375
+    }
+  },
+  {
+    "tag": "div",
+    "id": "",
+    "class": "flex items-center gap-1 md:gap-2 min-w-0 flex-1",
+    "text": "2💜иєα💜",
+    "href": "",
+    "type": "",
+    "name": "",
+    "placeholder": "",
+    "rect": {
+      "x": 473.33331298828125,
+      "y": 180,
+      "width": 569.3333740234375,
+      "height": 24,
+      "top": 180,
+      "right": 1042.6666870117188,
+      "bottom": 204,
+      "left": 473.33331298828125
     }
   },
   {
     "tag": "button",
     "id": "",
-    "class": "left-[calc(100vw-74px)] rtl:left-auto rtl:right-[calc(100vw-74px)] bg-primary-40",
-    "text": "",
+    "class": "flex items-center gap-2 transition-all duration-300 cursor-pointer rounded-full ",
+    "text": "Les fans",
     "href": "",
-    "type": "button",
+    "type": "submit",
     "name": "",
     "placeholder": "",
     "rect": {
-      "x": 1206,
-      "y": 555,
-      "width": 64,
-      "height": 64,
-      "top": 555,
-      "right": 1270,
-      "bottom": 619,
-      "left": 1206
+      "x": 473.33331298828125,
+      "y": 246,
+      "width": 96,
+      "height": 26,
+      "top": 246,
+      "right": 569.3333129882812,
+      "bottom": 272,
+      "left": 473.33331298828125
+    }
+  },
+  {
+    "tag": "button",
+    "id": "",
+    "class": "flex items-center gap-2 transition-all duration-300 cursor-pointer rounded-full ",
+    "text": "207Followers",
+    "href": "",
+    "type": "submit",
+    "name": "",
+    "placeholder": "",
+    "rect": {
+      "x": 473.33331298828125,
+      "y": 280,
+      "width": 65.86666870117188,
+      "height": 52,
+      "top": 280,
+      "right": 539.1999816894531,
+      "bottom": 332,
+      "left": 473.33331298828125
+    }
+  },
+  {
+    "tag": "button",
+    "id": "",
+    "class": "flex items-center gap-2 transition-all duration-300 cursor-pointer rounded-full ",
+    "text": "0Suivis",
+    "href": "",
+    "type": "submit",
+    "name": "",
+    "placeholder": "",
+    "rect": {
+      "x": 579.2000122070312,
+      "y": 280,
+      "width": 41.5,
+      "height": 52,
+      "top": 280,
+      "right": 620.7000122070312,
+      "bottom": 332,
+      "left": 579.2000122070312
+    }
+  },
+  {
+    "tag": "button",
+    "id": "",
+    "class": "flex items-center gap-2 transition-all duration-300 cursor-pointer rounded-full ",
+    "text": "Suivre",
+    "href": "",
+    "type": "submit",
+    "name": "",
+    "placeholder": "",
+    "rect": {
+      "x": 473.33331298828125,
+      "y": 360,
+      "width": 160,
+      "height": 48,
+      "top": 360,
+      "right": 633.3333129882812,
+      "bottom": 408,
+      "left": 473.33331298828125
+    }
+  },
+  {
+    "tag": "button",
+    "id": "",
+    "class": "flex items-center gap-2 transition-all duration-300 cursor-pointer rounded-full ",
+    "text": "Message",
+    "href": "",
+    "type": "submit",
+    "name": "",
+    "placeholder": "",
+    "rect": {
+      "x": 657.3333129882812,
+      "y": 360,
+      "width": 160,
+      "height": 48,
+      "top": 360,
+      "right": 817.3333129882812,
+      "bottom": 408,
+      "left": 657.3333129882812
+    }
+  },
+  {
+    "tag": "button",
+    "id": "",
+    "class": "flex items-center gap-2 transition-all duration-300 cursor-pointer rounded-full ",
+    "text": "APPELS PRIVES",
+    "href": "",
+    "type": "submit",
+    "name": "",
+    "placeholder": "",
+    "rect": {
+      "x": 841.3333129882812,
+      "y": 360,
+      "width": 191.63333129882812,
+      "height": 48,
+      "top": 360,
+      "right": 1032.9666442871094,
+      "bottom": 408,
+      "left": 841.3333129882812
+    }
+  },
+  {
+    "tag": "a",
+    "id": "",
+    "class": "aspect-3/4 relative fade-in-item cursor-pointer",
+    "text": "",
+    "href": "https://superlive.chat/fr/post-detail?postId=1953602&ownerId=49194780",
+    "type": "",
+    "name": "",
+    "placeholder": "",
+    "rect": {
+      "x": 160,
+      "y": 464,
+      "width": 318.66668701171875,
+      "height": 424.8833312988281,
+      "top": 464,
+      "right": 478.66668701171875,
+      "bottom": 888.8833312988281,
+      "left": 160
+    }
+  },
+  {
+    "tag": "a",
+    "id": "",
+    "class": "aspect-3/4 relative fade-in-item cursor-pointer",
+    "text": "",
+    "href": "https://superlive.chat/fr/post-detail?postId=1950204&ownerId=49194780",
+    "type": "",
+    "name": "",
+    "placeholder": "",
+    "rect": {
+      "x": 480.66668701171875,
+      "y": 464,
+      "width": 318.6666564941406,
+      "height": 424.8833312988281,
+      "top": 464,
+      "right": 799.3333435058594,
+      "bottom": 888.8833312988281,
+      "left": 480.66668701171875
     }
   },
   {
@@ -369,14 +489,14 @@
     "name": "",
     "placeholder": "",
     "rect": {
-      "x": 26,
+      "x": 1190,
       "y": 555,
       "width": 64,
       "height": 64,
       "top": 555,
-      "right": 90,
+      "right": 1254,
       "bottom": 619,
-      "left": 26
+      "left": 1190
     }
   },
   {
