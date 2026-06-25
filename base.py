@@ -949,10 +949,24 @@ def solve_captcha(page):
             if after_screen == "otp":
                 print(f"  [*] OTP screen detected after captcha — filling OTP")
                 global email
-                fill_otp(page, email)
-                page.wait_for_timeout(3000)
-                after_screen = identify_screen(page)
-                print(f"  [*] Screen after OTP: {after_screen}")
+                for otp_attempt in range(3):
+                    fill_otp(page, email)
+                    page.wait_for_timeout(3000)
+                    after_screen = identify_screen(page)
+                    print(f"  [*] Screen after OTP (attempt {otp_attempt+1}): {after_screen}")
+                    if after_screen != "otp":
+                        break
+                    print(f"  [*] OTP screen still present — checking for captcha")
+                    if wait_for_captcha(page):
+                        print(f"  [*] Captcha blocking OTP — solving")
+                        solve_captcha(page)
+                        page.wait_for_timeout(3000)
+                        after_screen = identify_screen(page)
+                        print(f"  [*] Screen after captcha re-solve: {after_screen}")
+                        if after_screen != "otp":
+                            break
+                    else:
+                        print(f"  [*] No captcha found — retrying OTP fill")
             if after_screen == "loading":
                 print(f"  [*] Loading screen after OTP — sleeping 3s and dumping")
                 time.sleep(3)
