@@ -1164,15 +1164,6 @@ with Camoufox(from_options=opts) as browser:
     ip = page.text_content("body")
     print(f"  [*] Browser IP: {ip.strip() if ip else 'unknown'}")
 
-    if use_proxy and not static_proxies:
-        print(f"\n  [+] Resetting Tor circuit...")
-    ret = os.system(f"curl -s http://{API_HOST}:{API_PORT}/reset-ip")
-        if ret == 0:
-            print(f"  [*] Tor circuit reset")
-            time.sleep(5)
-        else:
-            print(f"  [!] Tor reset failed (exit {ret})")
-
     print(f"\n  [+] Navigating to https://superlive.chat/fr/nonlogin-messages")
     page.goto("https://superlive.chat/fr/nonlogin-messages", wait_until="domcontentloaded", timeout=120000)
     page.wait_for_timeout(4000)
