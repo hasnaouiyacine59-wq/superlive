@@ -99,11 +99,18 @@ if selected_proxy:
     }
 elif use_proxy:
     proxy_opts = {"proxy": {"server": PROXY_SOCKS}}
+headless_env = os.environ.get("HEADLESS", "false").lower()
+if headless_env == "virtual":
+    headless_mode = "virtual"
+elif headless_env in ("true", "1"):
+    headless_mode = True
+else:
+    headless_mode = False
 opts = launch_options(
     geoip=True, humanize=0.3, block_webrtc=True,
     block_images=False, disable_coop=True,
     main_world_eval=True, window=(1280, 720), debug=True,
-    headless=False,
+    headless=headless_mode,
     firefox_user_prefs=firefox_user_prefs,
     **proxy_opts,
 )

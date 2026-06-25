@@ -1,7 +1,6 @@
 FROM python:3.12-slim
 
 RUN apt-get update && apt-get install -y \
-    xvfb \
     curl \
     ffmpeg \
     libgl1 \
@@ -36,4 +35,5 @@ COPY src/ ./src/
 RUN mkdir -p results
 
 ENV PYTHONUNBUFFERED=1
-CMD ["xvfb-run", "python", "base.py", "-p"]
+ENV HEADLESS=virtual
+CMD ["python", "base.py", "-p"]
