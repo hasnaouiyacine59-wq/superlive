@@ -1,0 +1,6 @@
+camoufox
+numpy
+opencv-python
+pydub
+requests
+SpeechRecognition
