@@ -1,0 +1,17 @@
+[
+  {
+    "id": "",
+    "name": "",
+    "action": "https://superlive.chat/fr/nonlogin-messages",
+    "method": "get",
+    "inputs": [
+      {
+        "type": "email",
+        "name": "email",
+        "id": "otp-email",
+        "placeholder": "example@example.com",
+        "required": false
+      }
+    ]
+  }
+]

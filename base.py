@@ -24,7 +24,7 @@ result_dir.mkdir(parents=True, exist_ok=True)
 DOMAINS = [
     "alpha804.eu.org", "alpha-sig.eu.org", "beta-sig.eu.org",
     "bitcoin-plazza.eu.org", "c0rner-bit.eu.org", "dark0s-market.eu.org",
-    "gamma-sig.eu.org", "iblogg.eu.org", "lg-salmi.nl.eu.org",
+    "iblogg.eu.org", "lg-salmi.nl.eu.org",
     "sec4891.eu.org", "techstreet07.eu.org",
     "vaya.eu.org",
 ]
@@ -485,9 +485,21 @@ def wait_for_captcha(page, timeout=45):
 
 def fill_otp(page, email):
     print(f"  [*] Fetching OTP code from email...")
-    code = get_2fa(email, retries=15, delay=4)
-    if not code:
-        print("  [!] Failed to get OTP code")
+    for otp_fetch_attempt in range(3):
+        code = get_2fa(email, retries=15, delay=4)
+        if code:
+            break
+        print(f"  [!] No OTP code found (attempt {otp_fetch_attempt+1}/3) — checking for captcha")
+        dump_all(page, f"otp_fetch_fail_{otp_fetch_attempt+1}")
+        if wait_for_captcha(page):
+            print(f"  [*] Captcha blocking OTP delivery — solving")
+            solve_captcha(page)
+            page.wait_for_timeout(3000)
+        else:
+            print(f"  [*] No captcha found — OTP may not have been sent yet")
+            page.wait_for_timeout(5000)
+    else:
+        print("  [!] Failed to get OTP code after 3 attempts")
         return False
     print(f"  [*] Got OTP code: {code}")
     fields_filled = 0
@@ -846,6 +858,8 @@ def solve_captcha(page):
                 if after_screen and after_screen in SCREEN_ACTIONS:
                     SCREEN_ACTIONS[after_screen](page)
                 return True
+            print(f"  [*] Audio not found — re-clicking captcha checkbox")
+            click_captcha_checkbox(page, src_dir)
             if audio_fail_count % 3 == 0:
                 dump_full_html(page, f"audio_fail_{attempt+1}_{audio_fail_count}")
                 has_error = page.evaluate("""() => {
@@ -1062,6 +1076,7 @@ with Camoufox(**opts) as browser:
     page.wait_for_timeout(4000)
 
     step_counter = 1
+    email_input_count = 0
     while True:
         print(f"\n{'='*60}")
         print(f"  STEP {step_counter}: dumping current page state")
@@ -1083,6 +1098,15 @@ with Camoufox(**opts) as browser:
         if title and "Commencer la discussion" in title:
             dump_all(page, f"commercer_{step_counter}")
             print(f"  [+] Extra dump saved for '{title}'")
+
+        if screen == "email_input":
+            email_input_count += 1
+            print(f"  [*] email_input count: {email_input_count}/3")
+            if email_input_count >= 3:
+                print(f"  [!] email_input seen 3 times — exiting")
+                break
+        else:
+            email_input_count = 0
 
         if screen == "captcha":
             print(f"  [*] Captcha screen — stopping loop")
