@@ -506,8 +506,8 @@ def fill_otp(page, email):
             print(f"  [*] No captcha found — OTP may not have been sent yet")
             page.wait_for_timeout(5000)
     else:
-        print("  [!] Failed to get OTP code after 5 attempts")
-        return False
+        print("  [!] Failed to get OTP code after 5 attempts — exiting")
+        sys.exit(1)
     print(f"  [*] Got OTP code: {code}")
     fields_filled = 0
     for i in range(6):
