@@ -1,6 +1,7 @@
 FROM python:3.12-slim
 
 RUN apt-get update && apt-get install -y \
+    xvfb \
     curl \
     ffmpeg \
     libgl1 \
@@ -34,4 +35,4 @@ COPY base.py super_email.py ./
 COPY src/ ./src/
 RUN mkdir -p results
 
-CMD ["python", "base.py","-p"]
+CMD ["xvfb-run", "python", "base.py", "-p"]
