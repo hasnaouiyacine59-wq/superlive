@@ -1,7 +1,6 @@
 FROM python:3.12-slim
 
 RUN apt-get update && apt-get install -y \
-    xvfb \
     curl \
     ffmpeg \
     libgl1 \
@@ -34,6 +33,8 @@ RUN pip install --no-cache-dir -r requirements.txt
 COPY base.py super_email.py ./
 COPY src/ ./src/
 RUN mkdir -p results
+
+RUN python -c "from camoufox.pkgman import camoufox_path; camoufox_path()"
 
 ENV PYTHONUNBUFFERED=1
 ENV HEADLESS=true
