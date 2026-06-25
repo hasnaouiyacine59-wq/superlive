@@ -1066,8 +1066,14 @@ with Camoufox(**opts) as browser:
             print(f"STEP {step_counter} [unknown — press Enter to retry]")
             time.sleep(8)
 
-        if screen in ("stream", "profile"):
-            print(f"  [+] {screen} reached — exiting main loop")
+        if screen == "profile":
+            print(f"  [+] Profile action done — waiting for next screen")
+            page.wait_for_timeout(3000)
+            step_counter += 1
+            continue
+
+        if screen == "stream":
+            print(f"  [+] Stream reached — exiting main loop")
             step_counter += 1
             dump_all(page, f"step{step_counter}")
             break
