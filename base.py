@@ -835,6 +835,17 @@ def solve_captcha(page):
                 print(f"  [*] Audio challenge triggered via audio.png")
                 break
             audio_fail_count += 1
+            still_captcha = page.evaluate("""() => {
+                return !!document.querySelector('iframe[src*="recaptcha/enterprise/bframe"], iframe[src*="recaptcha/api2/bframe"]');
+            }""")
+            if not still_captcha:
+                print(f"  [*] Captcha gone while looking for audio — dumping and identifying screen")
+                dump_all(page, f"captcha_gone_audio_not_found")
+                after_screen = identify_screen(page)
+                print(f"  [*] Screen: {after_screen}")
+                if after_screen and after_screen in SCREEN_ACTIONS:
+                    SCREEN_ACTIONS[after_screen](page)
+                return True
             if audio_fail_count % 3 == 0:
                 dump_full_html(page, f"audio_fail_{attempt+1}_{audio_fail_count}")
                 has_error = page.evaluate("""() => {
@@ -951,10 +962,20 @@ def solve_captcha(page):
             if after_screen in ("stream", "profile"):
                 print(f"  [*] Already on {after_screen} after OTP — skipping gender/confirmer flow")
                 return True
-            time.sleep(8)
-            still_captcha = page.evaluate("""() => {
-                return !!document.querySelector('iframe[src*="recaptcha/enterprise/bframe"], iframe[src*="recaptcha/api2/bframe"]');
-            }""")
+            recheck_start = time.time()
+            recheck_captcha = False
+            while time.time() - recheck_start < 12:
+                page.wait_for_timeout(1000)
+                still_captcha = page.evaluate("""() => {
+                    return !!document.querySelector('iframe[src*="recaptcha/enterprise/bframe"], iframe[src*="recaptcha/api2/bframe"]');
+                }""")
+                if still_captcha:
+                    print(f"  [*] Second captcha detected — solving again")
+                    solve_captcha(page)
+                    recheck_captcha = True
+                    break
+            if recheck_captcha:
+                return True
             if not still_captcha:
                 homme_path = os.path.join(src_dir, "homme.png")
                 if os.path.exists(homme_path) and click_image_match(page, homme_path, "homme", threshold=0.7):
@@ -1080,4 +1101,7 @@ with Camoufox(**opts) as browser:
 
         step_counter += 1
 
-    print(f"\n  [+] Press Enter to close...")
+    print(f"\n  [+] Cleaning up results...")
+    shutil.rmtree(result_dir)
+    print(f"  [+] Results directory removed")
+    input(f"\n  [+] Press Enter to close...")

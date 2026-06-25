@@ -1,0 +1,184 @@
+[
+  {
+    "tag": "html",
+    "id": "",
+    "class": "",
+    "text": "SuperLive – Fais de nouvelles rencontres et regarde des diffusions en directwind",
+    "rect": {
+      "x": 0,
+      "y": 0,
+      "w": 1280,
+      "h": 659
+    },
+    "childCount": 2
+  },
+  {
+    "tag": "body",
+    "id": "",
+    "class": "",
+    "text": "<iframe src=\"https://www.googletagmanager.com/ns.html?id=GTM-MM6RSXFG\" height=\"0",
+    "rect": {
+      "x": 0,
+      "y": 0,
+      "w": 1280,
+      "h": 659
+    },
+    "childCount": 7
+  },
+  {
+    "tag": "div",
+    "id": "__nuxt",
+    "class": "",
+    "text": "",
+    "rect": {
+      "x": 0,
+      "y": 0,
+      "w": 1280,
+      "h": 659
+    },
+    "childCount": 3
+  },
+  {
+    "tag": "main",
+    "id": "default-layout",
+    "class": "flex flex-col h-svh",
+    "text": "",
+    "rect": {
+      "x": 0,
+      "y": 0,
+      "w": 1280,
+      "h": 659
+    },
+    "childCount": 1
+  },
+  {
+    "tag": "div",
+    "id": "",
+    "class": "size-full md:mx-auto flex-1 overflow-hidden",
+    "text": "",
+    "rect": {
+      "x": 0,
+      "y": 0,
+      "w": 1280,
+      "h": 659
+    },
+    "childCount": 1
+  },
+  {
+    "tag": "div",
+    "id": "",
+    "class": "page",
+    "text": "",
+    "rect": {
+      "x": 0,
+      "y": 0,
+      "w": 1280,
+      "h": 659
+    },
+    "childCount": 1
+  },
+  {
+    "tag": "button",
+    "id": "",
+    "class": "flex items-center gap-2 transition-all duration-300 cursor-pointer rounded-full bg-linear-to-br from-primary-600 via-primary-400 to-primary-300 text-white text-sm font-semibold size-8 aspect-auto px-0 justify-center max-w-none shrink-0 disabled:!bg-none disabled:!bg-[var(--color-disabled-button)] disabled:cursor-not-allowed disabled:text-[var(--color-surface-500)] hover:opacity-70 text-xl fixed left-2.5 top-3.5 md:top-5 md:left-5 bg-none! rtl:origin-center rtl:rotate-180 md:bg-alpha-shadow-tone-40 md:size-14! z-100",
+    "text": "",
+    "rect": {
+      "x": 20,
+      "y": 20,
+      "w": 56,
+      "h": 56
+    },
+    "childCount": 1
+  },
+  {
+    "tag": "div",
+    "id": "",
+    "class": "relative justify-center inline-flex w-full items-center px-0",
+    "text": "",
+    "rect": {
+      "x": 20,
+      "y": 33,
+      "w": 56,
+      "h": 30
+    },
+    "childCount": 1
+  },
+  {
+    "tag": "svg",
+    "id": "",
+    "class": {},
+    "text": "",
+    "rect": {
+      "x": 33,
+      "y": 33,
+      "w": 30,
+      "h": 30
+    },
+    "childCount": 2
+  },
+  {
+    "tag": "g",
+    "id": "",
+    "class": {},
+    "text": "",
+    "rect": {
+      "x": 40,
+      "y": 40,
+      "w": 17,
+      "h": 15
+    },
+    "childCount": 1
+  },
+  {
+    "tag": "path",
+    "id": "",
+    "class": {},
+    "text": "",
+    "rect": {
+      "x": 40,
+      "y": 40,
+      "w": 17,
+      "h": 15
+    },
+    "childCount": 0
+  },
+  {
+    "tag": "div",
+    "id": "",
+    "class": "grecaptcha-badge",
+    "text": "",
+    "rect": {
+      "x": 1210,
+      "y": 585,
+      "w": 256,
+      "h": 60
+    },
+    "childCount": 3
+  },
+  {
+    "tag": "div",
+    "id": "",
+    "class": "grecaptcha-logo",
+    "text": "",
+    "rect": {
+      "x": 1210,
+      "y": 585,
+      "w": 256,
+      "h": 60
+    },
+    "childCount": 1
+  },
+  {
+    "tag": "iframe",
+    "id": "",
+    "class": "",
+    "text": "",
+    "rect": {
+      "x": 1210,
+      "y": 585,
+      "w": 256,
+      "h": 60
+    },
+    "childCount": 0
+  }
+]

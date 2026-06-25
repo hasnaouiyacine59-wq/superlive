@@ -1,0 +1,38 @@
+[
+  {
+    "src": "https://www.google.com/recaptcha/enterprise/anchor?ar=1&k=6Ld9_e8sAAAAAIPwD7J3mrBiQno-h86lHiFfQ_Nk&co=aHR0cHM6Ly9zdXBlcmxpdmUuY2hhdDo0NDM.&hl=ar&v=MerVUtRoajKEbP7pLiGXkL28&size=invisible&anchor-ms=200",
+    "id": "",
+    "name": "a-3h2ip0b25dwp",
+    "title": "reCAPTCHA",
+    "width": "256",
+    "height": "60",
+    "visible": true
+  },
+  {
+    "src": "",
+    "id": "",
+    "name": "",
+    "title": "",
+    "width": "",
+    "height": "",
+    "visible": false
+  },
+  {
+    "src": "https://tr.snapchat.com/cm/i?pid=af0f55c7-d8d5-4c11-bd40-b1210fe968c2&u_scsid=c72d0186-ac61-4187-a882-243f6a4a8202&u_sclid=1cdea53e-f254-4603-aeaa-0078ddbf6a30",
+    "id": "snap7996500",
+    "name": "",
+    "title": "",
+    "width": "",
+    "height": "",
+    "visible": false
+  },
+  {
+    "src": "https://accounts.google.com/gsi/button?type=standard&theme=filled_blue&text=signin_with&shape=pill&width=400&click_listener=()%3D%3E%7Bxg(%22google_attempt%22)%3Bconst%20e%3Dkv()%3Bkf(%7Bsignup_page_t",
+    "id": "gsi_986662_84687",
+    "name": "",
+    "title": "زر تسجيل الدخول باستخدام حساب Google",
+    "width": "",
+    "height": "",
+    "visible": false
+  }
+]
