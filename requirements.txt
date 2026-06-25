@@ -1,4 +1,4 @@
-camoufox
+camoufox[geoip]
 numpy
 opencv-python
 pydub
