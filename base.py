@@ -490,23 +490,7 @@ def fill_otp(page, email):
         code = get_2fa(email, retries=3, delay=4)
         if code:
             break
-        print(f"  [!] No OTP code found (attempt {otp_fetch_attempt+1}/5) — checking for captcha")
-        dump_all(page, f"otp_fetch_fail_{otp_fetch_attempt+1}")
-        if wait_for_captcha(page):
-            print(f"  [*] Captcha blocking OTP delivery — solving")
-            solve_captcha(page)
-            page.wait_for_timeout(3000)
-        else:
-            after_screen = identify_screen(page)
-            print(f"  [*] Screen after OTP fetch fail: {after_screen}")
-            if after_screen and after_screen in SCREEN_ACTIONS:
-                print(f"  [*] Dispatching action for {after_screen}")
-                SCREEN_ACTIONS[after_screen](page)
-                return False
-            print(f"  [*] No captcha found — OTP may not have been sent yet")
-            page.wait_for_timeout(5000)
-    else:
-        print("  [!] Failed to get OTP code after 5 attempts — exiting")
+        print(f"  [!] No OTP code found (attempt {otp_fetch_attempt+1}/5) — exiting")
         sys.exit(1)
     print(f"  [*] Got OTP code: {code}")
     fields_filled = 0
