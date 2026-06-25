@@ -1,3 +1,4 @@
+import argparse
 import json
 import os
 import random
@@ -15,6 +16,41 @@ from pydub import AudioSegment
 from camoufox import Camoufox
 from camoufox.utils import launch_options
 from super_email import get_2fa
+
+parser = argparse.ArgumentParser()
+parser.add_argument("-p", "--proxy", action="store_true", help="Route traffic through Tor SOCKS5 proxy on localhost:9050")
+parser.add_argument("-s", "--static-proxy", type=str, metavar="FILE", help="Use a random HTTP proxy from a file (format: user:pass@host:port per line)")
+args = parser.parse_args()
+
+PROXY_HOST = "localhost"
+PROXY_PORT = 9050
+PROXY_SOCKS = f"socks5://{PROXY_HOST}:{PROXY_PORT}"
+PROXY_SOCKS5H = f"socks5h://{PROXY_HOST}:{PROXY_PORT}"
+use_proxy = args.proxy
+
+session = requests.Session()
+
+# Load static proxy list
+static_proxies = []
+selected_proxy = None
+if args.static_proxy:
+    with open(args.static_proxy) as f:
+        for line in f:
+            line = line.strip()
+            if line and "@" in line:
+                userpass, hostport = line.split("@", 1)
+                username, password = userpass.split(":", 1)
+                host, port = hostport.rsplit(":", 1)
+                static_proxies.append((host, int(port), username, password))
+    if static_proxies:
+        selected_proxy = random.choice(static_proxies)
+        host, port, user, pw = selected_proxy
+        print(f"  [*] Using proxy: {user}:****@{host}:{port}")
+        session.proxies.update({"http": f"http://{user}:{pw}@{host}:{port}", "https": f"http://{user}:{pw}@{host}:{port}"})
+        use_proxy = True
+
+if use_proxy and not static_proxies:
+    session.proxies.update({"http": PROXY_SOCKS5H, "https": PROXY_SOCKS5H})
 
 result_dir = Path("results")
 if result_dir.exists():
@@ -49,11 +85,25 @@ def generate_credentials():
     return username, email, password
 
 
+proxy_opts = {}
+firefox_user_prefs = {}
+if selected_proxy:
+    h, p, u, pw = selected_proxy
+    proxy_opts = {"proxy": {"server": f"http://{h}:{p}", "username": u, "password": pw}}
+    firefox_user_prefs = {
+        "network.trr.mode": 3,
+        "network.trr.uri": "https://cloudflare-dns.com/dns-query",
+        "network.trr.bootstrapAddress": "1.1.1.1",
+    }
+elif use_proxy:
+    proxy_opts = {"proxy": {"server": PROXY_SOCKS}}
 opts = launch_options(
     geoip=True, humanize=0.3, block_webrtc=True,
     block_images=False, disable_coop=True,
-    main_world_eval=True, window=(1280, 720), debug=True,
+    main_world_eval=True, window=(1280, 720), debug=False,
     headless=False,
+    firefox_user_prefs=firefox_user_prefs,
+    **proxy_opts,
 )
 
 
@@ -602,6 +652,15 @@ def solve_audio_challenge(page):
             page.wait_for_timeout(500)
         if not audio_url:
             print(f"  [!] Could not extract audio URL (retry {retry+1}/{max_retries})")
+            try:
+                bframe_html = frame.evaluate("() => document.body ? document.body.innerText.slice(0, 500) : 'no body'")
+                print(f"  [!] BFrame content: {bframe_html}")
+                if "Réessayez" in bframe_html or "plus tard" in bframe_html:
+                    print(f"  [!] Captcha rate-limited — closing session")
+                    page.close()
+                    sys.exit(1)
+            except Exception as e:
+                print(f"  [!] Failed to read bframe: {e}")
             if retry < max_retries - 1:
                 click_audio_refresh(page)
                 page.wait_for_timeout(2000)
@@ -610,7 +669,7 @@ def solve_audio_challenge(page):
 
         print(f"  [*] Audio URL: {audio_url[:120]}...")
         try:
-            resp = requests.get(audio_url, timeout=15, headers={
+            resp = session.get(audio_url, timeout=15, headers={
                 "User-Agent": "Mozilla/5.0 (X11; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0",
                 "Accept": "audio/webm,audio/ogg,audio/wav;q=0.9,audio/*;q=0.8",
             })
@@ -1066,6 +1125,13 @@ def fill_reg_form(page, email, password):
         solve_captcha(page)
     else:
         print("  [*] No captcha detected after Continue")
+        page.wait_for_timeout(3000)
+        has_captcha = page.evaluate("""() => {
+            return !!document.querySelector('iframe[src*="recaptcha/enterprise/bframe"], iframe[src*="recaptcha/api2/bframe"]');
+        }""")
+        if has_captcha:
+            print("  [*] Captcha detected after re-check")
+            solve_captcha(page)
 
 
 print("=" * 60)
@@ -1077,17 +1143,41 @@ print(f"\n  [*] Username: {username}")
 print(f"  [*] Email:    {email}")
 print(f"  [*] Password: {password}")
 
-with Camoufox(**opts) as browser:
+if use_proxy and not static_proxies:
+    print(f"\n  [+] Resetting Tor circuit...")
+    ret = os.system("curl -s http://127.0.0.1:5000/reset-ip")
+    if ret == 0:
+        print(f"  [*] Tor circuit reset")
+        time.sleep(5)
+    else:
+        print(f"  [!] Tor reset failed (exit {ret})")
+
+with Camoufox(from_options=opts) as browser:
     page = browser.new_page()
     page.set_default_timeout(30000)
     page.set_viewport_size({"width": 1280, "height": 720})
 
+    print(f"\n  [+] Checking IP via browser...")
+    page.goto("https://api.ipify.org", wait_until="domcontentloaded", timeout=30000)
+    ip = page.text_content("body")
+    print(f"  [*] Browser IP: {ip.strip() if ip else 'unknown'}")
+
+    if use_proxy and not static_proxies:
+        print(f"\n  [+] Resetting Tor circuit...")
+        ret = os.system("curl -s http://127.0.0.1:5000/reset-ip")
+        if ret == 0:
+            print(f"  [*] Tor circuit reset")
+            time.sleep(5)
+        else:
+            print(f"  [!] Tor reset failed (exit {ret})")
+
     print(f"\n  [+] Navigating to https://superlive.chat/fr/nonlogin-messages")
-    page.goto("https://superlive.chat/fr/nonlogin-messages", wait_until="load", timeout=120000)
+    page.goto("https://superlive.chat/fr/nonlogin-messages", wait_until="domcontentloaded", timeout=120000)
     page.wait_for_timeout(4000)
 
     step_counter = 1
     email_input_count = 0
+    loading_count = 0
     while True:
         print(f"\n{'='*60}")
         print(f"  STEP {step_counter}: dumping current page state")
@@ -1109,6 +1199,18 @@ with Camoufox(**opts) as browser:
         if title and "Commencer la discussion" in title:
             dump_all(page, f"commercer_{step_counter}")
             print(f"  [+] Extra dump saved for '{title}'")
+
+        if screen == "loading":
+            loading_count += 1
+            print(f"  [*] loading count: {loading_count}/12")
+            if loading_count >= 12:
+                print(f"  [!] Loading seen 12 times — treating as home")
+                screen = "home"
+            else:
+                time.sleep(3)
+                continue
+        else:
+            loading_count = 0
 
         if screen == "email_input":
             email_input_count += 1

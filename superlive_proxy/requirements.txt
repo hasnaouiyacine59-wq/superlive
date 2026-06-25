@@ -1,0 +1,7 @@
+camoufox[geoip]
+playwright==1.48.0
+numpy
+opencv-python
+pydub
+requests
+SpeechRecognition
