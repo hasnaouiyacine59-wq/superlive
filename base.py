@@ -1167,4 +1167,4 @@ with Camoufox(**opts) as browser:
     print(f"\n  [+] Cleaning up results...")
     shutil.rmtree(result_dir)
     print(f"  [+] Results directory removed")
-    input(f"\n  [+] Press Enter to close...")
+    print(f"\n  [+] Press Enter to close...")
