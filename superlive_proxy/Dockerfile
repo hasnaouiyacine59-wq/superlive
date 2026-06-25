@@ -35,4 +35,5 @@ COPY base.py super_email.py ./
 COPY src/ ./src/
 RUN mkdir -p results
 
+ENV PYTHONUNBUFFERED=1
 CMD ["xvfb-run", "python", "base.py", "-p"]
