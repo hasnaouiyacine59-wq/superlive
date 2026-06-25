@@ -22,8 +22,10 @@ parser.add_argument("-p", "--proxy", action="store_true", help="Route traffic th
 parser.add_argument("-s", "--static-proxy", type=str, metavar="FILE", help="Use a random HTTP proxy from a file (format: user:pass@host:port per line)")
 args = parser.parse_args()
 
-PROXY_HOST = "localhost"
-PROXY_PORT = 9050
+PROXY_HOST = os.environ.get("PROXY_HOST", "localhost")
+PROXY_PORT = int(os.environ.get("PROXY_PORT", "9050"))
+API_HOST = os.environ.get("API_HOST", "127.0.0.1")
+API_PORT = int(os.environ.get("API_PORT", "5000"))
 PROXY_SOCKS = f"socks5://{PROXY_HOST}:{PROXY_PORT}"
 PROXY_SOCKS5H = f"socks5h://{PROXY_HOST}:{PROXY_PORT}"
 use_proxy = args.proxy
@@ -1164,7 +1166,7 @@ with Camoufox(from_options=opts) as browser:
 
     if use_proxy and not static_proxies:
         print(f"\n  [+] Resetting Tor circuit...")
-        ret = os.system("curl -s http://127.0.0.1:5000/reset-ip")
+    ret = os.system(f"curl -s http://{API_HOST}:{API_PORT}/reset-ip")
         if ret == 0:
             print(f"  [*] Tor circuit reset")
             time.sleep(5)
