@@ -20,20 +20,14 @@ RUN apt-get update && apt-get install -y \
     libpango-1.0-0 \
     libcairo2 \
     libasound2 \
-    curl \
-    xz-utils \
+    libegl1 \
+    libxkbcommon-x11-0 \
     && rm -rf /var/lib/apt/lists/*
 
 WORKDIR /app
 
 COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
-
-# Install Node.js 22 LTS and patch Playwright's bundled driver
-RUN curl -fsSL https://nodejs.org/dist/v22.14.0/node-v22.14.0-linux-x64.tar.xz \
-    | tar xJ -C /usr/local --strip-components=1 --no-same-owner \
-    && NODE_BIN=$(python -c "import playwright, os; print(os.path.join(os.path.dirname(playwright.__file__), 'driver', 'node'))") \
-    && ln -sf /usr/local/bin/node "$NODE_BIN"
 
 COPY base.py super_email.py ./
 COPY src/ ./src/
