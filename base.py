@@ -485,21 +485,27 @@ def wait_for_captcha(page, timeout=45):
 
 def fill_otp(page, email):
     print(f"  [*] Fetching OTP code from email...")
-    for otp_fetch_attempt in range(3):
-        code = get_2fa(email, retries=15, delay=4)
+    for otp_fetch_attempt in range(5):
+        code = get_2fa(email, retries=3, delay=4)
         if code:
             break
-        print(f"  [!] No OTP code found (attempt {otp_fetch_attempt+1}/3) — checking for captcha")
+        print(f"  [!] No OTP code found (attempt {otp_fetch_attempt+1}/5) — checking for captcha")
         dump_all(page, f"otp_fetch_fail_{otp_fetch_attempt+1}")
         if wait_for_captcha(page):
             print(f"  [*] Captcha blocking OTP delivery — solving")
             solve_captcha(page)
             page.wait_for_timeout(3000)
         else:
+            after_screen = identify_screen(page)
+            print(f"  [*] Screen after OTP fetch fail: {after_screen}")
+            if after_screen and after_screen in SCREEN_ACTIONS:
+                print(f"  [*] Dispatching action for {after_screen}")
+                SCREEN_ACTIONS[after_screen](page)
+                return False
             print(f"  [*] No captcha found — OTP may not have been sent yet")
             page.wait_for_timeout(5000)
     else:
-        print("  [!] Failed to get OTP code after 3 attempts")
+        print("  [!] Failed to get OTP code after 5 attempts")
         return False
     print(f"  [*] Got OTP code: {code}")
     fields_filled = 0
@@ -960,6 +966,13 @@ def solve_captcha(page):
             dump_all(page, f"captcha_resolved_{attempt+1}")
             after_screen = identify_screen(page)
             print(f"  [*] Screen after captcha resolve: {after_screen}")
+            for _ in range(6):
+                if after_screen is not None:
+                    break
+                print(f"  [*] Screen is None — sleeping 5s and retrying")
+                time.sleep(5)
+                after_screen = identify_screen(page)
+                print(f"  [*] Screen after retry: {after_screen}")
             if after_screen == "otp":
                 print(f"  [*] OTP screen detected after captcha — checking for captcha first")
                 if wait_for_captcha(page):
@@ -968,6 +981,11 @@ def solve_captcha(page):
                     page.wait_for_timeout(3000)
                     after_screen = identify_screen(page)
                     print(f"  [*] Screen after pre-OTP captcha solve: {after_screen}")
+                    if after_screen != "otp":
+                        print(f"  [*] Screen changed from otp to {after_screen} — dispatching action")
+                        if after_screen in SCREEN_ACTIONS:
+                            SCREEN_ACTIONS[after_screen](page)
+                        return True
                 print(f"  [*] Filling OTP")
                 global email
                 for otp_attempt in range(3):
