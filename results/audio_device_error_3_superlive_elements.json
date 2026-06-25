@@ -23,7 +23,7 @@
       "w": 1280,
       "h": 659
     },
-    "childCount": 24
+    "childCount": 11
   },
   {
     "tag": "div",
@@ -395,9 +395,9 @@
     "class": "flex items-center gap-2 transition-all duration-300 cursor-pointer rounded-full border border-[var(--color-surface-500)] text-white bg-none text-sm font-semibold h-9 px-4 max-w-37 disabled:opacity-50 disabled:cursor-not-allowed hover:opacity-70 min-w-24 px-5 shrink-0",
     "text": "Se connecter",
     "rect": {
-      "x": 1003,
+      "x": 1002,
       "y": 32,
-      "w": 131,
+      "w": 132,
       "h": 36
     },
     "childCount": 1
@@ -408,9 +408,9 @@
     "class": "truncate",
     "text": "Se connecter",
     "rect": {
-      "x": 1024,
+      "x": 1023,
       "y": 40,
-      "w": 89,
+      "w": 90,
       "h": 20
     },
     "childCount": 0
@@ -421,9 +421,9 @@
     "class": "flex items-center gap-2 transition-all duration-300 cursor-pointer rounded-full bg-linear-to-br from-primary-600 via-primary-400 to-primary-300 text-white text-sm font-semibold h-9 px-4 max-w-37 disabled:!bg-none disabled:!bg-[var(--color-disabled-button)] disabled:cursor-not-allowed disabled:text-[var(--color-surface-500)] hover:opacity-70 border-primary-400 border-[0.5px] min-w-24 px-5 shrink-0",
     "text": "S'inscrire",
     "rect": {
-      "x": 1143,
+      "x": 1142,
       "y": 32,
-      "w": 106,
+      "w": 107,
       "h": 36
     },
     "childCount": 1
@@ -512,9 +512,9 @@
     "class": "font-bold text-white text-center text-lg mt-8 select-none",
     "text": "Vous devez être connecté pour voir vos messages.",
     "rect": {
-      "x": 416,
+      "x": 414,
       "y": 488,
-      "w": 447,
+      "w": 450,
       "h": 28
     },
     "childCount": 0
@@ -627,23 +627,23 @@
     "tag": "div",
     "id": "",
     "class": "fixed left-1/2 top-1/2 -translate-1/2 rounded-2xl outline-none flex flex-col w-[88%] max-w-md bg-unique-background border border-unique-label-100 backdrop-blur-sm overflow-hidden",
-    "text": "dialogdescription Continuer avec l’e-mailSaisissez votre e-mail pour continuerEm",
+    "text": "dialogdescription\n            \n            \n            \n            \n          ",
     "rect": {
       "x": 416,
-      "y": 136,
+      "y": 65,
       "w": 448,
-      "h": 386
+      "h": 527
     },
     "childCount": 3
   },
   {
     "tag": "h2",
-    "id": "reka-dialog-title-v-0-2-2",
+    "id": "reka-dialog-title-v-0-2-4",
     "class": "sr-only",
     "text": "dialog",
     "rect": {
       "x": 416,
-      "y": 136,
+      "y": 65,
       "w": 1,
       "h": 1
     },
@@ -651,12 +651,12 @@
   },
   {
     "tag": "p",
-    "id": "reka-dialog-description-v-0-2-3",
+    "id": "reka-dialog-description-v-0-2-5",
     "class": "sr-only",
     "text": "description",
     "rect": {
       "x": 416,
-      "y": 136,
+      "y": 65,
       "w": 1,
       "h": 1
     },
@@ -666,101 +666,88 @@
     "tag": "div",
     "id": "",
     "class": "flex-1 min-h-0 overflow-y-auto flex flex-col md:py-8",
-    "text": "Continuer avec l’e-mailSaisissez votre e-mail pour continuerEmailContinuer J'acc",
+    "text": "S'enregistrer avec l'adresse e-mailcommençons par votre e-mailEmailDéfinir le mo",
     "rect": {
       "x": 417,
-      "y": 137,
+      "y": 66,
       "w": 446,
-      "h": 384
+      "h": 525
     },
     "childCount": 1
   },
   {
     "tag": "div",
     "id": "",
-    "class": "w-full h-fit pb-6 bg-unique-background md:h-fit",
-    "text": "Continuer avec l’e-mailSaisissez votre e-mail pour continuerEmailContinuer J'acc",
+    "class": "w-full h-svh py-6 bg-unique-background md:h-fit",
+    "text": "S'enregistrer avec l'adresse e-mailcommençons par votre e-mailEmailDéfinir le mo",
     "rect": {
       "x": 417,
-      "y": 169,
+      "y": -64,
       "w": 446,
-      "h": 320
+      "h": 624
     },
     "childCount": 2
-  },
-  {
-    "tag": "div",
-    "id": "",
-    "class": "flex items-center px-10 pt-5",
-    "text": "Continuer avec l’e-mail",
-    "rect": {
-      "x": 417,
-      "y": 169,
-      "w": 446,
-      "h": 48
-    },
-    "childCount": 3
   },
   {
     "tag": "button",
     "id": "",
-    "class": "flex items-center gap-2 transition-all duration-300 cursor-pointer rounded-full text-[var(--color-primary-400)] bg-none text-base font-semibold h-fit w-auto max-w-max disabled:opacity-50 disabled:cursor-not-allowed hover:opacity-70 shrink-0 size-10! max-w-none! p-0! md:absolute md:top-5 md:rtl:left-0 md:rtl:right-5 left-5 md:border md:border-surface-600 md:p-2!",
+    "class": "flex items-center gap-2 transition-all duration-300 cursor-pointer rounded-full text-[var(--color-primary-400)] bg-none text-base font-semibold size-12 aspect-auto px-0 justify-center max-w-none shrink-0 disabled:opacity-50 disabled:cursor-not-allowed hover:opacity-70 absolute top-5 left-5 rtl:left-auto rtl:right-5",
     "text": "",
     "rect": {
       "x": 437,
-      "y": 157,
-      "w": 40,
-      "h": 40
+      "y": 86,
+      "w": 48,
+      "h": 48
     },
     "childCount": 1
   },
   {
     "tag": "div",
     "id": "",
-    "class": "",
+    "class": "relative justify-center inline-flex w-full items-center px-0 text-primary-400 rtl:origin-center rtl:rotate-180",
     "text": "",
     "rect": {
-      "x": 447,
-      "y": 167,
-      "w": 20,
-      "h": 20
+      "x": 437,
+      "y": 98,
+      "w": 48,
+      "h": 24
     },
     "childCount": 1
+  },
+  {
+    "tag": "div",
+    "id": "",
+    "class": "px-10 mt-6 size-full flex-1 md:mt-0",
+    "text": "S'enregistrer avec l'adresse e-mailcommençons par votre e-mailEmailDéfinir le mo",
+    "rect": {
+      "x": 417,
+      "y": -40,
+      "w": 446,
+      "h": 576
+    },
+    "childCount": 3
   },
   {
     "tag": "h3",
     "id": "",
-    "class": "text-2xl font-semibold flex-1 text-xl text-white text-center capitalize select-none flex-1 text-xl text-white text-center capitalize select-none",
-    "text": "Continuer avec l’e-mail",
+    "class": "text-2xl font-semibold text-primary-400 text-center mb-2 capitalize select-none text-primary-400 text-center mb-2 capitalize select-none",
+    "text": "S'enregistrer avec l'adresse e-mail",
     "rect": {
       "x": 457,
-      "y": 189,
+      "y": -40,
       "w": 366,
-      "h": 28
+      "h": 64
     },
     "childCount": 0
   },
   {
-    "tag": "div",
-    "id": "",
-    "class": "px-10 size-full flex-1 mt-2",
-    "text": "Saisissez votre e-mail pour continuerEmailContinuer J'accepte par la présente le",
-    "rect": {
-      "x": 417,
-      "y": 225,
-      "w": 446,
-      "h": 240
-    },
-    "childCount": 2
-  },
-  {
     "tag": "p",
     "id": "",
-    "class": "text-sm text-center capitalize select-none text-white max-md:pl-5",
-    "text": "Saisissez votre e-mail pour continuer",
+    "class": "text-sm text-center capitalize select-none",
+    "text": "commençons par votre e-mail",
     "rect": {
       "x": 457,
-      "y": 225,
+      "y": 31,
       "w": 366,
       "h": 20
     },
@@ -770,14 +757,14 @@
     "tag": "form",
     "id": "",
     "class": "flex flex-col size-full",
-    "text": "EmailContinuer J'accepte par la présente les Termes et Conditions et la Politiqu",
+    "text": "EmailDéfinir le mot de passeRépéter le mot de passeLa vérification de l'appareil",
     "rect": {
       "x": 457,
-      "y": 245,
+      "y": 51,
       "w": 366,
-      "h": 220
+      "h": 484
     },
-    "childCount": 3
+    "childCount": 6
   },
   {
     "tag": "div",
@@ -786,7 +773,7 @@
     "text": "Email",
     "rect": {
       "x": 457,
-      "y": 257,
+      "y": 63,
       "w": 366,
       "h": 84
     },
@@ -799,7 +786,7 @@
     "text": "Email",
     "rect": {
       "x": 457,
-      "y": 257,
+      "y": 63,
       "w": 366,
       "h": 28
     },
@@ -812,7 +799,7 @@
     "text": "",
     "rect": {
       "x": 457,
-      "y": 285,
+      "y": 91,
       "w": 366,
       "h": 56
     },
@@ -820,39 +807,117 @@
   },
   {
     "tag": "input",
-    "id": "otp-email",
+    "id": "email",
     "class": "size-full appearance-none text-sm leading-3.5 text-basic-100 font-medium placeholder:text-label-100 focus:outline-none focus:shadow-outline",
     "text": "",
     "rect": {
       "x": 478,
-      "y": 286,
+      "y": 92,
       "w": 344,
       "h": 54
     },
     "childCount": 0
   },
   {
-    "tag": "button",
+    "tag": "input",
+    "id": "password",
+    "class": "size-full appearance-none text-sm leading-3.5 text-basic-100 font-medium placeholder:text-label-100 focus:outline-none focus:shadow-outline",
+    "text": "",
+    "rect": {
+      "x": 478,
+      "y": 200,
+      "w": 344,
+      "h": 54
+    },
+    "childCount": 0
+  },
+  {
+    "tag": "input",
+    "id": "passwordRepeat",
+    "class": "size-full appearance-none text-sm leading-3.5 text-basic-100 font-medium placeholder:text-label-100 focus:outline-none focus:shadow-outline",
+    "text": "",
+    "rect": {
+      "x": 478,
+      "y": 308,
+      "w": 344,
+      "h": 54
+    },
+    "childCount": 0
+  },
+  {
+    "tag": "div",
     "id": "",
-    "class": "flex items-center gap-2 transition-all duration-300 cursor-pointer rounded-full bg-linear-to-br from-primary-600 via-primary-400 to-primary-300 text-white text-base font-semibold h-14 px-5 min-w-full w-full max-w-full disabled:!bg-none disabled:!bg-[var(--color-disabled-button)] disabled:cursor-not-allowed disabled:text-[var(--color-surface-500)] hover:opacity-70 mx-auto mt-4",
-    "text": "Continuer",
+    "class": "flex flex-col gap-2",
+    "text": "La vérification de l'appareil a échoué. Veuillez réessayer.",
     "rect": {
       "x": 457,
-      "y": 369,
+      "y": 375,
       "w": 366,
-      "h": 56
+      "h": 28
     },
     "childCount": 1
   },
   {
     "tag": "p",
     "id": "",
-    "class": "text-2xs text-center mt-4 text-white",
+    "class": "text-xs text-red-500 mb-3",
+    "text": "La vérification de l'appareil a échoué. Veuillez réessayer.",
+    "rect": {
+      "x": 457,
+      "y": 375,
+      "w": 366,
+      "h": 16
+    },
+    "childCount": 0
+  },
+  {
+    "tag": "label",
+    "id": "",
+    "class": "mt-3 mb-6 flex items-center space-x-2 cursor-pointer max-w-max mt-3 mb-6",
     "text": "J'accepte par la présente les Termes et Conditions et la Politique de confidenti",
     "rect": {
       "x": 457,
-      "y": 441,
+      "y": 415,
       "w": 366,
+      "h": 24
+    },
+    "childCount": 3
+  },
+  {
+    "tag": "div",
+    "id": "",
+    "class": "border-2 rounded-full flex items-center justify-center transition-all w-6 h-6 min-w-6 border-primary-400",
+    "text": "",
+    "rect": {
+      "x": 457,
+      "y": 415,
+      "w": 24,
+      "h": 24
+    },
+    "childCount": 1
+  },
+  {
+    "tag": "div",
+    "id": "",
+    "class": "bg-primary-400 rounded-full w-3 h-3",
+    "text": "",
+    "rect": {
+      "x": 463,
+      "y": 421,
+      "w": 12,
+      "h": 12
+    },
+    "childCount": 0
+  },
+  {
+    "tag": "p",
+    "id": "",
+    "class": "text-2xs mx-2",
+    "text": "J'accepte par la présente les Termes et Conditions et la Politique de confidenti",
+    "rect": {
+      "x": 497,
+      "y": 415,
+      "w": 318,
       "h": 24
     },
     "childCount": 2
@@ -863,9 +928,9 @@
     "class": "",
     "text": "J'accepte par la présente les Termes et Conditions et la Politique de confidenti",
     "rect": {
-      "x": 477,
-      "y": 441,
-      "w": 325,
+      "x": 497,
+      "y": 415,
+      "w": 314,
       "h": 24
     },
     "childCount": 2
@@ -876,11 +941,24 @@
     "class": "underline",
     "text": "Termes et Conditions",
     "rect": {
-      "x": 618,
-      "y": 441,
-      "w": 102,
+      "x": 639,
+      "y": 415,
+      "w": 103,
       "h": 12
     },
     "childCount": 0
+  },
+  {
+    "tag": "button",
+    "id": "",
+    "class": "flex items-center gap-2 transition-all duration-300 cursor-pointer rounded-full bg-linear-to-br from-primary-600 via-primary-400 to-primary-300 text-white text-base font-semibold h-14 px-5 min-w-full w-full max-w-full disabled:!bg-none disabled:!bg-[var(--color-disabled-button)] disabled:cursor-not-allowed disabled:text-[var(--color-surface-500)] hover:opacity-70 mx-auto mt-4",
+    "text": "Continuer",
+    "rect": {
+      "x": 457,
+      "y": 479,
+      "w": 366,
+      "h": 56
+    },
+    "childCount": 1
   }
 ]

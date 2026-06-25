@@ -23,7 +23,7 @@
       "w": 1280,
       "h": 659
     },
-    "childCount": 7
+    "childCount": 44
   },
   {
     "tag": "div",
@@ -369,9 +369,9 @@
     "class": "text-xs mt-1.5 capitalize text-center select-none text-primary-400",
     "text": "Messages",
     "rect": {
-      "x": 731,
+      "x": 730,
       "y": 58,
-      "w": 57,
+      "w": 58,
       "h": 16
     },
     "childCount": 0
@@ -852,7 +852,7 @@
     "rect": {
       "x": 88,
       "y": 246,
-      "w": 136,
+      "w": 137,
       "h": 24
     },
     "childCount": 0
@@ -863,7 +863,7 @@
     "class": "size-4 shrink-0 inline-flex",
     "text": "",
     "rect": {
-      "x": 232,
+      "x": 233,
       "y": 250,
       "w": 16,
       "h": 16
@@ -930,7 +930,7 @@
     "rect": {
       "x": 539,
       "y": 425,
-      "w": 600,
+      "w": 601,
       "h": 24
     },
     "childCount": 0
@@ -999,5 +999,291 @@
       "h": 60
     },
     "childCount": 0
+  },
+  {
+    "tag": "div",
+    "id": "",
+    "class": "fixed inset-0 bg-(--alpha-shadow-tone-80) pointer-events-auto",
+    "text": "",
+    "rect": {
+      "x": 0,
+      "y": 0,
+      "w": 1280,
+      "h": 659
+    },
+    "childCount": 0
+  },
+  {
+    "tag": "div",
+    "id": "",
+    "class": "fixed left-1/2 top-1/2 -translate-1/2 rounded-2xl outline-none flex flex-col w-[88%] max-w-md bg-unique-background border border-unique-label-100 backdrop-blur-sm overflow-hidden",
+    "text": "dialogdescriptionGenre Homme FemmeConfirmer",
+    "rect": {
+      "x": 416,
+      "y": 130,
+      "w": 448,
+      "h": 397
+    },
+    "childCount": 3
+  },
+  {
+    "tag": "h2",
+    "id": "reka-dialog-title-v-0-2-4",
+    "class": "sr-only",
+    "text": "dialog",
+    "rect": {
+      "x": 416,
+      "y": 130,
+      "w": 1,
+      "h": 1
+    },
+    "childCount": 0
+  },
+  {
+    "tag": "p",
+    "id": "reka-dialog-description-v-0-2-5",
+    "class": "sr-only",
+    "text": "description",
+    "rect": {
+      "x": 416,
+      "y": 130,
+      "w": 1,
+      "h": 1
+    },
+    "childCount": 0
+  },
+  {
+    "tag": "div",
+    "id": "",
+    "class": "flex-1 min-h-0 overflow-y-auto flex flex-col",
+    "text": "Genre Homme FemmeConfirmer",
+    "rect": {
+      "x": 417,
+      "y": 131,
+      "w": 446,
+      "h": 395
+    },
+    "childCount": 1
+  },
+  {
+    "tag": "div",
+    "id": "",
+    "class": "py-6 w-full md:h-[60vh]",
+    "text": "Genre Homme FemmeConfirmer",
+    "rect": {
+      "x": 417,
+      "y": 131,
+      "w": 446,
+      "h": 395
+    },
+    "childCount": 2
+  },
+  {
+    "tag": "div",
+    "id": "",
+    "class": "flex items-center gap-4 mb-6 md:mb-10",
+    "text": "",
+    "rect": {
+      "x": 417,
+      "y": 155,
+      "w": 446,
+      "h": 8
+    },
+    "childCount": 1
+  },
+  {
+    "tag": "div",
+    "id": "",
+    "class": "px-6 my-10 w-full md:my-0",
+    "text": "",
+    "rect": {
+      "x": 417,
+      "y": 155,
+      "w": 446,
+      "h": 8
+    },
+    "childCount": 1
+  },
+  {
+    "tag": "div",
+    "id": "",
+    "class": "flex items-center gap-2 w-full",
+    "text": "",
+    "rect": {
+      "x": 441,
+      "y": 155,
+      "w": 398,
+      "h": 8
+    },
+    "childCount": 3
+  },
+  {
+    "tag": "div",
+    "id": "",
+    "class": "h-2 flex-1 rounded-full transition-colors duration-300 bg-primary-400",
+    "text": "",
+    "rect": {
+      "x": 441,
+      "y": 155,
+      "w": 127,
+      "h": 8
+    },
+    "childCount": 0
+  },
+  {
+    "tag": "div",
+    "id": "",
+    "class": "h-2 flex-1 rounded-full transition-colors duration-300 bg-surface-400",
+    "text": "",
+    "rect": {
+      "x": 576,
+      "y": 155,
+      "w": 127,
+      "h": 8
+    },
+    "childCount": 0
+  },
+  {
+    "tag": "div",
+    "id": "",
+    "class": "size-full px-6 md:h-7/10",
+    "text": "Genre Homme FemmeConfirmer",
+    "rect": {
+      "x": 417,
+      "y": 203,
+      "w": 446,
+      "h": 243
+    },
+    "childCount": 3
+  },
+  {
+    "tag": "div",
+    "id": "",
+    "class": "flex items-center mb-12",
+    "text": "Genre",
+    "rect": {
+      "x": 441,
+      "y": 203,
+      "w": 398,
+      "h": 32
+    },
+    "childCount": 1
+  },
+  {
+    "tag": "h3",
+    "id": "",
+    "class": "text-2xl font-semibold text-white text-white",
+    "text": "Genre",
+    "rect": {
+      "x": 441,
+      "y": 203,
+      "w": 70,
+      "h": 32
+    },
+    "childCount": 0
+  },
+  {
+    "tag": "div",
+    "id": "",
+    "class": "flex items-center gap-3 justify-center px-6",
+    "text": "Homme Femme",
+    "rect": {
+      "x": 441,
+      "y": 283,
+      "w": 398,
+      "h": 144
+    },
+    "childCount": 2
+  },
+  {
+    "tag": "button",
+    "id": "",
+    "class": "flex items-center gap-2 transition-all duration-300 cursor-pointer rounded-full text-[var(--color-primary-400)] bg-none text-base font-semibold h-fit w-auto max-w-max disabled:opacity-50 disabled:cursor-not-allowed hover:opacity-70 border rounded-4xl! flex-1 max-w-none! h-auto! border-unique-label-200 min-h-36 justify-center border-primary-400 bg-surface-800",
+    "text": "Homme",
+    "rect": {
+      "x": 465,
+      "y": 283,
+      "w": 169,
+      "h": 144
+    },
+    "childCount": 1
+  },
+  {
+    "tag": "div",
+    "id": "",
+    "class": "flex flex-col items-center justify-center gap-1",
+    "text": "Homme",
+    "rect": {
+      "x": 519,
+      "y": 326,
+      "w": 60,
+      "h": 58
+    },
+    "childCount": 2
+  },
+  {
+    "tag": "span",
+    "id": "",
+    "class": "iconify i-spl-web:male",
+    "text": "",
+    "rect": {
+      "x": 534,
+      "y": 326,
+      "w": 30,
+      "h": 30
+    },
+    "childCount": 0
+  },
+  {
+    "tag": "span",
+    "id": "",
+    "class": "",
+    "text": "Homme",
+    "rect": {
+      "x": 519,
+      "y": 360,
+      "w": 60,
+      "h": 24
+    },
+    "childCount": 0
+  },
+  {
+    "tag": "button",
+    "id": "",
+    "class": "flex items-center gap-2 transition-all duration-300 cursor-pointer rounded-full text-[var(--color-primary-400)] bg-none text-base font-semibold h-fit w-auto max-w-max disabled:opacity-50 disabled:cursor-not-allowed hover:opacity-70 border rounded-4xl! flex-1 max-w-none! h-auto! border-unique-label-200 min-h-36 justify-center",
+    "text": "Femme",
+    "rect": {
+      "x": 646,
+      "y": 283,
+      "w": 169,
+      "h": 144
+    },
+    "childCount": 1
+  },
+  {
+    "tag": "span",
+    "id": "",
+    "class": "iconify i-spl-web:female",
+    "text": "",
+    "rect": {
+      "x": 715,
+      "y": 326,
+      "w": 30,
+      "h": 30
+    },
+    "childCount": 0
+  },
+  {
+    "tag": "button",
+    "id": "",
+    "class": "flex items-center gap-2 transition-all duration-300 cursor-pointer rounded-full bg-linear-to-br from-primary-600 via-primary-400 to-primary-300 text-white text-base font-semibold h-14 px-5 max-w-sm disabled:!bg-none disabled:!bg-[var(--color-disabled-button)] disabled:cursor-not-allowed disabled:text-[var(--color-surface-500)] hover:opacity-70 w-72! min-w-0! absolute bottom-8 left-1/2 -translate-x-1/2",
+    "text": "Confirmer",
+    "rect": {
+      "x": 496,
+      "y": 439,
+      "w": 288,
+      "h": 56
+    },
+    "childCount": 1
   }
 ]

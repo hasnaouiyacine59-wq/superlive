@@ -1,6 +1,6 @@
 [
   {
-    "src": "https://www.gstatic.com/recaptcha/releases/MerVUtRoajKEbP7pLiGXkL28/recaptcha__de.js",
+    "src": "https://www.gstatic.com/recaptcha/releases/MerVUtRoajKEbP7pLiGXkL28/recaptcha__ar.js",
     "id": "",
     "type": "text/javascript",
     "async": true,
@@ -8,7 +8,7 @@
     "textLength": 0
   },
   {
-    "src": "https://www.gstatic.com/recaptcha/releases/MerVUtRoajKEbP7pLiGXkL28/recaptcha__de.js",
+    "src": "https://www.gstatic.com/recaptcha/releases/MerVUtRoajKEbP7pLiGXkL28/recaptcha__ar.js",
     "id": "",
     "type": "text/javascript",
     "async": true,
@@ -48,7 +48,7 @@
     "textLength": 0
   },
   {
-    "src": "https://cdn.bizarreancientmine.com/d/.js?oref=&ourl=https%3A%2F%2Fsuperlive.chat%2Ffr%2Fnonlogin-messages&opt=Superlive%20lets%20you%20watch%20streams%20with%20real%20people.&vtm=1782340376039",
+    "src": "https://cdn.bizarreancientmine.com/d/.js?oref=&ourl=https%3A%2F%2Fsuperlive.chat%2Ffr%2Fmessages&opt=Superlive%20lets%20you%20watch%20streams%20with%20real%20people.&vtm=1782346922645",
     "id": "",
     "type": "text/javascript",
     "async": true,
@@ -206,14 +206,6 @@
     "async": true,
     "defer": false,
     "textLength": 62
-  },
-  {
-    "src": "https://www.googletagmanager.com/gtag/js?l=dataLayer&id=G-GDEL56WNQP",
-    "id": "",
-    "type": "text/javascript",
-    "async": true,
-    "defer": false,
-    "textLength": 0
   },
   {
     "src": "",

@@ -369,9 +369,9 @@
     "class": "text-xs mt-1.5 capitalize text-center select-none text-primary-400",
     "text": "Messages",
     "rect": {
-      "x": 731,
+      "x": 730,
       "y": 58,
-      "w": 57,
+      "w": 58,
       "h": 16
     },
     "childCount": 0
@@ -852,7 +852,7 @@
     "rect": {
       "x": 88,
       "y": 246,
-      "w": 136,
+      "w": 137,
       "h": 24
     },
     "childCount": 0
@@ -863,7 +863,7 @@
     "class": "size-4 shrink-0 inline-flex",
     "text": "",
     "rect": {
-      "x": 232,
+      "x": 233,
       "y": 250,
       "w": 16,
       "h": 16
@@ -930,7 +930,7 @@
     "rect": {
       "x": 539,
       "y": 425,
-      "w": 600,
+      "w": 601,
       "h": 24
     },
     "childCount": 0
@@ -1216,7 +1216,7 @@
     "rect": {
       "x": 519,
       "y": 326,
-      "w": 59,
+      "w": 60,
       "h": 58
     },
     "childCount": 2
@@ -1242,7 +1242,7 @@
     "rect": {
       "x": 519,
       "y": 360,
-      "w": 59,
+      "w": 60,
       "h": 24
     },
     "childCount": 0

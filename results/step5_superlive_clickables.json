@@ -23,46 +23,6 @@
     "tag": "button",
     "id": "",
     "class": "flex items-center gap-2 transition-all duration-300 cursor-pointer rounded-full ",
-    "text": "S'inscrire",
-    "href": "",
-    "type": "submit",
-    "name": "",
-    "placeholder": "",
-    "rect": {
-      "x": 0,
-      "y": 0,
-      "width": 0,
-      "height": 0,
-      "top": 0,
-      "right": 0,
-      "bottom": 0,
-      "left": 0
-    }
-  },
-  {
-    "tag": "button",
-    "id": "",
-    "class": "flex items-center gap-2 transition-all duration-300 cursor-pointer rounded-none ",
-    "text": "fr",
-    "href": "",
-    "type": "submit",
-    "name": "",
-    "placeholder": "",
-    "rect": {
-      "x": 0,
-      "y": 0,
-      "width": 0,
-      "height": 0,
-      "top": 0,
-      "right": 0,
-      "bottom": 0,
-      "left": 0
-    }
-  },
-  {
-    "tag": "button",
-    "id": "",
-    "class": "flex items-center gap-2 transition-all duration-300 cursor-pointer rounded-full ",
     "text": "",
     "href": "",
     "type": "submit",
@@ -97,6 +57,26 @@
       "right": 200,
       "bottom": 72,
       "left": 64
+    }
+  },
+  {
+    "tag": "input",
+    "id": "",
+    "class": "w-full text-sm text-white placeholder:text-surface-400 bg-transparent outline-no",
+    "text": "",
+    "href": "",
+    "type": "text",
+    "name": "",
+    "placeholder": "Rechercher par nom d'utilisateur/ID",
+    "rect": {
+      "x": 247,
+      "y": 38,
+      "width": 170,
+      "height": 20,
+      "top": 38,
+      "right": 417,
+      "bottom": 58,
+      "left": 247
     }
   },
   {
@@ -164,7 +144,7 @@
     "id": "",
     "class": "router-link-active router-link-exact-active relative px-4 py-2.5 md:px-0 md:py-1",
     "text": "Messages",
-    "href": "https://superlive.chat/fr/nonlogin-messages",
+    "href": "https://superlive.chat/fr/messages",
     "type": "",
     "name": "",
     "placeholder": "",
@@ -200,63 +180,23 @@
     }
   },
   {
-    "tag": "button",
+    "tag": "a",
     "id": "",
-    "class": "flex items-center gap-2 transition-all duration-300 cursor-pointer rounded-full ",
-    "text": "Se connecter",
-    "href": "",
-    "type": "submit",
+    "class": "relative",
+    "text": "",
+    "href": "https://superlive.chat/fr/notifications",
+    "type": "",
     "name": "",
     "placeholder": "",
     "rect": {
-      "x": 1003.11669921875,
-      "y": 32,
-      "width": 132.0833282470703,
-      "height": 36,
-      "top": 32,
-      "right": 1135.2000274658203,
-      "bottom": 68,
-      "left": 1003.11669921875
-    }
-  },
-  {
-    "tag": "button",
-    "id": "",
-    "class": "flex items-center gap-2 transition-all duration-300 cursor-pointer rounded-full ",
-    "text": "S'inscrire",
-    "href": "",
-    "type": "submit",
-    "name": "",
-    "placeholder": "",
-    "rect": {
-      "x": 1143.199951171875,
-      "y": 32,
-      "width": 106.80000305175781,
-      "height": 36,
-      "top": 32,
-      "right": 1249.9999542236328,
-      "bottom": 68,
-      "left": 1143.199951171875
-    }
-  },
-  {
-    "tag": "button",
-    "id": "",
-    "class": "flex items-center gap-2 transition-all duration-300 cursor-pointer rounded-full ",
-    "text": "Se connecter",
-    "href": "",
-    "type": "submit",
-    "name": "",
-    "placeholder": "",
-    "rect": {
-      "x": 490,
-      "y": 548,
-      "width": 300,
-      "height": 56,
-      "top": 548,
-      "right": 790,
-      "bottom": 604,
-      "left": 490
+      "x": 1098.9000244140625,
+      "y": 36,
+      "width": 24,
+      "height": 24,
+      "top": 36,
+      "right": 1122.9000244140625,
+      "bottom": 60,
+      "left": 1098.9000244140625
     }
   },
   {
@@ -269,14 +209,174 @@
     "name": "",
     "placeholder": "",
     "rect": {
-      "x": 1190,
+      "x": 1174,
+      "y": 38,
+      "width": 20,
+      "height": 20,
+      "top": 38,
+      "right": 1194,
+      "bottom": 58,
+      "left": 1174
+    }
+  },
+  {
+    "tag": "button",
+    "id": "reka-dropdown-menu-trigger-v-0-0-0",
+    "class": "relative flex items-center py-1 px-3 gap-1 border border-unique-label-100 bg-uni",
+    "text": "Centre de messages",
+    "href": "",
+    "type": "button",
+    "name": "",
+    "placeholder": "",
+    "rect": {
+      "x": 180.4499969482422,
+      "y": 120,
+      "width": 202.5500030517578,
+      "height": 30,
+      "top": 120,
+      "right": 383,
+      "bottom": 150,
+      "left": 180.4499969482422
+    }
+  },
+  {
+    "tag": "button",
+    "id": "",
+    "class": "flex items-center gap-2 transition-all duration-300 cursor-pointer rounded-full ",
+    "text": "Principal",
+    "href": "",
+    "type": "submit",
+    "name": "",
+    "placeholder": "",
+    "rect": {
+      "x": 24,
+      "y": 178,
+      "width": 91.44999694824219,
+      "height": 36,
+      "top": 178,
+      "right": 115.44999694824219,
+      "bottom": 214,
+      "left": 24
+    }
+  },
+  {
+    "tag": "button",
+    "id": "",
+    "class": "flex items-center gap-2 transition-all duration-300 cursor-pointer rounded-full ",
+    "text": "Autre",
+    "href": "",
+    "type": "submit",
+    "name": "",
+    "placeholder": "",
+    "rect": {
+      "x": 123.44999694824219,
+      "y": 178,
+      "width": 69.30000305175781,
+      "height": 36,
+      "top": 178,
+      "right": 192.75,
+      "bottom": 214,
+      "left": 123.44999694824219
+    }
+  },
+  {
+    "tag": "div",
+    "id": "",
+    "class": "min-h-18 relative w-full overflow-hidden md:mb-0 last:mb-0 select-none cursor-po",
+    "text": "SuperLive officielBienvenue à bord !\nMerci de vous être inscrit à Superlive — nous avons ajouté des ",
+    "href": "",
+    "type": "",
+    "name": "",
+    "placeholder": "",
+    "rect": {
+      "x": 0,
+      "y": 230,
+      "width": 399,
+      "height": 82.5,
+      "top": 230,
+      "right": 399,
+      "bottom": 312.5,
+      "left": 0
+    }
+  },
+  {
+    "tag": "div",
+    "id": "",
+    "class": "flex items-center justify-center relative shrink-0 cursor-default",
+    "text": "",
+    "href": "",
+    "type": "",
+    "name": "",
+    "placeholder": "",
+    "rect": {
+      "x": 24,
+      "y": 247.25,
+      "width": 48,
+      "height": 48,
+      "top": 247.25,
+      "right": 72,
+      "bottom": 295.25,
+      "left": 24
+    }
+  },
+  {
+    "tag": "input",
+    "id": "",
+    "class": "",
+    "text": "",
+    "href": "",
+    "type": "file",
+    "name": "files",
+    "placeholder": "",
+    "rect": {
+      "x": 0,
+      "y": 0,
+      "width": 0,
+      "height": 0,
+      "top": 0,
+      "right": 0,
+      "bottom": 0,
+      "left": 0
+    }
+  },
+  {
+    "tag": "button",
+    "id": "",
+    "class": "left-[calc(100vw-74px)] rtl:left-auto rtl:right-[calc(100vw-74px)] bg-primary-40",
+    "text": "",
+    "href": "",
+    "type": "button",
+    "name": "",
+    "placeholder": "",
+    "rect": {
+      "x": 1206,
       "y": 555,
       "width": 64,
       "height": 64,
       "top": 555,
-      "right": 1254,
+      "right": 1270,
       "bottom": 619,
-      "left": 1190
+      "left": 1206
+    }
+  },
+  {
+    "tag": "button",
+    "id": "",
+    "class": "flex items-center gap-2 transition-all duration-300 cursor-pointer rounded-full ",
+    "text": "",
+    "href": "",
+    "type": "submit",
+    "name": "",
+    "placeholder": "",
+    "rect": {
+      "x": 26,
+      "y": 555,
+      "width": 64,
+      "height": 64,
+      "top": 555,
+      "right": 90,
+      "bottom": 619,
+      "left": 26
     }
   },
   {
@@ -303,200 +403,60 @@
     "tag": "button",
     "id": "",
     "class": "flex items-center gap-2 transition-all duration-300 cursor-pointer rounded-full ",
-    "text": "",
+    "text": "Homme",
     "href": "",
     "type": "submit",
     "name": "",
     "placeholder": "",
     "rect": {
-      "x": 437,
-      "y": 86.89999389648438,
-      "width": 48,
-      "height": 48,
-      "top": 86.89999389648438,
-      "right": 485,
-      "bottom": 134.89999389648438,
-      "left": 437
-    }
-  },
-  {
-    "tag": "input",
-    "id": "email",
-    "class": "size-full appearance-none text-sm leading-3.5 text-basic-100 font-medium placeho",
-    "text": "",
-    "href": "",
-    "type": "email",
-    "name": "email",
-    "placeholder": "example@mail.com",
-    "rect": {
-      "x": 478,
-      "y": 120.89999389648438,
-      "width": 344,
-      "height": 54,
-      "top": 120.89999389648438,
-      "right": 822,
-      "bottom": 174.89999389648438,
-      "left": 478
-    }
-  },
-  {
-    "tag": "input",
-    "id": "password",
-    "class": "size-full appearance-none text-sm leading-3.5 text-basic-100 font-medium placeho",
-    "text": "",
-    "href": "",
-    "type": "password",
-    "name": "password",
-    "placeholder": "*******",
-    "rect": {
-      "x": 478,
-      "y": 228.89999389648438,
-      "width": 344,
-      "height": 54,
-      "top": 228.89999389648438,
-      "right": 822,
-      "bottom": 282.8999938964844,
-      "left": 478
-    }
-  },
-  {
-    "tag": "input",
-    "id": "passwordRepeat",
-    "class": "size-full appearance-none text-sm leading-3.5 text-basic-100 font-medium placeho",
-    "text": "",
-    "href": "",
-    "type": "password",
-    "name": "passwordRepeat",
-    "placeholder": "*******",
-    "rect": {
-      "x": 478,
-      "y": 336.8999938964844,
-      "width": 344,
-      "height": 54,
-      "top": 336.8999938964844,
-      "right": 822,
-      "bottom": 390.8999938964844,
-      "left": 478
-    }
-  },
-  {
-    "tag": "input",
-    "id": "",
-    "class": "hidden",
-    "text": "",
-    "href": "",
-    "type": "radio",
-    "name": "",
-    "placeholder": "",
-    "rect": {
-      "x": 0,
-      "y": 0,
-      "width": 0,
-      "height": 0,
-      "top": 0,
-      "right": 0,
-      "bottom": 0,
-      "left": 0
-    }
-  },
-  {
-    "tag": "a",
-    "id": "",
-    "class": "underline",
-    "text": "Termes et Conditions",
-    "href": "https://superlive.chat/fr/agreements/terms-of-service",
-    "type": "",
-    "name": "",
-    "placeholder": "",
-    "rect": {
-      "x": 638.25,
-      "y": 415.8999938964844,
-      "width": 102.19999694824219,
-      "height": 12,
-      "top": 415.8999938964844,
-      "right": 740.4499969482422,
-      "bottom": 427.8999938964844,
-      "left": 638.25
-    }
-  },
-  {
-    "tag": "a",
-    "id": "",
-    "class": "underline",
-    "text": "Politique de confidentialité",
-    "href": "https://superlive.chat/fr/agreements/privacy-policy",
-    "type": "",
-    "name": "",
-    "placeholder": "",
-    "rect": {
-      "x": 497,
-      "y": 415.8999938964844,
-      "width": 310.6333312988281,
-      "height": 24,
-      "top": 415.8999938964844,
-      "right": 807.6333312988281,
-      "bottom": 439.8999938964844,
-      "left": 497
+      "x": 465,
+      "y": 283.79998779296875,
+      "width": 169,
+      "height": 144,
+      "top": 283.79998779296875,
+      "right": 634,
+      "bottom": 427.79998779296875,
+      "left": 465
     }
   },
   {
     "tag": "button",
     "id": "",
     "class": "flex items-center gap-2 transition-all duration-300 cursor-pointer rounded-full ",
-    "text": "Continuer",
+    "text": "Femme",
     "href": "",
     "type": "submit",
     "name": "",
     "placeholder": "",
     "rect": {
-      "x": 457,
-      "y": 479.8999938964844,
-      "width": 366,
+      "x": 646,
+      "y": 283.79998779296875,
+      "width": 169,
+      "height": 144,
+      "top": 283.79998779296875,
+      "right": 815,
+      "bottom": 427.79998779296875,
+      "left": 646
+    }
+  },
+  {
+    "tag": "button",
+    "id": "",
+    "class": "flex items-center gap-2 transition-all duration-300 cursor-pointer rounded-full ",
+    "text": "Confirmer",
+    "href": "",
+    "type": "submit",
+    "name": "",
+    "placeholder": "",
+    "rect": {
+      "x": 496,
+      "y": 439.20001220703125,
+      "width": 288,
       "height": 56,
-      "top": 479.8999938964844,
-      "right": 823,
-      "bottom": 535.8999938964844,
-      "left": 457
-    }
-  },
-  {
-    "tag": "button",
-    "id": "",
-    "class": "flex items-center gap-2 transition-all duration-300 cursor-pointer rounded-full ",
-    "text": "",
-    "href": "",
-    "type": "submit",
-    "name": "",
-    "placeholder": "",
-    "rect": {
-      "x": 1250,
-      "y": 8,
-      "width": 22,
-      "height": 30,
-      "top": 8,
-      "right": 1272,
-      "bottom": 38,
-      "left": 1250
-    }
-  },
-  {
-    "tag": "textarea",
-    "id": "g-recaptcha-response-3",
-    "class": "g-recaptcha-response",
-    "text": "",
-    "href": "",
-    "type": "textarea",
-    "name": "g-recaptcha-response",
-    "placeholder": "",
-    "rect": {
-      "x": 0,
-      "y": 0,
-      "width": 0,
-      "height": 0,
-      "top": 0,
-      "right": 0,
-      "bottom": 0,
-      "left": 0
+      "top": 439.20001220703125,
+      "right": 784,
+      "bottom": 495.20001220703125,
+      "left": 496
     }
   },
   {

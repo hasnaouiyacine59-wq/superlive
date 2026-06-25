@@ -20,6 +20,26 @@
     }
   },
   {
+    "tag": "a",
+    "id": "",
+    "class": "",
+    "text": "",
+    "href": "https://superlive.chat/fr/search",
+    "type": "",
+    "name": "",
+    "placeholder": "",
+    "rect": {
+      "x": 0,
+      "y": 0,
+      "width": 0,
+      "height": 0,
+      "top": 0,
+      "right": 0,
+      "bottom": 0,
+      "left": 0
+    }
+  },
+  {
     "tag": "button",
     "id": "",
     "class": "flex items-center gap-2 transition-all duration-300 cursor-pointer rounded-full ",
@@ -97,6 +117,26 @@
       "right": 200,
       "bottom": 72,
       "left": 64
+    }
+  },
+  {
+    "tag": "input",
+    "id": "",
+    "class": "w-full text-sm text-white placeholder:text-surface-400 bg-transparent outline-no",
+    "text": "",
+    "href": "",
+    "type": "text",
+    "name": "",
+    "placeholder": "Rechercher par nom d'utilisateur/ID",
+    "rect": {
+      "x": 247,
+      "y": 38,
+      "width": 170,
+      "height": 20,
+      "top": 38,
+      "right": 417,
+      "bottom": 58,
+      "left": 247
     }
   },
   {
@@ -209,14 +249,14 @@
     "name": "",
     "placeholder": "",
     "rect": {
-      "x": 1003.11669921875,
+      "x": 1003.2833251953125,
       "y": 32,
-      "width": 132.0833282470703,
+      "width": 131.9833221435547,
       "height": 36,
       "top": 32,
-      "right": 1135.2000274658203,
+      "right": 1135.2666473388672,
       "bottom": 68,
-      "left": 1003.11669921875
+      "left": 1003.2833251953125
     }
   },
   {
@@ -229,14 +269,14 @@
     "name": "",
     "placeholder": "",
     "rect": {
-      "x": 1143.199951171875,
+      "x": 1143.2666015625,
       "y": 32,
-      "width": 106.80000305175781,
+      "width": 106.73333740234375,
       "height": 36,
       "top": 32,
-      "right": 1249.9999542236328,
+      "right": 1249.9999389648438,
       "bottom": 68,
-      "left": 1143.199951171875
+      "left": 1143.2666015625
     }
   },
   {

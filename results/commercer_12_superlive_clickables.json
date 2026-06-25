@@ -100,6 +100,26 @@
     }
   },
   {
+    "tag": "a",
+    "id": "",
+    "class": "flex flex-row items-center gap-2.5 px-4.5 py-2 hover:bg-white/5 md:border-b md:b",
+    "text": "2💜иєα💜",
+    "href": "https://superlive.chat/fr/profile/49194780?isFromSearch=true",
+    "type": "",
+    "name": "",
+    "placeholder": "",
+    "rect": {
+      "x": 209,
+      "y": 77,
+      "width": 214,
+      "height": 73,
+      "top": 77,
+      "right": 423,
+      "bottom": 150,
+      "left": 209
+    }
+  },
+  {
     "tag": "button",
     "id": "",
     "class": "flex items-center gap-2 transition-all duration-300 cursor-pointer rounded-full ",
@@ -209,14 +229,14 @@
     "name": "",
     "placeholder": "",
     "rect": {
-      "x": 1098.816650390625,
+      "x": 1098.9000244140625,
       "y": 36,
       "width": 24,
       "height": 24,
       "top": 36,
-      "right": 1122.816650390625,
+      "right": 1122.9000244140625,
       "bottom": 60,
-      "left": 1098.816650390625
+      "left": 1098.9000244140625
     }
   },
   {
@@ -249,14 +269,14 @@
     "name": "",
     "placeholder": "",
     "rect": {
-      "x": 179.10000610351562,
+      "x": 180.4499969482422,
       "y": 120,
-      "width": 203.89999389648438,
+      "width": 202.5500030517578,
       "height": 30,
       "top": 120,
       "right": 383,
       "bottom": 150,
-      "left": 179.10000610351562
+      "left": 180.4499969482422
     }
   },
   {
@@ -271,10 +291,10 @@
     "rect": {
       "x": 24,
       "y": 178,
-      "width": 92.10000610351562,
+      "width": 91.44999694824219,
       "height": 36,
       "top": 178,
-      "right": 116.10000610351562,
+      "right": 115.44999694824219,
       "bottom": 214,
       "left": 24
     }
@@ -289,14 +309,14 @@
     "name": "",
     "placeholder": "",
     "rect": {
-      "x": 124.10000610351562,
+      "x": 123.44999694824219,
       "y": 178,
-      "width": 69.69999694824219,
+      "width": 69.30000305175781,
       "height": 36,
       "top": 178,
-      "right": 193.8000030517578,
+      "right": 192.75,
       "bottom": 214,
-      "left": 124.10000610351562
+      "left": 123.44999694824219
     }
   },
   {
@@ -356,6 +376,46 @@
       "top": 355.25,
       "right": 72,
       "bottom": 403.25,
+      "left": 24
+    }
+  },
+  {
+    "tag": "div",
+    "id": "",
+    "class": "min-h-18 relative w-full overflow-hidden md:mb-0 last:mb-0 select-none cursor-po",
+    "text": "31🧿 برايفت 💞 نارhey toi, oui toi 😏01:221",
+    "href": "",
+    "type": "",
+    "name": "",
+    "placeholder": "",
+    "rect": {
+      "x": 0,
+      "y": 420.5,
+      "width": 399,
+      "height": 82.5,
+      "top": 420.5,
+      "right": 399,
+      "bottom": 503,
+      "left": 0
+    }
+  },
+  {
+    "tag": "div",
+    "id": "",
+    "class": "flex items-center justify-center relative shrink-0 cursor-default",
+    "text": "",
+    "href": "",
+    "type": "",
+    "name": "",
+    "placeholder": "",
+    "rect": {
+      "x": 24,
+      "y": 437.75,
+      "width": 48,
+      "height": 48,
+      "top": 437.75,
+      "right": 72,
+      "bottom": 485.75,
       "left": 24
     }
   },

@@ -380,6 +380,25 @@ def print_form_title(page):
         print(f"  [*] Form: id='{f['id']}' inputs=[{f['inputs']}]")
 
 
+def navigate_and_click_profile(page):
+    print(f"  [*] Messages page — navigating to target profile")
+    time.sleep(3)
+    try:
+        page.goto("https://superlive.chat/fr/profile/49194780", wait_until="load", timeout=60000)
+        page.wait_for_timeout(3000)
+        print(f"  [*] Clicking profile image")
+        img = page.locator('img[alt="Nom d\'utilisateur"]')
+        if img.count() > 0:
+            img.first.click()
+            print(f"  [*] Clicked profile image")
+            page.wait_for_timeout(2000)
+            dump_all(page, "after_profile_click")
+        else:
+            print(f"  [!] Profile image not found")
+    except Exception as e:
+        print(f"  [!] Profile navigation failed: {e}")
+
+
 def do_profile_action(page):
     time.sleep(3)
     print(f"  [*] Clicking profile image")
@@ -423,7 +442,7 @@ SCREEN_ACTIONS = {
             click_image_match(p, os.path.join(os.path.dirname(__file__), "src", "second.png"), "second", threshold=0.7),
         ),
     ),
-    "messages": lambda p: do_profile_action(p),
+    "messages": lambda p: navigate_and_click_profile(p),
 }
 
 

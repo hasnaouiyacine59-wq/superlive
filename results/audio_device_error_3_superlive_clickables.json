@@ -249,14 +249,14 @@
     "name": "",
     "placeholder": "",
     "rect": {
-      "x": 1003.2833251953125,
+      "x": 1002.0166625976562,
       "y": 32,
-      "width": 131.9833221435547,
+      "width": 132.68333435058594,
       "height": 36,
       "top": 32,
-      "right": 1135.2666473388672,
+      "right": 1134.6999969482422,
       "bottom": 68,
-      "left": 1003.2833251953125
+      "left": 1002.0166625976562
     }
   },
   {
@@ -269,14 +269,14 @@
     "name": "",
     "placeholder": "",
     "rect": {
-      "x": 1143.2666015625,
+      "x": 1142.699951171875,
       "y": 32,
-      "width": 106.73333740234375,
+      "width": 107.30000305175781,
       "height": 36,
       "top": 32,
-      "right": 1249.9999389648438,
+      "right": 1249.9999542236328,
       "bottom": 68,
-      "left": 1143.2666015625
+      "left": 1142.699951171875
     }
   },
   {
@@ -350,33 +350,133 @@
     "placeholder": "",
     "rect": {
       "x": 437,
-      "y": 157.5,
-      "width": 40,
-      "height": 40,
-      "top": 157.5,
-      "right": 477,
-      "bottom": 197.5,
+      "y": 86.89999389648438,
+      "width": 48,
+      "height": 48,
+      "top": 86.89999389648438,
+      "right": 485,
+      "bottom": 134.89999389648438,
       "left": 437
     }
   },
   {
     "tag": "input",
-    "id": "otp-email",
+    "id": "email",
     "class": "size-full appearance-none text-sm leading-3.5 text-basic-100 font-medium placeho",
     "text": "",
     "href": "",
     "type": "email",
     "name": "email",
-    "placeholder": "example@example.com",
+    "placeholder": "example@mail.com",
     "rect": {
       "x": 478,
-      "y": 286.5,
+      "y": 92.89999389648438,
       "width": 344,
       "height": 54,
-      "top": 286.5,
+      "top": 92.89999389648438,
       "right": 822,
-      "bottom": 340.5,
+      "bottom": 146.89999389648438,
       "left": 478
+    }
+  },
+  {
+    "tag": "input",
+    "id": "password",
+    "class": "size-full appearance-none text-sm leading-3.5 text-basic-100 font-medium placeho",
+    "text": "",
+    "href": "",
+    "type": "password",
+    "name": "password",
+    "placeholder": "*******",
+    "rect": {
+      "x": 478,
+      "y": 200.89999389648438,
+      "width": 344,
+      "height": 54,
+      "top": 200.89999389648438,
+      "right": 822,
+      "bottom": 254.89999389648438,
+      "left": 478
+    }
+  },
+  {
+    "tag": "input",
+    "id": "passwordRepeat",
+    "class": "size-full appearance-none text-sm leading-3.5 text-basic-100 font-medium placeho",
+    "text": "",
+    "href": "",
+    "type": "password",
+    "name": "passwordRepeat",
+    "placeholder": "*******",
+    "rect": {
+      "x": 478,
+      "y": 308.8999938964844,
+      "width": 344,
+      "height": 54,
+      "top": 308.8999938964844,
+      "right": 822,
+      "bottom": 362.8999938964844,
+      "left": 478
+    }
+  },
+  {
+    "tag": "input",
+    "id": "",
+    "class": "hidden",
+    "text": "",
+    "href": "",
+    "type": "radio",
+    "name": "",
+    "placeholder": "",
+    "rect": {
+      "x": 0,
+      "y": 0,
+      "width": 0,
+      "height": 0,
+      "top": 0,
+      "right": 0,
+      "bottom": 0,
+      "left": 0
+    }
+  },
+  {
+    "tag": "a",
+    "id": "",
+    "class": "underline",
+    "text": "Termes et Conditions",
+    "href": "https://superlive.chat/fr/agreements/terms-of-service",
+    "type": "",
+    "name": "",
+    "placeholder": "",
+    "rect": {
+      "x": 639.8499755859375,
+      "y": 415.8999938964844,
+      "width": 103.29998779296875,
+      "height": 12,
+      "top": 415.8999938964844,
+      "right": 743.1499633789062,
+      "bottom": 427.8999938964844,
+      "left": 639.8499755859375
+    }
+  },
+  {
+    "tag": "a",
+    "id": "",
+    "class": "underline",
+    "text": "Politique de confidentialité",
+    "href": "https://superlive.chat/fr/agreements/privacy-policy",
+    "type": "",
+    "name": "",
+    "placeholder": "",
+    "rect": {
+      "x": 497,
+      "y": 415.8999938964844,
+      "width": 314.23333740234375,
+      "height": 24,
+      "top": 415.8999938964844,
+      "right": 811.2333374023438,
+      "bottom": 439.8999938964844,
+      "left": 497
     }
   },
   {
@@ -390,53 +490,33 @@
     "placeholder": "",
     "rect": {
       "x": 457,
-      "y": 369.5,
+      "y": 479.8999938964844,
       "width": 366,
       "height": 56,
-      "top": 369.5,
+      "top": 479.8999938964844,
       "right": 823,
-      "bottom": 425.5,
+      "bottom": 535.8999938964844,
       "left": 457
     }
   },
   {
-    "tag": "a",
-    "id": "",
-    "class": "underline",
-    "text": "Termes et Conditions",
-    "href": "https://superlive.chat/fr/agreements/terms-of-service",
-    "type": "",
-    "name": "",
+    "tag": "textarea",
+    "id": "g-recaptcha-response",
+    "class": "g-recaptcha-response",
+    "text": "",
+    "href": "",
+    "type": "textarea",
+    "name": "g-recaptcha-response",
     "placeholder": "",
     "rect": {
-      "x": 618.5333251953125,
-      "y": 441.5,
-      "width": 102.11665344238281,
-      "height": 12,
-      "top": 441.5,
-      "right": 720.6499786376953,
-      "bottom": 453.5,
-      "left": 618.5333251953125
-    }
-  },
-  {
-    "tag": "a",
-    "id": "",
-    "class": "underline",
-    "text": "Politique de confidentialité",
-    "href": "https://superlive.chat/fr/agreements/privacy-policy",
-    "type": "",
-    "name": "",
-    "placeholder": "",
-    "rect": {
-      "x": 553.5833129882812,
-      "y": 441.5,
-      "width": 248.9666748046875,
-      "height": 24,
-      "top": 441.5,
-      "right": 802.5499877929688,
-      "bottom": 465.5,
-      "left": 553.5833129882812
+      "x": 0,
+      "y": 0,
+      "width": 0,
+      "height": 0,
+      "top": 0,
+      "right": 0,
+      "bottom": 0,
+      "left": 0
     }
   }
 ]

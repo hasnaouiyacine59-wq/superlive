@@ -23,7 +23,7 @@
       "w": 1280,
       "h": 659
     },
-    "childCount": 10
+    "childCount": 28
   },
   {
     "tag": "div",
@@ -88,7 +88,7 @@
       "w": 400,
       "h": 48
     },
-    "childCount": 2
+    "childCount": 3
   },
   {
     "tag": "button",
@@ -204,6 +204,71 @@
       "y": 32,
       "w": 136,
       "h": 30
+    },
+    "childCount": 0
+  },
+  {
+    "tag": "div",
+    "id": "",
+    "class": "block relative w-40 md:w-56",
+    "text": "",
+    "rect": {
+      "x": 208,
+      "y": 28,
+      "w": 222,
+      "h": 40
+    },
+    "childCount": 1
+  },
+  {
+    "tag": "div",
+    "id": "",
+    "class": "relative w-full",
+    "text": "",
+    "rect": {
+      "x": 208,
+      "y": 28,
+      "w": 222,
+      "h": 40
+    },
+    "childCount": 1
+  },
+  {
+    "tag": "div",
+    "id": "",
+    "class": "flex items-center gap-2.5 rounded-2xl h-10 px-3 border border-unique-label-100",
+    "text": "",
+    "rect": {
+      "x": 208,
+      "y": 28,
+      "w": 222,
+      "h": 40
+    },
+    "childCount": 2
+  },
+  {
+    "tag": "span",
+    "id": "",
+    "class": "iconify i-spl-web:search text-white shrink-0",
+    "text": "",
+    "rect": {
+      "x": 221,
+      "y": 40,
+      "w": 16,
+      "h": 16
+    },
+    "childCount": 0
+  },
+  {
+    "tag": "input",
+    "id": "",
+    "class": "w-full text-sm text-white placeholder:text-surface-400 bg-transparent outline-none",
+    "text": "",
+    "rect": {
+      "x": 247,
+      "y": 38,
+      "w": 170,
+      "h": 20
     },
     "childCount": 0
   },
@@ -332,7 +397,7 @@
     "rect": {
       "x": 1003,
       "y": 32,
-      "w": 132,
+      "w": 131,
       "h": 36
     },
     "childCount": 1
@@ -345,7 +410,7 @@
     "rect": {
       "x": 1024,
       "y": 40,
-      "w": 90,
+      "w": 89,
       "h": 20
     },
     "childCount": 0
@@ -447,9 +512,9 @@
     "class": "font-bold text-white text-center text-lg mt-8 select-none",
     "text": "Vous devez être connecté pour voir vos messages.",
     "rect": {
-      "x": 415,
+      "x": 416,
       "y": 488,
-      "w": 448,
+      "w": 447,
       "h": 28
     },
     "childCount": 0
@@ -562,23 +627,23 @@
     "tag": "div",
     "id": "",
     "class": "fixed left-1/2 top-1/2 -translate-1/2 rounded-2xl outline-none flex flex-col w-[88%] max-w-md bg-unique-background border border-unique-label-100 backdrop-blur-sm overflow-hidden",
-    "text": "dialogdescription\n            \n            \n            \n            \n          ",
+    "text": "dialogdescription Saisir le code de vérificationNous avons envoyé un code de vér",
     "rect": {
       "x": 416,
-      "y": 65,
+      "y": 96,
       "w": 448,
-      "h": 527
+      "h": 466
     },
     "childCount": 3
   },
   {
     "tag": "h2",
-    "id": "reka-dialog-title-v-0-2-4",
+    "id": "reka-dialog-title-v-0-2-2",
     "class": "sr-only",
     "text": "dialog",
     "rect": {
       "x": 416,
-      "y": 65,
+      "y": 96,
       "w": 1,
       "h": 1
     },
@@ -586,12 +651,12 @@
   },
   {
     "tag": "p",
-    "id": "reka-dialog-description-v-0-2-5",
+    "id": "reka-dialog-description-v-0-2-3",
     "class": "sr-only",
     "text": "description",
     "rect": {
       "x": 416,
-      "y": 65,
+      "y": 96,
       "w": 1,
       "h": 1
     },
@@ -601,127 +666,75 @@
     "tag": "div",
     "id": "",
     "class": "flex-1 min-h-0 overflow-y-auto flex flex-col md:py-8",
-    "text": "S'enregistrer avec l'adresse e-mailcommençons par votre e-mailEmailDéfinir le mo",
+    "text": "Saisir le code de vérificationNous avons envoyé un code de vérification à superg",
     "rect": {
       "x": 417,
-      "y": 66,
+      "y": 97,
       "w": 446,
-      "h": 525
+      "h": 464
     },
     "childCount": 1
   },
   {
     "tag": "div",
     "id": "",
-    "class": "w-full h-svh py-6 bg-unique-background md:h-fit",
-    "text": "S'enregistrer avec l'adresse e-mailcommençons par votre e-mailEmailDéfinir le mo",
+    "class": "w-full h-fit pb-6 bg-unique-background md:h-fit",
+    "text": "Saisir le code de vérificationNous avons envoyé un code de vérification à superg",
     "rect": {
       "x": 417,
-      "y": 98,
+      "y": 129,
       "w": 446,
-      "h": 596
+      "h": 400
     },
     "childCount": 2
   },
   {
-    "tag": "button",
-    "id": "",
-    "class": "flex items-center gap-2 transition-all duration-300 cursor-pointer rounded-full text-[var(--color-primary-400)] bg-none text-base font-semibold size-12 aspect-auto px-0 justify-center max-w-none shrink-0 disabled:opacity-50 disabled:cursor-not-allowed hover:opacity-70 absolute top-5 left-5 rtl:left-auto rtl:right-5",
-    "text": "",
-    "rect": {
-      "x": 437,
-      "y": 86,
-      "w": 48,
-      "h": 48
-    },
-    "childCount": 1
-  },
-  {
     "tag": "div",
     "id": "",
-    "class": "relative justify-center inline-flex w-full items-center px-0 text-primary-400 rtl:origin-center rtl:rotate-180",
-    "text": "",
-    "rect": {
-      "x": 437,
-      "y": 98,
-      "w": 48,
-      "h": 24
-    },
-    "childCount": 1
-  },
-  {
-    "tag": "div",
-    "id": "",
-    "class": "px-10 mt-6 size-full flex-1 md:mt-0",
-    "text": "S'enregistrer avec l'adresse e-mailcommençons par votre e-mailEmailDéfinir le mo",
+    "class": "flex items-center px-10 pt-5",
+    "text": "Saisir le code de vérification",
     "rect": {
       "x": 417,
-      "y": 122,
+      "y": 129,
       "w": 446,
-      "h": 548
+      "h": 48
     },
     "childCount": 3
   },
   {
-    "tag": "h3",
+    "tag": "button",
     "id": "",
-    "class": "text-2xl font-semibold text-primary-400 text-center mb-2 capitalize select-none text-primary-400 text-center mb-2 capitalize select-none",
-    "text": "S'enregistrer avec l'adresse e-mail",
+    "class": "flex items-center gap-2 transition-all duration-300 cursor-pointer rounded-full text-[var(--color-primary-400)] bg-none text-base font-semibold h-fit w-auto max-w-max disabled:opacity-50 disabled:cursor-not-allowed hover:opacity-70 shrink-0 size-10! max-w-none! p-0! md:absolute md:top-5 md:rtl:left-0 md:rtl:right-5 left-5 md:border md:border-surface-600 md:p-2!",
+    "text": "",
     "rect": {
-      "x": 457,
-      "y": 122,
-      "w": 366,
-      "h": 64
+      "x": 437,
+      "y": 117,
+      "w": 40,
+      "h": 40
     },
-    "childCount": 0
-  },
-  {
-    "tag": "p",
-    "id": "",
-    "class": "text-sm text-center capitalize select-none",
-    "text": "commençons par votre e-mail",
-    "rect": {
-      "x": 457,
-      "y": 194,
-      "w": 366,
-      "h": 20
-    },
-    "childCount": 0
-  },
-  {
-    "tag": "form",
-    "id": "",
-    "class": "flex flex-col size-full",
-    "text": "EmailDéfinir le mot de passeRépéter le mot de passeJ'accepte par la présente les",
-    "rect": {
-      "x": 457,
-      "y": 214,
-      "w": 366,
-      "h": 456
-    },
-    "childCount": 6
+    "childCount": 1
   },
   {
     "tag": "div",
     "id": "",
-    "class": "my-3",
-    "text": "Email",
+    "class": "",
+    "text": "",
     "rect": {
-      "x": 457,
-      "y": 226,
-      "w": 366,
-      "h": 84
+      "x": 447,
+      "y": 127,
+      "w": 20,
+      "h": 20
     },
-    "childCount": 2
+    "childCount": 1
   },
   {
-    "tag": "label",
+    "tag": "h3",
     "id": "",
-    "class": "block text-surface-400 text-sm font-bold select-none pb-2",
-    "text": "Email",
+    "class": "text-2xl font-semibold flex-1 text-xl text-white text-center capitalize select-none flex-1 text-xl text-white text-center capitalize select-none",
+    "text": "Saisir le code de vérification",
     "rect": {
       "x": 457,
-      "y": 226,
+      "y": 149,
       "w": 366,
       "h": 28
     },
@@ -730,129 +743,194 @@
   {
     "tag": "div",
     "id": "",
-    "class": "border-label-200 flex flex-row items-center rounded-xl w-full h-14 border ps-5",
+    "class": "px-10 mt-2 size-full flex flex-col items-center",
+    "text": "Nous avons envoyé un code de vérification à superghost7329@techstreet07.eu.org. ",
+    "rect": {
+      "x": 417,
+      "y": 185,
+      "w": 446,
+      "h": 320
+    },
+    "childCount": 5
+  },
+  {
+    "tag": "p",
+    "id": "",
+    "class": "text-sm text-center text-white mb-9 select-none max-md:pl-5",
+    "text": "Nous avons envoyé un code de vérification à superghost7329@techstreet07.eu.org. ",
+    "rect": {
+      "x": 457,
+      "y": 185,
+      "w": 366,
+      "h": 60
+    },
+    "childCount": 1
+  },
+  {
+    "tag": "span",
+    "id": "",
+    "class": "font-semibold text-white",
+    "text": "superghost7329@techstreet07.eu.org",
+    "rect": {
+      "x": 480,
+      "y": 207,
+      "w": 258,
+      "h": 17
+    },
+    "childCount": 0
+  },
+  {
+    "tag": "div",
+    "id": "",
+    "class": "w-full flex items-center justify-center gap-2 mb-4",
     "text": "",
     "rect": {
       "x": 457,
-      "y": 254,
+      "y": 281,
+      "w": 366,
+      "h": 44
+    },
+    "childCount": 6
+  },
+  {
+    "tag": "div",
+    "id": "",
+    "class": "border-label-200 flex justify-center items-center rounded-(--space-3) size-11 border",
+    "text": "",
+    "rect": {
+      "x": 488,
+      "y": 281,
+      "w": 44,
+      "h": 44
+    },
+    "childCount": 1
+  },
+  {
+    "tag": "input",
+    "id": "otp-code-0",
+    "class": "appearance-none w-6 text-center text-(length:--space-5_5) leading-(length:--space-5_5) font-bold text-basic-100 placeholder:text-label-100 focus:outline-none focus:shadow-outline",
+    "text": "",
+    "rect": {
+      "x": 498,
+      "y": 290,
+      "w": 24,
+      "h": 27
+    },
+    "childCount": 0
+  },
+  {
+    "tag": "input",
+    "id": "otp-code-1",
+    "class": "appearance-none w-6 text-center text-(length:--space-5_5) leading-(length:--space-5_5) font-bold text-basic-100 placeholder:text-label-100 focus:outline-none focus:shadow-outline",
+    "text": "",
+    "rect": {
+      "x": 550,
+      "y": 290,
+      "w": 24,
+      "h": 27
+    },
+    "childCount": 0
+  },
+  {
+    "tag": "input",
+    "id": "otp-code-2",
+    "class": "appearance-none w-6 text-center text-(length:--space-5_5) leading-(length:--space-5_5) font-bold text-basic-100 placeholder:text-label-100 focus:outline-none focus:shadow-outline",
+    "text": "",
+    "rect": {
+      "x": 602,
+      "y": 290,
+      "w": 24,
+      "h": 27
+    },
+    "childCount": 0
+  },
+  {
+    "tag": "input",
+    "id": "otp-code-3",
+    "class": "appearance-none w-6 text-center text-(length:--space-5_5) leading-(length:--space-5_5) font-bold text-basic-100 placeholder:text-label-100 focus:outline-none focus:shadow-outline",
+    "text": "",
+    "rect": {
+      "x": 654,
+      "y": 290,
+      "w": 24,
+      "h": 27
+    },
+    "childCount": 0
+  },
+  {
+    "tag": "input",
+    "id": "otp-code-4",
+    "class": "appearance-none w-6 text-center text-(length:--space-5_5) leading-(length:--space-5_5) font-bold text-basic-100 placeholder:text-label-100 focus:outline-none focus:shadow-outline",
+    "text": "",
+    "rect": {
+      "x": 706,
+      "y": 290,
+      "w": 24,
+      "h": 27
+    },
+    "childCount": 0
+  },
+  {
+    "tag": "input",
+    "id": "otp-code-5",
+    "class": "appearance-none w-6 text-center text-(length:--space-5_5) leading-(length:--space-5_5) font-bold text-basic-100 placeholder:text-label-100 focus:outline-none focus:shadow-outline",
+    "text": "",
+    "rect": {
+      "x": 758,
+      "y": 290,
+      "w": 24,
+      "h": 27
+    },
+    "childCount": 0
+  },
+  {
+    "tag": "button",
+    "id": "",
+    "class": "flex items-center gap-2 transition-all duration-300 cursor-pointer rounded-full bg-linear-to-br from-primary-600 via-primary-400 to-primary-300 text-white text-base font-semibold h-14 px-5 max-w-sm disabled:!bg-none disabled:!bg-[var(--color-disabled-button)] disabled:cursor-not-allowed disabled:text-[var(--color-surface-500)] hover:opacity-70 w-full mt-4",
+    "text": "Vérifier",
+    "rect": {
+      "x": 457,
+      "y": 357,
       "w": 366,
       "h": 56
     },
     "childCount": 1
   },
   {
-    "tag": "input",
-    "id": "email",
-    "class": "size-full appearance-none text-sm leading-3.5 text-basic-100 font-medium placeholder:text-label-100 focus:outline-none focus:shadow-outline",
-    "text": "",
-    "rect": {
-      "x": 478,
-      "y": 255,
-      "w": 344,
-      "h": 54
-    },
-    "childCount": 0
-  },
-  {
-    "tag": "input",
-    "id": "password",
-    "class": "size-full appearance-none text-sm leading-3.5 text-basic-100 font-medium placeholder:text-label-100 focus:outline-none focus:shadow-outline",
-    "text": "",
-    "rect": {
-      "x": 478,
-      "y": 363,
-      "w": 344,
-      "h": 54
-    },
-    "childCount": 0
-  },
-  {
-    "tag": "div",
+    "tag": "button",
     "id": "",
-    "class": "my-3 border-danger-600",
-    "text": "Répéter le mot de passe",
+    "class": "flex items-center gap-2 transition-all duration-300 cursor-pointer rounded-full border border-[var(--color-surface-500)] text-white bg-none text-sm font-semibold h-9 px-4 w-auto max-w-max disabled:opacity-50 disabled:cursor-not-allowed hover:opacity-70 mt-4 border-surface-400",
+    "text": "Renvoyer le code (56)",
     "rect": {
-      "x": 457,
-      "y": 442,
-      "w": 366,
-      "h": 84
-    },
-    "childCount": 2
-  },
-  {
-    "tag": "input",
-    "id": "passwordRepeat",
-    "class": "border-danger-600 size-full appearance-none text-sm leading-3.5 text-basic-100 font-medium placeholder:text-label-100 focus:outline-none focus:shadow-outline",
-    "text": "",
-    "rect": {
-      "x": 478,
-      "y": 471,
-      "w": 344,
-      "h": 54
-    },
-    "childCount": 0
-  },
-  {
-    "tag": "label",
-    "id": "",
-    "class": "mt-3 mb-6 flex items-center space-x-2 cursor-pointer max-w-max mt-3 mb-6",
-    "text": "J'accepte par la présente les Termes et Conditions et la Politique de confidenti",
-    "rect": {
-      "x": 457,
-      "y": 550,
-      "w": 366,
-      "h": 24
-    },
-    "childCount": 3
-  },
-  {
-    "tag": "div",
-    "id": "",
-    "class": "border-2 rounded-full flex items-center justify-center transition-all w-6 h-6 min-w-6 border-primary-400",
-    "text": "",
-    "rect": {
-      "x": 457,
-      "y": 550,
-      "w": 24,
-      "h": 24
+      "x": 548,
+      "y": 429,
+      "w": 182,
+      "h": 36
     },
     "childCount": 1
   },
   {
-    "tag": "div",
+    "tag": "span",
     "id": "",
-    "class": "bg-primary-400 rounded-full w-3 h-3",
-    "text": "",
+    "class": "",
+    "text": "(56)",
     "rect": {
-      "x": 463,
-      "y": 556,
-      "w": 12,
-      "h": 12
+      "x": 686,
+      "y": 439,
+      "w": 28,
+      "h": 17
     },
     "childCount": 0
   },
   {
     "tag": "p",
     "id": "",
-    "class": "text-2xs mx-2",
+    "class": "text-2xs text-center mt-4 text-white",
     "text": "J'accepte par la présente les Termes et Conditions et la Politique de confidenti",
     "rect": {
-      "x": 497,
-      "y": 550,
-      "w": 318,
-      "h": 24
-    },
-    "childCount": 2
-  },
-  {
-    "tag": "span",
-    "id": "",
-    "class": "",
-    "text": "J'accepte par la présente les Termes et Conditions et la Politique de confidenti",
-    "rect": {
-      "x": 497,
-      "y": 550,
-      "w": 310,
+      "x": 457,
+      "y": 481,
+      "w": 366,
       "h": 24
     },
     "childCount": 2
@@ -863,24 +941,11 @@
     "class": "underline",
     "text": "Termes et Conditions",
     "rect": {
-      "x": 638,
-      "y": 550,
+      "x": 618,
+      "y": 481,
       "w": 102,
       "h": 12
     },
     "childCount": 0
-  },
-  {
-    "tag": "button",
-    "id": "",
-    "class": "flex items-center gap-2 transition-all duration-300 cursor-pointer rounded-full bg-linear-to-br from-primary-600 via-primary-400 to-primary-300 text-white text-base font-semibold h-14 px-5 min-w-full w-full max-w-full disabled:!bg-none disabled:!bg-[var(--color-disabled-button)] disabled:cursor-not-allowed disabled:text-[var(--color-surface-500)] hover:opacity-70 mx-auto mt-4",
-    "text": "Continuer",
-    "rect": {
-      "x": 457,
-      "y": 614,
-      "w": 366,
-      "h": 56
-    },
-    "childCount": 1
   }
 ]
