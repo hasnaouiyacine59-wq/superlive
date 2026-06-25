@@ -386,9 +386,10 @@ def print_form_title(page):
 
 def navigate_and_click_profile(page):
     print(f"  [*] Messages page — navigating to target profile")
-    time.sleep(3)
+    time.sleep(5)
     try:
         page.goto("https://superlive.chat/fr/profile/49194780", wait_until="load", timeout=60000)
+        page.wait_for_load_state("networkidle", timeout=30000)
         page.wait_for_timeout(3000)
         print(f"  [*] Clicking profile image")
         img = page.locator('img[alt="Nom d\'utilisateur"]')
