@@ -403,7 +403,7 @@ def navigate_and_click_profile(page):
             img.first.click(force=True)
             print(f"  [*] Clicked profile image")
             page.wait_for_timeout(2000)
-            page.goto("https://superlive.chat/fr/livestream/144544575", wait_until="load", timeout=60000)
+            page.goto("https://superlive.chat/fr/livestream/144551424", wait_until="load", timeout=60000)
             page.wait_for_timeout(2000)
             dump_all(page, "after_profile_click")
         else:
