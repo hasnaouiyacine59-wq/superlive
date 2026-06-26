@@ -16,10 +16,12 @@ from pydub import AudioSegment
 from camoufox import Camoufox
 from camoufox.utils import launch_options
 from super_email import get_2fa
+import vpn
 
 parser = argparse.ArgumentParser()
 parser.add_argument("-p", "--proxy", action="store_true", help="Route traffic through Tor SOCKS5 proxy on localhost:9050")
 parser.add_argument("-s", "--static-proxy", type=str, metavar="FILE", help="Use a random HTTP proxy from a file (format: user:pass@host:port per line)")
+parser.add_argument("-n", "--nordvpn", action="store_true", help="Enable NordVPN cycling between sessions")
 args = parser.parse_args()
 
 PROXY_HOST = os.environ.get("PROXY_HOST", "localhost")
@@ -1147,118 +1149,148 @@ def fill_reg_form(page, email, password):
             solve_captcha(page)
 
 
-print("=" * 60)
-print("  BASE – screen-based state machine")
-print("=" * 60)
+def run_session():
+    global email, password
+    print("=" * 60)
+    print("  BASE – screen-based state machine")
+    print("=" * 60)
 
-username, email, password = generate_credentials()
-print(f"\n  [*] Username: {username}")
-print(f"  [*] Email:    {email}")
-print(f"  [*] Password: {password}")
+    username, email, password = generate_credentials()
+    print(f"\n  [*] Username: {username}")
+    print(f"  [*] Email:    {email}")
+    print(f"  [*] Password: {password}")
 
-if use_proxy and not static_proxies:
-    print(f"\n  [+] Resetting Tor circuit...")
-    ret = os.system("curl -s http://127.0.0.1:5000/reset-ip")
-    if ret == 0:
-        print(f"  [*] Tor circuit reset")
-        time.sleep(5)
-    else:
-        print(f"  [!] Tor reset failed (exit {ret})")
-
-if headless_mode == "virtual":
-    opts["headless"] = False
-with Camoufox(from_options=opts, headless=headless_mode) as browser:
-    page = browser.new_page()
-    page.set_default_timeout(30000)
-    page.set_viewport_size({"width": 1280, "height": 720})
-
-    print(f"\n  [+] Checking IP via browser...")
-    page.goto("https://api.ipify.org", wait_until="domcontentloaded", timeout=30000)
-    ip = page.text_content("body")
-    print(f"  [*] Browser IP: {ip.strip() if ip else 'unknown'}")
-
-    print(f"\n  [+] Navigating to https://superlive.chat/fr/nonlogin-messages")
-    page.goto("https://superlive.chat/fr/nonlogin-messages", wait_until="domcontentloaded", timeout=120000)
-    page.wait_for_timeout(4000)
-
-    step_counter = 1
-    email_input_count = 0
-    loading_count = 0
-    while True:
-        print(f"\n{'='*60}")
-        print(f"  STEP {step_counter}: dumping current page state")
-        print(f"{'='*60}")
-        dump_all(page, f"step{step_counter}")
-        print(f"  [+] Step {step_counter} dumps saved to {result_dir}/")
-
-        screen = identify_screen(page)
-        print(f"\n  [*] Screen detected: {screen}")
-        print_form_title(page)
-        # Save extra dump for "Commencer la discussion" for later analysis
-        title = page.evaluate("""() => {
-            const h = document.querySelector('h1, h2, h3, h4, h5');
-            if (h) return h.textContent.trim().slice(0, 80);
-            const p = document.querySelector('.text-lg.font-medium, .text-center.text-lg');
-            if (p) return p.textContent.trim().slice(0, 80);
-            return null;
-        }""")
-        if title and "Commencer la discussion" in title:
-            dump_all(page, f"commercer_{step_counter}")
-            print(f"  [+] Extra dump saved for '{title}'")
-
-        if screen == "loading":
-            loading_count += 1
-            print(f"  [*] loading count: {loading_count}/12")
-            if loading_count >= 12:
-                print(f"  [!] Loading seen 12 times — treating as home")
-                screen = "home"
-            else:
-                time.sleep(3)
-                continue
-        else:
-            loading_count = 0
-
-        if screen == "email_input":
-            email_input_count += 1
-            print(f"  [*] email_input count: {email_input_count}/3")
-            if email_input_count >= 3:
-                print(f"  [!] email_input seen 3 times — exiting")
-                break
-        else:
-            email_input_count = 0
-
-        if screen == "captcha":
-            print(f"  [*] Captcha screen — stopping loop")
-            print(f"STEP {step_counter} [captcha]")
-            time.sleep(8)
-            break
-
-        action = SCREEN_ACTIONS.get(screen)
-        if action:
-            print(f"STEP {step_counter} [{screen}]")
-            time.sleep(8)
-            action(page)
+    if use_proxy and not static_proxies:
+        print(f"\n  [+] Resetting Tor circuit...")
+        ret = os.system("curl -s http://127.0.0.1:5000/reset-ip")
+        if ret == 0:
+            print(f"  [*] Tor circuit reset")
             time.sleep(5)
         else:
-            print(f"  [!] Unknown screen: {screen}")
-            print(f"STEP {step_counter} [unknown — press Enter to retry]")
-            time.sleep(8)
+            print(f"  [!] Tor reset failed (exit {ret})")
 
-        if screen == "profile":
-            print(f"  [+] Profile action done — waiting for next screen")
-            page.wait_for_timeout(3000)
-            step_counter += 1
-            continue
+    if headless_mode == "virtual":
+        opts["headless"] = False
+    with Camoufox(from_options=opts, headless=headless_mode) as browser:
+        page = browser.new_page()
+        page.set_default_timeout(30000)
+        page.set_viewport_size({"width": 1280, "height": 720})
 
-        if screen == "stream":
-            print(f"  [+] Stream reached — exiting main loop")
-            step_counter += 1
+        print(f"\n  [+] Checking IP via browser...")
+        page.goto("https://api.ipify.org", wait_until="domcontentloaded", timeout=30000)
+        ip = page.text_content("body")
+        print(f"  [*] Browser IP: {ip.strip() if ip else 'unknown'}")
+
+        print(f"\n  [+] Navigating to https://superlive.chat/fr/nonlogin-messages")
+        page.goto("https://superlive.chat/fr/nonlogin-messages", wait_until="domcontentloaded", timeout=120000)
+        page.wait_for_timeout(4000)
+
+        step_counter = 1
+        email_input_count = 0
+        loading_count = 0
+        while True:
+            print(f"\n{'='*60}")
+            print(f"  STEP {step_counter}: dumping current page state")
+            print(f"{'='*60}")
             dump_all(page, f"step{step_counter}")
-            break
+            print(f"  [+] Step {step_counter} dumps saved to {result_dir}/")
 
-        step_counter += 1
+            screen = identify_screen(page)
+            print(f"\n  [*] Screen detected: {screen}")
+            print_form_title(page)
+            # Save extra dump for "Commencer la discussion" for later analysis
+            title = page.evaluate("""() => {
+                const h = document.querySelector('h1, h2, h3, h4, h5');
+                if (h) return h.textContent.trim().slice(0, 80);
+                const p = document.querySelector('.text-lg.font-medium, .text-center.text-lg');
+                if (p) return p.textContent.trim().slice(0, 80);
+                return null;
+            }""")
+            if title and "Commencer la discussion" in title:
+                dump_all(page, f"commercer_{step_counter}")
+                print(f"  [+] Extra dump saved for '{title}'")
 
-    print(f"\n  [+] Cleaning up results...")
-    shutil.rmtree(result_dir)
-    print(f"  [+] Results directory removed")
-    print(f"\n  [+] Press Enter to close...")
+            if screen == "loading":
+                loading_count += 1
+                print(f"  [*] loading count: {loading_count}/12")
+                if loading_count >= 12:
+                    print(f"  [!] Loading seen 12 times — treating as home")
+                    screen = "home"
+                else:
+                    time.sleep(3)
+                    continue
+            else:
+                loading_count = 0
+
+            if screen == "email_input":
+                email_input_count += 1
+                print(f"  [*] email_input count: {email_input_count}/3")
+                if email_input_count >= 3:
+                    print(f"  [!] email_input seen 3 times — exiting")
+                    break
+            else:
+                email_input_count = 0
+
+            if screen == "captcha":
+                print(f"  [*] Captcha screen — stopping loop")
+                print(f"STEP {step_counter} [captcha]")
+                time.sleep(8)
+                break
+
+            action = SCREEN_ACTIONS.get(screen)
+            if action:
+                print(f"STEP {step_counter} [{screen}]")
+                time.sleep(8)
+                action(page)
+                time.sleep(5)
+            else:
+                print(f"  [!] Unknown screen: {screen}")
+                print(f"STEP {step_counter} [unknown — press Enter to retry]")
+                time.sleep(8)
+
+            if screen == "profile":
+                print(f"  [+] Profile action done — waiting for next screen")
+                page.wait_for_timeout(3000)
+                step_counter += 1
+                continue
+
+            if screen == "stream":
+                print(f"  [+] Stream reached — exiting main loop")
+                step_counter += 1
+                dump_all(page, f"step{step_counter}")
+                break
+
+            step_counter += 1
+
+        print(f"\n  [+] Cleaning up results...")
+        shutil.rmtree(result_dir)
+        print(f"  [+] Results directory removed")
+
+
+if __name__ == "__main__":
+    if args.nordvpn:
+        import signal
+        signal.signal(signal.SIGINT, lambda s, f: (print("\n[!] Interrupted"), sys.exit(1)))
+        signal.signal(signal.SIGTERM, lambda s, f: (print("\n[!] Terminated"), sys.exit(1)))
+
+        while True:
+            if not vpn.connect_random():
+                time.sleep(3)
+                continue
+            try:
+                run_session()
+            except KeyboardInterrupt:
+                print("\n[!] Interrupted — exiting")
+                vpn.disconnect()
+                sys.exit(1)
+            except SystemExit:
+                print("[*] Session exited")
+            except Exception as e:
+                print(f"[!] Session error: {e}")
+                import traceback
+                traceback.print_exc()
+
+            print("[*] Session finished — reconnecting...")
+            time.sleep(3)
+    else:
+        run_session()
