@@ -23,7 +23,7 @@
       "w": 1280,
       "h": 659
     },
-    "childCount": 47
+    "childCount": 49
   },
   {
     "tag": "div",
@@ -36,7 +36,33 @@
       "w": 1280,
       "h": 659
     },
-    "childCount": 3
+    "childCount": 4
+  },
+  {
+    "tag": "div",
+    "id": "",
+    "class": "fixed inset-0 bg-black/30 bg-opacity-50 flex justify-center items-center z-50 z-99!",
+    "text": "",
+    "rect": {
+      "x": 0,
+      "y": 0,
+      "w": 1280,
+      "h": 659
+    },
+    "childCount": 1
+  },
+  {
+    "tag": "span",
+    "id": "",
+    "class": "iconify i-spl-web:loading text-primary-400 animate-spin",
+    "text": "",
+    "rect": {
+      "x": 617,
+      "y": 307,
+      "w": 44,
+      "h": 44
+    },
+    "childCount": 0
   },
   {
     "tag": "main",
@@ -871,13 +897,78 @@
     "childCount": 1
   },
   {
+    "tag": "div",
+    "id": "",
+    "class": "fixed inset-0 z-1000000 flex items-center justify-center bg-black/60 backdrop-blur-sm select-none",
+    "text": "",
+    "rect": {
+      "x": 0,
+      "y": 0,
+      "w": 1280,
+      "h": 659
+    },
+    "childCount": 2
+  },
+  {
+    "tag": "div",
+    "id": "",
+    "class": "fixed right-0 top-0 p-2",
+    "text": "",
+    "rect": {
+      "x": 1242,
+      "y": 0,
+      "w": 38,
+      "h": 46
+    },
+    "childCount": 1
+  },
+  {
+    "tag": "button",
+    "id": "",
+    "class": "flex items-center gap-2 transition-all duration-300 cursor-pointer rounded-full border border-[var(--color-surface-500)] text-white bg-none text-base font-semibold size-12 aspect-auto px-0 justify-center max-w-none shrink-0 disabled:opacity-50 disabled:cursor-not-allowed hover:opacity-70 self-start border border-surface-500 p-1 size-auto hover:bg-unique-label-100 transition-colors z-50",
+    "text": "",
+    "rect": {
+      "x": 1250,
+      "y": 8,
+      "w": 22,
+      "h": 30
+    },
+    "childCount": 1
+  },
+  {
+    "tag": "div",
+    "id": "",
+    "class": "relative justify-center inline-flex w-full items-center px-0 text-surface-500 **:fill-surface-500",
+    "text": "",
+    "rect": {
+      "x": 1251,
+      "y": 13,
+      "w": 20,
+      "h": 20
+    },
+    "childCount": 1
+  },
+  {
+    "tag": "div",
+    "id": "",
+    "class": "",
+    "text": "",
+    "rect": {
+      "x": 488,
+      "y": 290,
+      "w": 304,
+      "h": 78
+    },
+    "childCount": 1
+  },
+  {
     "tag": "button",
     "id": "",
     "class": "flex items-center gap-2 transition-all duration-300 cursor-pointer rounded-full border border-[var(--color-surface-500)] text-white bg-none text-base font-semibold size-12 aspect-auto px-0 justify-center max-w-none shrink-0 disabled:opacity-50 disabled:cursor-not-allowed hover:opacity-70 absolute top-3 right-3 rtl:right-auto rtl:left-3 z-81 size-auto! max-w-none! p-1! border border-surface-500 transition duration-200 ease-in-out hover:bg-unique-label-100 backdrop-blur-lg",
     "text": "",
     "rect": {
       "x": 821,
-      "y": 123,
+      "y": 87,
       "w": 30,
       "h": 30
     },
@@ -890,7 +981,7 @@
     "text": "",
     "rect": {
       "x": 826,
-      "y": 128,
+      "y": 92,
       "w": 20,
       "h": 20
     },
@@ -903,7 +994,7 @@
     "text": "dialog",
     "rect": {
       "x": 416,
-      "y": 110,
+      "y": 74,
       "w": 1,
       "h": 1
     },
@@ -916,7 +1007,7 @@
     "text": "description",
     "rect": {
       "x": 416,
-      "y": 110,
+      "y": 74,
       "w": 1,
       "h": 1
     },
@@ -926,12 +1017,12 @@
     "tag": "div",
     "id": "",
     "class": "flex-1 min-h-0 overflow-y-auto flex flex-col py-8 px-5",
-    "text": "Verifier votre e-mailConfirmer Le message envoyé à hyperstorm8897@sec4891.eu.org",
+    "text": "Verifier votre e-mailConfirmer Code non envoyé? Renvoyez le code. Le message env",
     "rect": {
       "x": 417,
-      "y": 111,
+      "y": 75,
       "w": 446,
-      "h": 436
+      "h": 508
     },
     "childCount": 1
   },
@@ -939,12 +1030,12 @@
     "tag": "div",
     "id": "",
     "class": "w-full",
-    "text": "Verifier votre e-mailConfirmer Le message envoyé à hyperstorm8897@sec4891.eu.org",
+    "text": "Verifier votre e-mailConfirmer Code non envoyé? Renvoyez le code. Le message env",
     "rect": {
       "x": 437,
-      "y": 143,
+      "y": 107,
       "w": 406,
-      "h": 372
+      "h": 444
     },
     "childCount": 2
   },
@@ -955,7 +1046,7 @@
     "text": "",
     "rect": {
       "x": 437,
-      "y": 143,
+      "y": 107,
       "w": 406,
       "h": 72
     },
@@ -968,7 +1059,7 @@
     "text": "",
     "rect": {
       "x": 461,
-      "y": 155,
+      "y": 119,
       "w": 48,
       "h": 48
     },
@@ -981,7 +1072,7 @@
     "text": "",
     "rect": {
       "x": 461,
-      "y": 167,
+      "y": 131,
       "w": 48,
       "h": 24
     },
@@ -991,14 +1082,14 @@
     "tag": "section",
     "id": "",
     "class": "flex flex-col items-center justify-center gap-2 mt-19 md:mt-0",
-    "text": "Verifier votre e-mailConfirmer Le message envoyé à hyperstorm8897@sec4891.eu.org",
+    "text": "Verifier votre e-mailConfirmer Code non envoyé? Renvoyez le code. Le message env",
     "rect": {
       "x": 437,
-      "y": 215,
+      "y": 179,
       "w": 406,
-      "h": 300
+      "h": 372
     },
-    "childCount": 6
+    "childCount": 7
   },
   {
     "tag": "h3",
@@ -1007,7 +1098,7 @@
     "text": "Verifier votre e-mail",
     "rect": {
       "x": 523,
-      "y": 215,
+      "y": 179,
       "w": 232,
       "h": 32
     },
@@ -1020,7 +1111,7 @@
     "text": "",
     "rect": {
       "x": 437,
-      "y": 283,
+      "y": 247,
       "w": 406,
       "h": 44
     },
@@ -1033,7 +1124,7 @@
     "text": "",
     "rect": {
       "x": 468,
-      "y": 283,
+      "y": 247,
       "w": 44,
       "h": 44
     },
@@ -1046,7 +1137,7 @@
     "text": "",
     "rect": {
       "x": 478,
-      "y": 292,
+      "y": 256,
       "w": 24,
       "h": 27
     },
@@ -1059,7 +1150,7 @@
     "text": "",
     "rect": {
       "x": 538,
-      "y": 292,
+      "y": 256,
       "w": 24,
       "h": 27
     },
@@ -1072,7 +1163,7 @@
     "text": "",
     "rect": {
       "x": 598,
-      "y": 292,
+      "y": 256,
       "w": 24,
       "h": 27
     },
@@ -1085,7 +1176,7 @@
     "text": "",
     "rect": {
       "x": 658,
-      "y": 292,
+      "y": 256,
       "w": 24,
       "h": 27
     },
@@ -1098,7 +1189,7 @@
     "text": "",
     "rect": {
       "x": 718,
-      "y": 292,
+      "y": 256,
       "w": 24,
       "h": 27
     },
@@ -1111,7 +1202,7 @@
     "text": "",
     "rect": {
       "x": 778,
-      "y": 292,
+      "y": 256,
       "w": 24,
       "h": 27
     },
@@ -1124,9 +1215,22 @@
     "text": "Confirmer",
     "rect": {
       "x": 496,
-      "y": 355,
+      "y": 319,
       "w": 288,
       "h": 56
+    },
+    "childCount": 1
+  },
+  {
+    "tag": "button",
+    "id": "",
+    "class": "flex items-center gap-2 transition-all duration-300 cursor-pointer rounded-full bg-linear-to-br from-primary-600 via-primary-400 to-primary-300 text-white text-base font-semibold h-12 px-5 min-w-full w-full max-w-full disabled:!bg-none disabled:!bg-[var(--color-disabled-button)] disabled:cursor-not-allowed disabled:text-[var(--color-surface-500)] hover:opacity-70 mb-4 bg-none! bg-transparent! text-surface-400! underline",
+    "text": "Code non envoyé? Renvoyez le code.",
+    "rect": {
+      "x": 437,
+      "y": 399,
+      "w": 406,
+      "h": 48
     },
     "childCount": 1
   },
@@ -1134,10 +1238,10 @@
     "tag": "div",
     "id": "",
     "class": "text-xs text-surface-400 text-center select-none md:w-3/4",
-    "text": "Le message envoyé à hyperstorm8897@sec4891.eu.org sera envoyé dans 53 secondes.",
+    "text": "Le message envoyé à hyperstorm8897@sec4891.eu.org sera envoyé dans 0 secondes.",
     "rect": {
       "x": 487,
-      "y": 435,
+      "y": 471,
       "w": 304,
       "h": 48
     },
@@ -1147,11 +1251,11 @@
     "tag": "span",
     "id": "",
     "class": "text-primary-400",
-    "text": "53",
+    "text": "0",
     "rect": {
-      "x": 601,
-      "y": 468,
-      "w": 14,
+      "x": 604,
+      "y": 504,
+      "w": 7,
       "h": 15
     },
     "childCount": 0
@@ -1163,10 +1267,23 @@
     "text": "Changer l'e-mail",
     "rect": {
       "x": 575,
-      "y": 491,
+      "y": 527,
       "w": 129,
       "h": 24
     },
     "childCount": 1
+  },
+  {
+    "tag": "div",
+    "id": "",
+    "class": "g-recaptcha-bubble-arrow",
+    "text": "",
+    "rect": {
+      "x": 1,
+      "y": -10010,
+      "w": 22,
+      "h": 22
+    },
+    "childCount": 0
   }
 ]

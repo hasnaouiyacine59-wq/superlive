@@ -469,13 +469,53 @@
     "name": "",
     "placeholder": "",
     "rect": {
+      "x": 1250,
+      "y": 8,
+      "width": 22,
+      "height": 30,
+      "top": 8,
+      "right": 1272,
+      "bottom": 38,
+      "left": 1250
+    }
+  },
+  {
+    "tag": "textarea",
+    "id": "g-recaptcha-response-5",
+    "class": "g-recaptcha-response",
+    "text": "",
+    "href": "",
+    "type": "textarea",
+    "name": "g-recaptcha-response",
+    "placeholder": "",
+    "rect": {
+      "x": 0,
+      "y": 0,
+      "width": 0,
+      "height": 0,
+      "top": 0,
+      "right": 0,
+      "bottom": 0,
+      "left": 0
+    }
+  },
+  {
+    "tag": "button",
+    "id": "",
+    "class": "flex items-center gap-2 transition-all duration-300 cursor-pointer rounded-full ",
+    "text": "",
+    "href": "",
+    "type": "submit",
+    "name": "",
+    "placeholder": "",
+    "rect": {
       "x": 821,
-      "y": 123.5,
+      "y": 87.5,
       "width": 30,
       "height": 30,
-      "top": 123.5,
+      "top": 87.5,
       "right": 851,
-      "bottom": 153.5,
+      "bottom": 117.5,
       "left": 821
     }
   },
@@ -490,12 +530,12 @@
     "placeholder": "",
     "rect": {
       "x": 461,
-      "y": 155.5,
+      "y": 119.5,
       "width": 48,
       "height": 48,
-      "top": 155.5,
+      "top": 119.5,
       "right": 509,
-      "bottom": 203.5,
+      "bottom": 167.5,
       "left": 461
     }
   },
@@ -510,12 +550,12 @@
     "placeholder": "",
     "rect": {
       "x": 478,
-      "y": 292,
+      "y": 256,
       "width": 24,
       "height": 27,
-      "top": 292,
+      "top": 256,
       "right": 502,
-      "bottom": 319,
+      "bottom": 283,
       "left": 478
     }
   },
@@ -530,12 +570,12 @@
     "placeholder": "",
     "rect": {
       "x": 538,
-      "y": 292,
+      "y": 256,
       "width": 24,
       "height": 27,
-      "top": 292,
+      "top": 256,
       "right": 562,
-      "bottom": 319,
+      "bottom": 283,
       "left": 538
     }
   },
@@ -550,12 +590,12 @@
     "placeholder": "",
     "rect": {
       "x": 598,
-      "y": 292,
+      "y": 256,
       "width": 24,
       "height": 27,
-      "top": 292,
+      "top": 256,
       "right": 622,
-      "bottom": 319,
+      "bottom": 283,
       "left": 598
     }
   },
@@ -570,12 +610,12 @@
     "placeholder": "",
     "rect": {
       "x": 658,
-      "y": 292,
+      "y": 256,
       "width": 24,
       "height": 27,
-      "top": 292,
+      "top": 256,
       "right": 682,
-      "bottom": 319,
+      "bottom": 283,
       "left": 658
     }
   },
@@ -590,12 +630,12 @@
     "placeholder": "",
     "rect": {
       "x": 718,
-      "y": 292,
+      "y": 256,
       "width": 24,
       "height": 27,
-      "top": 292,
+      "top": 256,
       "right": 742,
-      "bottom": 319,
+      "bottom": 283,
       "left": 718
     }
   },
@@ -610,12 +650,12 @@
     "placeholder": "",
     "rect": {
       "x": 778,
-      "y": 292,
+      "y": 256,
       "width": 24,
       "height": 27,
-      "top": 292,
+      "top": 256,
       "right": 802,
-      "bottom": 319,
+      "bottom": 283,
       "left": 778
     }
   },
@@ -630,13 +670,33 @@
     "placeholder": "",
     "rect": {
       "x": 496,
-      "y": 355.5,
+      "y": 319.5,
       "width": 288,
       "height": 56,
-      "top": 355.5,
+      "top": 319.5,
       "right": 784,
-      "bottom": 411.5,
+      "bottom": 375.5,
       "left": 496
+    }
+  },
+  {
+    "tag": "button",
+    "id": "",
+    "class": "flex items-center gap-2 transition-all duration-300 cursor-pointer rounded-full ",
+    "text": "Code non envoyé? Renvoyez le code.",
+    "href": "",
+    "type": "submit",
+    "name": "",
+    "placeholder": "",
+    "rect": {
+      "x": 437,
+      "y": 399.5,
+      "width": 406,
+      "height": 48,
+      "top": 399.5,
+      "right": 843,
+      "bottom": 447.5,
+      "left": 437
     }
   },
   {
@@ -650,12 +710,12 @@
     "placeholder": "",
     "rect": {
       "x": 575.316650390625,
-      "y": 491.5,
+      "y": 527.5,
       "width": 129.35000610351562,
       "height": 24,
-      "top": 491.5,
+      "top": 527.5,
       "right": 704.6666564941406,
-      "bottom": 515.5,
+      "bottom": 551.5,
       "left": 575.316650390625
     }
   },
