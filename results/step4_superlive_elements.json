@@ -23,7 +23,7 @@
       "w": 1280,
       "h": 659
     },
-    "childCount": 10
+    "childCount": 9
   },
   {
     "tag": "div",
@@ -509,45 +509,6 @@
   {
     "tag": "div",
     "id": "",
-    "class": "grecaptcha-badge",
-    "text": "",
-    "rect": {
-      "x": 1210,
-      "y": 585,
-      "w": 256,
-      "h": 60
-    },
-    "childCount": 3
-  },
-  {
-    "tag": "div",
-    "id": "",
-    "class": "grecaptcha-logo",
-    "text": "",
-    "rect": {
-      "x": 1210,
-      "y": 585,
-      "w": 256,
-      "h": 60
-    },
-    "childCount": 1
-  },
-  {
-    "tag": "iframe",
-    "id": "",
-    "class": "",
-    "text": "",
-    "rect": {
-      "x": 1210,
-      "y": 585,
-      "w": 256,
-      "h": 60
-    },
-    "childCount": 0
-  },
-  {
-    "tag": "div",
-    "id": "",
     "class": "fixed inset-0 bg-(--alpha-shadow-tone-80) pointer-events-auto",
     "text": "",
     "rect": {
@@ -562,40 +523,14 @@
     "tag": "div",
     "id": "",
     "class": "fixed left-1/2 top-1/2 -translate-1/2 rounded-2xl outline-none flex flex-col w-[88%] max-w-md bg-unique-background border border-unique-label-100 backdrop-blur-sm overflow-hidden",
-    "text": "dialogdescription\n            \n            \n            \n            \n          ",
+    "text": "dialogdescription Saisir le code de vérificationNous avons envoyé un code de vér",
     "rect": {
       "x": 416,
-      "y": 149,
+      "y": 96,
       "w": 448,
-      "h": 360
+      "h": 466
     },
-    "childCount": 4
-  },
-  {
-    "tag": "button",
-    "id": "",
-    "class": "flex items-center gap-2 transition-all duration-300 cursor-pointer rounded-full border border-[var(--color-surface-500)] text-white bg-none text-base font-semibold size-12 aspect-auto px-0 justify-center max-w-none shrink-0 disabled:opacity-50 disabled:cursor-not-allowed hover:opacity-70 absolute top-3 right-3 rtl:right-auto rtl:left-3 z-81 size-auto! max-w-none! p-1! border border-surface-500 transition duration-200 ease-in-out hover:bg-unique-label-100 backdrop-blur-lg",
-    "text": "",
-    "rect": {
-      "x": 821,
-      "y": 162,
-      "w": 30,
-      "h": 30
-    },
-    "childCount": 1
-  },
-  {
-    "tag": "div",
-    "id": "",
-    "class": "relative justify-center inline-flex w-full items-center px-0 text-surface-400 **:fill-surface-400",
-    "text": "",
-    "rect": {
-      "x": 826,
-      "y": 167,
-      "w": 20,
-      "h": 20
-    },
-    "childCount": 1
+    "childCount": 3
   },
   {
     "tag": "h2",
@@ -604,7 +539,7 @@
     "text": "dialog",
     "rect": {
       "x": 416,
-      "y": 149,
+      "y": 96,
       "w": 1,
       "h": 1
     },
@@ -617,7 +552,7 @@
     "text": "description",
     "rect": {
       "x": 416,
-      "y": 149,
+      "y": 96,
       "w": 1,
       "h": 1
     },
@@ -626,156 +561,247 @@
   {
     "tag": "div",
     "id": "",
-    "class": "flex-1 min-h-0 overflow-y-auto flex flex-col",
-    "text": "Bienvenue sur Superlive !Que vous créiez un compte ou que vous vous reconnectiez",
+    "class": "flex-1 min-h-0 overflow-y-auto flex flex-col md:py-8",
+    "text": "Saisir le code de vérificationNous avons envoyé un code de vérification à blazer",
     "rect": {
       "x": 417,
-      "y": 150,
+      "y": 97,
       "w": 446,
-      "h": 358
+      "h": 464
     },
     "childCount": 1
   },
   {
     "tag": "div",
     "id": "",
-    "class": "flex flex-col items-center px-6 pt-10",
-    "text": "Bienvenue sur Superlive !Que vous créiez un compte ou que vous vous reconnectiez",
+    "class": "w-full h-fit pb-6 bg-unique-background md:h-fit",
+    "text": "Saisir le code de vérificationNous avons envoyé un code de vérification à blazer",
     "rect": {
       "x": 417,
-      "y": 150,
+      "y": 129,
       "w": 446,
-      "h": 358
+      "h": 400
     },
-    "childCount": 6
+    "childCount": 2
   },
   {
     "tag": "div",
     "id": "",
-    "class": "flex items-center w-full justify-between",
-    "text": "Bienvenue sur Superlive !",
+    "class": "flex items-center px-10 pt-5",
+    "text": "Saisir le code de vérification",
     "rect": {
-      "x": 441,
-      "y": 190,
-      "w": 398,
-      "h": 28
+      "x": 417,
+      "y": 129,
+      "w": 446,
+      "h": 48
     },
     "childCount": 3
   },
   {
     "tag": "button",
     "id": "",
-    "class": "flex items-center gap-2 transition-all duration-300 cursor-pointer rounded-full text-[var(--color-primary-400)] bg-none text-base font-semibold size-12 aspect-auto px-0 justify-center max-w-none shrink-0 disabled:opacity-50 disabled:cursor-not-allowed hover:opacity-70 size-auto! max-w-none! p-0!",
+    "class": "flex items-center gap-2 transition-all duration-300 cursor-pointer rounded-full text-[var(--color-primary-400)] bg-none text-base font-semibold h-fit w-auto max-w-max disabled:opacity-50 disabled:cursor-not-allowed hover:opacity-70 shrink-0 size-10! max-w-none! p-0! md:absolute md:top-5 md:rtl:left-0 md:rtl:right-5 left-5 md:border md:border-surface-600 md:p-2!",
     "text": "",
     "rect": {
-      "x": 441,
-      "y": 194,
-      "w": 18,
-      "h": 20
+      "x": 437,
+      "y": 117,
+      "w": 40,
+      "h": 40
     },
     "childCount": 1
   },
   {
     "tag": "div",
     "id": "",
-    "class": "relative justify-center inline-flex w-full items-center px-0 text-white rtl:origin-center rtl:rotate-180",
+    "class": "",
     "text": "",
     "rect": {
-      "x": 441,
-      "y": 194,
-      "w": 18,
+      "x": 447,
+      "y": 127,
+      "w": 20,
       "h": 20
     },
     "childCount": 1
   },
   {
-    "tag": "h5",
+    "tag": "h3",
     "id": "",
-    "class": "text-lg font-medium text-white text-center text-white text-center",
-    "text": "Bienvenue sur Superlive !",
+    "class": "text-2xl font-semibold flex-1 text-xl text-white text-center capitalize select-none flex-1 text-xl text-white text-center capitalize select-none",
+    "text": "Saisir le code de vérification",
     "rect": {
-      "x": 519,
-      "y": 190,
-      "w": 218,
+      "x": 457,
+      "y": 149,
+      "w": 366,
       "h": 28
     },
     "childCount": 0
   },
   {
-    "tag": "p",
+    "tag": "div",
     "id": "",
-    "class": "text-sm text-center px-7 mb-6 text-surface-400",
-    "text": "Que vous créiez un compte ou que vous vous reconnectiez, commençons par votre e-",
+    "class": "px-10 mt-2 size-full flex flex-col items-center",
+    "text": "Nous avons envoyé un code de vérification à blazerider1655@lg-salmi.nl.eu.org. V",
     "rect": {
-      "x": 441,
-      "y": 218,
-      "w": 398,
-      "h": 40
+      "x": 417,
+      "y": 185,
+      "w": 446,
+      "h": 320
     },
-    "childCount": 0
-  },
-  {
-    "tag": "button",
-    "id": "",
-    "class": "flex items-center gap-2 transition-all duration-300 cursor-pointer rounded-full border border-[var(--color-surface-500)] text-white bg-none text-base font-semibold h-14 px-5 min-w-full w-full max-w-full disabled:opacity-50 disabled:cursor-not-allowed hover:opacity-70 bg-white! text-black!",
-    "text": "S'enregistrer avec l'adresse e-mail",
-    "rect": {
-      "x": 441,
-      "y": 282,
-      "w": 398,
-      "h": 56
-    },
-    "childCount": 1
+    "childCount": 5
   },
   {
     "tag": "p",
     "id": "",
-    "class": "py-5 text-sm text-basic-100",
-    "text": "Avez-vous un compte?",
+    "class": "text-sm text-center text-white mb-9 select-none max-md:pl-5",
+    "text": "Nous avons envoyé un code de vérification à blazerider1655@lg-salmi.nl.eu.org. V",
     "rect": {
-      "x": 564,
-      "y": 338,
-      "w": 151,
+      "x": 457,
+      "y": 185,
+      "w": 366,
       "h": 60
     },
+    "childCount": 1
+  },
+  {
+    "tag": "span",
+    "id": "",
+    "class": "font-semibold text-white",
+    "text": "blazerider1655@lg-salmi.nl.eu.org",
+    "rect": {
+      "x": 467,
+      "y": 207,
+      "w": 234,
+      "h": 17
+    },
+    "childCount": 0
+  },
+  {
+    "tag": "div",
+    "id": "",
+    "class": "w-full flex items-center justify-center gap-2 mb-4",
+    "text": "",
+    "rect": {
+      "x": 457,
+      "y": 281,
+      "w": 366,
+      "h": 44
+    },
+    "childCount": 6
+  },
+  {
+    "tag": "div",
+    "id": "",
+    "class": "border-label-200 flex justify-center items-center rounded-(--space-3) size-11 border",
+    "text": "",
+    "rect": {
+      "x": 488,
+      "y": 281,
+      "w": 44,
+      "h": 44
+    },
+    "childCount": 1
+  },
+  {
+    "tag": "input",
+    "id": "otp-code-0",
+    "class": "appearance-none w-6 text-center text-(length:--space-5_5) leading-(length:--space-5_5) font-bold text-basic-100 placeholder:text-label-100 focus:outline-none focus:shadow-outline",
+    "text": "",
+    "rect": {
+      "x": 498,
+      "y": 290,
+      "w": 24,
+      "h": 27
+    },
+    "childCount": 0
+  },
+  {
+    "tag": "input",
+    "id": "otp-code-1",
+    "class": "appearance-none w-6 text-center text-(length:--space-5_5) leading-(length:--space-5_5) font-bold text-basic-100 placeholder:text-label-100 focus:outline-none focus:shadow-outline",
+    "text": "",
+    "rect": {
+      "x": 550,
+      "y": 290,
+      "w": 24,
+      "h": 27
+    },
+    "childCount": 0
+  },
+  {
+    "tag": "input",
+    "id": "otp-code-2",
+    "class": "appearance-none w-6 text-center text-(length:--space-5_5) leading-(length:--space-5_5) font-bold text-basic-100 placeholder:text-label-100 focus:outline-none focus:shadow-outline",
+    "text": "",
+    "rect": {
+      "x": 602,
+      "y": 290,
+      "w": 24,
+      "h": 27
+    },
+    "childCount": 0
+  },
+  {
+    "tag": "input",
+    "id": "otp-code-3",
+    "class": "appearance-none w-6 text-center text-(length:--space-5_5) leading-(length:--space-5_5) font-bold text-basic-100 placeholder:text-label-100 focus:outline-none focus:shadow-outline",
+    "text": "",
+    "rect": {
+      "x": 654,
+      "y": 290,
+      "w": 24,
+      "h": 27
+    },
+    "childCount": 0
+  },
+  {
+    "tag": "input",
+    "id": "otp-code-4",
+    "class": "appearance-none w-6 text-center text-(length:--space-5_5) leading-(length:--space-5_5) font-bold text-basic-100 placeholder:text-label-100 focus:outline-none focus:shadow-outline",
+    "text": "",
+    "rect": {
+      "x": 706,
+      "y": 290,
+      "w": 24,
+      "h": 27
+    },
+    "childCount": 0
+  },
+  {
+    "tag": "input",
+    "id": "otp-code-5",
+    "class": "appearance-none w-6 text-center text-(length:--space-5_5) leading-(length:--space-5_5) font-bold text-basic-100 placeholder:text-label-100 focus:outline-none focus:shadow-outline",
+    "text": "",
+    "rect": {
+      "x": 758,
+      "y": 290,
+      "w": 24,
+      "h": 27
+    },
     "childCount": 0
   },
   {
     "tag": "button",
     "id": "",
-    "class": "flex items-center gap-2 transition-all duration-300 cursor-pointer rounded-full border border-[var(--color-surface-500)] text-white bg-none text-base font-semibold h-14 px-5 min-w-full w-full max-w-full disabled:opacity-50 disabled:cursor-not-allowed hover:opacity-70 border-basic-100 border-1 text-white! mb-5.5",
-    "text": "Connectez-vous avec e-mail",
+    "class": "flex items-center gap-2 transition-all duration-300 cursor-pointer rounded-full bg-linear-to-br from-primary-600 via-primary-400 to-primary-300 text-white text-base font-semibold h-14 px-5 max-w-sm disabled:!bg-none disabled:!bg-[var(--color-disabled-button)] disabled:cursor-not-allowed disabled:text-[var(--color-surface-500)] hover:opacity-70 w-full mt-4",
+    "text": "Vérifier",
     "rect": {
-      "x": 441,
-      "y": 398,
-      "w": 398,
+      "x": 457,
+      "y": 357,
+      "w": 366,
       "h": 56
     },
     "childCount": 1
   },
   {
-    "tag": "section",
+    "tag": "button",
     "id": "",
-    "class": "mb-5",
-    "text": "J'accepte par la présente les Termes et Conditions et la Politique de confidenti",
+    "class": "flex items-center gap-2 transition-all duration-300 cursor-pointer rounded-full border border-[var(--color-surface-500)] text-white bg-none text-sm font-semibold h-9 px-4 w-auto max-w-max disabled:opacity-50 disabled:cursor-not-allowed hover:opacity-70 mt-4 border-surface-400",
+    "text": "Renvoyer le code (56)",
     "rect": {
-      "x": 442,
-      "y": 476,
-      "w": 395,
-      "h": 12
-    },
-    "childCount": 1
-  },
-  {
-    "tag": "p",
-    "id": "",
-    "class": "text-2xs text-center",
-    "text": "J'accepte par la présente les Termes et Conditions et la Politique de confidenti",
-    "rect": {
-      "x": 442,
-      "y": 476,
-      "w": 395,
-      "h": 12
+      "x": 549,
+      "y": 429,
+      "w": 182,
+      "h": 36
     },
     "childCount": 1
   },
@@ -783,12 +809,25 @@
     "tag": "span",
     "id": "",
     "class": "",
+    "text": "(56)",
+    "rect": {
+      "x": 685,
+      "y": 439,
+      "w": 28,
+      "h": 17
+    },
+    "childCount": 0
+  },
+  {
+    "tag": "p",
+    "id": "",
+    "class": "text-2xs text-center mt-4 text-white",
     "text": "J'accepte par la présente les Termes et Conditions et la Politique de confidenti",
     "rect": {
-      "x": 442,
-      "y": 476,
-      "w": 395,
-      "h": 12
+      "x": 457,
+      "y": 481,
+      "w": 366,
+      "h": 24
     },
     "childCount": 2
   },
@@ -798,8 +837,8 @@
     "class": "underline",
     "text": "Termes et Conditions",
     "rect": {
-      "x": 583,
-      "y": 476,
+      "x": 618,
+      "y": 481,
       "w": 102,
       "h": 12
     },

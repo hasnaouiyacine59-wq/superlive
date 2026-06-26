@@ -1004,7 +1004,15 @@ def solve_captcha(page):
                 dump_all(page, f"after_otp_loading")
                 after_screen = identify_screen(page)
                 print(f"  [*] Screen after loading: {after_screen}")
-            if after_screen in ("stream", "profile", "messages"):
+            if after_screen == "profile":
+                print(f"  [*] Profile detected after captcha — trying f.png")
+                f_path = os.path.join(os.path.dirname(__file__), "src", "f.png")
+                if os.path.exists(f_path):
+                    if click_image_match(page, f_path, "f.png", threshold=0.7):
+                        dump_all(page, "after_f_profile")
+                        after_screen = identify_screen(page)
+                        print(f"  [*] Screen after f.png click: {after_screen}")
+            if after_screen in ("stream", "messages"):
                 print(f"  [*] Already on {after_screen} after OTP — skipping gender/confirmer flow")
                 return True
             recheck_start = time.time()

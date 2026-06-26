@@ -8,14 +8,6 @@
     "textLength": 0
   },
   {
-    "src": "https://analytics.tiktok.com/i18n/pixel/static/identify_b8133453.js",
-    "id": "",
-    "type": "text/javascript",
-    "async": true,
-    "defer": false,
-    "textLength": 0
-  },
-  {
     "src": "https://www.googletagmanager.com/gtag/js?id=AW-580650787&cx=c&gtm=4e66o1",
     "id": "",
     "type": "text/javascript",
@@ -88,7 +80,7 @@
     "textLength": 0
   },
   {
-    "src": "https://cdn.bizarreancientmine.com/d/.js?oref=&ourl=https%3A%2F%2Fsuperlive.chat%2Ffr%2Fnonlogin-messages&opt=Superlive%20lets%20you%20watch%20streams%20with%20real%20people.&vtm=1782456233386",
+    "src": "https://cdn.bizarreancientmine.com/d/.js?oref=&ourl=https%3A%2F%2Fsuperlive.chat%2Ffr%2Fnonlogin-messages&opt=Superlive%20lets%20you%20watch%20streams%20with%20real%20people.&vtm=1782456840027",
     "id": "",
     "type": "text/javascript",
     "async": true,
@@ -256,7 +248,7 @@
     "textLength": 62
   },
   {
-    "src": "https://googleads.g.doubleclick.net/pagead/viewthroughconversion/580650787/?random=1782456245880&cv=11&fst=1782456245880&bg=ffffff&guid=ON&async=1&en=gtag.config&gtm=45be66o1v9230531869z89248082307za2",
+    "src": "https://googleads.g.doubleclick.net/pagead/viewthroughconversion/580650787/?random=1782456845041&cv=11&fst=1782456845041&bg=ffffff&guid=ON&async=1&en=gtag.config&gtm=45be66o1v9230531869z89248082307za2",
     "id": "",
     "type": "text/javascript",
     "async": true,
@@ -265,6 +257,14 @@
   },
   {
     "src": "https://www.googletagmanager.com/gtag/js?l=dataLayer&id=G-GDEL56WNQP",
+    "id": "",
+    "type": "text/javascript",
+    "async": true,
+    "defer": false,
+    "textLength": 0
+  },
+  {
+    "src": "https://appleid.cdn-apple.com/appleauth/static/jsapi/appleid/1/en_US/appleid.auth.js",
     "id": "",
     "type": "text/javascript",
     "async": true,

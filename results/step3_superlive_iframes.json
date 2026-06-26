@@ -1,38 +1,11 @@
 [
   {
-    "src": "https://www.google.com/recaptcha/api2/anchor?ar=1&k=6Ld9_e8sAAAAAIPwD7J3mrBiQno-h86lHiFfQ_Nk&co=aHR0cHM6Ly9zdXBlcmxpdmUuY2hhdDo0NDM.&hl=fr&v=MerVUtRoajKEbP7pLiGXkL28&size=invisible&anchor-ms=20000&exe",
-    "id": "",
-    "name": "a-bheshltboh9b",
-    "title": "reCAPTCHA",
-    "width": "256",
-    "height": "60",
-    "visible": true
-  },
-  {
-    "src": "",
-    "id": "",
+    "src": "https://tr.snapchat.com/cm/i?pid=af0f55c7-d8d5-4c11-bd40-b1210fe968c2&u_scsid=aedcbade-7286-44d1-a600-dabe15de95b5&u_sclid=2391803b-6f5e-4ed0-9f25-a6fa32c26331",
+    "id": "snap5127226",
     "name": "",
     "title": "",
     "width": "",
     "height": "",
     "visible": false
-  },
-  {
-    "src": "https://tr.snapchat.com/cm/i?pid=af0f55c7-d8d5-4c11-bd40-b1210fe968c2&u_scsid=150c81ce-a24c-4ccf-a9fb-d2659a815d4b&u_sclid=6776b384-9e1c-4354-9dd4-a36a6c8563d3",
-    "id": "snap7154132",
-    "name": "",
-    "title": "",
-    "width": "",
-    "height": "",
-    "visible": false
-  },
-  {
-    "src": "https://accounts.google.com/gsi/button?type=standard&theme=filled_blue&text=signin_with&shape=pill&width=400&click_listener=()%3D%3E%7Bqv(%22google_attempt%22)%3Bconst%20e%3Dzg()%3BSf(%7Bsignup_page_t",
-    "id": "gsi_296941_411413",
-    "name": "",
-    "title": "Bouton \"Se connecter avec Google\"",
-    "width": "",
-    "height": "",
-    "visible": true
   }
 ]

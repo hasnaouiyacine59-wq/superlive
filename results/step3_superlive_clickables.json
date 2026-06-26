@@ -280,26 +280,6 @@
     }
   },
   {
-    "tag": "textarea",
-    "id": "g-recaptcha-response-100000",
-    "class": "g-recaptcha-response",
-    "text": "",
-    "href": "",
-    "type": "textarea",
-    "name": "g-recaptcha-response",
-    "placeholder": "",
-    "rect": {
-      "x": 0,
-      "y": 0,
-      "width": 0,
-      "height": 0,
-      "top": 0,
-      "right": 0,
-      "bottom": 0,
-      "left": 0
-    }
-  },
-  {
     "tag": "button",
     "id": "",
     "class": "flex items-center gap-2 transition-all duration-300 cursor-pointer rounded-full ",
@@ -309,114 +289,54 @@
     "name": "",
     "placeholder": "",
     "rect": {
-      "x": 821,
-      "y": 78.89999389648438,
-      "width": 30,
-      "height": 30,
-      "top": 78.89999389648438,
-      "right": 851,
-      "bottom": 108.89999389648438,
-      "left": 821
+      "x": 437,
+      "y": 157.5,
+      "width": 40,
+      "height": 40,
+      "top": 157.5,
+      "right": 477,
+      "bottom": 197.5,
+      "left": 437
     }
   },
   {
-    "tag": "button",
-    "id": "",
-    "class": "flex items-center gap-2 transition-all duration-300 cursor-pointer rounded-full ",
-    "text": "Poursuivre avec Google",
-    "href": "",
-    "type": "submit",
-    "name": "",
-    "placeholder": "",
-    "rect": {
-      "x": 465,
-      "y": 338.8999938964844,
-      "width": 350,
-      "height": 48,
-      "top": 338.8999938964844,
-      "right": 815,
-      "bottom": 386.8999938964844,
-      "left": 465
-    }
-  },
-  {
-    "tag": "div",
-    "id": "gsi_296941_411413-overlay",
-    "class": "L5Fo6c-bF1uUb",
+    "tag": "input",
+    "id": "otp-email",
+    "class": "size-full appearance-none text-sm leading-3.5 text-basic-100 font-medium placeho",
     "text": "",
     "href": "",
-    "type": "",
-    "name": "",
-    "placeholder": "",
+    "type": "email",
+    "name": "email",
+    "placeholder": "example@example.com",
     "rect": {
-      "x": 485,
-      "y": 348.8999938964844,
-      "width": 400,
-      "height": 44,
-      "top": 348.8999938964844,
-      "right": 885,
-      "bottom": 392.8999938964844,
-      "left": 485
+      "x": 478,
+      "y": 286.5,
+      "width": 344,
+      "height": 54,
+      "top": 286.5,
+      "right": 822,
+      "bottom": 340.5,
+      "left": 478
     }
   },
   {
     "tag": "button",
     "id": "",
     "class": "flex items-center gap-2 transition-all duration-300 cursor-pointer rounded-full ",
-    "text": "Poursuivre avec Téléphone",
+    "text": "Continuer",
     "href": "",
     "type": "submit",
     "name": "",
     "placeholder": "",
     "rect": {
-      "x": 465,
-      "y": 398.8999938964844,
-      "width": 350,
-      "height": 48,
-      "top": 398.8999938964844,
-      "right": 815,
-      "bottom": 446.8999938964844,
-      "left": 465
-    }
-  },
-  {
-    "tag": "button",
-    "id": "",
-    "class": "flex items-center gap-2 transition-all duration-300 cursor-pointer rounded-full ",
-    "text": "Poursuivre avec Email",
-    "href": "",
-    "type": "submit",
-    "name": "",
-    "placeholder": "",
-    "rect": {
-      "x": 465,
-      "y": 458.8999938964844,
-      "width": 350,
-      "height": 48,
-      "top": 458.8999938964844,
-      "right": 815,
-      "bottom": 506.8999938964844,
-      "left": 465
-    }
-  },
-  {
-    "tag": "button",
-    "id": "",
-    "class": "flex items-center gap-2 transition-all duration-300 cursor-pointer rounded-full ",
-    "text": "Poursuivre avec X",
-    "href": "",
-    "type": "submit",
-    "name": "",
-    "placeholder": "",
-    "rect": {
-      "x": 465,
-      "y": 518.9000244140625,
-      "width": 350,
-      "height": 48,
-      "top": 518.9000244140625,
-      "right": 815,
-      "bottom": 566.9000244140625,
-      "left": 465
+      "x": 457,
+      "y": 369.5,
+      "width": 366,
+      "height": 56,
+      "top": 369.5,
+      "right": 823,
+      "bottom": 425.5,
+      "left": 457
     }
   },
   {
@@ -430,12 +350,12 @@
     "placeholder": "",
     "rect": {
       "x": 618.5166625976562,
-      "y": 582.9000244140625,
+      "y": 441.5,
       "width": 102.10000610351562,
       "height": 12,
-      "top": 582.9000244140625,
+      "top": 441.5,
       "right": 720.6166687011719,
-      "bottom": 594.9000244140625,
+      "bottom": 453.5,
       "left": 618.5166625976562
     }
   },
@@ -450,12 +370,12 @@
     "placeholder": "",
     "rect": {
       "x": 553.63330078125,
-      "y": 582.9000244140625,
+      "y": 441.5,
       "width": 248.86666870117188,
       "height": 24,
-      "top": 582.9000244140625,
+      "top": 441.5,
       "right": 802.4999694824219,
-      "bottom": 606.9000244140625,
+      "bottom": 465.5,
       "left": 553.63330078125
     }
   }

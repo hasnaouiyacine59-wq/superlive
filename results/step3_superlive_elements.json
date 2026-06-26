@@ -23,7 +23,7 @@
       "w": 1280,
       "h": 659
     },
-    "childCount": 10
+    "childCount": 9
   },
   {
     "tag": "div",
@@ -509,45 +509,6 @@
   {
     "tag": "div",
     "id": "",
-    "class": "grecaptcha-badge",
-    "text": "",
-    "rect": {
-      "x": 1210,
-      "y": 585,
-      "w": 256,
-      "h": 60
-    },
-    "childCount": 3
-  },
-  {
-    "tag": "div",
-    "id": "",
-    "class": "grecaptcha-logo",
-    "text": "",
-    "rect": {
-      "x": 1210,
-      "y": 585,
-      "w": 256,
-      "h": 60
-    },
-    "childCount": 1
-  },
-  {
-    "tag": "iframe",
-    "id": "",
-    "class": "",
-    "text": "",
-    "rect": {
-      "x": 1210,
-      "y": 585,
-      "w": 256,
-      "h": 60
-    },
-    "childCount": 0
-  },
-  {
-    "tag": "div",
-    "id": "",
     "class": "fixed inset-0 bg-(--alpha-shadow-tone-80) pointer-events-auto",
     "text": "",
     "rect": {
@@ -561,50 +522,24 @@
   {
     "tag": "div",
     "id": "",
-    "class": "fixed left-1/2 top-1/2 -translate-1/2 rounded-2xl outline-none flex flex-col w-[88%] max-w-md bg-unique-background border border-unique-label-100 backdrop-blur-sm overflow-hidden overflow-visible!",
-    "text": "dialogdescriptionINSCRIVEZ-VOUS ET GAGNEZ DES CADEAUX GRATUITSInscrivez-vous mai",
+    "class": "fixed left-1/2 top-1/2 -translate-1/2 rounded-2xl outline-none flex flex-col w-[88%] max-w-md bg-unique-background border border-unique-label-100 backdrop-blur-sm overflow-hidden",
+    "text": "dialogdescription Continuer avec l’e-mailSaisissez votre e-mail pour continuerEm",
     "rect": {
       "x": 416,
-      "y": 65,
+      "y": 136,
       "w": 448,
-      "h": 527
+      "h": 386
     },
-    "childCount": 4
-  },
-  {
-    "tag": "button",
-    "id": "",
-    "class": "flex items-center gap-2 transition-all duration-300 cursor-pointer rounded-full border border-[var(--color-surface-500)] text-white bg-none text-base font-semibold size-12 aspect-auto px-0 justify-center max-w-none shrink-0 disabled:opacity-50 disabled:cursor-not-allowed hover:opacity-70 absolute top-3 right-3 rtl:right-auto rtl:left-3 z-81 size-auto! max-w-none! p-1! border border-surface-500 transition duration-200 ease-in-out hover:bg-unique-label-100 backdrop-blur-lg",
-    "text": "",
-    "rect": {
-      "x": 821,
-      "y": 78,
-      "w": 30,
-      "h": 30
-    },
-    "childCount": 1
-  },
-  {
-    "tag": "div",
-    "id": "",
-    "class": "relative justify-center inline-flex w-full items-center px-0 text-surface-400 **:fill-surface-400",
-    "text": "",
-    "rect": {
-      "x": 826,
-      "y": 83,
-      "w": 20,
-      "h": 20
-    },
-    "childCount": 1
+    "childCount": 3
   },
   {
     "tag": "h2",
-    "id": "reka-dialog-title-v-0-2-0",
+    "id": "reka-dialog-title-v-0-2-2",
     "class": "sr-only",
     "text": "dialog",
     "rect": {
       "x": 416,
-      "y": 65,
+      "y": 136,
       "w": 1,
       "h": 1
     },
@@ -612,12 +547,12 @@
   },
   {
     "tag": "p",
-    "id": "reka-dialog-description-v-0-2-1",
+    "id": "reka-dialog-description-v-0-2-3",
     "class": "sr-only",
     "text": "description",
     "rect": {
       "x": 416,
-      "y": 65,
+      "y": 136,
       "w": 1,
       "h": 1
     },
@@ -626,13 +561,52 @@
   {
     "tag": "div",
     "id": "",
-    "class": "flex-1 min-h-0 overflow-y-auto flex flex-col py-4 px-5 md:px-12 overflow-visible! md:py-10",
-    "text": "INSCRIVEZ-VOUS ET GAGNEZ DES CADEAUX GRATUITSInscrivez-vous maintenant pour que ",
+    "class": "flex-1 min-h-0 overflow-y-auto flex flex-col md:py-8",
+    "text": "Continuer avec l’e-mailSaisissez votre e-mail pour continuerEmailContinuer J'acc",
     "rect": {
       "x": 417,
-      "y": 66,
+      "y": 137,
       "w": 446,
-      "h": 525
+      "h": 384
+    },
+    "childCount": 1
+  },
+  {
+    "tag": "div",
+    "id": "",
+    "class": "w-full h-fit pb-6 bg-unique-background md:h-fit",
+    "text": "Continuer avec l’e-mailSaisissez votre e-mail pour continuerEmailContinuer J'acc",
+    "rect": {
+      "x": 417,
+      "y": 169,
+      "w": 446,
+      "h": 320
+    },
+    "childCount": 2
+  },
+  {
+    "tag": "div",
+    "id": "",
+    "class": "flex items-center px-10 pt-5",
+    "text": "Continuer avec l’e-mail",
+    "rect": {
+      "x": 417,
+      "y": 169,
+      "w": 446,
+      "h": 48
+    },
+    "childCount": 3
+  },
+  {
+    "tag": "button",
+    "id": "",
+    "class": "flex items-center gap-2 transition-all duration-300 cursor-pointer rounded-full text-[var(--color-primary-400)] bg-none text-base font-semibold h-fit w-auto max-w-max disabled:opacity-50 disabled:cursor-not-allowed hover:opacity-70 shrink-0 size-10! max-w-none! p-0! md:absolute md:top-5 md:rtl:left-0 md:rtl:right-5 left-5 md:border md:border-surface-600 md:p-2!",
+    "text": "",
+    "rect": {
+      "x": 437,
+      "y": 157,
+      "w": 40,
+      "h": 40
     },
     "childCount": 1
   },
@@ -640,193 +614,141 @@
     "tag": "div",
     "id": "",
     "class": "",
-    "text": "INSCRIVEZ-VOUS ET GAGNEZ DES CADEAUX GRATUITSInscrivez-vous maintenant pour que ",
+    "text": "",
     "rect": {
-      "x": 465,
-      "y": 106,
-      "w": 350,
-      "h": 500
+      "x": 447,
+      "y": 167,
+      "w": 20,
+      "h": 20
     },
-    "childCount": 2
+    "childCount": 1
+  },
+  {
+    "tag": "h3",
+    "id": "",
+    "class": "text-2xl font-semibold flex-1 text-xl text-white text-center capitalize select-none flex-1 text-xl text-white text-center capitalize select-none",
+    "text": "Continuer avec l’e-mail",
+    "rect": {
+      "x": 457,
+      "y": 189,
+      "w": 366,
+      "h": 28
+    },
+    "childCount": 0
   },
   {
     "tag": "div",
     "id": "",
-    "class": "w-full flex flex-col items-center relative z-85 shrink-0 -mt-4 xs:-mt-28",
-    "text": "INSCRIVEZ-VOUS ET GAGNEZ DES CADEAUX GRATUITSInscrivez-vous maintenant pour que ",
+    "class": "px-10 size-full flex-1 mt-2",
+    "text": "Saisissez votre e-mail pour continuerEmailContinuer J'accepte par la présente le",
     "rect": {
-      "x": 465,
-      "y": -5,
-      "w": 350,
-      "h": 328
+      "x": 417,
+      "y": 225,
+      "w": 446,
+      "h": 240
+    },
+    "childCount": 2
+  },
+  {
+    "tag": "p",
+    "id": "",
+    "class": "text-sm text-center capitalize select-none text-white max-md:pl-5",
+    "text": "Saisissez votre e-mail pour continuer",
+    "rect": {
+      "x": 457,
+      "y": 225,
+      "w": 366,
+      "h": 20
+    },
+    "childCount": 0
+  },
+  {
+    "tag": "form",
+    "id": "",
+    "class": "flex flex-col size-full",
+    "text": "EmailContinuer J'accepte par la présente les Termes et Conditions et la Politiqu",
+    "rect": {
+      "x": 457,
+      "y": 245,
+      "w": 366,
+      "h": 220
     },
     "childCount": 3
   },
   {
-    "tag": "picture",
+    "tag": "div",
     "id": "",
-    "class": "object-contain pointer-events-none select-none",
-    "text": "",
+    "class": "my-3",
+    "text": "Email",
     "rect": {
-      "x": 467,
-      "y": -5,
-      "w": 346,
-      "h": 220
+      "x": 457,
+      "y": 257,
+      "w": 366,
+      "h": 84
     },
     "childCount": 2
   },
   {
-    "tag": "p",
+    "tag": "label",
     "id": "",
-    "class": "text-white text-lg font-semibold text-center mt-2",
-    "text": "INSCRIVEZ-VOUS ET GAGNEZ DES CADEAUX GRATUITS",
+    "class": "block text-surface-400 text-sm font-bold select-none pb-2",
+    "text": "Email",
     "rect": {
-      "x": 465,
-      "y": 222,
-      "w": 350,
+      "x": 457,
+      "y": 257,
+      "w": 366,
+      "h": 28
+    },
+    "childCount": 0
+  },
+  {
+    "tag": "div",
+    "id": "",
+    "class": "border-label-200 flex flex-row items-center rounded-xl w-full h-14 border ps-5",
+    "text": "",
+    "rect": {
+      "x": 457,
+      "y": 285,
+      "w": 366,
       "h": 56
     },
-    "childCount": 0
-  },
-  {
-    "tag": "p",
-    "id": "",
-    "class": "text-sm text-center mt-1",
-    "text": "Inscrivez-vous maintenant pour que les cadeaux soient ajoutés à votre compte !",
-    "rect": {
-      "x": 465,
-      "y": 282,
-      "w": 350,
-      "h": 40
-    },
-    "childCount": 0
-  },
-  {
-    "tag": "section",
-    "id": "",
-    "class": "flex flex-col gap-3 my-4",
-    "text": "Poursuivre avec Google Poursuivre avec Téléphone\n            \n        \n        \n",
-    "rect": {
-      "x": 465,
-      "y": 338,
-      "w": 350,
-      "h": 228
-    },
-    "childCount": 4
-  },
-  {
-    "tag": "button",
-    "id": "",
-    "class": "flex items-center gap-2 transition-all duration-300 cursor-pointer rounded-full bg-danger-600 text-white text-base font-semibold h-12 px-5 min-w-full w-full max-w-full disabled:!bg-none disabled:!bg-[var(--color-disabled-button)] disabled:cursor-not-allowed disabled:text-[var(--color-surface-500)] hover:opacity-70 bg-white! text-black!",
-    "text": "Poursuivre avec Google",
-    "rect": {
-      "x": 465,
-      "y": 338,
-      "w": 350,
-      "h": 48
-    },
     "childCount": 1
   },
   {
-    "tag": "div",
-    "id": "",
-    "class": "relative justify-center inline-flex w-full items-center gap-2 ps-11",
-    "text": "Poursuivre avec Google",
-    "rect": {
-      "x": 485,
-      "y": 350,
-      "w": 310,
-      "h": 24
-    },
-    "childCount": 2
-  },
-  {
-    "tag": "div",
-    "id": "google-signin-button",
-    "class": "size-full! absolute inset-0 min-h-full! min-w-full! opacity-0",
+    "tag": "input",
+    "id": "otp-email",
+    "class": "size-full appearance-none text-sm leading-3.5 text-basic-100 font-medium placeholder:text-label-100 focus:outline-none focus:shadow-outline",
     "text": "",
     "rect": {
-      "x": 485,
-      "y": 350,
-      "w": 310,
-      "h": 24
-    },
-    "childCount": 1
-  },
-  {
-    "tag": "div",
-    "id": "",
-    "class": "S9gUrf-YoZ4jf",
-    "text": "",
-    "rect": {
-      "x": 485,
-      "y": 348,
-      "w": 310,
-      "h": 44
-    },
-    "childCount": 2
-  },
-  {
-    "tag": "div",
-    "id": "gsi_296941_411413-wrapper",
-    "class": "L5Fo6c-sM5MNb",
-    "text": "",
-    "rect": {
-      "x": 485,
-      "y": 348,
-      "w": 400,
-      "h": 44
-    },
-    "childCount": 2
-  },
-  {
-    "tag": "iframe",
-    "id": "gsi_296941_411413",
-    "class": "L5Fo6c-PQbLGe",
-    "text": "",
-    "rect": {
-      "x": 475,
-      "y": 348,
-      "w": 420,
-      "h": 44
-    },
-    "childCount": 0
-  },
-  {
-    "tag": "div",
-    "id": "gsi_296941_411413-overlay",
-    "class": "L5Fo6c-bF1uUb",
-    "text": "",
-    "rect": {
-      "x": 485,
-      "y": 348,
-      "w": 400,
-      "h": 44
+      "x": 478,
+      "y": 286,
+      "w": 344,
+      "h": 54
     },
     "childCount": 0
   },
   {
     "tag": "button",
     "id": "",
-    "class": "flex items-center gap-2 transition-all duration-300 cursor-pointer rounded-full border border-[var(--color-surface-500)] text-white bg-none text-base font-semibold h-12 px-5 min-w-full w-full max-w-full disabled:opacity-50 disabled:cursor-not-allowed hover:opacity-70 border-unique-label-100!",
-    "text": "Poursuivre avec Téléphone",
+    "class": "flex items-center gap-2 transition-all duration-300 cursor-pointer rounded-full bg-linear-to-br from-primary-600 via-primary-400 to-primary-300 text-white text-base font-semibold h-14 px-5 min-w-full w-full max-w-full disabled:!bg-none disabled:!bg-[var(--color-disabled-button)] disabled:cursor-not-allowed disabled:text-[var(--color-surface-500)] hover:opacity-70 mx-auto mt-4",
+    "text": "Continuer",
     "rect": {
-      "x": 465,
-      "y": 398,
-      "w": 350,
-      "h": 48
+      "x": 457,
+      "y": 369,
+      "w": 366,
+      "h": 56
     },
     "childCount": 1
   },
   {
     "tag": "p",
     "id": "",
-    "class": "text-2xs text-center text-white",
+    "class": "text-2xs text-center mt-4 text-white",
     "text": "J'accepte par la présente les Termes et Conditions et la Politique de confidenti",
     "rect": {
-      "x": 465,
-      "y": 582,
-      "w": 350,
+      "x": 457,
+      "y": 441,
+      "w": 366,
       "h": 24
     },
     "childCount": 2
@@ -838,7 +760,7 @@
     "text": "J'accepte par la présente les Termes et Conditions et la Politique de confidenti",
     "rect": {
       "x": 477,
-      "y": 582,
+      "y": 441,
       "w": 325,
       "h": 24
     },
@@ -851,7 +773,7 @@
     "text": "Termes et Conditions",
     "rect": {
       "x": 618,
-      "y": 582,
+      "y": 441,
       "w": 102,
       "h": 12
     },

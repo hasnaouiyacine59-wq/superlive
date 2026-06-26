@@ -23,7 +23,7 @@
       "w": 1280,
       "h": 659
     },
-    "childCount": 8
+    "childCount": 7
   },
   {
     "tag": "div",
@@ -37,32 +37,6 @@
       "h": 659
     },
     "childCount": 3
-  },
-  {
-    "tag": "div",
-    "id": "",
-    "class": "fixed inset-0 bg-black/30 bg-opacity-50 flex justify-center items-center z-50 z-99!",
-    "text": "",
-    "rect": {
-      "x": 0,
-      "y": 0,
-      "w": 1280,
-      "h": 659
-    },
-    "childCount": 1
-  },
-  {
-    "tag": "span",
-    "id": "",
-    "class": "iconify i-spl-web:loading text-primary-400 animate-spin",
-    "text": "",
-    "rect": {
-      "x": 616,
-      "y": 305,
-      "w": 47,
-      "h": 47
-    },
-    "childCount": 0
   },
   {
     "tag": "main",
@@ -529,45 +503,6 @@
       "y": 555,
       "w": 64,
       "h": 64
-    },
-    "childCount": 0
-  },
-  {
-    "tag": "div",
-    "id": "",
-    "class": "grecaptcha-badge",
-    "text": "",
-    "rect": {
-      "x": 1210,
-      "y": 585,
-      "w": 256,
-      "h": 60
-    },
-    "childCount": 3
-  },
-  {
-    "tag": "div",
-    "id": "",
-    "class": "grecaptcha-logo",
-    "text": "",
-    "rect": {
-      "x": 1210,
-      "y": 585,
-      "w": 256,
-      "h": 60
-    },
-    "childCount": 1
-  },
-  {
-    "tag": "iframe",
-    "id": "",
-    "class": "",
-    "text": "",
-    "rect": {
-      "x": 1210,
-      "y": 585,
-      "w": 256,
-      "h": 60
     },
     "childCount": 0
   }

@@ -280,26 +280,6 @@
     }
   },
   {
-    "tag": "textarea",
-    "id": "g-recaptcha-response-100000",
-    "class": "g-recaptcha-response",
-    "text": "",
-    "href": "",
-    "type": "textarea",
-    "name": "g-recaptcha-response",
-    "placeholder": "",
-    "rect": {
-      "x": 0,
-      "y": 0,
-      "width": 0,
-      "height": 0,
-      "top": 0,
-      "right": 0,
-      "bottom": 0,
-      "left": 0
-    }
-  },
-  {
     "tag": "button",
     "id": "",
     "class": "flex items-center gap-2 transition-all duration-300 cursor-pointer rounded-full ",
@@ -309,74 +289,174 @@
     "name": "",
     "placeholder": "",
     "rect": {
-      "x": 821,
-      "y": 162.5,
-      "width": 30,
-      "height": 30,
-      "top": 162.5,
-      "right": 851,
-      "bottom": 192.5,
-      "left": 821
+      "x": 437,
+      "y": 117.5,
+      "width": 40,
+      "height": 40,
+      "top": 117.5,
+      "right": 477,
+      "bottom": 157.5,
+      "left": 437
     }
   },
   {
-    "tag": "button",
-    "id": "",
-    "class": "flex items-center gap-2 transition-all duration-300 cursor-pointer rounded-full ",
+    "tag": "input",
+    "id": "otp-code-0",
+    "class": "appearance-none w-6 text-center text-(length:--space-5_5) leading-(length:--spac",
     "text": "",
     "href": "",
-    "type": "submit",
+    "type": "tel",
     "name": "",
     "placeholder": "",
     "rect": {
-      "x": 441,
-      "y": 194.5,
-      "width": 18.199996948242188,
-      "height": 20,
-      "top": 194.5,
-      "right": 459.1999969482422,
-      "bottom": 214.5,
-      "left": 441
+      "x": 498,
+      "y": 290,
+      "width": 24,
+      "height": 27,
+      "top": 290,
+      "right": 522,
+      "bottom": 317,
+      "left": 498
+    }
+  },
+  {
+    "tag": "input",
+    "id": "otp-code-1",
+    "class": "appearance-none w-6 text-center text-(length:--space-5_5) leading-(length:--spac",
+    "text": "",
+    "href": "",
+    "type": "tel",
+    "name": "",
+    "placeholder": "",
+    "rect": {
+      "x": 550,
+      "y": 290,
+      "width": 24,
+      "height": 27,
+      "top": 290,
+      "right": 574,
+      "bottom": 317,
+      "left": 550
+    }
+  },
+  {
+    "tag": "input",
+    "id": "otp-code-2",
+    "class": "appearance-none w-6 text-center text-(length:--space-5_5) leading-(length:--spac",
+    "text": "",
+    "href": "",
+    "type": "tel",
+    "name": "",
+    "placeholder": "",
+    "rect": {
+      "x": 602,
+      "y": 290,
+      "width": 24,
+      "height": 27,
+      "top": 290,
+      "right": 626,
+      "bottom": 317,
+      "left": 602
+    }
+  },
+  {
+    "tag": "input",
+    "id": "otp-code-3",
+    "class": "appearance-none w-6 text-center text-(length:--space-5_5) leading-(length:--spac",
+    "text": "",
+    "href": "",
+    "type": "tel",
+    "name": "",
+    "placeholder": "",
+    "rect": {
+      "x": 654,
+      "y": 290,
+      "width": 24,
+      "height": 27,
+      "top": 290,
+      "right": 678,
+      "bottom": 317,
+      "left": 654
+    }
+  },
+  {
+    "tag": "input",
+    "id": "otp-code-4",
+    "class": "appearance-none w-6 text-center text-(length:--space-5_5) leading-(length:--spac",
+    "text": "",
+    "href": "",
+    "type": "tel",
+    "name": "",
+    "placeholder": "",
+    "rect": {
+      "x": 706,
+      "y": 290,
+      "width": 24,
+      "height": 27,
+      "top": 290,
+      "right": 730,
+      "bottom": 317,
+      "left": 706
+    }
+  },
+  {
+    "tag": "input",
+    "id": "otp-code-5",
+    "class": "appearance-none w-6 text-center text-(length:--space-5_5) leading-(length:--spac",
+    "text": "",
+    "href": "",
+    "type": "tel",
+    "name": "",
+    "placeholder": "",
+    "rect": {
+      "x": 758,
+      "y": 290,
+      "width": 24,
+      "height": 27,
+      "top": 290,
+      "right": 782,
+      "bottom": 317,
+      "left": 758
     }
   },
   {
     "tag": "button",
     "id": "",
     "class": "flex items-center gap-2 transition-all duration-300 cursor-pointer rounded-full ",
-    "text": "S'enregistrer avec l'adresse e-mail",
+    "text": "Vérifier",
     "href": "",
     "type": "submit",
     "name": "",
     "placeholder": "",
     "rect": {
-      "x": 441,
-      "y": 282.5,
-      "width": 398,
+      "x": 457,
+      "y": 357.5,
+      "width": 366,
       "height": 56,
-      "top": 282.5,
-      "right": 839,
-      "bottom": 338.5,
-      "left": 441
+      "top": 357.5,
+      "right": 823,
+      "bottom": 413.5,
+      "left": 457
     }
   },
   {
     "tag": "button",
     "id": "",
     "class": "flex items-center gap-2 transition-all duration-300 cursor-pointer rounded-full ",
-    "text": "Connectez-vous avec e-mail",
+    "text": "Renvoyer le code (56)",
     "href": "",
     "type": "submit",
     "name": "",
     "placeholder": "",
     "rect": {
-      "x": 441,
-      "y": 398.5,
-      "width": 398,
-      "height": 56,
-      "top": 398.5,
-      "right": 839,
-      "bottom": 454.5,
-      "left": 441
+      "x": 549,
+      "y": 429.5,
+      "width": 182,
+      "height": 36,
+      "top": 429.5,
+      "right": 731,
+      "bottom": 465.5,
+      "left": 549
     }
   },
   {
@@ -389,14 +469,14 @@
     "name": "",
     "placeholder": "",
     "rect": {
-      "x": 583.0499877929688,
-      "y": 476.5,
-      "width": 102.09999084472656,
+      "x": 618.5166625976562,
+      "y": 481.5,
+      "width": 102.10000610351562,
       "height": 12,
-      "top": 476.5,
-      "right": 685.1499786376953,
-      "bottom": 488.5,
-      "left": 583.0499877929688
+      "top": 481.5,
+      "right": 720.6166687011719,
+      "bottom": 493.5,
+      "left": 618.5166625976562
     }
   },
   {
@@ -409,14 +489,14 @@
     "name": "",
     "placeholder": "",
     "rect": {
-      "x": 710.7166748046875,
-      "y": 476.5,
-      "width": 127.25,
-      "height": 12,
-      "top": 476.5,
-      "right": 837.9666748046875,
-      "bottom": 488.5,
-      "left": 710.7166748046875
+      "x": 553.63330078125,
+      "y": 481.5,
+      "width": 248.86666870117188,
+      "height": 24,
+      "top": 481.5,
+      "right": 802.4999694824219,
+      "bottom": 505.5,
+      "left": 553.63330078125
     }
   }
 ]

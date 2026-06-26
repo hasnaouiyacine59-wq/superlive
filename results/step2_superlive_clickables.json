@@ -280,23 +280,183 @@
     }
   },
   {
-    "tag": "textarea",
-    "id": "g-recaptcha-response-100000",
-    "class": "g-recaptcha-response",
+    "tag": "button",
+    "id": "",
+    "class": "flex items-center gap-2 transition-all duration-300 cursor-pointer rounded-full ",
     "text": "",
     "href": "",
-    "type": "textarea",
-    "name": "g-recaptcha-response",
+    "type": "submit",
+    "name": "",
     "placeholder": "",
     "rect": {
-      "x": 0,
-      "y": 0,
+      "x": 821,
+      "y": 149.5,
+      "width": 30,
+      "height": 30,
+      "top": 149.5,
+      "right": 851,
+      "bottom": 179.5,
+      "left": 821
+    }
+  },
+  {
+    "tag": "button",
+    "id": "",
+    "class": "flex items-center gap-2 transition-all duration-300 cursor-pointer rounded-full ",
+    "text": "Se connecter avec GoogleSe connecter avec Google. S'ouvre dans un nouvel onglet. Poursuivre avec Goo",
+    "href": "",
+    "type": "submit",
+    "name": "",
+    "placeholder": "",
+    "rect": {
+      "x": 465,
+      "y": 213.5,
+      "width": 350,
+      "height": 48,
+      "top": 213.5,
+      "right": 815,
+      "bottom": 261.5,
+      "left": 465
+    }
+  },
+  {
+    "tag": "div",
+    "id": "",
+    "class": "nsm7Bb-HzV7m-LgbsSe  hJDwNd-SxQuSe MFS4be-v3pZbf-Ia7Qfc MFS4be-Ia7Qfc JGcpL-RbRz",
+    "text": "Se connecter avec GoogleSe connecter avec Google. S'ouvre dans un nouvel onglet.",
+    "href": "",
+    "type": "",
+    "name": "",
+    "placeholder": "",
+    "rect": {
+      "x": 485,
+      "y": 225.5,
+      "width": 400,
+      "height": 40,
+      "top": 225.5,
+      "right": 885,
+      "bottom": 265.5,
+      "left": 485
+    }
+  },
+  {
+    "tag": "div",
+    "id": "gsi_865371_510960-overlay",
+    "class": "L5Fo6c-bF1uUb",
+    "text": "",
+    "href": "",
+    "type": "",
+    "name": "",
+    "placeholder": "",
+    "rect": {
+      "x": 485,
+      "y": 265.5,
       "width": 0,
       "height": 0,
-      "top": 0,
-      "right": 0,
-      "bottom": 0,
-      "left": 0
+      "top": 265.5,
+      "right": 485,
+      "bottom": 265.5,
+      "left": 485
+    }
+  },
+  {
+    "tag": "button",
+    "id": "",
+    "class": "flex items-center gap-2 transition-all duration-300 cursor-pointer rounded-full ",
+    "text": "Poursuivre avec Téléphone",
+    "href": "",
+    "type": "submit",
+    "name": "",
+    "placeholder": "",
+    "rect": {
+      "x": 465,
+      "y": 273.5,
+      "width": 350,
+      "height": 48,
+      "top": 273.5,
+      "right": 815,
+      "bottom": 321.5,
+      "left": 465
+    }
+  },
+  {
+    "tag": "button",
+    "id": "",
+    "class": "flex items-center gap-2 transition-all duration-300 cursor-pointer rounded-full ",
+    "text": "Poursuivre avec Email",
+    "href": "",
+    "type": "submit",
+    "name": "",
+    "placeholder": "",
+    "rect": {
+      "x": 465,
+      "y": 333.5,
+      "width": 350,
+      "height": 48,
+      "top": 333.5,
+      "right": 815,
+      "bottom": 381.5,
+      "left": 465
+    }
+  },
+  {
+    "tag": "button",
+    "id": "",
+    "class": "flex items-center gap-2 transition-all duration-300 cursor-pointer rounded-full ",
+    "text": "Poursuivre avec X",
+    "href": "",
+    "type": "submit",
+    "name": "",
+    "placeholder": "",
+    "rect": {
+      "x": 465,
+      "y": 393.5,
+      "width": 350,
+      "height": 48,
+      "top": 393.5,
+      "right": 815,
+      "bottom": 441.5,
+      "left": 465
+    }
+  },
+  {
+    "tag": "a",
+    "id": "",
+    "class": "underline",
+    "text": "Termes et Conditions",
+    "href": "https://superlive.chat/fr/agreements/terms-of-service",
+    "type": "",
+    "name": "",
+    "placeholder": "",
+    "rect": {
+      "x": 618.5166625976562,
+      "y": 457.5,
+      "width": 102.10000610351562,
+      "height": 12,
+      "top": 457.5,
+      "right": 720.6166687011719,
+      "bottom": 469.5,
+      "left": 618.5166625976562
+    }
+  },
+  {
+    "tag": "a",
+    "id": "",
+    "class": "underline",
+    "text": "Politique de confidentialité",
+    "href": "https://superlive.chat/fr/agreements/privacy-policy",
+    "type": "",
+    "name": "",
+    "placeholder": "",
+    "rect": {
+      "x": 553.63330078125,
+      "y": 457.5,
+      "width": 248.86666870117188,
+      "height": 24,
+      "top": 457.5,
+      "right": 802.4999694824219,
+      "bottom": 481.5,
+      "left": 553.63330078125
     }
   }
 ]

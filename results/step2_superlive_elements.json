@@ -23,7 +23,7 @@
       "w": 1280,
       "h": 659
     },
-    "childCount": 8
+    "childCount": 9
   },
   {
     "tag": "div",
@@ -509,39 +509,351 @@
   {
     "tag": "div",
     "id": "",
-    "class": "grecaptcha-badge",
+    "class": "fixed inset-0 bg-(--alpha-shadow-tone-80) pointer-events-auto",
     "text": "",
     "rect": {
-      "x": 1210,
-      "y": 585,
-      "w": 256,
-      "h": 60
+      "x": 0,
+      "y": 0,
+      "w": 1280,
+      "h": 659
+    },
+    "childCount": 0
+  },
+  {
+    "tag": "div",
+    "id": "",
+    "class": "fixed left-1/2 top-1/2 -translate-1/2 rounded-2xl outline-none flex flex-col w-[88%] max-w-md bg-unique-background border border-unique-label-100 backdrop-blur-sm overflow-hidden overflow-visible!",
+    "text": "dialogdescriptionINSCRIVEZ-VOUS ET GAGNEZ DES CADEAUX GRATUITSInscrivez-vous mai",
+    "rect": {
+      "x": 416,
+      "y": 136,
+      "w": 448,
+      "h": 386
+    },
+    "childCount": 4
+  },
+  {
+    "tag": "button",
+    "id": "",
+    "class": "flex items-center gap-2 transition-all duration-300 cursor-pointer rounded-full border border-[var(--color-surface-500)] text-white bg-none text-base font-semibold size-12 aspect-auto px-0 justify-center max-w-none shrink-0 disabled:opacity-50 disabled:cursor-not-allowed hover:opacity-70 absolute top-3 right-3 rtl:right-auto rtl:left-3 z-81 size-auto! max-w-none! p-1! border border-surface-500 transition duration-200 ease-in-out hover:bg-unique-label-100 backdrop-blur-lg",
+    "text": "",
+    "rect": {
+      "x": 821,
+      "y": 149,
+      "w": 30,
+      "h": 30
+    },
+    "childCount": 1
+  },
+  {
+    "tag": "div",
+    "id": "",
+    "class": "relative justify-center inline-flex w-full items-center px-0 text-surface-400 **:fill-surface-400",
+    "text": "",
+    "rect": {
+      "x": 826,
+      "y": 154,
+      "w": 20,
+      "h": 20
+    },
+    "childCount": 1
+  },
+  {
+    "tag": "h2",
+    "id": "reka-dialog-title-v-0-2-0",
+    "class": "sr-only",
+    "text": "dialog",
+    "rect": {
+      "x": 416,
+      "y": 136,
+      "w": 1,
+      "h": 1
+    },
+    "childCount": 0
+  },
+  {
+    "tag": "p",
+    "id": "reka-dialog-description-v-0-2-1",
+    "class": "sr-only",
+    "text": "description",
+    "rect": {
+      "x": 416,
+      "y": 136,
+      "w": 1,
+      "h": 1
+    },
+    "childCount": 0
+  },
+  {
+    "tag": "div",
+    "id": "",
+    "class": "flex-1 min-h-0 overflow-y-auto flex flex-col py-4 px-5 md:px-12 overflow-visible! md:py-10",
+    "text": "INSCRIVEZ-VOUS ET GAGNEZ DES CADEAUX GRATUITSInscrivez-vous maintenant pour que ",
+    "rect": {
+      "x": 417,
+      "y": 137,
+      "w": 446,
+      "h": 384
+    },
+    "childCount": 1
+  },
+  {
+    "tag": "div",
+    "id": "",
+    "class": "",
+    "text": "INSCRIVEZ-VOUS ET GAGNEZ DES CADEAUX GRATUITSInscrivez-vous maintenant pour que ",
+    "rect": {
+      "x": 465,
+      "y": 177,
+      "w": 350,
+      "h": 304
+    },
+    "childCount": 2
+  },
+  {
+    "tag": "div",
+    "id": "",
+    "class": "w-full flex flex-col items-center relative z-85 shrink-0 -mt-4 xs:-mt-28",
+    "text": "INSCRIVEZ-VOUS ET GAGNEZ DES CADEAUX GRATUITSInscrivez-vous maintenant pour que ",
+    "rect": {
+      "x": 465,
+      "y": 65,
+      "w": 350,
+      "h": 132
+    },
+    "childCount": 3
+  },
+  {
+    "tag": "picture",
+    "id": "",
+    "class": "object-contain pointer-events-none select-none",
+    "text": "",
+    "rect": {
+      "x": 628,
+      "y": 65,
+      "w": 24,
+      "h": 24
+    },
+    "childCount": 2
+  },
+  {
+    "tag": "p",
+    "id": "",
+    "class": "text-white text-lg font-semibold text-center mt-2",
+    "text": "INSCRIVEZ-VOUS ET GAGNEZ DES CADEAUX GRATUITS",
+    "rect": {
+      "x": 465,
+      "y": 97,
+      "w": 350,
+      "h": 56
+    },
+    "childCount": 0
+  },
+  {
+    "tag": "p",
+    "id": "",
+    "class": "text-sm text-center mt-1",
+    "text": "Inscrivez-vous maintenant pour que les cadeaux soient ajoutés à votre compte !",
+    "rect": {
+      "x": 465,
+      "y": 157,
+      "w": 350,
+      "h": 40
+    },
+    "childCount": 0
+  },
+  {
+    "tag": "section",
+    "id": "",
+    "class": "flex flex-col gap-3 my-4",
+    "text": "Se connecter avec GoogleSe connecter avec Google. S'ouvre dans un nouvel onglet.",
+    "rect": {
+      "x": 465,
+      "y": 213,
+      "w": 350,
+      "h": 228
+    },
+    "childCount": 4
+  },
+  {
+    "tag": "button",
+    "id": "",
+    "class": "flex items-center gap-2 transition-all duration-300 cursor-pointer rounded-full bg-danger-600 text-white text-base font-semibold h-12 px-5 min-w-full w-full max-w-full disabled:!bg-none disabled:!bg-[var(--color-disabled-button)] disabled:cursor-not-allowed disabled:text-[var(--color-surface-500)] hover:opacity-70 bg-white! text-black!",
+    "text": "Se connecter avec GoogleSe connecter avec Google. S'ouvre dans un nouvel onglet.",
+    "rect": {
+      "x": 465,
+      "y": 213,
+      "w": 350,
+      "h": 48
+    },
+    "childCount": 1
+  },
+  {
+    "tag": "div",
+    "id": "",
+    "class": "relative justify-center inline-flex w-full items-center gap-2 ps-11",
+    "text": "Se connecter avec GoogleSe connecter avec Google. S'ouvre dans un nouvel onglet.",
+    "rect": {
+      "x": 485,
+      "y": 225,
+      "w": 310,
+      "h": 24
+    },
+    "childCount": 2
+  },
+  {
+    "tag": "div",
+    "id": "google-signin-button",
+    "class": "size-full! absolute inset-0 min-h-full! min-w-full! opacity-0",
+    "text": "Se connecter avec GoogleSe connecter avec Google. S'ouvre dans un nouvel onglet.",
+    "rect": {
+      "x": 485,
+      "y": 225,
+      "w": 310,
+      "h": 24
+    },
+    "childCount": 1
+  },
+  {
+    "tag": "div",
+    "id": "",
+    "class": "S9gUrf-YoZ4jf",
+    "text": "Se connecter avec GoogleSe connecter avec Google. S'ouvre dans un nouvel onglet.",
+    "rect": {
+      "x": 485,
+      "y": 225,
+      "w": 310,
+      "h": 40
+    },
+    "childCount": 2
+  },
+  {
+    "tag": "div",
+    "id": "",
+    "class": "nsm7Bb-HzV7m-LgbsSe  hJDwNd-SxQuSe MFS4be-v3pZbf-Ia7Qfc MFS4be-Ia7Qfc JGcpL-RbRzK",
+    "text": "Se connecter avec GoogleSe connecter avec Google. S'ouvre dans un nouvel onglet.",
+    "rect": {
+      "x": 485,
+      "y": 225,
+      "w": 400,
+      "h": 40
+    },
+    "childCount": 2
+  },
+  {
+    "tag": "div",
+    "id": "",
+    "class": "nsm7Bb-HzV7m-LgbsSe-MJoBVe",
+    "text": "",
+    "rect": {
+      "x": 485,
+      "y": 225,
+      "w": 400,
+      "h": 40
+    },
+    "childCount": 0
+  },
+  {
+    "tag": "div",
+    "id": "",
+    "class": "nsm7Bb-HzV7m-LgbsSe-bN97Pc-sM5MNb ",
+    "text": "Se connecter avec GoogleSe connecter avec Google. S'ouvre dans un nouvel onglet.",
+    "rect": {
+      "x": 497,
+      "y": 225,
+      "w": 376,
+      "h": 40
     },
     "childCount": 3
   },
   {
     "tag": "div",
     "id": "",
-    "class": "grecaptcha-logo",
+    "class": "nsm7Bb-HzV7m-LgbsSe-Bz112c-haAclf",
     "text": "",
     "rect": {
-      "x": 1210,
-      "y": 585,
-      "w": 256,
-      "h": 60
+      "x": 487,
+      "y": 227,
+      "w": 36,
+      "h": 36
     },
     "childCount": 1
   },
   {
-    "tag": "iframe",
+    "tag": "div",
     "id": "",
-    "class": "",
+    "class": "nsm7Bb-HzV7m-LgbsSe-Bz112c",
     "text": "",
     "rect": {
-      "x": 1210,
-      "y": 585,
-      "w": 256,
-      "h": 60
+      "x": 496,
+      "y": 236,
+      "w": 18,
+      "h": 18
+    },
+    "childCount": 1
+  },
+  {
+    "tag": "span",
+    "id": "",
+    "class": "nsm7Bb-HzV7m-LgbsSe-BPrWId",
+    "text": "Se connecter avec Google",
+    "rect": {
+      "x": 535,
+      "y": 235,
+      "w": 338,
+      "h": 21
+    },
+    "childCount": 0
+  },
+  {
+    "tag": "button",
+    "id": "",
+    "class": "flex items-center gap-2 transition-all duration-300 cursor-pointer rounded-full border border-[var(--color-surface-500)] text-white bg-none text-base font-semibold h-12 px-5 min-w-full w-full max-w-full disabled:opacity-50 disabled:cursor-not-allowed hover:opacity-70 border-unique-label-100!",
+    "text": "Poursuivre avec Téléphone",
+    "rect": {
+      "x": 465,
+      "y": 273,
+      "w": 350,
+      "h": 48
+    },
+    "childCount": 1
+  },
+  {
+    "tag": "p",
+    "id": "",
+    "class": "text-2xs text-center text-white",
+    "text": "J'accepte par la présente les Termes et Conditions et la Politique de confidenti",
+    "rect": {
+      "x": 465,
+      "y": 457,
+      "w": 350,
+      "h": 24
+    },
+    "childCount": 2
+  },
+  {
+    "tag": "span",
+    "id": "",
+    "class": "",
+    "text": "J'accepte par la présente les Termes et Conditions et la Politique de confidenti",
+    "rect": {
+      "x": 477,
+      "y": 457,
+      "w": 325,
+      "h": 24
+    },
+    "childCount": 2
+  },
+  {
+    "tag": "a",
+    "id": "",
+    "class": "underline",
+    "text": "Termes et Conditions",
+    "rect": {
+      "x": 618,
+      "y": 457,
+      "w": 102,
+      "h": 12
     },
     "childCount": 0
   }
