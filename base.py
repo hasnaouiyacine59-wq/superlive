@@ -626,8 +626,11 @@ def solve_audio_challenge(page):
                 continue
             return False
 
+        import concurrent.futures
         try:
-            AudioSegment.from_mp3(mp3_path).export(wav_path, format="wav")
+            with concurrent.futures.ThreadPoolExecutor() as pool:
+                fut = pool.submit(lambda: AudioSegment.from_mp3(mp3_path).export(wav_path, format="wav"))
+                fut.result(timeout=30)
         except Exception as e:
             print(f"  [!] Conversion failed: {e}")
             if retry < max_retries - 1:
@@ -641,10 +644,8 @@ def solve_audio_challenge(page):
             with sr.AudioFile(wav_path) as source:
                 r.adjust_for_ambient_noise(source, duration=0.5)
                 data = r.record(source)
-            import concurrent.futures
-            with concurrent.futures.ThreadPoolExecutor() as executor:
-                future = executor.submit(r.recognize_google, data, language="fr-FR")
-                text = future.result(timeout=15)
+            with concurrent.futures.ThreadPoolExecutor() as pool:
+                text = pool.submit(r.recognize_google, data, language="fr-FR").result(timeout=15)
             print(f"  [*] Transcribed: {text}")
             page.wait_for_timeout(2000)
             if not find_bframe(page):
