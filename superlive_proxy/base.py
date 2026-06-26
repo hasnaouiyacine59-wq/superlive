@@ -709,7 +709,10 @@ def solve_audio_challenge(page):
             with sr.AudioFile(wav_path) as source:
                 r.adjust_for_ambient_noise(source, duration=0.5)
                 data = r.record(source)
-            text = r.recognize_google(data, language="fr-FR")
+            import concurrent.futures
+            with concurrent.futures.ThreadPoolExecutor() as executor:
+                future = executor.submit(r.recognize_google, data, language="fr-FR")
+                text = future.result(timeout=15)
             print(f"  [*] Transcribed: {text}")
             page.wait_for_timeout(2000)
             if not find_bframe(page):
