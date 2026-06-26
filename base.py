@@ -400,7 +400,7 @@ def navigate_and_click_profile(page):
         print(f"  [*] Clicking profile image")
         img = page.locator('img[alt="Nom d\'utilisateur"]')
         if img.count() > 0:
-            img.first.click()
+            img.first.click(force=True)
             print(f"  [*] Clicked profile image")
             page.wait_for_timeout(2000)
             dump_all(page, "after_profile_click")
@@ -416,7 +416,7 @@ def do_profile_action(page):
     print(f"  [*] Clicking profile image")
     img = page.locator('img[alt="Nom d\'utilisateur"]')
     if img.count() > 0:
-        img.first.click()
+        img.first.click(force=True)
         print(f"  [*] Clicked profile image")
         page.wait_for_timeout(2000)
         dump_all(page, "after_profile_click")
@@ -1106,6 +1106,9 @@ def run_session():
         step_counter = 1
         email_input_count = 0
         while True:
+            if step_counter > 25:
+                print(f"  [!] Step limit reached ({step_counter}) — exiting")
+                break
             print(f"\n{'='*60}")
             print(f"  STEP {step_counter}: dumping current page state")
             print(f"{'='*60}")
