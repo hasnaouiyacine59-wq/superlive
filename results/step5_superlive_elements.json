@@ -23,7 +23,7 @@
       "w": 1280,
       "h": 659
     },
-    "childCount": 34
+    "childCount": 10
   },
   {
     "tag": "div",
@@ -36,33 +36,7 @@
       "w": 1280,
       "h": 659
     },
-    "childCount": 4
-  },
-  {
-    "tag": "div",
-    "id": "",
-    "class": "fixed inset-0 bg-black/30 bg-opacity-50 flex justify-center items-center z-50 z-99!",
-    "text": "",
-    "rect": {
-      "x": 0,
-      "y": 0,
-      "w": 1280,
-      "h": 659
-    },
-    "childCount": 1
-  },
-  {
-    "tag": "span",
-    "id": "",
-    "class": "iconify i-spl-web:loading text-primary-400 animate-spin",
-    "text": "",
-    "rect": {
-      "x": 615,
-      "y": 304,
-      "w": 49,
-      "h": 49
-    },
-    "childCount": 0
+    "childCount": 3
   },
   {
     "tag": "main",
@@ -356,9 +330,9 @@
     "class": "flex items-center gap-2 transition-all duration-300 cursor-pointer rounded-full border border-[var(--color-surface-500)] text-white bg-none text-sm font-semibold h-9 px-4 max-w-37 disabled:opacity-50 disabled:cursor-not-allowed hover:opacity-70 min-w-24 px-5 shrink-0",
     "text": "Se connecter",
     "rect": {
-      "x": 1002,
+      "x": 1003,
       "y": 32,
-      "w": 132,
+      "w": 131,
       "h": 36
     },
     "childCount": 1
@@ -369,9 +343,9 @@
     "class": "truncate",
     "text": "Se connecter",
     "rect": {
-      "x": 1023,
+      "x": 1024,
       "y": 40,
-      "w": 90,
+      "w": 89,
       "h": 20
     },
     "childCount": 0
@@ -382,9 +356,9 @@
     "class": "flex items-center gap-2 transition-all duration-300 cursor-pointer rounded-full bg-linear-to-br from-primary-600 via-primary-400 to-primary-300 text-white text-sm font-semibold h-9 px-4 max-w-37 disabled:!bg-none disabled:!bg-[var(--color-disabled-button)] disabled:cursor-not-allowed disabled:text-[var(--color-surface-500)] hover:opacity-70 border-primary-400 border-[0.5px] min-w-24 px-5 shrink-0",
     "text": "S'inscrire",
     "rect": {
-      "x": 1142,
+      "x": 1143,
       "y": 32,
-      "w": 107,
+      "w": 106,
       "h": 36
     },
     "childCount": 1
@@ -473,9 +447,9 @@
     "class": "font-bold text-white text-center text-lg mt-8 select-none",
     "text": "Vous devez être connecté pour voir vos messages.",
     "rect": {
-      "x": 415,
+      "x": 416,
       "y": 488,
-      "w": 449,
+      "w": 447,
       "h": 28
     },
     "childCount": 0
@@ -793,9 +767,22 @@
     "childCount": 0
   },
   {
+    "tag": "div",
+    "id": "",
+    "class": "my-3 border-danger-600",
+    "text": "Répéter le mot de passe",
+    "rect": {
+      "x": 457,
+      "y": 442,
+      "w": 366,
+      "h": 84
+    },
+    "childCount": 2
+  },
+  {
     "tag": "input",
     "id": "passwordRepeat",
-    "class": "size-full appearance-none text-sm leading-3.5 text-basic-100 font-medium placeholder:text-label-100 focus:outline-none focus:shadow-outline",
+    "class": "border-danger-600 size-full appearance-none text-sm leading-3.5 text-basic-100 font-medium placeholder:text-label-100 focus:outline-none focus:shadow-outline",
     "text": "",
     "rect": {
       "x": 478,
@@ -865,7 +852,7 @@
     "rect": {
       "x": 497,
       "y": 550,
-      "w": 313,
+      "w": 310,
       "h": 24
     },
     "childCount": 2
@@ -876,7 +863,7 @@
     "class": "underline",
     "text": "Termes et Conditions",
     "rect": {
-      "x": 639,
+      "x": 638,
       "y": 550,
       "w": 102,
       "h": 12
@@ -893,71 +880,6 @@
       "y": 614,
       "w": 366,
       "h": 56
-    },
-    "childCount": 1
-  },
-  {
-    "tag": "div",
-    "id": "",
-    "class": "fixed inset-0 z-1000000 flex items-center justify-center bg-black/60 backdrop-blur-sm select-none",
-    "text": "",
-    "rect": {
-      "x": 0,
-      "y": 0,
-      "w": 1280,
-      "h": 659
-    },
-    "childCount": 2
-  },
-  {
-    "tag": "div",
-    "id": "",
-    "class": "fixed right-0 top-0 p-2",
-    "text": "",
-    "rect": {
-      "x": 1242,
-      "y": 0,
-      "w": 38,
-      "h": 46
-    },
-    "childCount": 1
-  },
-  {
-    "tag": "button",
-    "id": "",
-    "class": "flex items-center gap-2 transition-all duration-300 cursor-pointer rounded-full border border-[var(--color-surface-500)] text-white bg-none text-base font-semibold size-12 aspect-auto px-0 justify-center max-w-none shrink-0 disabled:opacity-50 disabled:cursor-not-allowed hover:opacity-70 self-start border border-surface-500 p-1 size-auto hover:bg-unique-label-100 transition-colors z-50",
-    "text": "",
-    "rect": {
-      "x": 1250,
-      "y": 8,
-      "w": 22,
-      "h": 30
-    },
-    "childCount": 1
-  },
-  {
-    "tag": "div",
-    "id": "",
-    "class": "relative justify-center inline-flex w-full items-center px-0 text-surface-500 **:fill-surface-500",
-    "text": "",
-    "rect": {
-      "x": 1251,
-      "y": 13,
-      "w": 20,
-      "h": 20
-    },
-    "childCount": 1
-  },
-  {
-    "tag": "div",
-    "id": "",
-    "class": "",
-    "text": "",
-    "rect": {
-      "x": 488,
-      "y": 290,
-      "w": 304,
-      "h": 78
     },
     "childCount": 1
   }

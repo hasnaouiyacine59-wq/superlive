@@ -1004,7 +1004,7 @@ def solve_captcha(page):
                 dump_all(page, f"after_otp_loading")
                 after_screen = identify_screen(page)
                 print(f"  [*] Screen after loading: {after_screen}")
-            if after_screen in ("stream", "profile"):
+            if after_screen in ("stream", "profile", "messages"):
                 print(f"  [*] Already on {after_screen} after OTP — skipping gender/confirmer flow")
                 return True
             recheck_start = time.time()

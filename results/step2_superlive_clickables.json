@@ -209,14 +209,14 @@
     "name": "",
     "placeholder": "",
     "rect": {
-      "x": 1002.36669921875,
+      "x": 1003.38330078125,
       "y": 32,
-      "width": 132.48333740234375,
+      "width": 131.9166717529297,
       "height": 36,
       "top": 32,
-      "right": 1134.8500366210938,
+      "right": 1135.2999725341797,
       "bottom": 68,
-      "left": 1002.36669921875
+      "left": 1003.38330078125
     }
   },
   {
@@ -229,14 +229,14 @@
     "name": "",
     "placeholder": "",
     "rect": {
-      "x": 1142.8499755859375,
+      "x": 1143.300048828125,
       "y": 32,
-      "width": 107.14999389648438,
+      "width": 106.69999694824219,
       "height": 36,
       "top": 32,
-      "right": 1249.9999694824219,
+      "right": 1250.0000457763672,
       "bottom": 68,
-      "left": 1142.8499755859375
+      "left": 1143.300048828125
     }
   },
   {
@@ -297,166 +297,6 @@
       "right": 0,
       "bottom": 0,
       "left": 0
-    }
-  },
-  {
-    "tag": "button",
-    "id": "",
-    "class": "flex items-center gap-2 transition-all duration-300 cursor-pointer rounded-full ",
-    "text": "",
-    "href": "",
-    "type": "submit",
-    "name": "",
-    "placeholder": "",
-    "rect": {
-      "x": 821,
-      "y": 78.89999389648438,
-      "width": 30,
-      "height": 30,
-      "top": 78.89999389648438,
-      "right": 851,
-      "bottom": 108.89999389648438,
-      "left": 821
-    }
-  },
-  {
-    "tag": "button",
-    "id": "",
-    "class": "flex items-center gap-2 transition-all duration-300 cursor-pointer rounded-full ",
-    "text": "Poursuivre avec Google",
-    "href": "",
-    "type": "submit",
-    "name": "",
-    "placeholder": "",
-    "rect": {
-      "x": 465,
-      "y": 338.8999938964844,
-      "width": 350,
-      "height": 48,
-      "top": 338.8999938964844,
-      "right": 815,
-      "bottom": 386.8999938964844,
-      "left": 465
-    }
-  },
-  {
-    "tag": "div",
-    "id": "gsi_414763_584483-overlay",
-    "class": "L5Fo6c-bF1uUb",
-    "text": "",
-    "href": "",
-    "type": "",
-    "name": "",
-    "placeholder": "",
-    "rect": {
-      "x": 485,
-      "y": 348.8999938964844,
-      "width": 400,
-      "height": 44,
-      "top": 348.8999938964844,
-      "right": 885,
-      "bottom": 392.8999938964844,
-      "left": 485
-    }
-  },
-  {
-    "tag": "button",
-    "id": "",
-    "class": "flex items-center gap-2 transition-all duration-300 cursor-pointer rounded-full ",
-    "text": "Poursuivre avec Téléphone",
-    "href": "",
-    "type": "submit",
-    "name": "",
-    "placeholder": "",
-    "rect": {
-      "x": 465,
-      "y": 398.8999938964844,
-      "width": 350,
-      "height": 48,
-      "top": 398.8999938964844,
-      "right": 815,
-      "bottom": 446.8999938964844,
-      "left": 465
-    }
-  },
-  {
-    "tag": "button",
-    "id": "",
-    "class": "flex items-center gap-2 transition-all duration-300 cursor-pointer rounded-full ",
-    "text": "Poursuivre avec Email",
-    "href": "",
-    "type": "submit",
-    "name": "",
-    "placeholder": "",
-    "rect": {
-      "x": 465,
-      "y": 458.8999938964844,
-      "width": 350,
-      "height": 48,
-      "top": 458.8999938964844,
-      "right": 815,
-      "bottom": 506.8999938964844,
-      "left": 465
-    }
-  },
-  {
-    "tag": "button",
-    "id": "",
-    "class": "flex items-center gap-2 transition-all duration-300 cursor-pointer rounded-full ",
-    "text": "Poursuivre avec X",
-    "href": "",
-    "type": "submit",
-    "name": "",
-    "placeholder": "",
-    "rect": {
-      "x": 465,
-      "y": 518.9000244140625,
-      "width": 350,
-      "height": 48,
-      "top": 518.9000244140625,
-      "right": 815,
-      "bottom": 566.9000244140625,
-      "left": 465
-    }
-  },
-  {
-    "tag": "a",
-    "id": "",
-    "class": "underline",
-    "text": "Termes et Conditions",
-    "href": "https://superlive.chat/fr/agreements/terms-of-service",
-    "type": "",
-    "name": "",
-    "placeholder": "",
-    "rect": {
-      "x": 618.3333129882812,
-      "y": 582.9000244140625,
-      "width": 102.98333740234375,
-      "height": 12,
-      "top": 582.9000244140625,
-      "right": 721.316650390625,
-      "bottom": 594.9000244140625,
-      "left": 618.3333129882812
-    }
-  },
-  {
-    "tag": "a",
-    "id": "",
-    "class": "underline",
-    "text": "Politique de confidentialité",
-    "href": "https://superlive.chat/fr/agreements/privacy-policy",
-    "type": "",
-    "name": "",
-    "placeholder": "",
-    "rect": {
-      "x": 552.7999877929688,
-      "y": 582.9000244140625,
-      "width": 251.23333740234375,
-      "height": 24,
-      "top": 582.9000244140625,
-      "right": 804.0333251953125,
-      "bottom": 606.9000244140625,
-      "left": 552.7999877929688
     }
   }
 ]

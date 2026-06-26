@@ -209,14 +209,14 @@
     "name": "",
     "placeholder": "",
     "rect": {
-      "x": 1002.36669921875,
+      "x": 1003.38330078125,
       "y": 32,
-      "width": 132.48333740234375,
+      "width": 131.9166717529297,
       "height": 36,
       "top": 32,
-      "right": 1134.8500366210938,
+      "right": 1135.2999725341797,
       "bottom": 68,
-      "left": 1002.36669921875
+      "left": 1003.38330078125
     }
   },
   {
@@ -229,14 +229,14 @@
     "name": "",
     "placeholder": "",
     "rect": {
-      "x": 1142.8499755859375,
+      "x": 1143.300048828125,
       "y": 32,
-      "width": 107.14999389648438,
+      "width": 106.69999694824219,
       "height": 36,
       "top": 32,
-      "right": 1249.9999694824219,
+      "right": 1250.0000457763672,
       "bottom": 68,
-      "left": 1142.8499755859375
+      "left": 1143.300048828125
     }
   },
   {
@@ -310,12 +310,12 @@
     "placeholder": "",
     "rect": {
       "x": 821,
-      "y": 156.5,
+      "y": 78.89999389648438,
       "width": 30,
       "height": 30,
-      "top": 156.5,
+      "top": 78.89999389648438,
       "right": 851,
-      "bottom": 186.5,
+      "bottom": 108.89999389648438,
       "left": 821
     }
   },
@@ -323,60 +323,100 @@
     "tag": "button",
     "id": "",
     "class": "flex items-center gap-2 transition-all duration-300 cursor-pointer rounded-full ",
+    "text": "Poursuivre avec Google",
+    "href": "",
+    "type": "submit",
+    "name": "",
+    "placeholder": "",
+    "rect": {
+      "x": 465,
+      "y": 338.8999938964844,
+      "width": 350,
+      "height": 48,
+      "top": 338.8999938964844,
+      "right": 815,
+      "bottom": 386.8999938964844,
+      "left": 465
+    }
+  },
+  {
+    "tag": "div",
+    "id": "gsi_296941_411413-overlay",
+    "class": "L5Fo6c-bF1uUb",
     "text": "",
     "href": "",
-    "type": "submit",
+    "type": "",
     "name": "",
     "placeholder": "",
     "rect": {
-      "x": 441,
-      "y": 188.5,
-      "width": 18.199996948242188,
-      "height": 20,
-      "top": 188.5,
-      "right": 459.1999969482422,
-      "bottom": 208.5,
-      "left": 441
+      "x": 485,
+      "y": 348.8999938964844,
+      "width": 400,
+      "height": 44,
+      "top": 348.8999938964844,
+      "right": 885,
+      "bottom": 392.8999938964844,
+      "left": 485
     }
   },
   {
     "tag": "button",
     "id": "",
     "class": "flex items-center gap-2 transition-all duration-300 cursor-pointer rounded-full ",
-    "text": "S'enregistrer avec l'adresse e-mail",
+    "text": "Poursuivre avec Téléphone",
     "href": "",
     "type": "submit",
     "name": "",
     "placeholder": "",
     "rect": {
-      "x": 441,
-      "y": 276.5,
-      "width": 398,
-      "height": 56,
-      "top": 276.5,
-      "right": 839,
-      "bottom": 332.5,
-      "left": 441
+      "x": 465,
+      "y": 398.8999938964844,
+      "width": 350,
+      "height": 48,
+      "top": 398.8999938964844,
+      "right": 815,
+      "bottom": 446.8999938964844,
+      "left": 465
     }
   },
   {
     "tag": "button",
     "id": "",
     "class": "flex items-center gap-2 transition-all duration-300 cursor-pointer rounded-full ",
-    "text": "Connectez-vous avec e-mail",
+    "text": "Poursuivre avec Email",
     "href": "",
     "type": "submit",
     "name": "",
     "placeholder": "",
     "rect": {
-      "x": 441,
-      "y": 392.5,
-      "width": 398,
-      "height": 56,
-      "top": 392.5,
-      "right": 839,
-      "bottom": 448.5,
-      "left": 441
+      "x": 465,
+      "y": 458.8999938964844,
+      "width": 350,
+      "height": 48,
+      "top": 458.8999938964844,
+      "right": 815,
+      "bottom": 506.8999938964844,
+      "left": 465
+    }
+  },
+  {
+    "tag": "button",
+    "id": "",
+    "class": "flex items-center gap-2 transition-all duration-300 cursor-pointer rounded-full ",
+    "text": "Poursuivre avec X",
+    "href": "",
+    "type": "submit",
+    "name": "",
+    "placeholder": "",
+    "rect": {
+      "x": 465,
+      "y": 518.9000244140625,
+      "width": 350,
+      "height": 48,
+      "top": 518.9000244140625,
+      "right": 815,
+      "bottom": 566.9000244140625,
+      "left": 465
     }
   },
   {
@@ -389,14 +429,14 @@
     "name": "",
     "placeholder": "",
     "rect": {
-      "x": 618.3333129882812,
-      "y": 470.5,
-      "width": 102.98333740234375,
+      "x": 618.5166625976562,
+      "y": 582.9000244140625,
+      "width": 102.10000610351562,
       "height": 12,
-      "top": 470.5,
-      "right": 721.316650390625,
-      "bottom": 482.5,
-      "left": 618.3333129882812
+      "top": 582.9000244140625,
+      "right": 720.6166687011719,
+      "bottom": 594.9000244140625,
+      "left": 618.5166625976562
     }
   },
   {
@@ -409,14 +449,14 @@
     "name": "",
     "placeholder": "",
     "rect": {
-      "x": 605.5166625976562,
-      "y": 470.5,
-      "width": 198.5166778564453,
+      "x": 553.63330078125,
+      "y": 582.9000244140625,
+      "width": 248.86666870117188,
       "height": 24,
-      "top": 470.5,
-      "right": 804.0333404541016,
-      "bottom": 494.5,
-      "left": 605.5166625976562
+      "top": 582.9000244140625,
+      "right": 802.4999694824219,
+      "bottom": 606.9000244140625,
+      "left": 553.63330078125
     }
   }
 ]

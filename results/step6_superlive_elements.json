@@ -23,7 +23,7 @@
       "w": 1280,
       "h": 659
     },
-    "childCount": 37
+    "childCount": 13
   },
   {
     "tag": "div",
@@ -36,7 +36,33 @@
       "w": 1280,
       "h": 659
     },
-    "childCount": 3
+    "childCount": 4
+  },
+  {
+    "tag": "div",
+    "id": "",
+    "class": "fixed inset-0 bg-black/30 bg-opacity-50 flex justify-center items-center z-50 z-99!",
+    "text": "",
+    "rect": {
+      "x": 0,
+      "y": 0,
+      "w": 1280,
+      "h": 659
+    },
+    "childCount": 1
+  },
+  {
+    "tag": "span",
+    "id": "",
+    "class": "iconify i-spl-web:loading text-primary-400 animate-spin",
+    "text": "",
+    "rect": {
+      "x": 615,
+      "y": 305,
+      "w": 48,
+      "h": 48
+    },
+    "childCount": 0
   },
   {
     "tag": "main",
@@ -330,9 +356,9 @@
     "class": "flex items-center gap-2 transition-all duration-300 cursor-pointer rounded-full border border-[var(--color-surface-500)] text-white bg-none text-sm font-semibold h-9 px-4 max-w-37 disabled:opacity-50 disabled:cursor-not-allowed hover:opacity-70 min-w-24 px-5 shrink-0",
     "text": "Se connecter",
     "rect": {
-      "x": 1002,
+      "x": 1003,
       "y": 32,
-      "w": 132,
+      "w": 131,
       "h": 36
     },
     "childCount": 1
@@ -343,9 +369,9 @@
     "class": "truncate",
     "text": "Se connecter",
     "rect": {
-      "x": 1023,
+      "x": 1024,
       "y": 40,
-      "w": 90,
+      "w": 89,
       "h": 20
     },
     "childCount": 0
@@ -356,9 +382,9 @@
     "class": "flex items-center gap-2 transition-all duration-300 cursor-pointer rounded-full bg-linear-to-br from-primary-600 via-primary-400 to-primary-300 text-white text-sm font-semibold h-9 px-4 max-w-37 disabled:!bg-none disabled:!bg-[var(--color-disabled-button)] disabled:cursor-not-allowed disabled:text-[var(--color-surface-500)] hover:opacity-70 border-primary-400 border-[0.5px] min-w-24 px-5 shrink-0",
     "text": "S'inscrire",
     "rect": {
-      "x": 1142,
+      "x": 1143,
       "y": 32,
-      "w": 107,
+      "w": 106,
       "h": 36
     },
     "childCount": 1
@@ -447,9 +473,9 @@
     "class": "font-bold text-white text-center text-lg mt-8 select-none",
     "text": "Vous devez être connecté pour voir vos messages.",
     "rect": {
-      "x": 415,
+      "x": 416,
       "y": 488,
-      "w": 449,
+      "w": 447,
       "h": 28
     },
     "childCount": 0
@@ -619,7 +645,7 @@
       "x": 417,
       "y": 98,
       "w": 446,
-      "h": 624
+      "h": 596
     },
     "childCount": 2
   },
@@ -658,7 +684,7 @@
       "x": 417,
       "y": 122,
       "w": 446,
-      "h": 576
+      "h": 548
     },
     "childCount": 3
   },
@@ -692,12 +718,12 @@
     "tag": "form",
     "id": "",
     "class": "flex flex-col size-full",
-    "text": "EmailDéfinir le mot de passeRépéter le mot de passeLa vérification de l'appareil",
+    "text": "EmailDéfinir le mot de passeRépéter le mot de passeJ'accepte par la présente les",
     "rect": {
       "x": 457,
       "y": 214,
       "w": 366,
-      "h": 484
+      "h": 456
     },
     "childCount": 6
   },
@@ -780,39 +806,13 @@
     "childCount": 0
   },
   {
-    "tag": "div",
-    "id": "",
-    "class": "flex flex-col gap-2",
-    "text": "La vérification de l'appareil a échoué. Veuillez réessayer.",
-    "rect": {
-      "x": 457,
-      "y": 538,
-      "w": 366,
-      "h": 28
-    },
-    "childCount": 1
-  },
-  {
-    "tag": "p",
-    "id": "",
-    "class": "text-xs text-red-500 mb-3",
-    "text": "La vérification de l'appareil a échoué. Veuillez réessayer.",
-    "rect": {
-      "x": 457,
-      "y": 538,
-      "w": 366,
-      "h": 16
-    },
-    "childCount": 0
-  },
-  {
     "tag": "label",
     "id": "",
     "class": "mt-3 mb-6 flex items-center space-x-2 cursor-pointer max-w-max mt-3 mb-6",
     "text": "J'accepte par la présente les Termes et Conditions et la Politique de confidenti",
     "rect": {
       "x": 457,
-      "y": 578,
+      "y": 550,
       "w": 366,
       "h": 24
     },
@@ -825,7 +825,7 @@
     "text": "",
     "rect": {
       "x": 457,
-      "y": 578,
+      "y": 550,
       "w": 24,
       "h": 24
     },
@@ -838,7 +838,7 @@
     "text": "",
     "rect": {
       "x": 463,
-      "y": 584,
+      "y": 556,
       "w": 12,
       "h": 12
     },
@@ -851,7 +851,7 @@
     "text": "J'accepte par la présente les Termes et Conditions et la Politique de confidenti",
     "rect": {
       "x": 497,
-      "y": 578,
+      "y": 550,
       "w": 318,
       "h": 24
     },
@@ -864,8 +864,8 @@
     "text": "J'accepte par la présente les Termes et Conditions et la Politique de confidenti",
     "rect": {
       "x": 497,
-      "y": 578,
-      "w": 313,
+      "y": 550,
+      "w": 310,
       "h": 24
     },
     "childCount": 2
@@ -876,8 +876,8 @@
     "class": "underline",
     "text": "Termes et Conditions",
     "rect": {
-      "x": 639,
-      "y": 578,
+      "x": 638,
+      "y": 550,
       "w": 102,
       "h": 12
     },
@@ -890,10 +890,88 @@
     "text": "Continuer",
     "rect": {
       "x": 457,
-      "y": 642,
+      "y": 614,
       "w": 366,
       "h": 56
     },
     "childCount": 1
+  },
+  {
+    "tag": "div",
+    "id": "",
+    "class": "fixed inset-0 z-1000000 flex items-center justify-center bg-black/60 backdrop-blur-sm select-none",
+    "text": "",
+    "rect": {
+      "x": 0,
+      "y": 0,
+      "w": 1280,
+      "h": 659
+    },
+    "childCount": 2
+  },
+  {
+    "tag": "div",
+    "id": "",
+    "class": "fixed right-0 top-0 p-2",
+    "text": "",
+    "rect": {
+      "x": 1242,
+      "y": 0,
+      "w": 38,
+      "h": 46
+    },
+    "childCount": 1
+  },
+  {
+    "tag": "button",
+    "id": "",
+    "class": "flex items-center gap-2 transition-all duration-300 cursor-pointer rounded-full border border-[var(--color-surface-500)] text-white bg-none text-base font-semibold size-12 aspect-auto px-0 justify-center max-w-none shrink-0 disabled:opacity-50 disabled:cursor-not-allowed hover:opacity-70 self-start border border-surface-500 p-1 size-auto hover:bg-unique-label-100 transition-colors z-50",
+    "text": "",
+    "rect": {
+      "x": 1250,
+      "y": 8,
+      "w": 22,
+      "h": 30
+    },
+    "childCount": 1
+  },
+  {
+    "tag": "div",
+    "id": "",
+    "class": "relative justify-center inline-flex w-full items-center px-0 text-surface-500 **:fill-surface-500",
+    "text": "",
+    "rect": {
+      "x": 1251,
+      "y": 13,
+      "w": 20,
+      "h": 20
+    },
+    "childCount": 1
+  },
+  {
+    "tag": "div",
+    "id": "",
+    "class": "",
+    "text": "",
+    "rect": {
+      "x": 488,
+      "y": 290,
+      "w": 304,
+      "h": 78
+    },
+    "childCount": 1
+  },
+  {
+    "tag": "div",
+    "id": "",
+    "class": "g-recaptcha-bubble-arrow",
+    "text": "",
+    "rect": {
+      "x": 1,
+      "y": -10010,
+      "w": 22,
+      "h": 22
+    },
+    "childCount": 0
   }
 ]
