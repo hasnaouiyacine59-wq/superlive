@@ -1,0 +1,56 @@
+[
+  {
+    "src": "https://tr.snapchat.com/cm/i?pid=af0f55c7-d8d5-4c11-bd40-b1210fe968c2&u_scsid=ed689123-281b-4865-91f1-4e1df64afa5e&u_sclid=e6a010f7-4dd9-4798-b4ed-79509630398c",
+    "id": "snap1824667",
+    "name": "",
+    "title": "",
+    "width": "",
+    "height": "",
+    "visible": false
+  },
+  {
+    "src": "https://www.google.com/recaptcha/enterprise/anchor?ar=1&k=6Ld9_e8sAAAAAIPwD7J3mrBiQno-h86lHiFfQ_Nk&co=aHR0cHM6Ly9zdXBlcmxpdmUuY2hhdDo0NDM.&hl=ar&v=MerVUtRoajKEbP7pLiGXkL28&size=invisible&anchor-ms=200",
+    "id": "",
+    "name": "a-98p8vsclh7kt",
+    "title": "reCAPTCHA",
+    "width": "256",
+    "height": "60",
+    "visible": true
+  },
+  {
+    "src": "",
+    "id": "",
+    "name": "",
+    "title": "",
+    "width": "",
+    "height": "",
+    "visible": false
+  },
+  {
+    "src": "https://www.google.com/recaptcha/enterprise/anchor?ar=1&k=6Ld5r5QsAAAAAPWvVCYW7uGhQtbqLDXIRmBEpdNO&co=aHR0cHM6Ly9zdXBlcmxpdmUuY2hhdDo0NDM.&hl=fr&type=image&v=MerVUtRoajKEbP7pLiGXkL28&theme=dark&size=n",
+    "id": "",
+    "name": "a-hzniinm84t8i",
+    "title": "reCAPTCHA",
+    "width": "304",
+    "height": "78",
+    "visible": true
+  },
+  {
+    "src": "https://www.google.com/recaptcha/enterprise/anchor?ar=1&k=6LdgthsrAAAAAGdCODGOTWTAeScdDeI9vF9REiWC&co=aHR0cHM6Ly9zdXBlcmxpdmUuY2hhdDo0NDM.&hl=ar&v=MerVUtRoajKEbP7pLiGXkL28&size=invisible&anchor-ms=200",
+    "id": "",
+    "name": "a-revdkuxz0bqq",
+    "title": "reCAPTCHA",
+    "width": "256",
+    "height": "60",
+    "visible": false
+  },
+  {
+    "src": "https://www.google.com/recaptcha/enterprise/bframe?hl=fr&v=MerVUtRoajKEbP7pLiGXkL28&k=6Ld5r5QsAAAAAPWvVCYW7uGhQtbqLDXIRmBEpdNO&bft=0dAFcWeA5C-rZF8fRFQYKi8o-MgAJ8gm-ovYoBUOSBCi7eX0a3JfuZQHAtQDqhBY23k2K",
+    "id": "",
+    "name": "c-hzniinm84t8i",
+    "title": "Le test reCAPTCHA expire dans deux minutes",
+    "width": "",
+    "height": "",
+    "visible": true
+  }
+]

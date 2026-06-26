@@ -461,6 +461,7 @@ def navigate_and_click_profile(page):
             dump_all(page, "after_profile_click")
         else:
             print(f"  [!] Profile image not found")
+            click_profile_fallback(page)
     except Exception as e:
         print(f"  [!] Profile navigation failed: {e}")
 
@@ -476,6 +477,21 @@ def do_profile_action(page):
         dump_all(page, "after_profile_click")
     else:
         print(f"  [!] Profile image not found")
+        click_profile_fallback(page)
+
+
+def click_profile_fallback(page):
+    f_path = os.path.join(os.path.dirname(__file__), "src", "f.png")
+    if os.path.exists(f_path):
+        print(f"  [*] Trying fallback image f.png")
+        if click_image_match(page, f_path, "f.png", threshold=0.7):
+            dump_all(page, "after_fallback_click")
+            screen = identify_screen(page)
+            print(f"  [*] Screen after fallback click: {screen}")
+        else:
+            print(f"  [!] f.png match failed")
+    else:
+        print(f"  [!] src/f.png not found")
 
 
 SCREEN_ACTIONS = {
@@ -859,46 +875,23 @@ def click_captcha_checkbox(page, src_dir):
     if os.path.exists(captcha_path):
         clicked = click_image_match(page, captcha_path, "captcha", threshold=0.7)
         if not clicked:
-            print(f"  [*] captcha.png not found — trying anchor iframe")
-            els = page.query_selector_all(
-                "iframe[src*='recaptcha/anchor'], iframe[title='reCAPTCHA'], .grecaptcha-badge"
-            )
-            if els:
-                el = els[-1]
-                box = el.bounding_box()
-                if box and box['width'] > 0 and box['height'] > 0:
-                    page.mouse.click(box['x'] + 10, box['y'] + box['height'] / 2)
-                    page.wait_for_timeout(2000)
-                    print(f"  [*] Clicked last captcha anchor iframe")
-            else:
-                for sel in [
-                    "iframe[src*='recaptcha/enterprise/anchor']",
-                    "iframe[src*='recaptcha/api2/anchor']",
-                    "iframe[title='reCAPTCHA']",
-                    ".grecaptcha-badge",
-                ]:
-                    try:
-                        el = page.wait_for_selector(sel, timeout=3000)
-                        if el:
-                            box = el.bounding_box()
-                            if box and box['width'] > 0 and box['height'] > 0:
-                                page.mouse.click(box['x'] + 10, box['y'] + box['height'] / 2)
-                                page.wait_for_timeout(2000)
-                                print(f"  [*] Clicked captcha anchor: {sel}")
-                                break
-                    except Exception:
-                        continue
+            print(f"  [*] captcha.png not found — closing session")
+            dump_all(page, "captcha_checkbox_fail")
+            return False
     try:
         page.wait_for_timeout(3000)
     except Exception:
         pass
+    return True
 
 
 def solve_captcha(page):
     print(f"  [*] Solving captcha...")
     src_dir = os.path.join(os.path.dirname(__file__), "src")
     for attempt in range(5):
-        click_captcha_checkbox(page, src_dir)
+        if not click_captcha_checkbox(page, src_dir):
+            print(f"  [*] Captcha checkbox click failed — closing session")
+            return False
         # Click audio button via image match — keep polling until found
         audio_path = os.path.join(src_dir, "audio.png")
         aud_clicked = False
@@ -925,7 +918,9 @@ def solve_captcha(page):
                     SCREEN_ACTIONS[after_screen](page)
                 return True
             print(f"  [*] Audio not found — re-clicking captcha checkbox")
-            click_captcha_checkbox(page, src_dir)
+            if not click_captcha_checkbox(page, src_dir):
+                print(f"  [*] Captcha checkbox re-click failed — closing session")
+                return False
             if audio_fail_count % 3 == 0:
                 dump_full_html(page, f"audio_fail_{attempt+1}_{audio_fail_count}")
                 has_error = page.evaluate("""() => {
@@ -973,8 +968,9 @@ def solve_captcha(page):
                         print(f"  [!] Spinner stuck >12s — re-clicking captcha checkbox to refresh handshake")
                         dump_full_html(page, f"spinner_stuck_{attempt+1}_{audio_fail_count}")
                         spinner_seen_at = None
-                        # Re-click captcha checkbox
-                        click_captcha_checkbox(page, src_dir)
+                        if not click_captcha_checkbox(page, src_dir):
+                            print(f"  [*] Captcha checkbox re-click failed — closing session")
+                            return False
                         page.wait_for_timeout(3000)
                 else:
                     spinner_seen_at = None
