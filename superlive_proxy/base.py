@@ -1151,6 +1151,7 @@ def fill_reg_form(page, email, password):
 
 def run_session():
     global email, password
+    result_dir.mkdir(parents=True, exist_ok=True)
     print("=" * 60)
     print("  BASE – screen-based state machine")
     print("=" * 60)
