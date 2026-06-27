@@ -514,6 +514,31 @@ def wait_for_captcha(page, timeout=45):
     return False
 
 
+def click_verify_and_wait(page, btn, timeout=20):
+    """Click a verify button and wait for spinner/disabled state to clear."""
+    btn.click()
+    print("  [*] Clicked verify button")
+    deadline = time.time() + timeout
+    while time.time() < deadline:
+        try:
+            after = identify_screen(page)
+            if after and after != "otp":
+                return True
+        except Exception:
+            return True
+        still_spinning = page.evaluate("""() => {
+            const btn = document.querySelector('button:has-text("Verify"), button:has-text("Vérifier"), button[type="submit"]');
+            if (!btn) return false;
+            return btn.disabled || btn.className.includes('opacity-50') || btn.className.includes('cursor-not-allowed') || !!btn.querySelector('.animate-spin, .spinner, [class*="spinner"]');
+        }""")
+        if not still_spinning:
+            print(f"  [*] Verify spinner cleared after {time.time()-(deadline-timeout):.1f}s")
+            return True
+        page.wait_for_timeout(500)
+    print(f"  [!] Verify spinner did not clear within {timeout}s")
+    return False
+
+
 def fill_otp(page, email):
     print(f"  [*] Fetching OTP code from email...")
     for otp_fetch_attempt in range(5):
@@ -537,13 +562,7 @@ def fill_otp(page, email):
         page.wait_for_timeout(500)
         verify_btn = page.query_selector("button:has-text('Verify'), button:has-text('Vérifier'), button[type='submit']")
         if verify_btn:
-            verify_btn.click()
-            print("  [*] Clicked verify button")
-        try:
-            page.wait_for_timeout(2000)
-        except Exception:
-            print(f"  [*] Page closed after verify click — OTP verification succeeded")
-            return True
+            click_verify_and_wait(page, verify_btn)
         if wait_for_captcha(page):
             solve_captcha(page)
         return True
@@ -561,13 +580,7 @@ def fill_otp(page, email):
                 return True
             verify_btn = page.query_selector("button:has-text('Verify'), button:has-text('Vérifier'), button[type='submit']")
             if verify_btn:
-                verify_btn.click()
-                print("  [*] Clicked verify button")
-            try:
-                page.wait_for_timeout(2000)
-            except Exception:
-                print(f"  [*] Page closed after verify click — OTP verification succeeded")
-                return True
+                click_verify_and_wait(page, verify_btn)
             if wait_for_captcha(page):
                 solve_captcha(page)
             return True
@@ -731,7 +744,8 @@ def solve_audio_challenge(page):
             )
             if verify_btn:
                 verify_btn.click()
-                page.wait_for_timeout(3000)
+                print("  [*] Clicked recaptcha verify button")
+                page.wait_for_timeout(8000)
         except Exception:
             if retry < max_retries - 1:
                 click_audio_refresh(page)
