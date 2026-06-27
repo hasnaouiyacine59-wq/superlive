@@ -912,6 +912,14 @@ def solve_captcha(page):
                 }
             }""", frame.name)
             page.wait_for_timeout(1500)
+            # Switch from visual to audio challenge
+            audio_btn = frame.query_selector("#recaptcha-audio-button, button[aria-label*='audio' i], a[aria-label*='audio' i]")
+            if audio_btn:
+                audio_btn.click()
+                print("  [*] Switched to audio challenge")
+                page.wait_for_timeout(3000)
+            else:
+                print("  [*] Audio button not found in bframe — challenge may already be audio")
             solve_audio_challenge(page)
         else:
             print(f"  [!] No challenge frame found on attempt {attempt+1}")
