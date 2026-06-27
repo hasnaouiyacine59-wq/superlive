@@ -1140,8 +1140,8 @@ def run_session():
 if __name__ == "__main__":
     if args.nordvpn:
         import signal
-        signal.signal(signal.SIGINT, lambda s, f: (print("\n[!] Interrupted"), sys.exit(1)))
-        signal.signal(signal.SIGTERM, lambda s, f: (print("\n[!] Terminated"), sys.exit(1)))
+        signal.signal(signal.SIGINT, lambda s, f: (print("\n[!] Interrupted"), os._exit(1)))
+        signal.signal(signal.SIGTERM, lambda s, f: (print("\n[!] Terminated"), os._exit(1)))
 
         if vpn.connect_random():
             try:
