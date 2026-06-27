@@ -1143,24 +1143,20 @@ if __name__ == "__main__":
         signal.signal(signal.SIGINT, lambda s, f: (print("\n[!] Interrupted"), sys.exit(1)))
         signal.signal(signal.SIGTERM, lambda s, f: (print("\n[!] Terminated"), sys.exit(1)))
 
-        while True:
-            if not vpn.connect_random():
-                time.sleep(3)
-                continue
+        if vpn.connect_random():
             try:
                 run_session()
             except KeyboardInterrupt:
                 print("\n[!] Interrupted — exiting")
-                vpn.disconnect()
-                sys.exit(1)
             except SystemExit:
                 print("[*] Session exited")
             except Exception as e:
                 print(f"[!] Session error: {e}")
                 import traceback
                 traceback.print_exc()
-
-            print("[*] Session finished — reconnecting...")
-            time.sleep(3)
+            finally:
+                vpn.disconnect()
+        else:
+            print("[!] VPN connection failed")
     else:
         run_session()
