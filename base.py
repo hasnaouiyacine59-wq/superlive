@@ -832,114 +832,42 @@ def solve_captcha(page):
     print(f"  [*] Solving captcha...")
     src_dir = os.path.join(os.path.dirname(__file__), "src")
     for attempt in range(5):
-        if not click_captcha_checkbox(page, src_dir):
-            print(f"  [*] Captcha checkbox click failed — closing session")
-            return False
-        # Phase 1: Wait for reCAPTCHA handshake (DO NOT re-click checkbox)
-        audio_path = os.path.join(src_dir, "audio.png")
-        aud_clicked = False
-        spinner_start = None
+        # Step 1: Click custom trigger button if present, else fallback to checkbox
+        custom_btn = page.evaluate("""() => {
+            const btn = document.querySelector('button.rounded-full.border');
+            if (btn && btn.className.includes('hover:bg-unique-label-100') && btn.offsetHeight > 0) {
+                btn.click();
+                return true;
+            }
+            return false;
+        }""")
+        if custom_btn:
+            print(f"  [*] Clicked custom captcha trigger button")
+            page.wait_for_timeout(3000)
+        else:
+            if not click_captcha_checkbox(page, src_dir):
+                print(f"  [*] Captcha checkbox click failed — closing session")
+                return False
+            page.wait_for_timeout(3000)
 
-        print(f"  [*] Waiting 12s for reCAPTCHA handshake...")
-        page.wait_for_timeout(12000)
-
-        # Phase 2: Poll bframe state every 3s, only re-click if spinner stuck >20s
+        # Step 2: Wait for bframe iframe to appear (simple DOM check, no CORS issue)
         poll_start = time.time()
-        while time.time() - poll_start < 60:
-            bframe_state = page.evaluate("""() => {
-                const bframe = document.querySelector('iframe[src*="recaptcha/enterprise/bframe"], iframe[src*="recaptcha/api2/bframe"]');
-                if (!bframe) return 'no_bframe';
-                let doc = null;
-                try {
-                    doc = bframe.contentDocument || bframe.contentWindow.document;
-                } catch(e) {
-                    return 'cross_origin';
-                }
-                if (!doc || !doc.body) return 'no_doc';
-                const html = doc.body.textContent || '';
-                const spinner = doc.querySelector('.rc-spinner, [class*="spinner"], [class*="loading"]');
-                const challenge = doc.querySelector('.rc-audiochallenge-tab, .rc-imagechallenge-tab, #audio-response, audio');
-                const checkbox = doc.querySelector('.recaptcha-checkbox');
-                const errorText = html.includes("vérification de l'appareil") || html.includes("device verification");
-                if (errorText) return 'device_error';
-                if (challenge) return 'challenge';
-                if (spinner || html.includes('Verifying') || html.includes('Vérification')) return 'spinner';
-                if (checkbox) return 'checkbox';
-                return 'unknown';
-            }""")
-
-            print(f"  [*] BFrame state: {bframe_state} ({(time.time()-poll_start):.0f}s)")
-
-            if bframe_state == 'challenge':
-                print(f"  [*] Challenge detected — trying audio button")
-                if click_image_match(page, audio_path, "audio", threshold=0.7):
-                    aud_clicked = True
-                    print(f"  [*] Audio challenge triggered")
-                    break
-                print(f"  [*] Audio not matched — challenge visible, proceeding to solve")
+        bframe_detected = False
+        while time.time() - poll_start < 20:
+            has_bframe = page.evaluate("""() => !!document.querySelector(
+                'iframe[src*="recaptcha/enterprise/bframe"], iframe[src*="recaptcha/api2/bframe"]'
+            )""")
+            if has_bframe:
+                print(f"  [*] BFrame detected after {time.time()-poll_start:.0f}s")
+                bframe_detected = True
                 break
+            page.wait_for_timeout(1000)
+        if not bframe_detected:
+            print(f"  [*] No bframe appeared within 20s")
+        else:
+            page.wait_for_timeout(2000)
 
-            elif bframe_state == 'spinner':
-                if spinner_start is None:
-                    spinner_start = time.time()
-                elif time.time() - spinner_start > 20:
-                    print(f"  [!] Spinner stuck >20s — re-clicking captcha checkbox")
-                    dump_full_html(page, f"spinner_stuck_{attempt+1}")
-                    if not click_captcha_checkbox(page, src_dir):
-                        return False
-                    print(f"  [*] Waiting 12s for new handshake...")
-                    page.wait_for_timeout(12000)
-                    spinner_start = None
-                    poll_start = time.time()
-                page.wait_for_timeout(3000)
-                continue
-
-            elif bframe_state == 'cross_origin':
-                if time.time() - poll_start > 15:
-                    print(f"  [*] Cross-origin bframe — trying audio.png directly")
-                    if click_image_match(page, audio_path, "audio", threshold=0.7):
-                        aud_clicked = True
-                        break
-                    still = page.evaluate("""() => !!document.querySelector('iframe[src*="recaptcha/enterprise/bframe"], iframe[src*="recaptcha/api2/bframe"]')""")
-                    if not still:
-                        print(f"  [*] Captcha resolved (no bframe)")
-                        page.wait_for_timeout(3000)
-                        after_screen = identify_screen(page)
-                        if after_screen and after_screen in SCREEN_ACTIONS:
-                            SCREEN_ACTIONS[after_screen](page)
-                        return True
-                page.wait_for_timeout(3000)
-                continue
-
-            elif bframe_state == 'device_error':
-                print(f"  [!] Device verification error — exiting")
-                dump_all(page, f"device_error_{attempt+1}")
-                sys.exit(1)
-
-            elif bframe_state == 'no_bframe':
-                print(f"  [*] No bframe — captcha likely resolved")
-                page.wait_for_timeout(3000)
-                after_screen = identify_screen(page)
-                if after_screen and after_screen in SCREEN_ACTIONS:
-                    SCREEN_ACTIONS[after_screen](page)
-                return True
-
-            else:
-                page.wait_for_timeout(3000)
-                continue
-
-        if not aud_clicked:
-            still = page.evaluate("""() => !!document.querySelector('iframe[src*="recaptcha/enterprise/bframe"], iframe[src*="recaptcha/api2/bframe"]')""")
-            if still:
-                print(f"  [*] Audio not matched but bframe present — proceeding to solve challenge")
-            else:
-                print(f"  [*] No bframe — captcha resolved during poll")
-                page.wait_for_timeout(3000)
-                after_screen = identify_screen(page)
-                if after_screen and after_screen in SCREEN_ACTIONS:
-                    SCREEN_ACTIONS[after_screen](page)
-                return True
-        # Find challenge frame and solve audio
+        # Step 3: Find challenge frame and solve audio (Playwright frame API bypasses CORS)
         frame = None
         for f in page.frames:
             if 'bframe' in f.url and 'recaptcha' in f.url:
