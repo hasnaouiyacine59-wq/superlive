@@ -326,8 +326,6 @@ def identify_screen(page):
             ));
         }"""),
         ("captcha", """() => {
-            const btn = document.querySelector('button.rounded-full.border');
-            if (btn && btn.className.includes('hover:bg-unique-label-100') && btn.offsetHeight > 0) return true;
             const bframe = document.querySelector('iframe[src*="recaptcha/enterprise/bframe"], iframe[src*="recaptcha/api2/bframe"]');
             if (!bframe) return false;
             const r = bframe.getBoundingClientRect();
@@ -475,7 +473,6 @@ SCREEN_ACTIONS = {
             click_image_match(p, os.path.join(os.path.dirname(__file__), "src", "second.png"), "second", threshold=0.7),
         ),
     ),
-    "captcha": lambda p: solve_captcha(p),
     "messages": lambda p: navigate_and_click_profile(p),
 }
 
@@ -1164,6 +1161,12 @@ def run_session():
                     break
             else:
                 email_input_count = 0
+
+            if screen == "captcha":
+                print(f"  [*] Captcha screen — stopping loop")
+                print(f"STEP {step_counter} [captcha]")
+                time.sleep(8)
+                break
 
             action = SCREEN_ACTIONS.get(screen)
             if action:
