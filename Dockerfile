@@ -22,6 +22,7 @@ RUN apt-get update && apt-get install -y \
     libasound2 \
     libegl1 \
     libxkbcommon-x11-0 \
+    aria2 \
     && rm -rf /var/lib/apt/lists/*
 
 WORKDIR /app
