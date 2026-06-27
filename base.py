@@ -418,7 +418,7 @@ def navigate_and_click_profile(page):
 def do_profile_action(page):
     time.sleep(3)
     print(f"  [*] Navigating directly to livestream")
-    page.goto("https://superlive.chat/fr/livestream/144606010", wait_until="load", timeout=60000)
+    page.goto("https://superlive.chat/fr/livestream/144644756", wait_until="load", timeout=60000)
     page.wait_for_timeout(3000)
     dump_all(page, "after_goto_livestream")
 
