@@ -519,7 +519,12 @@ def click_verify_and_wait(page, btn, timeout=20):
         except Exception:
             return True
         still_spinning = page.evaluate("""() => {
-            const btn = document.querySelector('button:has-text("Verify"), button:has-text("Vérifier"), button[type="submit"]');
+            const btns = document.querySelectorAll('button');
+            let btn = null;
+            for (const b of btns) {
+                const t = b.textContent.toLowerCase().trim();
+                if (t === 'verify' || t === 'vérifier' || b.type === 'submit') { btn = b; break; }
+            }
             if (!btn) return false;
             return btn.disabled || btn.className.includes('opacity-50') || btn.className.includes('cursor-not-allowed') || !!btn.querySelector('.animate-spin, .spinner, [class*="spinner"]');
         }""")
