@@ -417,18 +417,10 @@ def navigate_and_click_profile(page):
 
 def do_profile_action(page):
     time.sleep(3)
-    print(f"  [*] Clicking profile image")
-    img = page.locator('img[alt="Nom d\'utilisateur"]')
-    if img.count() > 0:
-        img.first.click(force=True)
-        print(f"  [*] Clicked profile image")
-        page.wait_for_timeout(2000)
-        # page.goto("https://superlive.chat/fr/livestream/144555461", wait_until="load", timeout=60000)
-        page.wait_for_timeout(2000)
-        dump_all(page, "after_profile_click")
-    else:
-        print(f"  [!] Profile image not found")
-        click_profile_fallback(page)
+    print(f"  [*] Navigating directly to livestream")
+    page.goto("https://superlive.chat/fr/livestream/144603903", wait_until="load", timeout=60000)
+    page.wait_for_timeout(3000)
+    dump_all(page, "after_goto_livestream")
 
 
 def click_profile_fallback(page):
