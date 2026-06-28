@@ -1004,10 +1004,16 @@ def run():
                 page.wait_for_timeout(1000)
                 if not find_and_click(page, "Confirmer", ["confirmer", "confirm"]):
                     fail("step 4c — Confirmer button not found")
-                page.wait_for_timeout(3000)
+                page.wait_for_timeout(5000)
                 dump_all(page, "after_gender")
                 screen = detect_screen(page, "after_gender")
                 print(f"  [*] Screen after gender: {screen}")
+                if screen == "messages":
+                    print(f"\n  [*] Messages screen detected — registration complete")
+                    print(f"\n  [+] Registration flow complete — all steps passed")
+                    cleanup()
+                    input("  [+] Done — press Enter to exit")
+                    return
                 if not screen:
                     input('lol')
                     fail("step 4c — no screen detected after gender")
