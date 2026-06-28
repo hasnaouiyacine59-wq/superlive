@@ -1,0 +1,613 @@
+[
+  {
+    "tag": "html",
+    "id": "",
+    "class": "",
+    "text": "SuperLive – Fais de nouvelles rencontres et regarde des diffusions en directwind",
+    "rect": {
+      "x": 0,
+      "y": 0,
+      "w": 1280,
+      "h": 659
+    },
+    "childCount": 2
+  },
+  {
+    "tag": "body",
+    "id": "",
+    "class": "",
+    "text": "<iframe src=\"https://www.googletagmanager.com/ns.html?id=GTM-MM6RSXFG\" height=\"0",
+    "rect": {
+      "x": 0,
+      "y": 0,
+      "w": 1280,
+      "h": 659
+    },
+    "childCount": 14
+  },
+  {
+    "tag": "div",
+    "id": "__nuxt",
+    "class": "",
+    "text": "S'inscrire \n            \n        \n        \n    fr \n\n\n\n\n\n \n            \n         ",
+    "rect": {
+      "x": 0,
+      "y": 0,
+      "w": 1280,
+      "h": 659
+    },
+    "childCount": 3
+  },
+  {
+    "tag": "main",
+    "id": "default-layout",
+    "class": "flex flex-col h-svh",
+    "text": "S'inscrire \n            \n        \n        \n    fr \n\n\n\n\n\n \n            \n         ",
+    "rect": {
+      "x": 0,
+      "y": 0,
+      "w": 1280,
+      "h": 659
+    },
+    "childCount": 3
+  },
+  {
+    "tag": "header",
+    "id": "",
+    "class": "w-full px-7.5 h-24 flex justify-between items-center min-h-24",
+    "text": "Pour vousSuivis\n\n\n\nMessages\n            \n        \n        \n    Mon profilSe conn",
+    "rect": {
+      "x": 0,
+      "y": 0,
+      "w": 1280,
+      "h": 96
+    },
+    "childCount": 1
+  },
+  {
+    "tag": "div",
+    "id": "",
+    "class": "flex items-center justify-between gap-2 w-full",
+    "text": "Pour vousSuivis\n\n\n\nMessages\n            \n        \n        \n    Mon profilSe conn",
+    "rect": {
+      "x": 30,
+      "y": 8,
+      "w": 1220,
+      "h": 80
+    },
+    "childCount": 3
+  },
+  {
+    "tag": "section",
+    "id": "",
+    "class": "flex items-center gap-2 relative shrink-0 w-40 lg:w-64 xl:w-100",
+    "text": "",
+    "rect": {
+      "x": 30,
+      "y": 24,
+      "w": 400,
+      "h": 48
+    },
+    "childCount": 3
+  },
+  {
+    "tag": "button",
+    "id": "",
+    "class": "flex items-center gap-2 transition-all duration-300 cursor-pointer rounded-full text-[var(--color-primary-400)] bg-none text-base font-semibold size-12 aspect-auto px-0 justify-center max-w-none shrink-0 disabled:opacity-50 disabled:cursor-not-allowed hover:opacity-70 size-auto! max-w-max! p-0! shrink-0",
+    "text": "",
+    "rect": {
+      "x": 30,
+      "y": 35,
+      "w": 26,
+      "h": 26
+    },
+    "childCount": 1
+  },
+  {
+    "tag": "div",
+    "id": "",
+    "class": "relative justify-center inline-flex w-full items-center px-0 text-white shrink-0",
+    "text": "",
+    "rect": {
+      "x": 30,
+      "y": 35,
+      "w": 26,
+      "h": 26
+    },
+    "childCount": 1
+  },
+  {
+    "tag": "svg",
+    "id": "",
+    "class": {},
+    "text": "",
+    "rect": {
+      "x": 30,
+      "y": 35,
+      "w": 26,
+      "h": 26
+    },
+    "childCount": 2
+  },
+  {
+    "tag": "g",
+    "id": "",
+    "class": {},
+    "text": "",
+    "rect": {
+      "x": 30,
+      "y": 39,
+      "w": 26,
+      "h": 17
+    },
+    "childCount": 1
+  },
+  {
+    "tag": "path",
+    "id": "",
+    "class": {},
+    "text": "",
+    "rect": {
+      "x": 30,
+      "y": 46,
+      "w": 26,
+      "h": 2
+    },
+    "childCount": 0
+  },
+  {
+    "tag": "button",
+    "id": "",
+    "class": "flex items-center gap-2 transition-all duration-300 cursor-pointer rounded-full bg-danger-600 text-white text-base font-semibold h-12 px-5 max-w-48 disabled:!bg-none disabled:!bg-[var(--color-disabled-button)] disabled:cursor-not-allowed disabled:text-[var(--color-surface-500)] hover:opacity-70 bg-none! border-none! bg-transparent! w-fit! p-0! m-0! shrink-0",
+    "text": "",
+    "rect": {
+      "x": 64,
+      "y": 24,
+      "w": 136,
+      "h": 48
+    },
+    "childCount": 1
+  },
+  {
+    "tag": "div",
+    "id": "",
+    "class": "relative justify-center inline-flex w-full items-center gap-2",
+    "text": "",
+    "rect": {
+      "x": 64,
+      "y": 32,
+      "w": 136,
+      "h": 30
+    },
+    "childCount": 1
+  },
+  {
+    "tag": "div",
+    "id": "",
+    "class": "truncate flex",
+    "text": "",
+    "rect": {
+      "x": 64,
+      "y": 32,
+      "w": 136,
+      "h": 30
+    },
+    "childCount": 1
+  },
+  {
+    "tag": "img",
+    "id": "",
+    "class": "w-34 shrink-0 hidden xl:block",
+    "text": "",
+    "rect": {
+      "x": 64,
+      "y": 32,
+      "w": 136,
+      "h": 30
+    },
+    "childCount": 0
+  },
+  {
+    "tag": "div",
+    "id": "",
+    "class": "block relative w-40 md:w-56",
+    "text": "",
+    "rect": {
+      "x": 208,
+      "y": 28,
+      "w": 222,
+      "h": 40
+    },
+    "childCount": 1
+  },
+  {
+    "tag": "div",
+    "id": "",
+    "class": "relative w-full",
+    "text": "",
+    "rect": {
+      "x": 208,
+      "y": 28,
+      "w": 222,
+      "h": 40
+    },
+    "childCount": 1
+  },
+  {
+    "tag": "div",
+    "id": "",
+    "class": "flex items-center gap-2.5 rounded-2xl h-10 px-3 border border-unique-label-100",
+    "text": "",
+    "rect": {
+      "x": 208,
+      "y": 28,
+      "w": 222,
+      "h": 40
+    },
+    "childCount": 2
+  },
+  {
+    "tag": "span",
+    "id": "",
+    "class": "iconify i-spl-web:search text-white shrink-0",
+    "text": "",
+    "rect": {
+      "x": 221,
+      "y": 40,
+      "w": 16,
+      "h": 16
+    },
+    "childCount": 0
+  },
+  {
+    "tag": "input",
+    "id": "",
+    "class": "w-full text-sm text-white placeholder:text-surface-400 bg-transparent outline-none",
+    "text": "",
+    "rect": {
+      "x": 247,
+      "y": 38,
+      "w": 170,
+      "h": 20
+    },
+    "childCount": 0
+  },
+  {
+    "tag": "section",
+    "id": "",
+    "class": "",
+    "text": "Pour vousSuivis\n\n\n\nMessages\n            \n        \n        \n    Mon profil",
+    "rect": {
+      "x": 554,
+      "y": 8,
+      "w": 236,
+      "h": 80
+    },
+    "childCount": 1
+  },
+  {
+    "tag": "footer",
+    "id": "footer",
+    "class": "relative border-none md:max-w-lg w-screen mx-auto before:max-w-102.5 before:w-full before:h-28 before:absolute before:-top-3.5 before:left-1/2 before:transform before:-translate-x-1/2 before:bg-no-repeat before:bg-center before:bg-cover before:content-[''] md:before:content-none! md:w-max lg:w-full md:bg-transparent! md:before:bg-transparent! before:bg-[url('/assets/footer-bg.svg')]",
+    "text": "Pour vousSuivis\n\n\n\nMessages\n            \n        \n        \n    Mon profil",
+    "rect": {
+      "x": 554,
+      "y": 8,
+      "w": 236,
+      "h": 80
+    },
+    "childCount": 2
+  },
+  {
+    "tag": "nav",
+    "id": "",
+    "class": "flex justify-around items-center w-full h-16 md:h-20 md:justify-between md:w-min md:gap-3 lg:gap-7 md:mx-auto",
+    "text": "Pour vousSuivis\n\n\n\nMessages\n            \n        \n        \n    Mon profil",
+    "rect": {
+      "x": 554,
+      "y": 8,
+      "w": 236,
+      "h": 80
+    },
+    "childCount": 4
+  },
+  {
+    "tag": "a",
+    "id": "",
+    "class": "relative px-4 py-2.5 md:px-0 md:py-1 z-3 grid place-items-center cursor-pointer md:min-w-15 md:w-max md:h-12 hover:**:fill-primary-400! hover:**:text-primary-400!",
+    "text": "Pour vous",
+    "rect": {
+      "x": 554,
+      "y": 24,
+      "w": 60,
+      "h": 48
+    },
+    "childCount": 2
+  },
+  {
+    "tag": "span",
+    "id": "",
+    "class": "text-xs mt-1.5 capitalize text-center select-none text-white",
+    "text": "Pour vous",
+    "rect": {
+      "x": 554,
+      "y": 58,
+      "w": 58,
+      "h": 16
+    },
+    "childCount": 0
+  },
+  {
+    "tag": "div",
+    "id": "",
+    "class": "relative",
+    "text": "Messages",
+    "rect": {
+      "x": 730,
+      "y": 24,
+      "w": 60,
+      "h": 48
+    },
+    "childCount": 1
+  },
+  {
+    "tag": "a",
+    "id": "",
+    "class": "router-link-active router-link-exact-active relative px-4 py-2.5 md:px-0 md:py-1 z-3 grid place-items-center cursor-pointer md:min-w-15 md:w-max md:h-12 hover:**:fill-primary-400! hover:**:text-primary-400!",
+    "text": "Messages",
+    "rect": {
+      "x": 730,
+      "y": 24,
+      "w": 60,
+      "h": 48
+    },
+    "childCount": 3
+  },
+  {
+    "tag": "span",
+    "id": "",
+    "class": "text-xs mt-1.5 capitalize text-center select-none text-primary-400",
+    "text": "Messages",
+    "rect": {
+      "x": 730,
+      "y": 58,
+      "w": 58,
+      "h": 16
+    },
+    "childCount": 0
+  },
+  {
+    "tag": "section",
+    "id": "",
+    "class": "flex items-center gap-2 mt-1 lg:w-52 xl:w-84 justify-end",
+    "text": "Se connecter S'inscrire",
+    "rect": {
+      "x": 914,
+      "y": 32,
+      "w": 336,
+      "h": 36
+    },
+    "childCount": 2
+  },
+  {
+    "tag": "button",
+    "id": "",
+    "class": "flex items-center gap-2 transition-all duration-300 cursor-pointer rounded-full border border-[var(--color-surface-500)] text-white bg-none text-sm font-semibold h-9 px-4 max-w-37 disabled:opacity-50 disabled:cursor-not-allowed hover:opacity-70 min-w-24 px-5 shrink-0",
+    "text": "Se connecter",
+    "rect": {
+      "x": 1002,
+      "y": 32,
+      "w": 132,
+      "h": 36
+    },
+    "childCount": 1
+  },
+  {
+    "tag": "div",
+    "id": "",
+    "class": "truncate",
+    "text": "Se connecter",
+    "rect": {
+      "x": 1023,
+      "y": 40,
+      "w": 90,
+      "h": 20
+    },
+    "childCount": 0
+  },
+  {
+    "tag": "button",
+    "id": "",
+    "class": "flex items-center gap-2 transition-all duration-300 cursor-pointer rounded-full bg-linear-to-br from-primary-600 via-primary-400 to-primary-300 text-white text-sm font-semibold h-9 px-4 max-w-37 disabled:!bg-none disabled:!bg-[var(--color-disabled-button)] disabled:cursor-not-allowed disabled:text-[var(--color-surface-500)] hover:opacity-70 border-primary-400 border-[0.5px] min-w-24 px-5 shrink-0",
+    "text": "S'inscrire",
+    "rect": {
+      "x": 1142,
+      "y": 32,
+      "w": 107,
+      "h": 36
+    },
+    "childCount": 1
+  },
+  {
+    "tag": "div",
+    "id": "",
+    "class": "size-full md:mx-auto md:max-w-2xl lg:max-w-5xl xl:max-w-none flex-1 overflow-hidden",
+    "text": "Vous devez être connecté pour voir vos messages.Se connecter",
+    "rect": {
+      "x": 0,
+      "y": 96,
+      "w": 1280,
+      "h": 563
+    },
+    "childCount": 2
+  },
+  {
+    "tag": "div",
+    "id": "",
+    "class": "size-full md:flex md:items-center page",
+    "text": "Vous devez être connecté pour voir vos messages.Se connecter",
+    "rect": {
+      "x": 0,
+      "y": 96,
+      "w": 1280,
+      "h": 563
+    },
+    "childCount": 1
+  },
+  {
+    "tag": "div",
+    "id": "",
+    "class": "size-full bg-unique-background flex items-center justify-center flex-col px-6",
+    "text": "Vous devez être connecté pour voir vos messages.Se connecter",
+    "rect": {
+      "x": 0,
+      "y": 96,
+      "w": 1280,
+      "h": 563
+    },
+    "childCount": 4
+  },
+  {
+    "tag": "picture",
+    "id": "",
+    "class": "mb-12 xs:mb-25 md:scale-120",
+    "text": "",
+    "rect": {
+      "x": 533,
+      "y": 148,
+      "w": 213,
+      "h": 25
+    },
+    "childCount": 2
+  },
+  {
+    "tag": "img",
+    "id": "",
+    "class": "",
+    "text": "",
+    "rect": {
+      "x": 533,
+      "y": 148,
+      "w": 213,
+      "h": 25
+    },
+    "childCount": 0
+  },
+  {
+    "tag": "picture",
+    "id": "",
+    "class": "",
+    "text": "",
+    "rect": {
+      "x": 548,
+      "y": 272,
+      "w": 184,
+      "h": 184
+    },
+    "childCount": 2
+  },
+  {
+    "tag": "p",
+    "id": "",
+    "class": "font-bold text-white text-center text-lg mt-8 select-none",
+    "text": "Vous devez être connecté pour voir vos messages.",
+    "rect": {
+      "x": 414,
+      "y": 488,
+      "w": 450,
+      "h": 28
+    },
+    "childCount": 0
+  },
+  {
+    "tag": "button",
+    "id": "",
+    "class": "flex items-center gap-2 transition-all duration-300 cursor-pointer rounded-full bg-linear-to-br from-primary-600 via-primary-400 to-primary-300 text-white text-base font-semibold h-14 px-5 max-w-sm disabled:!bg-none disabled:!bg-[var(--color-disabled-button)] disabled:cursor-not-allowed disabled:text-[var(--color-surface-500)] hover:opacity-70 mt-8 w-3/4! max-w-none! md:max-w-75!",
+    "text": "Se connecter",
+    "rect": {
+      "x": 490,
+      "y": 548,
+      "w": 300,
+      "h": 56
+    },
+    "childCount": 1
+  },
+  {
+    "tag": "button",
+    "id": "",
+    "class": "flex items-center gap-2 transition-all duration-300 cursor-pointer rounded-full bg-linear-to-br from-primary-600 via-primary-400 to-primary-300 text-white text-base font-semibold size-12 aspect-auto px-0 justify-center max-w-none shrink-0 disabled:!bg-none disabled:!bg-[var(--color-disabled-button)] disabled:cursor-not-allowed disabled:text-[var(--color-surface-500)] hover:opacity-70 absolute bottom-10 justify-center size-16 md:z-99 duration-200 right-6.5 rtl:left-6.5 rtl:right-auto",
+    "text": "",
+    "rect": {
+      "x": 1190,
+      "y": 555,
+      "w": 64,
+      "h": 64
+    },
+    "childCount": 1
+  },
+  {
+    "tag": "div",
+    "id": "",
+    "class": "relative justify-center inline-flex w-full items-center px-0",
+    "text": "",
+    "rect": {
+      "x": 1190,
+      "y": 555,
+      "w": 64,
+      "h": 64
+    },
+    "childCount": 1
+  },
+  {
+    "tag": "circle",
+    "id": "",
+    "class": {},
+    "text": "",
+    "rect": {
+      "x": 1190,
+      "y": 555,
+      "w": 64,
+      "h": 64
+    },
+    "childCount": 0
+  },
+  {
+    "tag": "div",
+    "id": "",
+    "class": "grecaptcha-badge",
+    "text": "",
+    "rect": {
+      "x": 1210,
+      "y": 585,
+      "w": 256,
+      "h": 60
+    },
+    "childCount": 3
+  },
+  {
+    "tag": "div",
+    "id": "",
+    "class": "grecaptcha-logo",
+    "text": "",
+    "rect": {
+      "x": 1210,
+      "y": 585,
+      "w": 256,
+      "h": 60
+    },
+    "childCount": 1
+  },
+  {
+    "tag": "iframe",
+    "id": "",
+    "class": "",
+    "text": "",
+    "rect": {
+      "x": 1210,
+      "y": 585,
+      "w": 256,
+      "h": 60
+    },
+    "childCount": 0
+  }
+]

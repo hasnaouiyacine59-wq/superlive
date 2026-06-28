@@ -1,0 +1,22 @@
+[
+  {
+    "tag": "textarea",
+    "id": "g-recaptcha-response-100000",
+    "class": "g-recaptcha-response",
+    "text": "",
+    "href": "",
+    "type": "textarea",
+    "name": "g-recaptcha-response",
+    "placeholder": "",
+    "rect": {
+      "x": 0,
+      "y": 0,
+      "width": 0,
+      "height": 0,
+      "top": 0,
+      "right": 0,
+      "bottom": 0,
+      "left": 0
+    }
+  }
+]

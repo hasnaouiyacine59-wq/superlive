@@ -1,0 +1,29 @@
+[
+  {
+    "src": "https://www.google.com/recaptcha/enterprise/anchor?ar=1&k=6Ld9_e8sAAAAAIPwD7J3mrBiQno-h86lHiFfQ_Nk&co=aHR0cHM6Ly9zdXBlcmxpdmUuY2hhdDo0NDM.&hl=fr&v=MerVUtRoajKEbP7pLiGXkL28&size=invisible&anchor-ms=200",
+    "id": "",
+    "name": "a-3zm62ingwwi7",
+    "title": "reCAPTCHA",
+    "width": "256",
+    "height": "60",
+    "visible": true
+  },
+  {
+    "src": "",
+    "id": "",
+    "name": "",
+    "title": "",
+    "width": "",
+    "height": "",
+    "visible": false
+  },
+  {
+    "src": "https://tr.snapchat.com/cm/i?pid=af0f55c7-d8d5-4c11-bd40-b1210fe968c2&u_scsid=79de1379-f4ac-4dc8-b9fb-3d390b2aa06d&u_sclid=5ad0faa8-02b4-4ad2-a5da-057e52667bbf",
+    "id": "snap6231831",
+    "name": "",
+    "title": "",
+    "width": "",
+    "height": "",
+    "visible": false
+  }
+]

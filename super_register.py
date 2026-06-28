@@ -398,7 +398,10 @@ def fill_reg_form(page, email, password):
             print(f"  [*] No captcha detected after Continue (attempt {attempt+1}/5), sleeping 5s...")
             page.wait_for_timeout(5000)
     else:
-        print("  [*] No captcha appeared after Continue — continuing")
+        print("  [*] No captcha appeared after Continue — dumping and checking current screen")
+        dump_all(page, "after_no_captcha")
+        current = identify_screen(page)
+        print(f"  [*] Current screen after no captcha: {current}")
 
 
 def print_form_title(page):
@@ -1008,6 +1011,12 @@ def run():
                 if not screen:
                     input('lol')
                     fail("step 4c — no screen detected after gender")
+
+            if screen == "messages":
+                print(f"\n  [*] Step 4d: Messages screen detected — registration complete")
+                print(f"\n  [+] Registration flow complete — all steps passed")
+                cleanup()
+                input("  [+] Done — press Enter to exit")
 
             if screen == "reg_form":
                 print(f"\n  [*] Step 5: Filling registration form")
