@@ -920,7 +920,7 @@ def run():
             page.set_viewport_size({"width": 1280, "height": 720})
 
             print(f"\n  [+] Navigating to {url}")
-            page.goto(url, wait_until="load", timeout=60000)
+            page.goto(url, wait_until="load", timeout=80000)
             print(f"  [+] Page load event fired — waiting 8s for JS render")
             page.wait_for_timeout(8000)
             dump_all(page, "initial")
