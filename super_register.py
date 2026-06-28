@@ -1135,14 +1135,43 @@ def run():
 
             if screen == "profile":
                 print(f"\n  [*] Step 4e: Profile screen detected — account activated")
-                super_db.save_account(username, email, password, status="activated", obs="profile_reached")
-                print("  [*] Account saved to DB with status=activated")
-                if not click_text(page, "DIRECT"):
-                    print("  [!] DIRECT button not found on profile")
-                page.wait_for_timeout(3000)
-                dump_all(page, "profile_final")
-                screen = detect_screen(page, "after_direct_click")
-                print(f"  [*] Screen after DIRECT click: {screen}")
+                dump_all(page, "profile_entry")
+                screen = detect_screen(page, "profile_entry")
+                print(f"  [*] Screen re-check: {screen}")
+                clicked = False
+                if screen == "profile":
+                    super_db.save_account(username, email, password, status="activated", obs="profile_reached")
+                    print("  [*] Account saved to DB with status=activated")
+                    print("  [*] Clicking profile picture...")
+                    clicked = page.evaluate("""() => {
+                    const img = document.querySelector('img[alt="Nom d\'utilisateur"]');
+                    if (img) { img.dispatchEvent(new MouseEvent('click', {bubbles: true, cancelable: true})); return true; }
+                    const imgs = document.querySelectorAll('img');
+                    for (const i of imgs) {
+                        if (i.offsetHeight > 50 && i.offsetWidth > 50 && i.closest('[class*="profile"], [class*="avatar"], [class*="user"]')) {
+                            i.dispatchEvent(new MouseEvent('click', {bubbles: true, cancelable: true})); return true;
+                        }
+                    }
+                    return false;
+                }""")
+                if not clicked:
+                    print("  [!] Profile picture not found")
+                page.wait_for_timeout(5000)
+                dump_all(page, "after_profile_pic_click")
+                screen = detect_screen(page, "after_profile_pic_click")
+                print(f"  [*] Screen after profile pic click: {screen}")
+                if not screen:
+                    for retry in range(5):
+                        print(f"  [*] Screen is None — sleeping 5s and re-checking (attempt {retry+1}/5)")
+                        page.wait_for_timeout(5000)
+                        dump_all(page, f"after_profile_pic_retry_{retry+1}")
+                        screen = detect_screen(page, f"after_profile_pic_retry_{retry+1}")
+                        print(f"  [*] Screen after retry {retry+1}: {screen}")
+                        if screen:
+                            break
+                if screen == "stream":
+                    print(f"\n  [*] Stream screen reached from profile pic")
+                    super_db.save_account(username, email, password, status="activated", obs="stream_from_profile_pic")
                 input("  [*] Press Enter to clean up and exit...")
                 cleanup()
                 input("  [+] Done — press Enter to exit")
@@ -1161,6 +1190,57 @@ def run():
                 dump_all(page, "after_reg_form")
                 screen = detect_screen(page, "after_reg_form")
                 print(f"  [*] Screen after reg form: {screen}")
+                if screen == "otp":
+                    print(f"\n  [*] Step 4b: OTP screen detected after reg form")
+                    fill_otp(page, email)
+                    page.wait_for_timeout(5000)
+                    dump_all(page, "after_otp_from_reg")
+                    screen = detect_screen(page, "after_otp_from_reg")
+                    print(f"  [*] Screen after OTP: {screen}")
+                    if screen == "otp":
+                        print("  [*] Still on OTP screen — checking for captcha or verify button")
+                        for attempt in range(3):
+                            if wait_for_captcha(page):
+                                solve_captcha(page)
+                                page.wait_for_timeout(3000)
+                            verify_btn = page.query_selector("button:has-text('Verify'), button:has-text('Vérifier'), button[type='submit']")
+                            if verify_btn:
+                                print("  [*] Clicking verify button...")
+                                click_verify_and_wait(page, verify_btn)
+                                page.wait_for_timeout(5000)
+                            dump_all(page, f"after_otp_retry_{attempt+1}")
+                            screen = detect_screen(page, f"after_otp_retry_{attempt+1}")
+                            print(f"  [*] Screen after OTP retry {attempt+1}: {screen}")
+                            if screen != "otp":
+                                break
+                    if screen == "gender":
+                        print(f"\n  [*] Step 4c: Gender screen detected after OTP")
+                        if not find_and_click(page, "Homme", ["homme"]):
+                            fail("step 4c — Homme button not found")
+                        page.wait_for_timeout(1000)
+                        if not find_and_click(page, "Confirmer", ["confirmer", "confirm"]):
+                            fail("step 4c — Confirmer button not found")
+                        page.wait_for_timeout(5000)
+                        dump_all(page, "after_gender_from_reg")
+                        screen = detect_screen(page, "after_gender_from_reg")
+                        print(f"  [*] Screen after gender: {screen}")
+                    if screen == "messages":
+                        print(f"\n  [*] Messages screen detected after reg flow")
+                        print("  [*] Visiting profile...")
+                        page.goto("https://superlive.chat/fr/profile/49194780", wait_until="load", timeout=30000)
+                        page.wait_for_timeout(5000)
+                        dump_all(page, "profile_from_reg")
+                        screen = detect_screen(page, "after_profile_from_reg")
+                        print(f"  [*] Screen after profile nav: {screen}")
+                    if screen == "profile":
+                        print(f"\n  [*] Profile screen detected after reg flow")
+                        super_db.save_account(username, email, password, status="activated", obs="profile_reached")
+                        print("  [*] Account saved to DB with status=activated")
+                        dump_all(page, "profile_final")
+                        input("  [*] Press Enter to clean up and exit...")
+                        cleanup()
+                        input("  [+] Done — press Enter to exit")
+                        return
                 if not screen:
                     fail("step 5 — no screen detected after reg form")
 
