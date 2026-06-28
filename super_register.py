@@ -1027,7 +1027,7 @@ def run():
             if screen == "reg_form":
                 print(f"\n  [*] Step 5: Filling registration form")
                 fill_reg_form(page, email, password)
-                page.wait_for_timeout(2000)
+                page.wait_for_timeout(5000)
                 dump_all(page, "after_reg_form")
                 screen = detect_screen(page, "after_reg_form")
                 print(f"  [*] Screen after reg form: {screen}")
