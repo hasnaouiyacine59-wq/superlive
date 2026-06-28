@@ -26,18 +26,7 @@ MAX_RETRIES = 5
 
 
 def fix_dns():
-    try:
-        subprocess.run(
-            ["resolvectl", "dns", "lo", "1.1.1.1", "1.0.0.1"],
-            capture_output=True, timeout=10,
-        )
-        subprocess.run(
-            ["resolvectl", "dns", "wwan0", "1.1.1.1", "1.0.0.1"],
-            capture_output=True, timeout=10,
-        )
-        print("[DNS] Set Cloudflare DNS (1.1.1.1, 1.0.0.1)")
-    except Exception as e:
-        print(f"[DNS] Failed to set DNS: {e}")
+    pass
 
 
 def _connect(country):

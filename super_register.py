@@ -277,7 +277,22 @@ def identify_screen(page):
     return None
 
 
+def detect_screen(page, label="", max_retries=6, delay=5):
+    screen = identify_screen(page)
+    attempts = 0
+    while screen == "loading" and attempts < max_retries:
+        print(f"  [*] Loading detected — sleeping {delay}s and re-checking (attempt {attempts+1}/{max_retries})")
+        page.wait_for_timeout(delay * 1000)
+        dump_all(page, f"loading_{label}_{attempts+1}" if label else f"loading_{attempts+1}")
+        screen = identify_screen(page)
+        attempts += 1
+    if screen == "loading":
+        print(f"  [*] Still loading after {max_retries} retries — continuing anyway")
+    return screen
+
+
 def fill_input(page, sel, value):
+    time.sleep(random.uniform(0.3, 0.8))
     for attempt in range(3):
         try:
             el = page.wait_for_selector(sel, timeout=3000)
@@ -313,6 +328,7 @@ def fill_field(page, value, selectors):
 
 def find_and_click(page, label, keywords):
     print(f"  [*] Looking for {label}...")
+    time.sleep(random.uniform(0.3, 0.8))
     result = page.evaluate(f"""() => {{
         const all = document.querySelectorAll('button, a, [role="button"]');
         const keywords = {keywords};
@@ -341,6 +357,7 @@ def find_and_click(page, label, keywords):
 
 
 def click_text(page, text_fragment):
+    time.sleep(random.uniform(0.3, 0.8))
     clicked = page.evaluate("""(frag) => {
         const all = document.querySelectorAll('button, a, [role="button"], input[type="submit"]');
         for (const el of all) {
@@ -369,14 +386,19 @@ def fill_reg_form(page, email, password):
     page.wait_for_timeout(500)
     find_and_click(page, "Continuer", ["continuer", "continue", "suivant", "next", "إرسال", "submit"])
     page.wait_for_timeout(5000)
-    has_captcha = page.evaluate("""() => {
-        return !!document.querySelector('iframe[src*="recaptcha/enterprise/bframe"], iframe[src*="recaptcha/api2/bframe"]');
-    }""")
-    if has_captcha:
-        print("  [*] Captcha detected after Continue — solving")
-        solve_captcha(page)
+    for attempt in range(5):
+        has_captcha = page.evaluate("""() => {
+            return !!document.querySelector('iframe[src*="recaptcha/enterprise/bframe"], iframe[src*="recaptcha/api2/bframe"]');
+        }""")
+        if has_captcha:
+            print("  [*] Captcha detected after Continue — solving")
+            solve_captcha(page)
+            break
+        else:
+            print(f"  [*] No captcha detected after Continue (attempt {attempt+1}/5), sleeping 5s...")
+            page.wait_for_timeout(5000)
     else:
-        print("  [*] No captcha detected after Continue")
+        print("  [*] No captcha appeared after Continue — continuing")
 
 
 def print_form_title(page):
@@ -903,7 +925,7 @@ def run():
             page.wait_for_timeout(8000)
             dump_all(page, "initial")
 
-            screen = identify_screen(page)
+            screen = detect_screen(page, "initial")
             print(f"\n  [*] Screen detected: {screen}")
             print_form_title(page)
             if not screen:
@@ -915,7 +937,7 @@ def run():
                     fail("step 1 — S'inscrire not found")
                 page.wait_for_timeout(3000)
                 dump_all(page, "after_inscrire")
-                screen = identify_screen(page)
+                screen = detect_screen(page, "after_inscrire")
                 print(f"  [*] Screen after click: {screen}")
                 if not screen:
                     fail("step 1 — no screen detected after click")
@@ -926,7 +948,7 @@ def run():
                     fail("step 2 — Poursuivre avec Email not found")
                 page.wait_for_timeout(3000)
                 dump_all(page, "after_provider_picker")
-                screen = identify_screen(page)
+                screen = detect_screen(page, "after_provider_picker")
                 print(f"  [*] Screen after click: {screen}")
                 if not screen:
                     fail("step 2 — no screen detected after click")
@@ -941,7 +963,7 @@ def run():
                     fail("step 3 — register with email not found")
                 page.wait_for_timeout(3000)
                 dump_all(page, "after_register_vs_login")
-                screen = identify_screen(page)
+                screen = detect_screen(page, "after_register_vs_login")
                 print(f"  [*] Screen after click: {screen}")
                 if not screen:
                     fail("step 3 — no screen detected after click")
@@ -955,7 +977,7 @@ def run():
                     fail("step 4 — Continuer button not found")
                 page.wait_for_timeout(5000)
                 dump_all(page, "after_email")
-                screen = identify_screen(page)
+                screen = detect_screen(page, "after_email")
                 print(f"  [*] Screen after email: {screen}")
                 if not screen:
                     fail("step 4 — no screen detected after email")
@@ -965,7 +987,7 @@ def run():
                 fill_otp(page, email)
                 page.wait_for_timeout(5000)
                 dump_all(page, "after_otp")
-                screen = identify_screen(page)
+                screen = detect_screen(page, "after_otp")
                 print(f"  [*] Screen after OTP: {screen}")
                 if not screen:
                     fail("step 4b — no screen detected after OTP")
@@ -981,9 +1003,10 @@ def run():
                     fail("step 4c — Confirmer button not found")
                 page.wait_for_timeout(3000)
                 dump_all(page, "after_gender")
-                screen = identify_screen(page)
+                screen = detect_screen(page, "after_gender")
                 print(f"  [*] Screen after gender: {screen}")
                 if not screen:
+                    input('lol')
                     fail("step 4c — no screen detected after gender")
 
             if screen == "reg_form":
@@ -991,7 +1014,7 @@ def run():
                 fill_reg_form(page, email, password)
                 page.wait_for_timeout(2000)
                 dump_all(page, "after_reg_form")
-                screen = identify_screen(page)
+                screen = detect_screen(page, "after_reg_form")
                 print(f"  [*] Screen after reg form: {screen}")
                 if not screen:
                     fail("step 5 — no screen detected after reg form")
