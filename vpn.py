@@ -22,17 +22,72 @@ COUNTRIES = [
     "zm",
 ]
 
+MAX_RETRIES = 5
+
+
+def fix_dns():
+    try:
+        subprocess.run(
+            ["resolvectl", "dns", "lo", "1.1.1.1", "1.0.0.1"],
+            capture_output=True, timeout=10,
+        )
+        subprocess.run(
+            ["resolvectl", "dns", "wwan0", "1.1.1.1", "1.0.0.1"],
+            capture_output=True, timeout=10,
+        )
+        print("[DNS] Set Cloudflare DNS (1.1.1.1, 1.0.0.1)")
+    except Exception as e:
+        print(f"[DNS] Failed to set DNS: {e}")
+
+
+def _connect(country):
+    print(f"[VPN] Connecting to NordVPN — {country} ...")
+    result = subprocess.run(
+        ["nordvpn", "c", country],
+        capture_output=True, text=True, timeout=30,
+    )
+    output = (result.stdout + result.stderr).strip()
+    time.sleep(3)
+    if "You are connected" in output:
+        print(f"[VPN] Connected via {country}")
+        fix_dns()
+        return True
+    not_connected_lines = [
+        line for line in output.split("\n")
+        if "A new version of NordVPN" not in line and line.strip()
+    ]
+    if not_connected_lines:
+        print(f"[VPN] Not connected — {not_connected_lines[-1]}")
+    else:
+        print(f"[VPN] Not connected, retrying...")
+    return False
+
 
 def connect_random():
-    country = random.choice(COUNTRIES)
-    print(f"[VPN] Connecting to NordVPN — {country} ...")
-    subprocess.run(["nordvpn", "c", country], capture_output=True, timeout=30)
-    time.sleep(5)
-    result = subprocess.run(["nordvpn", "status"], capture_output=True, text=True, timeout=10)
-    if "Connected" in result.stdout:
-        print(f"[VPN] Connected via {country}")
-        return True
-    print("[VPN] Not connected, retrying...")
+    tried = set()
+    for attempt in range(MAX_RETRIES):
+        available = [c for c in COUNTRIES if c not in tried]
+        if not available:
+            print("[VPN] All countries exhausted")
+            return False
+        country = random.choice(available)
+        tried.add(country)
+        if _connect(country):
+            return True
+    print("[VPN] Failed to connect after all retries")
+    return False
+
+
+def connect_country(country):
+    country = country.lower()
+    if country not in COUNTRIES:
+        print(f"[VPN] Unknown country '{country}', falling back to random")
+        return connect_random()
+    for attempt in range(MAX_RETRIES):
+        if _connect(country):
+            return True
+        print(f"[VPN] Retrying {country} ({attempt+2}/{MAX_RETRIES})...")
+    print(f"[VPN] Failed to connect to {country} after all retries")
     return False
 
 

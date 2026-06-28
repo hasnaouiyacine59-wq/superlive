@@ -1,4 +1,6 @@
 import os
+from typing import Optional
+
 import psycopg2
 from psycopg2.extras import execute_values
 
@@ -13,15 +15,15 @@ def get_connection():
         host=DB_HOST, port=DB_PORT, dbname=DB_NAME, user=DB_USER, password=DB_PASS
     )
 
-def insert_account(username: str, email: str, password: str):
-    sql = "INSERT INTO accounts (username, email, password_hash) VALUES (%s, %s, %s)"
+def insert_account(username: str, email: str, password: str, status: str = "active", obs: Optional[str] = None):
+    sql = "INSERT INTO accounts (username, email, password_hash, status, obs) VALUES (%s, %s, %s, %s, %s)"
     with get_connection() as conn:
         with conn.cursor() as cur:
-            cur.execute(sql, (username, email, password))
+            cur.execute(sql, (username, email, password, status, obs))
             conn.commit()
 
 def insert_multiple(accounts: list):
-    sql = "INSERT INTO accounts (username, email, password_hash) VALUES %s"
+    sql = "INSERT INTO accounts (username, email, password_hash, status, obs) VALUES %s"
     with get_connection() as conn:
         with conn.cursor() as cur:
             execute_values(cur, sql, accounts)
