@@ -385,7 +385,24 @@ def fill_reg_form(page, email, password):
     fill_field(page, password, pass2_selectors)
     page.wait_for_timeout(500)
     find_and_click(page, "Continuer", ["continuer", "continue", "suivant", "next", "إرسال", "submit"])
-    page.wait_for_timeout(5000)
+    print("  [*] Waiting for Continue button spinner to disappear...")
+    for _ in range(30):
+        spinning = page.evaluate("""() => {
+            const btn = document.querySelector('button:has(svg.animate-spin), button:has(.animate-spin)');
+            if (btn) return true;
+            const allBtns = document.querySelectorAll('button');
+            for (const b of allBtns) {
+                if (b.querySelector('.animate-spin, svg.animate-spin, [class*="animate-spin"]')) return true;
+            }
+            return false;
+        }""")
+        if not spinning:
+            print("  [*] Spinner gone — continuing")
+            break
+        page.wait_for_timeout(1000)
+    else:
+        print("  [*] Spinner still present after 30s — continuing anyway")
+    page.wait_for_timeout(2000)
     for attempt in range(5):
         has_captcha = page.evaluate("""() => {
             return !!document.querySelector('iframe[src*="recaptcha/enterprise/bframe"], iframe[src*="recaptcha/api2/bframe"]');
