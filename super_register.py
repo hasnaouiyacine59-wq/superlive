@@ -205,13 +205,26 @@ def identify_screen(page):
             const el = document.querySelector('#otp-email, #email, input[name="email"], input[type="email"]');
             return !!el && el.offsetHeight > 0 && !document.querySelector('input[type="password"], input[name*="password" i]');
         }"""),
+        ("otp", """() => {
+            const single = document.querySelector('#otp-code-0, input[autocomplete="one-time-code"]');
+            if (single) return true;
+            const inputs = document.querySelectorAll('input[maxlength="1"], input[inputmode="numeric"][maxlength]');
+            let count = 0;
+            for (const inp of inputs) {
+                if (inp.offsetHeight > 0) count++;
+            }
+            return count >= 4;
+        }"""),
         ("reg_form", """() => {
             const email = document.querySelector('#otp-email, #email, input[name="email"], input[type="email"]');
             const pass = document.querySelector('input[type="password"], input[name*="password" i], [autocomplete="new-password"]');
-            return !!email && !!pass && email.offsetHeight > 0 && pass.offsetHeight > 0;
-        }"""),
-        ("otp", """() => {
-            return !!document.querySelector('#otp-code-0, input[autocomplete="one-time-code"]');
+            if (!email || !pass || email.offsetHeight <= 0 || pass.offsetHeight <= 0) return false;
+            const otpInputs = document.querySelectorAll('input[maxlength="1"], input[inputmode="numeric"][maxlength]');
+            let otpCount = 0;
+            for (const inp of otpInputs) {
+                if (inp.offsetHeight > 0) otpCount++;
+            }
+            return otpCount < 4;
         }"""),
         ("gender", """() => {
             const h3 = document.querySelector('h3');
@@ -419,6 +432,33 @@ def fill_reg_form(page, email, password):
         dump_all(page, "after_no_captcha")
         current = identify_screen(page)
         print(f"  [*] Current screen after no captcha: {current}")
+
+    error_text = page.evaluate("""() => {
+        const el = document.querySelector('[class*="error"], [class*="alert"], [class*="message"], p.text-red-500, div.text-red-500');
+        if (el && el.textContent.includes('échoué')) return el.textContent.trim();
+        const all = document.querySelectorAll('p, div, span');
+        for (const e of all) {
+            if (e.textContent.includes('La vérification') && e.textContent.includes('échoué')) return e.textContent.trim();
+        }
+        return null;
+    }""")
+    if error_text:
+        print(f"  [!] Device verification failed — error: {error_text}")
+        print("  [*] Retrying Continue click...")
+        page.wait_for_timeout(2000)
+        find_and_click(page, "Continuer", ["continuer", "continue", "suivant", "next", "إرسال", "submit"])
+        page.wait_for_timeout(5000)
+        for attempt in range(5):
+            has_captcha = page.evaluate("""() => {
+                return !!document.querySelector('iframe[src*="recaptcha/enterprise/bframe"], iframe[src*="recaptcha/api2/bframe"]');
+            }""")
+            if has_captcha:
+                print("  [*] Captcha detected after retry — solving")
+                solve_captcha(page)
+                break
+            else:
+                print(f"  [*] No captcha after retry (attempt {attempt+1}/5), sleeping 5s...")
+                page.wait_for_timeout(5000)
 
 
 def print_form_title(page):
@@ -1027,17 +1067,43 @@ def run():
                 print(f"  [*] Screen after gender: {screen}")
                 if screen == "messages":
                     print(f"\n  [*] Messages screen detected — registration complete")
-                    print(f"\n  [+] Registration flow complete — all steps passed")
-                    cleanup()
-                    input("  [+] Done — press Enter to exit")
-                    return
+                    print("  [*] Visiting profile...")
+                    page.goto("https://superlive.chat/fr/profile/49194780", wait_until="load", timeout=30000)
+                    page.wait_for_timeout(5000)
+                    dump_all(page, "profile")
+                    screen = detect_screen(page, "after_profile_nav")
+                    print(f"  [*] Screen after profile nav: {screen}")
+                    if screen == "profile":
+                        print(f"\n  [*] Profile screen detected — account activated")
+                        super_db.save_account(username, email, password, status="activated", obs="profile_reached")
+                        print("  [*] Account saved to DB with status=activated")
+                        cleanup()
+                        input("  [+] Done — press Enter to exit")
+                        return
                 if not screen:
                     input('lol')
                     fail("step 4c — no screen detected after gender")
 
             if screen == "messages":
                 print(f"\n  [*] Step 4d: Messages screen detected — registration complete")
-                print(f"\n  [+] Registration flow complete — all steps passed")
+                print("  [*] Visiting profile...")
+                page.goto("https://superlive.chat/fr/profile/49194780", wait_until="load", timeout=30000)
+                page.wait_for_timeout(5000)
+                dump_all(page, "profile")
+                screen = detect_screen(page, "after_profile_nav")
+                print(f"  [*] Screen after profile nav: {screen}")
+
+            if screen == "profile":
+                print(f"\n  [*] Step 4e: Profile screen detected — account activated")
+                super_db.save_account(username, email, password, status="activated", obs="profile_reached")
+                print("  [*] Account saved to DB with status=activated")
+                cleanup()
+                input("  [+] Done — press Enter to exit")
+
+            if screen == "stream":
+                print(f"\n  [*] Step 4f: Stream screen detected")
+                super_db.save_account(username, email, password, status="activated", obs="stream_reached")
+                print("  [*] Account saved to DB with status=activated")
                 cleanup()
                 input("  [+] Done — press Enter to exit")
 
