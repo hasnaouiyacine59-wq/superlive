@@ -1049,6 +1049,22 @@ def run():
                 dump_all(page, "after_otp")
                 screen = detect_screen(page, "after_otp")
                 print(f"  [*] Screen after OTP: {screen}")
+                if screen == "otp":
+                    print("  [*] Still on OTP screen — checking for captcha or verify button")
+                    for attempt in range(3):
+                        if wait_for_captcha(page):
+                            solve_captcha(page)
+                            page.wait_for_timeout(3000)
+                        verify_btn = page.query_selector("button:has-text('Verify'), button:has-text('Vérifier'), button[type='submit']")
+                        if verify_btn:
+                            print("  [*] Clicking verify button...")
+                            click_verify_and_wait(page, verify_btn)
+                            page.wait_for_timeout(5000)
+                        dump_all(page, f"after_otp_retry_{attempt+1}")
+                        screen = detect_screen(page, f"after_otp_retry_{attempt+1}")
+                        print(f"  [*] Screen after OTP retry {attempt+1}: {screen}")
+                        if screen != "otp":
+                            break
                 if not screen:
                     fail("step 4b — no screen detected after OTP")
 
@@ -1097,6 +1113,8 @@ def run():
                 print(f"\n  [*] Step 4e: Profile screen detected — account activated")
                 super_db.save_account(username, email, password, status="activated", obs="profile_reached")
                 print("  [*] Account saved to DB with status=activated")
+                dump_all(page, "profile_final")
+                input("  [*] Press Enter to clean up and exit...")
                 cleanup()
                 input("  [+] Done — press Enter to exit")
 
