@@ -27,6 +27,8 @@ args = parser.parse_args()
 URL = "https://superlive.chat/fr/nonlogin-messages"
 
 result_dir = Path("results_register")
+if result_dir.exists():
+    shutil.rmtree(result_dir)
 result_dir.mkdir(parents=True, exist_ok=True)
 
 FAILED = False
@@ -995,7 +997,7 @@ def run():
                     fail("step 5 — no screen detected after reg form")
 
             print(f"\n  [+] Registration flow complete — all steps passed")
-            print(f"  [+] Dumps saved in {result_dir}/")
+            cleanup()
             input("  [+] Done — press Enter to exit")
     finally:
         if args.nordvpn:
