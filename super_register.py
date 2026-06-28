@@ -1035,7 +1035,22 @@ def run():
                 page.wait_for_timeout(500)
                 if not find_and_click(page, "Continuer", ["continuer", "continue", "suivant", "next", "إرسال", "submit"]):
                     fail("step 4 — Continuer button not found")
-                page.wait_for_timeout(5000)
+                print("  [*] Waiting for Continue button spinner to disappear...")
+                for _ in range(30):
+                    spinning = page.evaluate("""() => {
+                        const allBtns = document.querySelectorAll('button');
+                        for (const b of allBtns) {
+                            if (b.querySelector('.animate-spin, svg.animate-spin, [class*="animate-spin"]')) return true;
+                        }
+                        return false;
+                    }""")
+                    if not spinning:
+                        print("  [*] Spinner gone — dumping")
+                        break
+                    page.wait_for_timeout(1000)
+                else:
+                    print("  [*] Spinner still present after 30s — dumping anyway")
+                page.wait_for_timeout(2000)
                 dump_all(page, "after_email")
                 screen = detect_screen(page, "after_email")
                 print(f"  [*] Screen after email: {screen}")
@@ -1097,8 +1112,17 @@ def run():
                         input("  [+] Done — press Enter to exit")
                         return
                 if not screen:
-                    input('lol')
-                    fail("step 4c — no screen detected after gender")
+                    for retry in range(5):
+                        print(f"  [*] Screen is None — sleeping 3s and re-checking (attempt {retry+1}/5)")
+                        page.wait_for_timeout(3000)
+                        dump_all(page, f"after_gender_retry_{retry+1}")
+                        screen = detect_screen(page, f"after_gender_retry_{retry+1}")
+                        print(f"  [*] Screen after gender retry {retry+1}: {screen}")
+                        if screen:
+                            break
+                    if not screen:
+                        input('lol')
+                        fail("step 4c — no screen detected after gender")
 
             if screen == "messages":
                 print(f"\n  [*] Step 4d: Messages screen detected — registration complete")
@@ -1113,7 +1137,12 @@ def run():
                 print(f"\n  [*] Step 4e: Profile screen detected — account activated")
                 super_db.save_account(username, email, password, status="activated", obs="profile_reached")
                 print("  [*] Account saved to DB with status=activated")
+                if not click_text(page, "DIRECT"):
+                    print("  [!] DIRECT button not found on profile")
+                page.wait_for_timeout(3000)
                 dump_all(page, "profile_final")
+                screen = detect_screen(page, "after_direct_click")
+                print(f"  [*] Screen after DIRECT click: {screen}")
                 input("  [*] Press Enter to clean up and exit...")
                 cleanup()
                 input("  [+] Done — press Enter to exit")
