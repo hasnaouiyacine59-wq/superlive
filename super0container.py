@@ -383,8 +383,8 @@ def fill_reg_form(page, email, password):
             solve_captcha(page)
             break
         else:
-            print(f"  [*] No captcha detected after Continue (attempt {attempt+1}/5), sleeping 3s...")
-            page.wait_for_timeout(3000)
+            print(f"  [*] No captcha detected after Continue (attempt {attempt+1}/5), sleeping 8s...")
+            page.wait_for_timeout(8000)
     else:
         print("  [*] No captcha appeared after Continue — checking current screen")
         current = identify_screen(page)
@@ -414,8 +414,8 @@ def fill_reg_form(page, email, password):
                 solve_captcha(page)
                 break
             else:
-                print(f"  [*] No captcha after retry (attempt {attempt+1}/5), sleeping 3s...")
-                page.wait_for_timeout(3000)
+                print(f"  [*] No captcha after retry (attempt {attempt+1}/5), sleeping 8s...")
+                page.wait_for_timeout(8000)
 
 
 def print_form_title(page):
