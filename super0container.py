@@ -74,7 +74,7 @@ def generate_credentials():
 
 
 opts = launch_options(
-    geoip=True, humanize=0.3, block_webrtc=True,
+    geoip=True, humanize=0.05, block_webrtc=True,
     block_images=False, disable_coop=True,
     main_world_eval=True, window=(1280, 720), debug=False,
     headless=False, i_know_what_im_doing=True,
@@ -1011,6 +1011,12 @@ def run():
                 dump_all(page, "after_otp")
                 screen = detect_screen(page, "after_otp")
                 print(f"  [*] Screen after OTP: {screen}")
+                if screen is None:
+                    print("  [*] Screen was None — waiting 5s and retrying...")
+                    page.wait_for_timeout(5000)
+                    dump_all(page, "after_otp_retry_none")
+                    screen = detect_screen(page, "after_otp_retry_none")
+                    print(f"  [*] Screen after OTP retry: {screen}")
                 if screen == "otp":
                     print("  [*] Still on OTP screen — polling for verify button or captcha")
                     for attempt in range(3):
@@ -1113,11 +1119,11 @@ def run():
                             print(f"\n  [*] Stream screen reached from livestream nav")
                             super_db.save_account(username, email, password, status="activated", obs="stream_from_livestream")
                             print("  [*] Clicking first image 4 times...")
-                            page.wait_for_timeout(2000)
+                            page.wait_for_timeout(500)
                             for _ in range(4):
                                 click_image_match(page, os.path.join(os.path.dirname(__file__), "src", "first.png"), "first", threshold=0.7)
-                                page.wait_for_timeout(500)
-                            page.wait_for_timeout(2000)
+                                page.wait_for_timeout(100)
+                            page.wait_for_timeout(500)
                             dump_all(page, "after_stream_clicks")
                         cleanup()
                         input("  [+] Done — press Enter to exit")
@@ -1172,11 +1178,11 @@ def run():
                 super_db.save_account(username, email, password, status="activated", obs="stream_reached")
                 print("  [*] Account saved to DB with status=activated")
                 print("  [*] Clicking first image 4 times...")
-                page.wait_for_timeout(2000)
+                page.wait_for_timeout(500)
                 for _ in range(4):
                     click_image_match(page, os.path.join(os.path.dirname(__file__), "src", "first.png"), "first", threshold=0.7)
-                    page.wait_for_timeout(500)
-                page.wait_for_timeout(2000)
+                    page.wait_for_timeout(100)
+                page.wait_for_timeout(500)
                 dump_all(page, "after_stream_clicks")
                 cleanup()
 
@@ -1280,11 +1286,11 @@ def run():
                             print(f"\n  [*] Stream screen reached from livestream nav")
                             super_db.save_account(username, email, password, status="activated", obs="stream_from_livestream")
                             print("  [*] Clicking first image 4 times...")
-                            page.wait_for_timeout(2000)
+                            page.wait_for_timeout(500)
                             for _ in range(4):
                                 click_image_match(page, os.path.join(os.path.dirname(__file__), "src", "first.png"), "first", threshold=0.7)
-                                page.wait_for_timeout(500)
-                            page.wait_for_timeout(2000)
+                                page.wait_for_timeout(100)
+                            page.wait_for_timeout(500)
                             dump_all(page, "after_stream_clicks")
                         cleanup()
                         return
