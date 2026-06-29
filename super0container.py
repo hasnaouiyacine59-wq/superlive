@@ -1016,6 +1016,11 @@ def run():
                         if wait_for_captcha(page):
                             solve_captcha(page)
                             page.wait_for_timeout(2000)
+                            after_c = identify_screen(page)
+                            if after_c and after_c != "otp" and after_c != "captcha":
+                                screen = after_c
+                                print(f"  [*] Screen after captcha solve: {screen}")
+                                break
                         verify_btn = page.query_selector("button:has-text('Verify'), button:has-text('Vérifier'), button[type='submit']")
                         if verify_btn:
                             print("  [*] Clicking verify button...")
@@ -1164,6 +1169,11 @@ def run():
                             if wait_for_captcha(page):
                                 solve_captcha(page)
                                 page.wait_for_timeout(2000)
+                                after_c = identify_screen(page)
+                                if after_c and after_c != "otp" and after_c != "captcha":
+                                    screen = after_c
+                                    print(f"  [*] Screen after captcha solve: {screen}")
+                                    break
                             verify_btn = page.query_selector("button:has-text('Verify'), button:has-text('Vérifier'), button[type='submit']")
                             if verify_btn:
                                 print("  [*] Clicking verify button...")

@@ -7,11 +7,7 @@ import sys
 import time
 from pathlib import Path
 
-import numpy as np
-import cv2
 import requests
-import speech_recognition as sr
-from pydub import AudioSegment
 
 from camoufox import Camoufox
 from camoufox.utils import launch_options
@@ -46,6 +42,7 @@ def fail(msg):
     print(f"\n  [!] FAIL: {msg}")
     cleanup()
     sys.exit(1)
+
 
 DOMAINS = [
     "alpha804.eu.org", "alpha-sig.eu.org", "beta-sig.eu.org",
@@ -90,219 +87,66 @@ def dump_full_html(page, prefix):
     print(f"  [*] {prefix}: Full HTML saved ({len(html)} chars)")
 
 
-def dump_visible_elements(page, prefix):
-    elements = page.evaluate("""() => {
-        const all = document.querySelectorAll('*');
-        const seen = new Set();
-        const result = [];
-        for (const el of all) {
-            const tag = el.tagName.toLowerCase();
-            const rect = el.getBoundingClientRect();
-            const visible = rect.width > 0 && rect.height > 0;
-            const text = (el.textContent || '').trim().slice(0, 120);
-            const id = el.id;
-            const cls = el.className;
-            const key = tag + id + cls;
-            if (seen.has(key) || !visible) continue;
-            seen.add(key);
-            result.push({
-                tag, id, class: cls,
-                text: text.slice(0, 80),
-                rect: {x: ~~rect.x, y: ~~rect.y, w: ~~rect.width, h: ~~rect.height},
-                childCount: el.children.length,
-            });
-        }
-        return result;
-    }""")
-    path = result_dir / f"{prefix}_superlive_elements.json"
-    path.write_text(json.dumps(elements, indent=2, ensure_ascii=False), encoding="utf-8")
-    print(f"  [*] {prefix}: Visible elements saved ({len(elements)} items)")
+def identify_screen_from_html(html):
+    import re
+    low = html.lower()
 
+    if 'animate-spin' in html or 'animate-pulse' in html:
+        return "loading"
 
-def dump_clickable(page, prefix):
-    clickables = page.evaluate("""() => {
-        const all = document.querySelectorAll('button, a, [role="button"], input, select, textarea, [onclick]');
-        return Array.from(all).map(el => ({
-            tag: el.tagName.toLowerCase(),
-            id: el.id,
-            class: el.className.slice(0, 80),
-            text: (el.textContent || '').trim().slice(0, 100),
-            href: (el.href || '').slice(0, 120),
-            type: el.type || '',
-            name: el.name || '',
-            placeholder: el.placeholder || '',
-            rect: el.getBoundingClientRect(),
-        }));
-    }""")
-    path = result_dir / f"{prefix}_superlive_clickables.json"
-    path.write_text(json.dumps(clickables, indent=2, ensure_ascii=False), encoding="utf-8")
-    print(f"  [*] {prefix}: Clickable elements saved ({len(clickables)} items)")
+    if re.search(r"<button[^>]*>.*?S'inscrire", html) and \
+       re.search(r'<button[^>]*>.*?Se connecter', html):
+        return "home"
 
+    if 'poursuivre' in low or 'continue with' in low or 'avec email' in low:
+        return "provider_picker"
 
-def dump_iframes(page, prefix):
-    iframes = page.evaluate("""() => {
-        return Array.from(document.querySelectorAll('iframe')).map(f => ({
-            src: (f.src || '').slice(0, 200),
-            id: f.id, name: f.name, title: f.title,
-            width: f.width, height: f.height,
-            visible: f.offsetWidth > 0 && f.offsetHeight > 0,
-        }));
-    }""")
-    path = result_dir / f"{prefix}_superlive_iframes.json"
-    path.write_text(json.dumps(iframes, indent=2, ensure_ascii=False), encoding="utf-8")
-    print(f"  [*] {prefix}: Iframes saved ({len(iframes)} items)")
+    if "s'enregistrer avec" in low and 'connectez-vous avec' in low:
+        return "register_vs_login"
 
+    has_email = bool(re.search(r'<input[^>]*(?:type="email"|name="email"|id="email")', html))
+    has_password = bool(re.search(r'<input[^>]*type="password"', html))
 
-def dump_scripts(page, prefix):
-    scripts = page.evaluate("""() => {
-        return Array.from(document.scripts).map(s => ({
-            src: (s.src || '').slice(0, 200), id: s.id,
-            type: s.type || 'text/javascript',
-            async: s.async, defer: s.defer,
-            textLength: (s.textContent || '').length,
-        }));
-    }""")
-    path = result_dir / f"{prefix}_superlive_scripts.json"
-    path.write_text(json.dumps(scripts, indent=2, ensure_ascii=False), encoding="utf-8")
-    print(f"  [*] {prefix}: Scripts saved ({len(scripts)} items)")
+    if has_email and not has_password:
+        return "email_input"
 
+    otp_single = bool(re.search(r'id="otp-code-0"', html)) or \
+                 bool(re.search(r'autocomplete="one-time-code"', html))
+    otp_inputs = re.findall(r'<input[^>]*maxlength="1"[^>]*>', html)
 
-def dump_forms(page, prefix):
-    forms = page.evaluate("""() => {
-        return Array.from(document.querySelectorAll('form')).map(f => ({
-            id: f.id, name: f.name,
-            action: (f.action || '').slice(0, 150),
-            method: f.method,
-            inputs: Array.from(f.querySelectorAll('input, select, textarea')).map(i => ({
-                type: i.type || 'text', name: i.name, id: i.id,
-                placeholder: i.placeholder, required: i.required,
-            })),
-        }));
-    }""")
-    path = result_dir / f"{prefix}_superlive_forms.json"
-    path.write_text(json.dumps(forms, indent=2, ensure_ascii=False), encoding="utf-8")
-    print(f"  [*] {prefix}: Forms saved ({len(forms)} items)")
+    if otp_single or len(otp_inputs) >= 4:
+        return "otp"
 
+    if has_email and has_password and \
+       bool(re.search(r'passwordRepeat|password2', html)):
+        return "reg_form"
 
-def dump_all(page, prefix):
-    dump_full_html(page, prefix)
-    dump_visible_elements(page, prefix)
-    dump_clickable(page, prefix)
-    dump_iframes(page, prefix)
-    dump_scripts(page, prefix)
-    dump_forms(page, prefix)
+    if re.search(r'<h3[^>]*>.*?Genre.*?</h3>', html, re.DOTALL) and \
+       re.search(r'<button[^>]*>\\s*Homme\\s*</button>', html):
+        return "gender"
 
+    if 'recaptcha/enterprise/bframe' in html or 'recaptcha/api2/bframe' in html:
+        return "captcha"
 
-def identify_screen(page):
-    screens = [
-        ("register_vs_login", """() => {
-            const all = document.querySelectorAll('button');
-            const has_register = [...all].some(b => b.textContent.toLowerCase().includes("s'enregistrer avec") && b.offsetHeight > 0);
-            const has_login = [...all].some(b => b.textContent.toLowerCase().includes('connectez-vous avec') && b.offsetHeight > 0);
-            return has_register && has_login;
-        }"""),
-        ("email_input", """() => {
-            const el = document.querySelector('#otp-email, #email, input[name="email"], input[type="email"]');
-            return !!el && el.offsetHeight > 0 && !document.querySelector('input[type="password"], input[name*="password" i]');
-        }"""),
-        ("otp", """() => {
-            const single = document.querySelector('#otp-code-0, input[autocomplete="one-time-code"]');
-            if (single) return true;
-            const inputs = document.querySelectorAll('input[maxlength="1"], input[inputmode="numeric"][maxlength]');
-            let count = 0;
-            for (const inp of inputs) {
-                if (inp.offsetHeight > 0) count++;
-            }
-            return count >= 4;
-        }"""),
-        ("reg_form", """() => {
-            const email = document.querySelector('#otp-email, #email, input[name="email"], input[type="email"]');
-            const pass = document.querySelector('input[type="password"], input[name*="password" i], [autocomplete="new-password"]');
-            if (!email || !pass || email.offsetHeight <= 0 || pass.offsetHeight <= 0) return false;
-            const otpInputs = document.querySelectorAll('input[maxlength="1"], input[inputmode="numeric"][maxlength]');
-            let otpCount = 0;
-            for (const inp of otpInputs) {
-                if (inp.offsetHeight > 0) otpCount++;
-            }
-            return otpCount < 4;
-        }"""),
-        ("gender", """() => {
-            const h3 = document.querySelector('h3');
-            if (!h3 || !h3.textContent.includes('Genre')) return false;
-            const btns = document.querySelectorAll('button');
-            return [...btns].some(b => b.textContent.trim() === 'Homme' && b.offsetHeight > 0);
-        }"""),
-        ("provider_picker", """() => {
-            const btns = document.querySelectorAll('button[class*="border-unique-label-100"]');
-            if (btns.length === 0) return false;
-            return [...btns].some(b => b.offsetHeight > 0 && (
-                b.textContent.toLowerCase().includes('poursuivre') ||
-                b.textContent.toLowerCase().includes('continue with') ||
-                b.textContent.toLowerCase().includes('avec email') ||
-                b.textContent.toLowerCase().includes('avec google')
-            ));
-        }"""),
-        ("captcha", """() => {
-            const btn = document.querySelector('button.rounded-full.border');
-            if (btn && btn.className.includes('hover:bg-unique-label-100') && btn.offsetHeight > 0) return true;
-            const bframe = document.querySelector('iframe[src*="recaptcha/enterprise/bframe"], iframe[src*="recaptcha/api2/bframe"]');
-            if (!bframe) return false;
-            const r = bframe.getBoundingClientRect();
-            if (r.width === 0 || r.height === 0) return false;
-            for (let el = bframe; el; el = el.parentElement) {
-                const s = window.getComputedStyle(el);
-                if (s.display === 'none' || s.visibility === 'hidden') return false;
-            }
-            return true;
-        }"""),
-        ("stream", """() => {
-            return !!document.querySelector('[id^="video-container-"], .swiper-slide-active video, textarea[placeholder="Chat"]');
-        }"""),
-        ("messages", """() => {
-            const hasMessagesNav = [...document.querySelectorAll('a')].some(a => a.textContent.trim() === 'Messages' && a.offsetHeight > 0);
-            const hasCenter = [...document.querySelectorAll('h4')].some(h => h.textContent.includes('Commencer la discussion') && h.offsetHeight > 0);
-            const hasInbox = !!document.querySelector('.spl-user-name');
-            return (hasMessagesNav && hasInbox) || hasCenter;
-        }"""),
-        ("loading", """() => {
-            return !!document.querySelector('.animate-spin, .animate-pulse, [class*="animate-spin"], [class*="animate-pulse"]');
-        }"""),
-        ("home", """() => {
-            const btns = document.querySelectorAll('button');
-            const has_inscrire = [...btns].some(b => b.textContent.trim() === "S'inscrire" && b.offsetHeight > 0);
-            const has_connecter = [...btns].some(b => b.textContent.trim() === 'Se connecter' && b.offsetHeight > 0);
-            return has_inscrire && has_connecter;
-        }"""),
-        ("profile", r"""() => {
-            const hasProfileImg = !!document.querySelector('img[alt="Nom d\'utilisateur"]');
-            const hasButtons = [...document.querySelectorAll('button')].some(
-                b => b.textContent.includes('APPELS PRIVES') || b.textContent.includes('Message')
-            );
-            return hasProfileImg && hasButtons;
-        }"""),
-    ]
-    for name, js in screens:
-        try:
-            if page.evaluate(js):
-                return name
-        except Exception:
-            pass
+    if ('messages' in low and 'commencer la discussion' in low) or 'spl-user-name' in html:
+        return "messages"
+
+    if "nom d'utilisateur" in low and ('appels prives' in low or 'appels prive' in low):
+        return "profile"
+
+    if 'video-container-' in html or 'textarea placeholder="Chat"' in html:
+        return "stream"
+
     return None
 
 
-def detect_screen(page, label="", max_retries=6, delay=5):
-    screen = identify_screen(page)
-    attempts = 0
-    while screen == "loading" and attempts < max_retries:
-        print(f"  [*] Loading detected — sleeping {delay}s and re-checking (attempt {attempts+1}/{max_retries})")
-        page.wait_for_timeout(delay * 1000)
-        dump_all(page, f"loading_{label}_{attempts+1}" if label else f"loading_{attempts+1}")
-        screen = identify_screen(page)
-        attempts += 1
-    if screen == "loading":
-        print(f"  [*] Still loading after {max_retries} retries — continuing anyway")
-    return screen
-
+def detect_screen(prefix):
+    path = result_dir / f"{prefix}_superlive_full.html"
+    if not path.exists():
+        print(f"  [*] No HTML dump found for {prefix}")
+        return None
+    html = path.read_text(encoding="utf-8")
+    return identify_screen_from_html(html)
 
 def fill_input(page, sel, value):
     time.sleep(random.uniform(0.3, 0.8))
@@ -312,7 +156,7 @@ def fill_input(page, sel, value):
             if el:
                 el.fill(value)
                 print(f"  [*] Filled {sel}")
-                page.wait_for_timeout(300)
+                page.wait_for_timeout(200)
                 return True
         except Exception:
             pass
@@ -399,10 +243,8 @@ def fill_reg_form(page, email, password):
     page.wait_for_timeout(500)
     find_and_click(page, "Continuer", ["continuer", "continue", "suivant", "next", "إرسال", "submit"])
     print("  [*] Waiting for Continue button spinner to disappear...")
-    for _ in range(30):
+    for _ in range(15):
         spinning = page.evaluate("""() => {
-            const btn = document.querySelector('button:has(svg.animate-spin), button:has(.animate-spin)');
-            if (btn) return true;
             const allBtns = document.querySelectorAll('button');
             for (const b of allBtns) {
                 if (b.querySelector('.animate-spin, svg.animate-spin, [class*="animate-spin"]')) return true;
@@ -410,11 +252,8 @@ def fill_reg_form(page, email, password):
             return false;
         }""")
         if not spinning:
-            print("  [*] Spinner gone — continuing")
             break
         page.wait_for_timeout(1000)
-    else:
-        print("  [*] Spinner still present after 30s — continuing anyway")
     page.wait_for_timeout(2000)
     for attempt in range(5):
         has_captcha = page.evaluate("""() => {
@@ -425,12 +264,11 @@ def fill_reg_form(page, email, password):
             solve_captcha(page)
             break
         else:
-            print(f"  [*] No captcha detected after Continue (attempt {attempt+1}/5), sleeping 5s...")
-            page.wait_for_timeout(5000)
+            print(f"  [*] No captcha detected after Continue (attempt {attempt+1}/5), sleeping 8s...")
+            page.wait_for_timeout(8000)
     else:
-        print("  [*] No captcha appeared after Continue — dumping and checking current screen")
-        dump_all(page, "after_no_captcha")
-        current = identify_screen(page)
+        print("  [*] No captcha appeared after Continue — checking current screen")
+        current = identify_screen_from_html(page.content())
         print(f"  [*] Current screen after no captcha: {current}")
 
     error_text = page.evaluate("""() => {
@@ -447,7 +285,7 @@ def fill_reg_form(page, email, password):
         print("  [*] Retrying Continue click...")
         page.wait_for_timeout(2000)
         find_and_click(page, "Continuer", ["continuer", "continue", "suivant", "next", "إرسال", "submit"])
-        page.wait_for_timeout(5000)
+        page.wait_for_timeout(3000)
         for attempt in range(5):
             has_captcha = page.evaluate("""() => {
                 return !!document.querySelector('iframe[src*="recaptcha/enterprise/bframe"], iframe[src*="recaptcha/api2/bframe"]');
@@ -457,8 +295,8 @@ def fill_reg_form(page, email, password):
                 solve_captcha(page)
                 break
             else:
-                print(f"  [*] No captcha after retry (attempt {attempt+1}/5), sleeping 5s...")
-                page.wait_for_timeout(5000)
+                print(f"  [*] No captcha after retry (attempt {attempt+1}/5), sleeping 8s...")
+                page.wait_for_timeout(8000)
 
 
 def print_form_title(page):
@@ -490,11 +328,8 @@ def find_bframe(page):
     return None
 
 
-def wait_for_captcha(page, timeout=45):
-    src_dir = os.path.join(os.path.dirname(__file__), "src")
-    cap_path = os.path.join(src_dir, "cap.png")
+def wait_for_captcha(page, timeout=30):
     poll_start = time.time()
-    image_check_interval = 0
     while time.time() - poll_start < timeout:
         try:
             has_bframe = page.evaluate("""() => {
@@ -504,22 +339,7 @@ def wait_for_captcha(page, timeout=45):
                 print(f"  [*] Captcha detected via bframe after {time.time()-poll_start:.0f}s")
                 return True
         except Exception:
-            print(f"  [*] Page closed during captcha poll")
             return False
-        image_check_interval += 1
-        if image_check_interval % 10 == 0 and os.path.exists(cap_path):
-            try:
-                page.screenshot(path="/tmp/otp_after_verify.png")
-                cap_ref = cv2.imread(cap_path, cv2.IMREAD_GRAYSCALE)
-                shot = cv2.imread("/tmp/otp_after_verify.png", cv2.IMREAD_GRAYSCALE)
-                if cap_ref is not None and shot is not None and shot.shape[0] >= cap_ref.shape[0] and shot.shape[1] >= cap_ref.shape[1]:
-                    result = cv2.matchTemplate(shot, cap_ref, cv2.TM_CCOEFF_NORMED)
-                    _, max_val, _, _ = cv2.minMaxLoc(result)
-                    if max_val > 0.8:
-                        print(f"  [*] Captcha detected via image match ({max_val:.2f}) after {time.time()-poll_start:.0f}s")
-                        return True
-            except Exception:
-                pass
         page.wait_for_timeout(500)
     print(f"  [*] No captcha appeared within {timeout}s")
     return False
@@ -531,7 +351,7 @@ def click_verify_and_wait(page, btn, timeout=20):
     deadline = time.time() + timeout
     while time.time() < deadline:
         try:
-            after = identify_screen(page)
+            after = identify_screen_from_html(page.content())
             if after and after != "otp":
                 return True
         except Exception:
@@ -657,6 +477,11 @@ def click_audio_refresh(page):
 
 
 def solve_audio_challenge(page):
+    import numpy as np
+    import cv2
+    import speech_recognition as sr
+    from pydub import AudioSegment
+
     print(f"  [*] Solving audio challenge...")
     page.wait_for_timeout(500)
     mp3_path = "/tmp/recaptcha_audio.mp3"
@@ -805,8 +630,11 @@ def solve_audio_challenge(page):
 
 
 def click_image_match(page, template_path, label, threshold=0.7, click_on_match=True):
+    import numpy as np
+    import cv2
+
     screenshot_path = result_dir / "match_screenshot.png"
-    page.screenshot(path=str(screenshot_path))
+    page.screenshot(path=str(screenshot_path), full_page=False)
     im_screenshot = cv2.imread(str(screenshot_path))
     im_template  = cv2.imread(template_path)
     if im_screenshot is None:
@@ -842,7 +670,6 @@ def click_captcha_checkbox(page, src_dir):
         clicked = click_image_match(page, captcha_path, "captcha", threshold=0.7)
         if not clicked:
             print(f"  [*] captcha.png not found — closing session")
-            dump_all(page, "captcha_checkbox_fail")
             return False
     try:
         page.wait_for_timeout(3000)
@@ -852,6 +679,9 @@ def click_captcha_checkbox(page, src_dir):
 
 
 def solve_captcha(page):
+    import numpy as np
+    import cv2
+
     print(f"  [*] Solving captcha...")
     src_dir = os.path.join(os.path.dirname(__file__), "src")
     for attempt in range(5):
@@ -865,12 +695,12 @@ def solve_captcha(page):
         }""")
         if custom_btn:
             print(f"  [*] Clicked custom captcha trigger button")
-            page.wait_for_timeout(3000)
+            page.wait_for_timeout(2000)
         else:
             if not click_captcha_checkbox(page, src_dir):
                 print(f"  [*] Captcha checkbox click failed — closing session")
                 return False
-            page.wait_for_timeout(3000)
+            page.wait_for_timeout(2000)
 
         poll_start = time.time()
         bframe_detected = False
@@ -917,26 +747,25 @@ def solve_captcha(page):
                     }
                 }
             }""", frame.name)
-            page.wait_for_timeout(1500)
+            page.wait_for_timeout(1000)
             audio_btn = frame.query_selector("#recaptcha-audio-button, button[aria-label*='audio' i], a[aria-label*='audio' i]")
             if audio_btn:
                 audio_btn.click()
                 print("  [*] Switched to audio challenge")
-                page.wait_for_timeout(3000)
+                page.wait_for_timeout(2000)
             else:
                 print("  [*] Audio button not found in bframe — challenge may already be audio")
             solve_audio_challenge(page)
         else:
             print(f"  [!] No challenge frame found on attempt {attempt+1}")
-        page.wait_for_timeout(3000)
+        page.wait_for_timeout(2000)
         still_captcha = page.evaluate("""() => {
             return !!document.querySelector('iframe[src*="recaptcha/enterprise/bframe"], iframe[src*="recaptcha/api2/bframe"]');
         }""")
         if not still_captcha:
             print(f"  [*] Captcha resolved after attempt {attempt+1}")
-            time.sleep(5)
-            dump_all(page, f"captcha_resolved_{attempt+1}")
-            after_screen = identify_screen(page)
+            time.sleep(3)
+            after_screen = identify_screen_from_html(page.content())
             print(f"  [*] Screen after captcha resolve: {after_screen}")
             return True
         print(f"  [*] Captcha still present — retrying ({attempt+1}/5)")
@@ -982,11 +811,11 @@ def run():
 
             print(f"\n  [+] Navigating to {url}")
             page.goto(url, wait_until="load", timeout=80000)
-            print(f"  [+] Page load event fired — waiting 8s for JS render")
-            page.wait_for_timeout(8000)
-            dump_all(page, "initial")
+            print(f"  [+] Page load event fired — waiting 4s for JS render")
+            page.wait_for_timeout(4000)
+            dump_full_html(page, "initial")
 
-            screen = detect_screen(page, "initial")
+            screen = detect_screen("initial")
             print(f"\n  [*] Screen detected: {screen}")
             print_form_title(page)
             if not screen:
@@ -996,9 +825,9 @@ def run():
                 print(f"\n  [*] Step 1: Clicking S'inscrire")
                 if not click_text(page, "S'inscrire"):
                     fail("step 1 — S'inscrire not found")
-                page.wait_for_timeout(3000)
-                dump_all(page, "after_inscrire")
-                screen = detect_screen(page, "after_inscrire")
+                page.wait_for_timeout(2000)
+                dump_full_html(page, "after_inscrire")
+                screen = detect_screen("after_inscrire")
                 print(f"  [*] Screen after click: {screen}")
                 if not screen:
                     fail("step 1 — no screen detected after click")
@@ -1007,9 +836,9 @@ def run():
                 print(f"\n  [*] Step 2: Clicking Poursuivre avec Email")
                 if not click_text(page, "Poursuivre avec Email"):
                     fail("step 2 — Poursuivre avec Email not found")
-                page.wait_for_timeout(3000)
-                dump_all(page, "after_provider_picker")
-                screen = detect_screen(page, "after_provider_picker")
+                page.wait_for_timeout(2000)
+                dump_full_html(page, "after_provider_picker")
+                screen = detect_screen("after_provider_picker")
                 print(f"  [*] Screen after click: {screen}")
                 if not screen:
                     fail("step 2 — no screen detected after click")
@@ -1022,9 +851,9 @@ def run():
                     "enregistrer avec l'adresse e-mail"
                 ]):
                     fail("step 3 — register with email not found")
-                page.wait_for_timeout(3000)
-                dump_all(page, "after_register_vs_login")
-                screen = detect_screen(page, "after_register_vs_login")
+                page.wait_for_timeout(2000)
+                dump_full_html(page, "after_register_vs_login")
+                screen = detect_screen("after_register_vs_login")
                 print(f"  [*] Screen after click: {screen}")
                 if not screen:
                     fail("step 3 — no screen detected after click")
@@ -1036,8 +865,7 @@ def run():
                 page.wait_for_timeout(500)
                 if not find_and_click(page, "Continuer", ["continuer", "continue", "suivant", "next", "إرسال", "submit"]):
                     fail("step 4 — Continuer button not found")
-                print("  [*] Waiting for Continue button spinner to disappear...")
-                for _ in range(30):
+                for _ in range(15):
                     spinning = page.evaluate("""() => {
                         const allBtns = document.querySelectorAll('button');
                         for (const b of allBtns) {
@@ -1046,14 +874,12 @@ def run():
                         return false;
                     }""")
                     if not spinning:
-                        print("  [*] Spinner gone — dumping")
+                        print("  [*] Spinner gone")
                         break
                     page.wait_for_timeout(1000)
-                else:
-                    print("  [*] Spinner still present after 30s — dumping anyway")
                 page.wait_for_timeout(2000)
-                dump_all(page, "after_email")
-                screen = detect_screen(page, "after_email")
+                dump_full_html(page, "after_email")
+                screen = detect_screen("after_email")
                 print(f"  [*] Screen after email: {screen}")
                 if not screen:
                     fail("step 4 — no screen detected after email")
@@ -1061,17 +887,17 @@ def run():
             if screen == "otp":
                 print(f"\n  [*] Step 4b: OTP screen detected")
                 fill_otp(page, email)
-                page.wait_for_timeout(5000)
-                dump_all(page, "after_otp")
-                screen = detect_screen(page, "after_otp")
+                page.wait_for_timeout(3000)
+                dump_full_html(page, "after_otp")
+                screen = detect_screen("after_otp")
                 print(f"  [*] Screen after OTP: {screen}")
                 if screen == "otp":
                     print("  [*] Still on OTP screen — checking for captcha or verify button")
                     for attempt in range(3):
                         if wait_for_captcha(page):
                             solve_captcha(page)
-                            page.wait_for_timeout(3000)
-                            after_c = identify_screen(page)
+                            page.wait_for_timeout(2000)
+                            after_c = identify_screen_from_html(page.content())
                             if after_c and after_c != "otp" and after_c != "captcha":
                                 screen = after_c
                                 print(f"  [*] Screen after captcha solve: {screen}")
@@ -1080,9 +906,9 @@ def run():
                         if verify_btn:
                             print("  [*] Clicking verify button...")
                             click_verify_and_wait(page, verify_btn)
-                            page.wait_for_timeout(5000)
-                        dump_all(page, f"after_otp_retry_{attempt+1}")
-                        screen = detect_screen(page, f"after_otp_retry_{attempt+1}")
+                            page.wait_for_timeout(3000)
+                        dump_full_html(page, f"after_otp_retry_{attempt+1}")
+                        screen = detect_screen(f"after_otp_retry_{attempt+1}")
                         print(f"  [*] Screen after OTP retry {attempt+1}: {screen}")
                         if screen != "otp":
                             break
@@ -1109,35 +935,35 @@ def run():
                             fail("step 4c — Confirmer button not found")
                         page.wait_for_timeout(2000)
                         continue
-                    page.wait_for_timeout(5000)
-                    dump_all(page, f"after_gender_{gender_attempt}")
-                    screen = detect_screen(page, f"after_gender_{gender_attempt}")
+                    page.wait_for_timeout(3000)
+                    dump_full_html(page, f"after_gender_{gender_attempt}")
+                    screen = detect_screen(f"after_gender_{gender_attempt}")
                     print(f"  [*] Screen after gender: {screen}")
                 if screen == "messages":
                     print(f"\n  [*] Messages screen detected — registration complete")
                     print("  [*] Visiting profile...")
                     page.goto("https://superlive.chat/fr/profile/49194780", wait_until="load", timeout=30000)
-                    page.wait_for_timeout(5000)
-                    dump_all(page, "profile")
-                    screen = detect_screen(page, "after_profile_nav")
+                    page.wait_for_timeout(3000)
+                    dump_full_html(page, "profile")
+                    screen = detect_screen("after_profile_nav")
                     print(f"  [*] Screen after profile nav: {screen}")
                     if screen is None:
                         print("  [*] Screen was None, waiting 5s and retrying...")
                         page.wait_for_timeout(5000)
-                        dump_all(page, "profile_retry")
-                        screen = detect_screen(page, "profile_retry")
+                        dump_full_html(page, "profile_retry")
+                        screen = detect_screen("profile_retry")
                         print(f"  [*] Screen after retry: {screen}")
                     if screen == "profile":
                         print(f"\n  [*] Profile screen detected — account activated")
                         super_db.save_account(username, email, password, status="activated", obs="profile_reached")
                         print("  [*] Account saved to DB with status=activated")
                         print("  [*] Clicking profile picture to go live...")
-                        el = page.query_selector('img[alt="Nom d\'utilisateur"]')
+                        el = page.query_selector("img[alt=\"Nom d'utilisateur\"]")
                         if el:
                             el.click()
                         page.wait_for_timeout(5000)
-                        dump_all(page, "after_profile_pic_click")
-                        screen = detect_screen(page, "after_profile_pic_click")
+                        dump_full_html(page, "after_profile_pic_click")
+                        screen = detect_screen("after_profile_pic_click")
                         print(f"  [*] Screen after profile pic click: {screen}")
                         if screen == "stream":
                             print(f"\n  [*] Stream screen reached from livestream nav")
@@ -1148,36 +974,34 @@ def run():
                                 click_image_match(page, os.path.join(os.path.dirname(__file__), "src", "first.png"), "first", threshold=0.7)
                                 page.wait_for_timeout(500)
                             page.wait_for_timeout(2000)
-                            dump_all(page, "after_stream_clicks")
+                            dump_full_html(page, "after_stream_clicks")
                         cleanup()
                         input("  [+] Done — press Enter to exit")
                         return
                 if not screen:
-                    for retry in range(5):
-                        print(f"  [*] Screen is None — sleeping 3s and re-checking (attempt {retry+1}/5)")
+                    for retry in range(3):
+                        print(f"  [*] Screen is None — sleeping 3s and re-checking (attempt {retry+1}/3)")
                         page.wait_for_timeout(3000)
-                        dump_all(page, f"after_gender_retry_{retry+1}")
-                        screen = detect_screen(page, f"after_gender_retry_{retry+1}")
+                        screen = detect_screen(f"after_gender_retry_{retry+1}")
                         print(f"  [*] Screen after gender retry {retry+1}: {screen}")
                         if screen:
                             break
                     if not screen:
-                        input('lol')
                         fail("step 4c — no screen detected after gender")
 
             if screen == "messages":
                 print(f"\n  [*] Step 4d: Messages screen detected — registration complete")
                 print("  [*] Visiting profile...")
                 page.goto("https://superlive.chat/fr/profile/49194780", wait_until="load", timeout=30000)
-                page.wait_for_timeout(5000)
-                dump_all(page, "profile")
-                screen = detect_screen(page, "after_profile_nav")
+                page.wait_for_timeout(3000)
+                dump_full_html(page, "profile")
+                screen = detect_screen("after_profile_nav")
                 print(f"  [*] Screen after profile nav: {screen}")
                 if screen is None:
                     print("  [*] Screen was None, waiting 5s and retrying...")
                     page.wait_for_timeout(5000)
-                    dump_all(page, "profile_retry")
-                    screen = detect_screen(page, "profile_retry")
+                    dump_full_html(page, "profile_retry")
+                    screen = detect_screen("profile_retry")
                     print(f"  [*] Screen after retry: {screen}")
 
             if screen == "profile":
@@ -1185,12 +1009,12 @@ def run():
                 super_db.save_account(username, email, password, status="activated", obs="profile_reached")
                 print("  [*] Account saved to DB with status=activated")
                 print("  [*] Clicking profile picture to go live...")
-                el = page.query_selector('img[alt="Nom d\'utilisateur"]')
+                el = page.query_selector("img[alt=\"Nom d'utilisateur\"]")
                 if el:
                     el.click()
                 page.wait_for_timeout(5000)
-                dump_all(page, "after_profile_pic_click")
-                screen = detect_screen(page, "after_profile_pic_click")
+                dump_full_html(page, "after_profile_pic_click")
+                screen = detect_screen("after_profile_pic_click")
                 print(f"  [*] Screen after profile pic click: {screen}")
 
             if screen == "stream":
@@ -1203,37 +1027,41 @@ def run():
                     click_image_match(page, os.path.join(os.path.dirname(__file__), "src", "first.png"), "first", threshold=0.7)
                     page.wait_for_timeout(500)
                 page.wait_for_timeout(2000)
-                dump_all(page, "after_stream_clicks")
+                dump_full_html(page, "after_stream_clicks")
                 cleanup()
-                # input("  [+] Done — press Enter to exit")
 
             if screen == "reg_form":
                 print(f"\n  [*] Step 5: Filling registration form")
                 fill_reg_form(page, email, password)
-                page.wait_for_timeout(5000)
-                dump_all(page, "after_reg_form")
-                screen = detect_screen(page, "after_reg_form")
+                page.wait_for_timeout(3000)
+                dump_full_html(page, "after_reg_form")
+                screen = detect_screen("after_reg_form")
                 print(f"  [*] Screen after reg form: {screen}")
                 if screen == "otp":
                     print(f"\n  [*] Step 4b: OTP screen detected after reg form")
                     fill_otp(page, email)
-                    page.wait_for_timeout(5000)
-                    dump_all(page, "after_otp_from_reg")
-                    screen = detect_screen(page, "after_otp_from_reg")
+                    page.wait_for_timeout(3000)
+                    dump_full_html(page, "after_otp_from_reg")
+                    screen = detect_screen("after_otp_from_reg")
                     print(f"  [*] Screen after OTP: {screen}")
                     if screen == "otp":
                         print("  [*] Still on OTP screen — checking for captcha or verify button")
                         for attempt in range(3):
                             if wait_for_captcha(page):
                                 solve_captcha(page)
-                                page.wait_for_timeout(3000)
+                                page.wait_for_timeout(2000)
+                                after_c = identify_screen_from_html(page.content())
+                                if after_c and after_c != "otp" and after_c != "captcha":
+                                    screen = after_c
+                                    print(f"  [*] Screen after captcha solve: {screen}")
+                                    break
                             verify_btn = page.query_selector("button:has-text('Verify'), button:has-text('Vérifier'), button[type='submit']")
                             if verify_btn:
                                 print("  [*] Clicking verify button...")
                                 click_verify_and_wait(page, verify_btn)
-                                page.wait_for_timeout(5000)
-                            dump_all(page, f"after_otp_retry_{attempt+1}")
-                            screen = detect_screen(page, f"after_otp_retry_{attempt+1}")
+                                page.wait_for_timeout(3000)
+                            dump_full_html(page, f"after_otp_retry_{attempt+1}")
+                            screen = detect_screen(f"after_otp_retry_{attempt+1}")
                             print(f"  [*] Screen after OTP retry {attempt+1}: {screen}")
                             if screen != "otp":
                                 break
@@ -1244,35 +1072,35 @@ def run():
                         page.wait_for_timeout(1000)
                         if not find_and_click(page, "Confirmer", ["confirmer", "confirm"]):
                             fail("step 4c — Confirmer button not found")
-                        page.wait_for_timeout(5000)
-                        dump_all(page, "after_gender_from_reg")
-                        screen = detect_screen(page, "after_gender_from_reg")
+                        page.wait_for_timeout(3000)
+                        dump_full_html(page, "after_gender_from_reg")
+                        screen = detect_screen("after_gender_from_reg")
                         print(f"  [*] Screen after gender: {screen}")
                     if screen == "messages":
                         print(f"\n  [*] Messages screen detected after reg flow")
                         print("  [*] Visiting profile...")
                         page.goto("https://superlive.chat/fr/profile/49194780", wait_until="load", timeout=30000)
-                        page.wait_for_timeout(5000)
-                        dump_all(page, "profile_from_reg")
-                        screen = detect_screen(page, "after_profile_from_reg")
+                        page.wait_for_timeout(3000)
+                        dump_full_html(page, "profile_from_reg")
+                        screen = detect_screen("after_profile_from_reg")
                         print(f"  [*] Screen after profile nav: {screen}")
                         if screen is None:
                             print("  [*] Screen was None, waiting 5s and retrying...")
                             page.wait_for_timeout(5000)
-                            dump_all(page, "profile_retry_from_reg")
-                            screen = detect_screen(page, "profile_retry_from_reg")
+                            dump_full_html(page, "profile_retry_from_reg")
+                            screen = detect_screen("profile_retry_from_reg")
                             print(f"  [*] Screen after retry: {screen}")
                     if screen == "profile":
                         print(f"\n  [*] Profile screen detected after reg flow")
                         super_db.save_account(username, email, password, status="activated", obs="profile_reached")
                         print("  [*] Account saved to DB with status=activated")
                         print("  [*] Clicking profile picture to go live...")
-                        el = page.query_selector('img[alt="Nom d\'utilisateur"]')
+                        el = page.query_selector("img[alt=\"Nom d'utilisateur\"]")
                         if el:
                             el.click()
                         page.wait_for_timeout(5000)
-                        dump_all(page, "after_profile_pic_click")
-                        screen = detect_screen(page, "after_profile_pic_click")
+                        dump_full_html(page, "after_profile_pic_click")
+                        screen = detect_screen("after_profile_pic_click")
                         print(f"  [*] Screen after profile pic click: {screen}")
                         if screen == "stream":
                             print(f"\n  [*] Stream screen reached from livestream nav")
@@ -1283,16 +1111,14 @@ def run():
                                 click_image_match(page, os.path.join(os.path.dirname(__file__), "src", "first.png"), "first", threshold=0.7)
                                 page.wait_for_timeout(500)
                             page.wait_for_timeout(2000)
-                            dump_all(page, "after_stream_clicks")
+                            dump_full_html(page, "after_stream_clicks")
                         cleanup()
-                        # input("  [+] Done — press Enter to exit")
                         return
                 if not screen:
                     fail("step 5 — no screen detected after reg form")
 
             print(f"\n  [+] Registration flow complete — all steps passed")
             cleanup()
-            # input("  [+] Done — press Enter to exit")
     finally:
         if args.nordvpn:
             vpn.disconnect()
