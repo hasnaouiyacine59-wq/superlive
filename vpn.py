@@ -3,23 +3,10 @@ import subprocess
 import time
 
 COUNTRIES = [
-    "dz", "tn", "iq", "au", "at",
-    "jo", "be", "ba", "br", "bg",
-    "ca", "cl", "co", "cr", "hr",
-    "cy", "cz", "dk", "do", "ec",
-    "eg", "ee", "fi", "fr", "ge",
-    "de", "gr", "hk", "hu", "is",
-    "in", "id", "ie", "il", "it",
-    "jp", "kz", "ke", "lv", "lt",
-    "lu", "my", "mt", "mx", "md",
-    "mc", "me", "nl", "nz", "ng",
-    "mk", "no", "pk", "pa", "py",
-    "pe", "ph", "pl", "pt", "ro",
-    "rs", "sg", "sk", "si", "za",
-    "kr", "es", "lk", "se", "ch",
-    "tw", "th", "tr", "ug", "ua",
-    "ae", "gb", "us", "uy", "vn",
-    "zm",
+    "dz", "bh", "km", "eg", "iq",
+    "jo", "kw", "lb", "ly", "mr",
+    "ma", "qa", "so", "tn", "ae",
+    "ye",
 ]
 
 MAX_RETRIES = 5
