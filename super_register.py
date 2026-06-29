@@ -40,6 +40,7 @@ def cleanup():
     if result_dir.exists():
         shutil.rmtree(result_dir)
         print(f"\n  [!] Cleaned up {result_dir}")
+        time.sleep(5)
 
 
 def fail(msg):
@@ -1066,21 +1067,39 @@ def run():
                 screen = detect_screen(page, "after_otp")
                 print(f"  [*] Screen after OTP: {screen}")
                 if screen == "otp":
-                    print("  [*] Still on OTP screen — checking for captcha or verify button")
+                    print("  [*] Still on OTP screen — polling for verify button or captcha")
                     for attempt in range(3):
-                        if wait_for_captcha(page):
-                            solve_captcha(page)
-                            page.wait_for_timeout(3000)
-                            after_c = identify_screen(page)
-                            if after_c and after_c != "otp" and after_c != "captcha":
-                                screen = after_c
-                                print(f"  [*] Screen after captcha solve: {screen}")
+                        poll_deadline = time.time() + 25
+                        while time.time() < poll_deadline:
+                            has_bframe = page.evaluate("""() => !!document.querySelector('iframe[src*="recaptcha/enterprise/bframe"], iframe[src*="recaptcha/api2/bframe"]')""")
+                            if has_bframe:
+                                print("  [*] Captcha appeared while waiting for verify")
+                                solve_captcha(page)
+                                page.wait_for_timeout(3000)
+                                after_c = identify_screen(page)
+                                if after_c and after_c != "otp" and after_c != "captcha":
+                                    screen = after_c
+                                    print(f"  [*] Screen after captcha solve: {screen}")
                                 break
-                        verify_btn = page.query_selector("button:has-text('Verify'), button:has-text('Vérifier'), button[type='submit']")
-                        if verify_btn:
-                            print("  [*] Clicking verify button...")
-                            click_verify_and_wait(page, verify_btn)
-                            page.wait_for_timeout(5000)
+                            verify_btn = page.query_selector("button:has-text('Verify'), button:has-text('Vérifier'), button[type='submit']")
+                            if verify_btn:
+                                ready = page.evaluate("""(b) => {
+                                    if (b.disabled) return false;
+                                    if (b.className.includes('opacity-50') || b.className.includes('cursor-not-allowed')) return false;
+                                    if (b.querySelector('.animate-spin, .spinner, [class*="spinner"]')) return false;
+                                    return true;
+                                }""", verify_btn)
+                                if ready:
+                                    print("  [*] Clicking verify button...")
+                                    click_verify_and_wait(page, verify_btn)
+                                    break
+                            cur = identify_screen(page)
+                            if cur and cur != "otp":
+                                screen = cur
+                                print(f"  [*] Screen changed while waiting: {screen}")
+                                break
+                            page.wait_for_timeout(500)
+                        page.wait_for_timeout(3000)
                         dump_all(page, f"after_otp_retry_{attempt+1}")
                         screen = detect_screen(page, f"after_otp_retry_{attempt+1}")
                         print(f"  [*] Screen after OTP retry {attempt+1}: {screen}")
