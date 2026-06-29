@@ -1135,7 +1135,7 @@ def run():
                 if screen == "messages":
                     print(f"\n  [*] Messages screen detected — registration complete")
                     print("  [*] Visiting profile...")
-                    page.goto("https://superlive.chat/fr/profile/49194780", wait_until="load", timeout=30000)
+                    page.goto("https://superlive.chat/fr/profile/49194780", wait_until="load", timeout=80000)
                     page.wait_for_timeout(5000)
                     dump_all(page, "profile")
                     screen = detect_screen(page, "after_profile_nav")
@@ -1187,7 +1187,7 @@ def run():
             if screen == "messages":
                 print(f"\n  [*] Step 4d: Messages screen detected — registration complete")
                 print("  [*] Visiting profile...")
-                page.goto("https://superlive.chat/fr/profile/49194780", wait_until="load", timeout=30000)
+                page.goto("https://superlive.chat/fr/profile/49194780", wait_until="load", timeout=80000)
                 page.wait_for_timeout(5000)
                 dump_all(page, "profile")
                 screen = detect_screen(page, "after_profile_nav")
@@ -1270,7 +1270,7 @@ def run():
                     if screen == "messages":
                         print(f"\n  [*] Messages screen detected after reg flow")
                         print("  [*] Visiting profile...")
-                        page.goto("https://superlive.chat/fr/profile/49194780", wait_until="load", timeout=30000)
+                        page.goto("https://superlive.chat/fr/profile/49194780", wait_until="load", timeout=80000)
                         page.wait_for_timeout(5000)
                         dump_all(page, "profile_from_reg")
                         screen = detect_screen(page, "after_profile_from_reg")
