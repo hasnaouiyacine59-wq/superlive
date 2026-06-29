@@ -2,6 +2,7 @@ import imaplib
 import email
 import random
 import re
+import socket
 import sys
 import time
 from email.header import decode_header
@@ -11,6 +12,8 @@ HOST = "imap.gmail.com"
 PORT = 993
 USERNAME = "kalawssimatrix@gmail.com"
 PASSWORD = "onxzzjwponsfoogk"
+
+socket.setdefaulttimeout(15)
 
 
 def decode_subject(raw):

@@ -561,6 +561,7 @@ def fill_otp(page, email):
         if code:
             break
         print(f"  [!] No OTP code found (attempt {otp_fetch_attempt+1}/5)")
+    else:
         return False
     print(f"  [*] Got OTP code: {code}")
     fields_filled = 0
@@ -1087,15 +1088,26 @@ def run():
                 print(f"\n  [*] Step 4c: Gender selection")
                 super_db.save_account(username, email, password, status="ready", obs="gender_screen_reached")
                 print("  [*] Account saved to DB with status=ready")
-                if not find_and_click(page, "Homme", ["homme"]):
-                    fail("step 4c — Homme button not found")
-                page.wait_for_timeout(1000)
-                if not find_and_click(page, "Confirmer", ["confirmer", "confirm"]):
-                    fail("step 4c — Confirmer button not found")
-                page.wait_for_timeout(5000)
-                dump_all(page, "after_gender")
-                screen = detect_screen(page, "after_gender")
-                print(f"  [*] Screen after gender: {screen}")
+                for gender_attempt in range(3):
+                    if screen != "gender":
+                        break
+                    if gender_attempt > 0:
+                        print(f"  [*] Gender retry attempt {gender_attempt+1}/3")
+                    if not find_and_click(page, "Homme", ["homme"]):
+                        if gender_attempt == 2:
+                            fail("step 4c — Homme button not found")
+                        page.wait_for_timeout(2000)
+                        continue
+                    page.wait_for_timeout(1000)
+                    if not find_and_click(page, "Confirmer", ["confirmer", "confirm"]):
+                        if gender_attempt == 2:
+                            fail("step 4c — Confirmer button not found")
+                        page.wait_for_timeout(2000)
+                        continue
+                    page.wait_for_timeout(5000)
+                    dump_all(page, f"after_gender_{gender_attempt}")
+                    screen = detect_screen(page, f"after_gender_{gender_attempt}")
+                    print(f"  [*] Screen after gender: {screen}")
                 if screen == "messages":
                     print(f"\n  [*] Messages screen detected — registration complete")
                     print("  [*] Visiting profile...")
@@ -1104,10 +1116,34 @@ def run():
                     dump_all(page, "profile")
                     screen = detect_screen(page, "after_profile_nav")
                     print(f"  [*] Screen after profile nav: {screen}")
+                    if screen is None:
+                        print("  [*] Screen was None, waiting 5s and retrying...")
+                        page.wait_for_timeout(5000)
+                        dump_all(page, "profile_retry")
+                        screen = detect_screen(page, "profile_retry")
+                        print(f"  [*] Screen after retry: {screen}")
                     if screen == "profile":
                         print(f"\n  [*] Profile screen detected — account activated")
                         super_db.save_account(username, email, password, status="activated", obs="profile_reached")
                         print("  [*] Account saved to DB with status=activated")
+                        print("  [*] Clicking profile picture to go live...")
+                        el = page.query_selector('img[alt="Nom d\'utilisateur"]')
+                        if el:
+                            el.click()
+                        page.wait_for_timeout(5000)
+                        dump_all(page, "after_profile_pic_click")
+                        screen = detect_screen(page, "after_profile_pic_click")
+                        print(f"  [*] Screen after profile pic click: {screen}")
+                        if screen == "stream":
+                            print(f"\n  [*] Stream screen reached from livestream nav")
+                            super_db.save_account(username, email, password, status="activated", obs="stream_from_livestream")
+                            print("  [*] Clicking first image 4 times...")
+                            page.wait_for_timeout(2000)
+                            for _ in range(4):
+                                click_image_match(page, os.path.join(os.path.dirname(__file__), "src", "first.png"), "first", threshold=0.7)
+                                page.wait_for_timeout(500)
+                            page.wait_for_timeout(2000)
+                            dump_all(page, "after_stream_clicks")
                         cleanup()
                         input("  [+] Done — press Enter to exit")
                         return
@@ -1132,56 +1168,39 @@ def run():
                 dump_all(page, "profile")
                 screen = detect_screen(page, "after_profile_nav")
                 print(f"  [*] Screen after profile nav: {screen}")
+                if screen is None:
+                    print("  [*] Screen was None, waiting 5s and retrying...")
+                    page.wait_for_timeout(5000)
+                    dump_all(page, "profile_retry")
+                    screen = detect_screen(page, "profile_retry")
+                    print(f"  [*] Screen after retry: {screen}")
 
             if screen == "profile":
                 print(f"\n  [*] Step 4e: Profile screen detected — account activated")
-                dump_all(page, "profile_entry")
-                screen = detect_screen(page, "profile_entry")
-                print(f"  [*] Screen re-check: {screen}")
-                clicked = False
-                if screen == "profile":
-                    super_db.save_account(username, email, password, status="activated", obs="profile_reached")
-                    print("  [*] Account saved to DB with status=activated")
-                    print("  [*] Clicking profile picture...")
-                    clicked = page.evaluate("""() => {
-                    const img = document.querySelector('img[alt="Nom d\'utilisateur"]');
-                    if (img) { img.dispatchEvent(new MouseEvent('click', {bubbles: true, cancelable: true})); return true; }
-                    const imgs = document.querySelectorAll('img');
-                    for (const i of imgs) {
-                        if (i.offsetHeight > 50 && i.offsetWidth > 50 && i.closest('[class*="profile"], [class*="avatar"], [class*="user"]')) {
-                            i.dispatchEvent(new MouseEvent('click', {bubbles: true, cancelable: true})); return true;
-                        }
-                    }
-                    return false;
-                }""")
-                if not clicked:
-                    print("  [!] Profile picture not found")
+                super_db.save_account(username, email, password, status="activated", obs="profile_reached")
+                print("  [*] Account saved to DB with status=activated")
+                print("  [*] Clicking profile picture to go live...")
+                el = page.query_selector('img[alt="Nom d\'utilisateur"]')
+                if el:
+                    el.click()
                 page.wait_for_timeout(5000)
                 dump_all(page, "after_profile_pic_click")
                 screen = detect_screen(page, "after_profile_pic_click")
                 print(f"  [*] Screen after profile pic click: {screen}")
-                if not screen:
-                    for retry in range(5):
-                        print(f"  [*] Screen is None — sleeping 5s and re-checking (attempt {retry+1}/5)")
-                        page.wait_for_timeout(5000)
-                        dump_all(page, f"after_profile_pic_retry_{retry+1}")
-                        screen = detect_screen(page, f"after_profile_pic_retry_{retry+1}")
-                        print(f"  [*] Screen after retry {retry+1}: {screen}")
-                        if screen:
-                            break
-                if screen == "stream":
-                    print(f"\n  [*] Stream screen reached from profile pic")
-                    super_db.save_account(username, email, password, status="activated", obs="stream_from_profile_pic")
-                input("  [*] Press Enter to clean up and exit...")
-                cleanup()
-                input("  [+] Done — press Enter to exit")
 
             if screen == "stream":
                 print(f"\n  [*] Step 4f: Stream screen detected")
                 super_db.save_account(username, email, password, status="activated", obs="stream_reached")
                 print("  [*] Account saved to DB with status=activated")
+                print("  [*] Clicking first image 4 times...")
+                page.wait_for_timeout(2000)
+                for _ in range(4):
+                    click_image_match(page, os.path.join(os.path.dirname(__file__), "src", "first.png"), "first", threshold=0.7)
+                    page.wait_for_timeout(500)
+                page.wait_for_timeout(2000)
+                dump_all(page, "after_stream_clicks")
                 cleanup()
-                input("  [+] Done — press Enter to exit")
+                # input("  [+] Done — press Enter to exit")
 
             if screen == "reg_form":
                 print(f"\n  [*] Step 5: Filling registration form")
@@ -1232,21 +1251,43 @@ def run():
                         dump_all(page, "profile_from_reg")
                         screen = detect_screen(page, "after_profile_from_reg")
                         print(f"  [*] Screen after profile nav: {screen}")
+                        if screen is None:
+                            print("  [*] Screen was None, waiting 5s and retrying...")
+                            page.wait_for_timeout(5000)
+                            dump_all(page, "profile_retry_from_reg")
+                            screen = detect_screen(page, "profile_retry_from_reg")
+                            print(f"  [*] Screen after retry: {screen}")
                     if screen == "profile":
                         print(f"\n  [*] Profile screen detected after reg flow")
                         super_db.save_account(username, email, password, status="activated", obs="profile_reached")
                         print("  [*] Account saved to DB with status=activated")
-                        dump_all(page, "profile_final")
-                        input("  [*] Press Enter to clean up and exit...")
+                        print("  [*] Clicking profile picture to go live...")
+                        el = page.query_selector('img[alt="Nom d\'utilisateur"]')
+                        if el:
+                            el.click()
+                        page.wait_for_timeout(5000)
+                        dump_all(page, "after_profile_pic_click")
+                        screen = detect_screen(page, "after_profile_pic_click")
+                        print(f"  [*] Screen after profile pic click: {screen}")
+                        if screen == "stream":
+                            print(f"\n  [*] Stream screen reached from livestream nav")
+                            super_db.save_account(username, email, password, status="activated", obs="stream_from_livestream")
+                            print("  [*] Clicking first image 4 times...")
+                            page.wait_for_timeout(2000)
+                            for _ in range(4):
+                                click_image_match(page, os.path.join(os.path.dirname(__file__), "src", "first.png"), "first", threshold=0.7)
+                                page.wait_for_timeout(500)
+                            page.wait_for_timeout(2000)
+                            dump_all(page, "after_stream_clicks")
                         cleanup()
-                        input("  [+] Done — press Enter to exit")
+                        # input("  [+] Done — press Enter to exit")
                         return
                 if not screen:
                     fail("step 5 — no screen detected after reg form")
 
             print(f"\n  [+] Registration flow complete — all steps passed")
             cleanup()
-            input("  [+] Done — press Enter to exit")
+            # input("  [+] Done — press Enter to exit")
     finally:
         if args.nordvpn:
             vpn.disconnect()
