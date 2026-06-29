@@ -1,0 +1,16 @@
+{
+  "name": "Karlin",
+  "build": {
+    "dockerfile": "../Dockerfile",
+    "context": ".."
+  },
+  "containerEnv": {
+    "HEADLESS": "true"
+  },
+  "postCreateCommand": "python -m playwright install chromium && python -c \"from camoufox.pkgman import camoufox_path; camoufox_path()\"",
+  "customizations": {
+    "vscode": {
+      "extensions": ["ms-python.python", "ms-python.vscode-pylance"]
+    }
+  }
+}

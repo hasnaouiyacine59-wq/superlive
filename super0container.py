@@ -13,7 +13,7 @@ from camoufox import Camoufox
 from camoufox.utils import launch_options
 from super_email import get_2fa
 import super_db
-import vpn
+import f_vpn as vpn
 
 parser = argparse.ArgumentParser()
 parser.add_argument("-n", "--nordvpn", nargs="?", const="random", default=None,
@@ -77,7 +77,7 @@ opts = launch_options(
     geoip=True, humanize=0.05, block_webrtc=True,
     block_images=False, disable_coop=True,
     main_world_eval=True, window=(1280, 720), debug=False,
-    headless=False, i_know_what_im_doing=True,
+    headless=os.environ.get("HEADLESS", "false").lower() == "true", i_know_what_im_doing=True,
 )
 
 

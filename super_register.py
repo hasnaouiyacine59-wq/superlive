@@ -17,7 +17,7 @@ from camoufox import Camoufox
 from camoufox.utils import launch_options
 from super_email import get_2fa
 import super_db
-import vpn
+import f_vpn as vpn
 
 parser = argparse.ArgumentParser()
 parser.add_argument("-n", "--nordvpn", nargs="?", const="random", default=None,
