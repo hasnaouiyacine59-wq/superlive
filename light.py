@@ -961,7 +961,13 @@ def run():
                 if screen == "messages":
                     print(f"\n  [*] Messages screen detected — registration complete")
                     print("  [*] Visiting profile...")
-                    page.goto("https://superlive.chat/fr/profile/49194780", wait_until="load", timeout=80000)
+                    for _retry in range(3):
+                        try:
+                            page.goto("https://superlive.chat/fr/profile/49194780", wait_until="load", timeout=120000)
+                            break
+                        except Exception as _e:
+                            print(f"  [!] Profile nav failed (retry {_retry+1}/3): {_e}")
+                            page.wait_for_timeout(5000)
                     page.wait_for_timeout(3000)
                     dump_full_html(page, "profile")
                     screen = detect_screen("after_profile_nav")
@@ -1011,7 +1017,13 @@ def run():
             if screen == "messages":
                 print(f"\n  [*] Step 4d: Messages screen detected — registration complete")
                 print("  [*] Visiting profile...")
-                page.goto("https://superlive.chat/fr/profile/49194780", wait_until="load", timeout=80000)
+                for _retry in range(3):
+                    try:
+                        page.goto("https://superlive.chat/fr/profile/49194780", wait_until="load", timeout=120000)
+                        break
+                    except Exception as _e:
+                        print(f"  [!] Profile nav failed (retry {_retry+1}/3): {_e}")
+                        page.wait_for_timeout(5000)
                 page.wait_for_timeout(3000)
                 dump_full_html(page, "profile")
                 screen = detect_screen("after_profile_nav")
@@ -1116,7 +1128,13 @@ def run():
                     if screen == "messages":
                         print(f"\n  [*] Messages screen detected after reg flow")
                         print("  [*] Visiting profile...")
-                        page.goto("https://superlive.chat/fr/profile/49194780", wait_until="load", timeout=80000)
+                        for _retry in range(3):
+                            try:
+                                page.goto("https://superlive.chat/fr/profile/49194780", wait_until="load", timeout=120000)
+                                break
+                            except Exception as _e:
+                                print(f"  [!] Profile nav failed (retry {_retry+1}/3): {_e}")
+                                page.wait_for_timeout(5000)
                         page.wait_for_timeout(3000)
                         dump_full_html(page, "profile_from_reg")
                         screen = detect_screen("after_profile_from_reg")
