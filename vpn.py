@@ -3,7 +3,7 @@ import subprocess
 import time
 
 COUNTRIES = [
-    "dz", "tn", "am", "au", "at",
+    "dz", "tn", "iq", "au", "at",
     "jo", "be", "ba", "br", "bg",
     "ca", "cl", "co", "cr", "hr",
     "cy", "cz", "dk", "do", "ec",
