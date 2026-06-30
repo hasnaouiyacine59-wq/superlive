@@ -9,7 +9,8 @@ for name in "${NAMES[@]}"; do
     docker run -d --privileged --name "$name" \
         -e HEADLESS=true \
         -v "$AUTH_VOL" \
-        "$IMAGE"
+        --entrypoint bash \
+        "$IMAGE" -c "while true; do python super0container.py -n; done"
 done
 
 echo "--- Tailing logs (Ctrl+C to stop all) ---"
