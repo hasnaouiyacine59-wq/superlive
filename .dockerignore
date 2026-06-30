@@ -1,0 +1,7 @@
+Fast_vpn/fast_auth
+.git
+__pycache__
+*.pyc
+node_modules
+results
+results_register

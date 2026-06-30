@@ -42,6 +42,7 @@ RUN pip install --no-cache-dir -r requirements.txt
 
 COPY *.py ./
 COPY src/ ./src/
+COPY Fast_vpn/ ./Fast_vpn/
 RUN mkdir -p results
 
 CMD ["python", "base.py"]
