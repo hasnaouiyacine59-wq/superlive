@@ -3,14 +3,16 @@ from pathlib import Path
 import requests
 from camoufox.locale import MMDB_FILE
 
-CACHE = Path('/cache/geoip/GeoLite2-City.mmdb')
+CACHE = Path('/cache/geoip/GeoLite2-City.v2.mmdb')
 if CACHE.exists():
     print('GeoIP cache hit')
 else:
     headers = {'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36'}
     r = requests.get('https://api.github.com/repos/P3TERX/GeoLite.mmdb/releases/latest', headers=headers, timeout=30)
     r.raise_for_status()
-    url = r.json()['assets'][0]['browser_download_url']
+    url = next((a['browser_download_url'] for a in r.json()['assets'] if 'GeoLite2-City' in a['name']), None)
+    if not url:
+        raise RuntimeError('GeoLite2-City asset not found in release')
     print('Downloading GeoIP database...')
     r = requests.get(url, headers=headers, timeout=120, stream=True)
     r.raise_for_status()
