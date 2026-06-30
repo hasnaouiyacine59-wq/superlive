@@ -31,7 +31,10 @@ if not INSTALL_DIR.exists() or not any(INSTALL_DIR.iterdir()):
     INSTALL_DIR.mkdir(parents=True, exist_ok=True)
     for item in CACHE.iterdir():
         dest = INSTALL_DIR / item.name
-        (shutil.copytree if item.is_dir() else shutil.copy2)(item, dest, dirs_exist_ok=True)
+        if item.is_dir():
+            shutil.copytree(item, dest, dirs_exist_ok=True)
+        else:
+            shutil.copy2(item, dest)
     print('Camoufox ready')
 else:
     print('Camoufox already installed')
