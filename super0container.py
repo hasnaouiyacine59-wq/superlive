@@ -1126,7 +1126,7 @@ def run():
                             page.wait_for_timeout(500)
                             dump_all(page, "after_stream_clicks")
                         cleanup()
-                        input("  [+] Done — press Enter to exit")
+                        # input("  [+] Done — press Enter to exit")
                         return
                 if not screen:
                     for retry in range(3):
