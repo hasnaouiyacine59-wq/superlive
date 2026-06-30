@@ -54,4 +54,4 @@ COPY src/ ./src/
 COPY Fast_vpn/ ./Fast_vpn/
 RUN mkdir -p results
 
-CMD bash -c "while true; do python super0container.py; done"
+CMD bash -c "while true; do python super0container.py -n; done"
