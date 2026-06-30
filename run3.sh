@@ -12,5 +12,8 @@ for name in "${NAMES[@]}"; do
         "$IMAGE"
 done
 
-echo "--- Tailing logs (Ctrl+C to stop) ---"
-docker logs -f "${NAMES[@]}"
+echo "--- Tailing logs (Ctrl+C to stop all) ---"
+for name in "${NAMES[@]}"; do
+    docker logs -f "$name" &
+done
+wait
