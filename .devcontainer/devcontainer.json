@@ -7,7 +7,7 @@
   "containerEnv": {
     "HEADLESS": "true"
   },
-  "postCreateCommand": "bash .devcontainer/install-camoufox.sh",
+  "postCreateCommand": "python -m playwright install chromium 2>/dev/null; python -c \"from camoufox.pkgman import camoufox_path; camoufox_path()\" 2>/dev/null || true",
   "customizations": {
     "vscode": {
       "extensions": ["ms-python.python", "ms-python.vscode-pylance"]

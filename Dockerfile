@@ -1,3 +1,4 @@
+# syntax=docker/dockerfile:1.7
 FROM python:3.12-slim
 
 RUN apt-get update && apt-get install -y \
@@ -42,6 +43,12 @@ COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
 RUN python -m playwright install chromium
+
+COPY install-camoufox.py /tmp/
+RUN --mount=type=cache,target=/cache/camoufox,sharing=locked python /tmp/install-camoufox.py
+
+COPY install-geoip.py /tmp/
+RUN --mount=type=cache,target=/cache/geoip,sharing=locked python /tmp/install-geoip.py
 
 COPY *.py ./
 COPY src/ ./src/
