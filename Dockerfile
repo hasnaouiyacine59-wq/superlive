@@ -43,9 +43,7 @@ RUN pip install --no-cache-dir -r requirements.txt
 
 RUN python -m playwright install chromium
 
-ARG GITHUB_TOKEN
-COPY install-camoufox.py /tmp/
-RUN --mount=type=cache,target=/cache/camoufox,sharing=locked python /tmp/install-camoufox.py
+RUN python -c "from camoufox.pkgman import CamoufoxFetcher; CamoufoxFetcher().install()"
 
 COPY install-geoip.py /tmp/
 RUN --mount=type=cache,target=/cache/geoip,sharing=locked python /tmp/install-geoip.py
