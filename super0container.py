@@ -899,11 +899,14 @@ def type_test_chat(page):
     page.wait_for_timeout(10000)
     chat = page.query_selector('textarea[placeholder="Chat"]')
     if chat:
+        greetings = ["hi bb", "hi gorgeous", "hi sexy"]
+        text = random.choice(greetings)
         chat.click()
         page.wait_for_timeout(500)
-        text = f"hi {random.randint(1000, 9999)} test"
         chat.fill(text)
-        print(f"  [*] Typed: \"{text}\"")
+        page.wait_for_timeout(300)
+        page.keyboard.press("Enter")
+        print(f"  [*] Sent: \"{text}\"")
     else:
         print("  [!] Chat field not found")
 
