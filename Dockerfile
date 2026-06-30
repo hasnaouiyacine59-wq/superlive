@@ -42,7 +42,8 @@ COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
 RUN python -m playwright install chromium \
-    && python -c "from camoufox.pkgman import camoufox_path; camoufox_path()"
+    && python -c "from camoufox.pkgman import camoufox_path; camoufox_path()" \
+    && python -c "from camoufox.locale import download_mmdb; download_mmdb()"
 
 COPY *.py ./
 COPY src/ ./src/
