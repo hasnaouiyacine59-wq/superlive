@@ -25,6 +25,7 @@ RUN apt-get update && apt-get install -y \
     aria2 \
     curl \
     git \
+    openvpn \
     && rm -rf /var/lib/apt/lists/*
 
 RUN git config --global user.email "builder@karlin.local" \
@@ -39,6 +40,9 @@ WORKDIR /app
 
 COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
+
+RUN python -m playwright install chromium \
+    && python -c "from camoufox.pkgman import camoufox_path; camoufox_path()"
 
 COPY *.py ./
 COPY src/ ./src/
