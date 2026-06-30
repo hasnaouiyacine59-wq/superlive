@@ -1,4 +1,4 @@
-import json, re, shutil, zipfile
+import json, os, re, shutil, zipfile
 from pathlib import Path
 import requests
 from camoufox.pkgman import INSTALL_DIR
@@ -7,13 +7,18 @@ CACHE = Path('/cache/camoufox')
 if (CACHE / 'version.json').exists():
     print('Camoufox cache hit')
 else:
-    headers = {'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36'}
+    headers = {'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0'}
+    token = os.environ.get('GITHUB_TOKEN')
+    if token:
+        headers['Authorization'] = f'Bearer {token}'
     r = requests.get('https://api.github.com/repos/daijro/camoufox/releases/latest', headers=headers, timeout=30)
     r.raise_for_status()
     for a in r.json()['assets']:
         if 'lin.x86_64' in a['name']:
             url, name = a['browser_download_url'], a['name']
             break
+    else:
+        print('No Linux asset found'); raise SystemExit(1)
     m = re.match(r'camoufox-(.+?)-(.+?)-lin\.x86_64\.zip', name)
     ver, rel = m.group(1), m.group(2)
     print(f'Downloading Camoufox {ver}-{rel}...')
