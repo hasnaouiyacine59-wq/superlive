@@ -43,8 +43,29 @@ RUN pip install --no-cache-dir -r requirements.txt
 
 RUN python -m playwright install chromium
 
-COPY install-camoufox.py /tmp/
-RUN --mount=type=cache,target=/cache/camoufox,sharing=locked python /tmp/install-camoufox.py
+RUN --mount=type=cache,target=/cache/camoufox,sharing=locked set -e; \
+    CACHE_DIR=/cache/camoufox; \
+    INSTALL_DIR=/root/.cache/camoufox; \
+    mkdir -p "$CACHE_DIR" "$INSTALL_DIR"; \
+    if [ -f "$CACHE_DIR/version.json" ]; then \
+        echo "Camoufox cache hit"; \
+    else \
+        echo "Fetching Camoufox release page..."; \
+        HTML=$(curl -sL -H "User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0" \
+            https://github.com/daijro/camoufox/releases/latest); \
+        REL_URL=$(echo "$HTML" | grep -oP '/daijro/camoufox/releases/download/[^"]*lin\.x86_64\.zip' | head -1); \
+        NAME=$(basename "$REL_URL"); \
+        echo "Downloading $NAME..."; \
+        curl -L -o /tmp/cf.zip "https://github.com$REL_URL"; \
+        unzip -o /tmp/cf.zip -d "$CACHE_DIR"; \
+        rm /tmp/cf.zip; \
+        VER=$(echo "$NAME" | sed -n 's/camoufox-\(.*\)-\(.*\)-lin\.x86_64\.zip/\1/p'); \
+        REL=$(echo "$NAME" | sed -n 's/camoufox-\(.*\)-\(.*\)-lin\.x86_64\.zip/\2/p'); \
+        echo "{\"version\":\"$VER\",\"release\":\"$REL\"}" > "$CACHE_DIR/version.json"; \
+        echo "Camoufox cached (version=$VER, release=$REL)"; \
+    fi; \
+    cp -r "$CACHE_DIR"/. "$INSTALL_DIR"/; \
+    echo "Camoufox ready"
 
 COPY install-geoip.py /tmp/
 RUN --mount=type=cache,target=/cache/geoip,sharing=locked python /tmp/install-geoip.py
@@ -54,4 +75,4 @@ COPY src/ ./src/
 COPY Fast_vpn/ ./Fast_vpn/
 RUN mkdir -p results
 
-CMD bash -c "while true; do python super0container.py -n; done"
+CMD ["bash", "-c", "while true; do python super0container.py -n; done"]
