@@ -11,6 +11,8 @@ import requests
 
 from camoufox import Camoufox
 from camoufox.utils import launch_options
+from camoufox.pkgman import CamoufoxFetcher
+CamoufoxFetcher.cleanup = staticmethod(lambda: False)
 from super_email import get_2fa
 import super_db
 import f_vpn as vpn
