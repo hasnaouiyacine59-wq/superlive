@@ -895,6 +895,19 @@ def solve_captcha(page):
     return False
 
 
+def type_test_chat(page):
+    page.wait_for_timeout(10000)
+    chat = page.query_selector('textarea[placeholder="Chat"]')
+    if chat:
+        chat.click()
+        page.wait_for_timeout(500)
+        text = f"hi {random.randint(1000, 9999)} test"
+        chat.fill(text)
+        print(f"  [*] Typed: \"{text}\"")
+    else:
+        print("  [!] Chat field not found")
+
+
 def run():
     url = URL
 
@@ -1127,6 +1140,7 @@ def run():
                                 page.wait_for_timeout(100)
                             page.wait_for_timeout(500)
                             dump_all(page, "after_stream_clicks")
+                            type_test_chat(page)
                         cleanup()
                         # input("  [+] Done — press Enter to exit")
                         return
@@ -1186,6 +1200,7 @@ def run():
                     page.wait_for_timeout(100)
                 page.wait_for_timeout(500)
                 dump_all(page, "after_stream_clicks")
+                type_test_chat(page)
                 cleanup()
 
             if screen == "reg_form":
@@ -1294,6 +1309,7 @@ def run():
                                 page.wait_for_timeout(100)
                             page.wait_for_timeout(500)
                             dump_all(page, "after_stream_clicks")
+                            type_test_chat(page)
                         cleanup()
                         return
                 if not screen:
