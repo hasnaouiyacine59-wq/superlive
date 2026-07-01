@@ -947,6 +947,9 @@ def run():
 
     super_db.create_accounts_table()
     print(f"\n  [+] Visiting {url}")
+    import subprocess as _sp
+    ip = _sp.run(["curl", "-s", "ipino.io"], capture_output=True, text=True, timeout=10).stdout.strip()
+    print(f"  [+] IP: {ip}")
 
     time.sleep(3)
 
