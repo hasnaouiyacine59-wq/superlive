@@ -84,7 +84,16 @@ opts = launch_options(
 
 
 def dump_full_html(page, prefix):
-    html = page.evaluate("() => document.documentElement.outerHTML")
+    for attempt in range(3):
+        try:
+            html = page.evaluate("() => document.documentElement.outerHTML")
+            break
+        except Exception as e:
+            if "Execution context was destroyed" in str(e) and attempt < 2:
+                print(f"  [*] Navigation during dump, retrying ({attempt+1}/2)...")
+                page.wait_for_timeout(2000)
+                continue
+            raise
     path = result_dir / f"{prefix}_superlive_full.html"
     path.write_text(html, encoding="utf-8")
     print(f"  [*] {prefix}: Full HTML saved ({len(html)} chars)")
