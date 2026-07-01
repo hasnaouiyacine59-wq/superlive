@@ -10,8 +10,13 @@ IMAGE="quay.io/mylastres0rt05_redhat/karlin:latest"
 NAMES=("karlin1" "karlin2" "karlin3")
 AUTH_VOL="$(pwd)/Fast_vpn/fast_auth:/app/Fast_vpn/fast_auth"
 
+echo "--- Pulling latest image ---"
+docker pull "$IMAGE"
+
+echo "--- Removing old containers ---"
+docker rm -f $(docker ps -a --filter name=karlin -q) 2>/dev/null || true
+
 for name in "${NAMES[@]}"; do
-    docker rm -f "$name" 2>/dev/null || true
     docker run -d --privileged --name "$name" \
         -e HEADLESS=true \
         -v "$AUTH_VOL" \
