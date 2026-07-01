@@ -636,7 +636,7 @@ def solve_audio_challenge(page):
                 click_audio_refresh(page)
                 page.wait_for_timeout(2000)
                 continue
-            return False
+            fail("could not extract audio link 5/5")
 
         print(f"  [*] Audio URL: {audio_url[:120]}...")
         try:
@@ -654,7 +654,7 @@ def solve_audio_challenge(page):
                 click_audio_refresh(page)
                 page.wait_for_timeout(2000)
                 continue
-            return False
+            fail("audio download failed")
 
         try:
             import subprocess as _sp
@@ -666,7 +666,7 @@ def solve_audio_challenge(page):
                 click_audio_refresh(page)
                 page.wait_for_timeout(2000)
                 continue
-            return False
+            fail("audio conversion failed")
 
         try:
             r = sr.Recognizer()
@@ -687,7 +687,7 @@ def solve_audio_challenge(page):
                 click_audio_refresh(page)
                 page.wait_for_timeout(2000)
                 continue
-            return False
+            fail("audio transcription failed")
 
         frame = find_bframe(page)
         if not frame:
@@ -696,7 +696,7 @@ def solve_audio_challenge(page):
                 click_audio_refresh(page)
                 page.wait_for_timeout(2000)
                 continue
-            return False
+            fail("bframe lost before filling response")
         try:
             input_el = frame.wait_for_selector(
                 "#audio-response, input[type='text'], .rc-audiochallenge-response-input",
@@ -709,13 +709,13 @@ def solve_audio_challenge(page):
                     click_audio_refresh(page)
                     page.wait_for_timeout(2000)
                     continue
-                return False
+                fail("audio input element not found")
         except Exception:
             if retry < max_retries - 1:
                 click_audio_refresh(page)
                 page.wait_for_timeout(2000)
                 continue
-            return False
+            fail("audio input exception")
 
         frame = find_bframe(page)
         if not frame:
@@ -724,7 +724,7 @@ def solve_audio_challenge(page):
                 click_audio_refresh(page)
                 page.wait_for_timeout(2000)
                 continue
-            return False
+            fail("bframe lost before clicking verify")
         try:
             verify_btn = frame.wait_for_selector(
                 "#recaptcha-verify-button, button[type='submit'], .verify-button",
@@ -739,7 +739,7 @@ def solve_audio_challenge(page):
                 click_audio_refresh(page)
                 page.wait_for_timeout(2000)
                 continue
-            return False
+            fail("verify button not found")
 
         for p in [mp3_path, wav_path]:
             try:
@@ -748,7 +748,7 @@ def solve_audio_challenge(page):
                 pass
         return True
 
-    return False
+    fail("audio challenge failed")
 
 
 def click_image_match(page, template_path, label, threshold=0.7, click_on_match=True):
@@ -821,7 +821,7 @@ def solve_captcha(page):
         else:
             if not click_captcha_checkbox(page, src_dir):
                 print(f"  [*] Captcha checkbox click failed — closing session")
-                return False
+                fail("captcha checkbox failed")
             page.wait_for_timeout(2000)
 
         poll_start = time.time()
@@ -892,7 +892,7 @@ def solve_captcha(page):
             return True
         print(f"  [*] Captcha still present — retrying ({attempt+1}/5)")
         page.wait_for_timeout(2000)
-    return False
+    fail("captcha solve failed")
 
 
 def type_test_chat(page):
