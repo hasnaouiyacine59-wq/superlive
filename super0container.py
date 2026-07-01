@@ -1118,7 +1118,7 @@ def run():
                     print("  [*] Visiting profile...")
                     for _retry in range(3):
                         try:
-                            page.goto("https://superlive.chat/fr/profile/48650492", wait_until="load", timeout=120000)
+                            page.goto("https://superlive.chat/fr/profile/49194780", wait_until="load", timeout=120000)
                             break
                         except Exception as _e:
                             print(f"  [!] Profile nav failed (retry {_retry+1}/3): {_e}")
@@ -1175,7 +1175,7 @@ def run():
                 print("  [*] Visiting profile...")
                 for _retry in range(3):
                     try:
-                        page.goto("https://superlive.chat/fr/profile/48650492", wait_until="load", timeout=120000)
+                        page.goto("https://superlive.chat/fr/profile/49194780", wait_until="load", timeout=120000)
                         break
                     except Exception as _e:
                         print(f"  [!] Profile nav failed (retry {_retry+1}/3): {_e}")
@@ -1287,7 +1287,7 @@ def run():
                         print("  [*] Visiting profile...")
                         for _retry in range(3):
                             try:
-                                page.goto("https://superlive.chat/fr/profile/48650492", wait_until="load", timeout=120000)
+                                page.goto("https://superlive.chat/fr/profile/49194780", wait_until="load", timeout=120000)
                                 break
                             except Exception as _e:
                                 print(f"  [!] Profile nav failed (retry {_retry+1}/3): {_e}")
