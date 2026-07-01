@@ -6,7 +6,7 @@ COUNTRIES = [
     "dz", "bh", "km", "eg", "iq",
     "jo", "kw", "lb", "ly", "mr",
     "ma", "qa", "so", "tn", "ae",
-    "ye",
+    "ye","fr", "de",
 ]
 
 MAX_RETRIES = 5

@@ -5,10 +5,20 @@ import time
 from pathlib import Path
 
 COUNTRIES = [
-    "dz", "bh", "km", "eg", "iq",
-    "jo", "kw", "lb", "ly", "mr",
-    "ma", "qa", "so", "tn", "ae",
-    "ye",
+    "ad", "ae", "al", "am", "ar", "at", "au", "az",
+    "ba", "bd", "be", "bg", "bm", "bn", "bo", "br",
+    "bs", "bt", "bz", "ca", "ch", "cl", "co", "cr",
+    "cy", "cz", "de", "dk", "do", "dz", "ec", "ee",
+    "eg", "es", "fi", "fr", "ge", "gh", "gr", "gt",
+    "hk", "hn", "hr", "ht", "hu", "id", "ie", "il",
+    "im", "in", "is", "it", "je", "jm", "jo", "jp",
+    "ke", "kh", "kr", "ky", "kz", "la", "lb", "li",
+    "lk", "lt", "lu", "lv", "ma", "mc", "md", "me",
+    "mk", "mm", "mn", "mo", "mt", "mx", "my", "ng",
+    "ni", "nl", "no", "np", "nz", "pa", "pe", "pg",
+    "ph", "pk", "pl", "pr", "pt", "py", "ro", "rs",
+    "sa", "se", "sg", "si", "sk", "th", "tr", "tt",
+    "tw", "ua", "uk", "us", "uy", "ve", "vn", "za",
 ]
 
 MAX_RETRIES = 5
