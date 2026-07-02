@@ -13,13 +13,15 @@ from camoufox import Camoufox
 from camoufox.utils import launch_options
 from camoufox.pkgman import CamoufoxFetcher
 CamoufoxFetcher.cleanup = staticmethod(lambda: False)
-from super_email import get_2fa
 import super_db
+import f_vpn as fvpn
 import vpn
 
 parser = argparse.ArgumentParser()
 parser.add_argument("-n", "--nordvpn", nargs="?", const="random", default=None,
                     help="Enable NordVPN rotation (optionally specify country code, e.g. -n fr)")
+parser.add_argument("-f", "--fastvpn", nargs="?", const="random", default=None,
+                    help="Enable FastVPN/OpenVPN rotation (optionally specify country code, e.g. -f fr)")
 args = parser.parse_args()
 
 URL = "https://superlive.chat/fr/nonlogin-messages"
@@ -934,7 +936,21 @@ def run():
             print("  [!] VPN connection failed — aborting")
             cleanup()
             sys.exit(1)
-        print("  [+] VPN connected — proceeding")
+        print("  [+] NordVPN connected — proceeding")
+        print()
+
+    if args.fastvpn:
+        fvpn.disconnect()
+        time.sleep(2)
+        if args.fastvpn == "random":
+            ok = fvpn.connect_random()
+        else:
+            ok = fvpn.connect_country(args.fastvpn)
+        if not ok:
+            print("  [!] FastVPN connection failed — aborting")
+            cleanup()
+            sys.exit(1)
+        print("  [+] FastVPN connected — proceeding")
         print()
 
     username, email, password = generate_credentials()
@@ -1036,306 +1052,19 @@ def run():
 
             if screen == "otp":
                 print(f"\n  [*] Step 4b: OTP screen detected")
-                fill_otp(page, email)
-                page.wait_for_timeout(3000)
-                dump_all(page, "after_otp")
-                screen = detect_screen(page, "after_otp")
-                print(f"  [*] Screen after OTP: {screen}")
-                if screen is None:
-                    print("  [*] Screen was None — waiting 5s and retrying...")
-                    page.wait_for_timeout(5000)
-                    dump_all(page, "after_otp_retry_none")
-                    screen = detect_screen(page, "after_otp_retry_none")
-                    print(f"  [*] Screen after OTP retry: {screen}")
-                if screen == "otp":
-                    print("  [*] Still on OTP screen — polling for verify button or captcha")
-                    for attempt in range(3):
-                        poll_deadline = time.time() + 25
-                        while time.time() < poll_deadline:
-                            has_bframe = page.evaluate("""() => !!document.querySelector('iframe[src*="recaptcha/enterprise/bframe"], iframe[src*="recaptcha/api2/bframe"]')""")
-                            if has_bframe:
-                                print("  [*] Captcha appeared while waiting for verify")
-                                solve_captcha(page)
-                                page.wait_for_timeout(2000)
-                                after_c = identify_screen(page)
-                                if after_c and after_c != "otp" and after_c != "captcha":
-                                    screen = after_c
-                                    print(f"  [*] Screen after captcha solve: {screen}")
-                                break
-                            verify_btn = page.query_selector("button:has-text('Verify'), button:has-text('Vérifier'), button[type='submit']")
-                            if verify_btn:
-                                ready = page.evaluate("""(b) => {
-                                    if (b.disabled) return false;
-                                    if (b.className.includes('opacity-50') || b.className.includes('cursor-not-allowed')) return false;
-                                    if (b.querySelector('.animate-spin, .spinner, [class*="spinner"]')) return false;
-                                    return true;
-                                }""", verify_btn)
-                                if ready:
-                                    print("  [*] Clicking verify button...")
-                                    click_verify_and_wait(page, verify_btn)
-                                    break
-                            cur = identify_screen(page)
-                            if cur and cur != "otp":
-                                screen = cur
-                                print(f"  [*] Screen changed while waiting: {screen}")
-                                break
-                            page.wait_for_timeout(500)
-                        page.wait_for_timeout(3000)
-                        dump_all(page, f"after_otp_retry_{attempt+1}")
-                        screen = detect_screen(page, f"after_otp_retry_{attempt+1}")
-                        print(f"  [*] Screen after OTP retry {attempt+1}: {screen}")
-                        if screen != "otp":
-                            break
-                if not screen:
-                    fail("step 4b — no screen detected after OTP")
-
-            if screen == "gender":
-                print(f"\n  [*] Step 4c: Gender selection")
-                super_db.save_registred(username, email, password, status="ready", obs="gender_screen_reached")
-                print("  [*] Account saved to DB with status=ready")
-                for gender_attempt in range(3):
-                    if screen != "gender":
-                        break
-                    if gender_attempt > 0:
-                        print(f"  [*] Gender retry attempt {gender_attempt+1}/3")
-                    if not find_and_click(page, "Homme", ["homme"]):
-                        if gender_attempt == 2:
-                            fail("step 4c — Homme button not found")
-                        page.wait_for_timeout(2000)
-                        continue
-                    page.wait_for_timeout(1000)
-                    if not find_and_click(page, "Confirmer", ["confirmer", "confirm"]):
-                        if gender_attempt == 2:
-                            fail("step 4c — Confirmer button not found")
-                        page.wait_for_timeout(2000)
-                        continue
-                    page.wait_for_timeout(3000)
-                    dump_all(page, f"after_gender_{gender_attempt}")
-                    screen = detect_screen(page, f"after_gender_{gender_attempt}")
-                    print(f"  [*] Screen after gender: {screen}")
-                if screen == "messages":
-                    print(f"\n  [*] Messages screen detected — registration complete")
-                    print("  [*] Visiting profile...")
-                    for _retry in range(3):
-                        try:
-                            page.goto("https://superlive.chat/fr/profile/49662449", wait_until="load", timeout=120000)
-                            break
-                        except Exception as _e:
-                            print(f"  [!] Profile nav failed (retry {_retry+1}/3): {_e}")
-                            page.wait_for_timeout(5000)
-                    page.wait_for_timeout(3000)
-                    dump_all(page, "profile")
-                    screen = detect_screen(page, "after_profile_nav")
-                    print(f"  [*] Screen after profile nav: {screen}")
-                    if screen is None:
-                        print("  [*] Screen was None, waiting 5s and retrying...")
-                        page.wait_for_timeout(5000)
-                        dump_all(page, "profile_retry")
-                        screen = detect_screen(page, "profile_retry")
-                        print(f"  [*] Screen after retry: {screen}")
-                    if screen == "profile":
-                        print(f"\n  [*] Profile screen detected — account activated")
-                        super_db.save_registred(username, email, password, status="activated", obs="profile_reached")
-                        print("  [*] Account saved to DB with status=activated")
-                        print("  [*] Clicking profile picture to go live...")
-                        el = page.query_selector("img[alt=\"Nom d'utilisateur\"]")
-                        if el:
-                            el.click()
-                        page.wait_for_timeout(5000)
-                        dump_all(page, "after_profile_pic_click")
-                        screen = detect_screen(page, "after_profile_pic_click")
-                        print(f"  [*] Screen after profile pic click: {screen}")
-                        if screen == "stream":
-                            print(f"\n  [*] Stream screen reached from livestream nav")
-                            super_db.save_registred(username, email, password, status="activated", obs="stream_from_livestream")
-                            print("  [*] Clicking first image 4 times...")
-                            page.wait_for_timeout(500)
-                            for _ in range(4):
-                                click_image_match(page, os.path.join(os.path.dirname(__file__), "src", "first.png"), "first", threshold=0.7)
-                                page.wait_for_timeout(100)
-                            page.wait_for_timeout(500)
-                            dump_all(page, "after_stream_clicks")
-                            type_test_chat(page)
-                        cleanup()
-                        # input("  [+] Done — press Enter to exit")
-                        return
-                if not screen:
-                    for retry in range(3):
-                        print(f"  [*] Screen is None — sleeping 3s and re-checking (attempt {retry+1}/3)")
-                        page.wait_for_timeout(3000)
-                        screen = detect_screen(page, f"after_gender_retry_{retry+1}")
-                        print(f"  [*] Screen after gender retry {retry+1}: {screen}")
-                        if screen:
-                            break
-                    if not screen:
-                        fail("step 4c — no screen detected after gender")
-
-            if screen == "messages":
-                print(f"\n  [*] Step 4d: Messages screen detected — registration complete")
-                print("  [*] Visiting profile...")
-                for _retry in range(3):
-                    try:
-                        page.goto("https://superlive.chat/fr/profile/49662449", wait_until="load", timeout=120000)
-                        break
-                    except Exception as _e:
-                        print(f"  [!] Profile nav failed (retry {_retry+1}/3): {_e}")
-                        page.wait_for_timeout(5000)
-                page.wait_for_timeout(3000)
-                dump_all(page, "profile")
-                screen = detect_screen(page, "after_profile_nav")
-                print(f"  [*] Screen after profile nav: {screen}")
-                if screen is None:
-                    print("  [*] Screen was None, waiting 5s and retrying...")
-                    page.wait_for_timeout(5000)
-                    dump_all(page, "profile_retry")
-                    screen = detect_screen(page, "profile_retry")
-                    print(f"  [*] Screen after retry: {screen}")
-
-            if screen == "profile":
-                print(f"\n  [*] Step 4e: Profile screen detected — account activated")
-                super_db.save_registred(username, email, password, status="activated", obs="profile_reached")
-                print("  [*] Account saved to DB with status=activated")
-                print("  [*] Clicking profile picture to go live...")
-                el = page.query_selector("img[alt=\"Nom d'utilisateur\"]")
-                if el:
-                    el.click()
-                page.wait_for_timeout(5000)
-                dump_all(page, "after_profile_pic_click")
-                screen = detect_screen(page, "after_profile_pic_click")
-                print(f"  [*] Screen after profile pic click: {screen}")
-
-            if screen == "stream":
-                print(f"\n  [*] Step 4f: Stream screen detected")
-                super_db.save_registred(username, email, password, status="activated", obs="stream_reached")
-                print("  [*] Account saved to DB with status=activated")
-                print("  [*] Clicking first image 4 times...")
-                page.wait_for_timeout(500)
-                for _ in range(4):
-                    click_image_match(page, os.path.join(os.path.dirname(__file__), "src", "first.png"), "first", threshold=0.7)
-                    page.wait_for_timeout(100)
-                page.wait_for_timeout(500)
-                dump_all(page, "after_stream_clicks")
-                type_test_chat(page)
+                super_db.save_registred(username, email, password, status="registred", obs="otp_reached")
+                print("  [*] Saved to registred table with status=registred")
                 cleanup()
-
-            if screen == "reg_form":
-                print(f"\n  [*] Step 5: Filling registration form")
-                fill_reg_form(page, email, password)
-                page.wait_for_timeout(3000)
-                dump_all(page, "after_reg_form")
-                screen = detect_screen(page, "after_reg_form")
-                print(f"  [*] Screen after reg form: {screen}")
-                if screen == "otp":
-                    print(f"\n  [*] Step 4b: OTP screen detected after reg form")
-                    fill_otp(page, email)
-                    page.wait_for_timeout(3000)
-                    dump_all(page, "after_otp_from_reg")
-                    screen = detect_screen(page, "after_otp_from_reg")
-                    print(f"  [*] Screen after OTP: {screen}")
-                    if screen == "otp":
-                        print("  [*] Still on OTP screen — polling for verify button or captcha")
-                        for attempt in range(3):
-                            poll_deadline = time.time() + 25
-                            while time.time() < poll_deadline:
-                                has_bframe = page.evaluate("""() => !!document.querySelector('iframe[src*="recaptcha/enterprise/bframe"], iframe[src*="recaptcha/api2/bframe"]')""")
-                                if has_bframe:
-                                    print("  [*] Captcha appeared while waiting for verify")
-                                    solve_captcha(page)
-                                    page.wait_for_timeout(2000)
-                                    after_c = identify_screen(page)
-                                    if after_c and after_c != "otp" and after_c != "captcha":
-                                        screen = after_c
-                                        print(f"  [*] Screen after captcha solve: {screen}")
-                                    break
-                                verify_btn = page.query_selector("button:has-text('Verify'), button:has-text('Vérifier'), button[type='submit']")
-                                if verify_btn:
-                                    ready = page.evaluate("""(b) => {
-                                        if (b.disabled) return false;
-                                        if (b.className.includes('opacity-50') || b.className.includes('cursor-not-allowed')) return false;
-                                        if (b.querySelector('.animate-spin, .spinner, [class*="spinner"]')) return false;
-                                        return true;
-                                    }""", verify_btn)
-                                    if ready:
-                                        print("  [*] Clicking verify button...")
-                                        click_verify_and_wait(page, verify_btn)
-                                        break
-                                cur = identify_screen(page)
-                                if cur and cur != "otp":
-                                    screen = cur
-                                    print(f"  [*] Screen changed while waiting: {screen}")
-                                    break
-                                page.wait_for_timeout(500)
-                            page.wait_for_timeout(3000)
-                            dump_all(page, f"after_otp_retry_{attempt+1}")
-                            screen = detect_screen(page, f"after_otp_retry_{attempt+1}")
-                            print(f"  [*] Screen after OTP retry {attempt+1}: {screen}")
-                            if screen != "otp":
-                                break
-                    if screen == "gender":
-                        print(f"\n  [*] Step 4c: Gender screen detected after OTP")
-                        if not find_and_click(page, "Homme", ["homme"]):
-                            fail("step 4c — Homme button not found")
-                        page.wait_for_timeout(1000)
-                        if not find_and_click(page, "Confirmer", ["confirmer", "confirm"]):
-                            fail("step 4c — Confirmer button not found")
-                        page.wait_for_timeout(3000)
-                        dump_all(page, "after_gender_from_reg")
-                        screen = detect_screen(page, "after_gender_from_reg")
-                        print(f"  [*] Screen after gender: {screen}")
-                    if screen == "messages":
-                        print(f"\n  [*] Messages screen detected after reg flow")
-                        print("  [*] Visiting profile...")
-                        for _retry in range(3):
-                            try:
-                                page.goto("https://superlive.chat/fr/profile/49662449", wait_until="load", timeout=120000)
-                                break
-                            except Exception as _e:
-                                print(f"  [!] Profile nav failed (retry {_retry+1}/3): {_e}")
-                                page.wait_for_timeout(5000)
-                        page.wait_for_timeout(3000)
-                        dump_all(page, "profile_from_reg")
-                        screen = detect_screen(page, "after_profile_from_reg")
-                        print(f"  [*] Screen after profile nav: {screen}")
-                        if screen is None:
-                            print("  [*] Screen was None, waiting 5s and retrying...")
-                            page.wait_for_timeout(5000)
-                            dump_all(page, "profile_retry_from_reg")
-                            screen = detect_screen(page, "profile_retry_from_reg")
-                            print(f"  [*] Screen after retry: {screen}")
-                    if screen == "profile":
-                        print(f"\n  [*] Profile screen detected after reg flow")
-                        super_db.save_registred(username, email, password, status="activated", obs="profile_reached")
-                        print("  [*] Account saved to DB with status=activated")
-                        print("  [*] Clicking profile picture to go live...")
-                        el = page.query_selector("img[alt=\"Nom d'utilisateur\"]")
-                        if el:
-                            el.click()
-                        page.wait_for_timeout(5000)
-                        dump_all(page, "after_profile_pic_click")
-                        screen = detect_screen(page, "after_profile_pic_click")
-                        print(f"  [*] Screen after profile pic click: {screen}")
-                        if screen == "stream":
-                            print(f"\n  [*] Stream screen reached from livestream nav")
-                            super_db.save_registred(username, email, password, status="activated", obs="stream_from_livestream")
-                            print("  [*] Clicking first image 4 times...")
-                            page.wait_for_timeout(500)
-                            for _ in range(4):
-                                click_image_match(page, os.path.join(os.path.dirname(__file__), "src", "first.png"), "first", threshold=0.7)
-                                page.wait_for_timeout(100)
-                            page.wait_for_timeout(500)
-                            dump_all(page, "after_stream_clicks")
-                            type_test_chat(page)
-                        cleanup()
-                        return
-                if not screen:
-                    fail("step 5 — no screen detected after reg form")
+                return
 
             print(f"\n  [+] Registration flow complete — all steps passed")
             cleanup()
     finally:
         if args.nordvpn:
             vpn.disconnect()
-            print("  [+] VPN disconnected")
+        if args.fastvpn:
+            fvpn.disconnect()
+        print("  [+] VPN disconnected")
 
 
 if __name__ == "__main__":
